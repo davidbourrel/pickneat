@@ -99,7 +99,17 @@ const SideNavigation: FC<SideNavigationProps> = ({
           </ActiveLink>
         </li>
       ),
-    [loading, user, asPath, closeMenu, loginTitle, login]
+    [
+      loading,
+      user,
+      asPath,
+      closeMenu,
+      profile,
+      logout,
+      logoutTitle,
+      login,
+      loginTitle,
+    ]
   );
 
   return (

@@ -89,7 +89,7 @@ const Navigation: FC<NavigationProps> = ({
           </ActiveLink>
         </li>
       ),
-    [loading, user, asPath, loginTitle, login]
+    [loading, user, asPath, profile, logout, logoutTitle, login, loginTitle]
   );
 
   return (
