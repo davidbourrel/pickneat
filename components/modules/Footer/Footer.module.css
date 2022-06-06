@@ -1,0 +1,45 @@
+.footer {
+  color: var(--white);
+  background-color: var(--primary);
+  width: 100%;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.blockContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.block h2 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 1.5rem 0;
+}
+.block li {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 640px) {
+  .blockContainer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .block {
+    text-align: center;
+  }
+  .block li:hover {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blockContainer {
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,41 @@
+.table {
+  flex-grow: 1;
+  margin-bottom: 2rem;
+}
+
+/* Header */
+.table thead th {
+  padding: 1rem 0;
+  border: 2px solid var(--primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--secondary);
+  vertical-align: middle;
+}
+
+/* Content */
+.table tbody {
+  text-align: center;
+}
+.table tbody tr {
+  border: 2px solid var(--primary);
+}
+.table tbody td {
+  padding: 0.5rem 0;
+  border: 2px solid var(--primary);
+  vertical-align: middle;
+}
+
+.table tbody tr:nth-child(2n + 3),
+.table tbody tr:first-child {
+  background-color: var(--lightGray);
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .table {
+    margin-bottom: 0;
+  }
+}

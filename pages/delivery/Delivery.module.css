@@ -1,0 +1,63 @@
+.deliveryMainContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.deliveryMainContent div:first-child,
+.deliveryMainContent div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.deliveryMainContent h1,
+.deliveryMainContent h2 {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin: 2rem 0 1rem 0;
+}
+
+.separation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  user-select: none;
+}
+.separation span:first-child,
+.separation span:last-child {
+  display: inline-block;
+  background-color: var(--primary-hover);
+  width: 30px;
+  height: 2px;
+}
+.separation span:nth-child(2) {
+  margin: 0 1rem;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 640px) {
+  .deliveryBackground {
+    background-image: url('../../components/images/backgrounds/deliveryBackground.svg');
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: 0 81%;
+  }
+  .takeAwayBackground {
+    background-image: url('../../components/images/backgrounds/takeAwayBackground.svg');
+    background-repeat: no-repeat;
+    background-size: 200px;
+    background-position: 100% 79%;
+  }
+}

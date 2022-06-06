@@ -1,0 +1,29 @@
+.nav {
+  display: none;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .nav {
+    display: block;
+    flex: 1;
+  }
+  .navListContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0 1.25rem 1.25rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .navList {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .userPicture {
+    border-radius: 50%;
+  }
+}

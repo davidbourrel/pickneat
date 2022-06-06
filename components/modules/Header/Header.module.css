@@ -1,0 +1,25 @@
+.header {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  min-height: 4rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainLogo {
+  font-family: 'Baloo Paaji 2', cursive;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  user-select: none;
+}

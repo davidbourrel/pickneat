@@ -1,0 +1,65 @@
+.mapContainer {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+.popup {
+  display: flex;
+  position: absolute;
+  top: -150px;
+  left: -93px;
+  width: 150px;
+  height: 90px;
+  max-width: 150px;
+  max-height: 90px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--primary);
+  background-color: var(--white);
+  color: var(--gray);
+  opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.show {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 150ms var(--transition);
+}
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms var(--transition);
+}
+.address {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+  justify-content: space-between;
+}
+.address h3 {
+  font-size: 1.125rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+.itineraryIcon {
+  stroke: currentColor;
+  width: 12px;
+  margin-right: 0.25rem;
+}
+.arrow {
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -11px;
+  left: 80px;
+  width: 18px;
+  max-width: 18px;
+  height: 18px;
+  max-height: 18px;
+  background-color: var(--white);
+  border-right: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  border-radius: 0 1px 0 1px;
+}

@@ -1,0 +1,29 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+.footerContainer {
+  width: 100%;
+}
+
+.blackFilter {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 300ms ease-out;
+  filter: grayscale(100%);
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .blackFilter {
+    background-color: transparent;
+    filter: grayscale(0);
+  }
+}

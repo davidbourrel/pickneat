@@ -1,0 +1,14 @@
+.activeLink {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: color 150ms ease-out;
+}
+.activeLink:hover {
+  color: var(--primary-hover);
+}
+.active {
+  color: var(--primary);
+  box-shadow: 0 2px 0 0px var(--secondary-hover);
+}

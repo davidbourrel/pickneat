@@ -1,0 +1,36 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: background-color 150ms ease-out;
+  position: relative;
+}
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.disable {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.disable:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+.definitelyDisabled {
+  pointer-events: none;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}

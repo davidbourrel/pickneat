@@ -1,0 +1,35 @@
+{
+  "en": {
+    "menu": "Menu",
+    "menuTitle": "See the menu",
+    "restaurants": "Restaurants",
+    "restaurantsTitle": "See the restaurants",
+    "delivery": "Delivery",
+    "deliveryTitle": "Choose how to get your burger",
+    "admin": "Admin",
+    "adminTitle": "See the admin section",
+    "login": "Login",
+    "loginTitle": "Go to the login page",
+    "logout": "Logout",
+    "logoutTitle": "Disconnected",
+    "profile": "Profile",
+    "switchLangTitle": "Change the language"
+  },
+
+  "fr": {
+    "menu": "Menus",
+    "menuTitle": "Voir les menus",
+    "restaurants": "Restaurants",
+    "restaurantsTitle": "Voir les restaurants",
+    "delivery": "Livraison",
+    "deliveryTitle": "Choix de la livraison",
+    "admin": "Admin",
+    "adminTitle": "Voir la section admin",
+    "login": "Se connecter",
+    "loginTitle": "Aller sur la page login",
+    "logout": "Se déconnecter",
+    "logoutTitle": "Déconnexion",
+    "profile": "Profil",
+    "switchLangTitle": "Changer de langue"
+  }
+}

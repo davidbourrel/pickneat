@@ -1,0 +1,26 @@
+.container {
+  width: 12px;
+  height: 17px;
+}
+
+.arrow {
+  border: solid var(--white);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+}
+
+.right {
+  transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+}
+
+.top {
+  transform: rotate(-135deg);
+}
+
+.bottom {
+  transform: rotate(45deg);
+}

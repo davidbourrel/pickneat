@@ -1,0 +1,15 @@
+{
+  "en": {
+    "shortError404": "404 error",
+    "shortError500": "500 error",
+    "longError404": "Woops ! 404 error ! This page is not found",
+    "longError500": "Woops ! 500 error ! Cannot be found"
+  },
+
+  "fr": {
+    "shortError404": "Erreur 404",
+    "shortError500": "Erreur 500",
+    "longError404": "Oups ! Erreur 404 ! La page demandée n'a pas été trouvée",
+    "longError500": "Oups ! Erreur 500 ! La page demandée n'a pas été trouvée"
+  }
+}
