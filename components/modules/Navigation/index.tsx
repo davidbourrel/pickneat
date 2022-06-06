@@ -7,13 +7,14 @@ import styles from './Navigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Loader from 'components/elements/Loader';
 import Image from 'next/image';
+import { UserProfile } from '@auth0/nextjs-auth0';
 
 interface NavigationProps {
   lang: string;
   handleLangClick: (e: MouseEvent) => void;
   isLangSwitcherOpened: boolean;
   setIsLangSwitcherOpened: Dispatch<SetStateAction<boolean>>;
-  user: any;
+  user: UserProfile;
   loading: boolean;
 }
 
@@ -63,7 +64,7 @@ const Navigation: FC<NavigationProps> = ({
     () =>
       loading ? (
         <Loader />
-      ) : !loading && user ? (
+      ) : !loading && user && user.picture ? (
         <>
           <li title={profile}>
             <ActiveLink href="/profile" path={asPath}>

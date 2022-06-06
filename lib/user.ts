@@ -23,8 +23,9 @@ export const fetchUser = async (cookie = '') => {
 
   const json = await res.json();
   if (typeof window !== 'undefined') {
-    window.__user = json;
+    return (window.__user = json);
   }
+
   return json;
 };
 

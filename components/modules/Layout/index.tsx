@@ -1,3 +1,4 @@
+import { UserProfile } from '@auth0/nextjs-auth0';
 import {
   FC,
   ReactNode,
@@ -12,7 +13,7 @@ import styles from './Layout.module.css';
 
 interface LayoutProps {
   children: ReactNode;
-  user: any;
+  user: UserProfile;
   loading: boolean;
 }
 

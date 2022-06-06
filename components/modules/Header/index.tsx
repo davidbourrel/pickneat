@@ -7,12 +7,13 @@ import SideNavigation from '../SideNavigation';
 import useOutsideClick from 'hooks/useOutsideClick';
 import { useRouter } from 'next/router';
 import Link from 'components/elements/Link';
+import { UserProfile } from '@auth0/nextjs-auth0';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
   closeMenu: () => void;
   handleToggleMenu: () => void;
-  user: any;
+  user: UserProfile;
   loading: boolean;
 }
 
