@@ -1,7 +1,7 @@
 import ArrowIcon from 'components/images/icons/ArrowIcon';
 import { FC, useMemo } from 'react';
-import { ArrowDirectionEnum } from '_types/arrowDirectionEnum';
 import styles from './Arrow.module.css';
+import { ArrowDirectionEnum } from './types';
 
 interface ArrowProps {
   direction: ArrowDirectionEnum;
@@ -28,7 +28,9 @@ const Arrow: FC<ArrowProps> = ({ direction, caret = false }) => {
     [rotateClassName]
   );
 
-  return (
+  return caret ? (
+    <span className={styles.caret} />
+  ) : (
     <div className={arrowClassName}>
       <ArrowIcon className={styles.arrow} />
     </div>

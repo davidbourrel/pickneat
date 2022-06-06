@@ -12,7 +12,7 @@ import Button from '../buttons/Button';
 import Link from '../Link';
 import CheckMark from '../CheckMark';
 import Arrow from '../Arrow';
-import { ArrowDirectionEnum } from '_types/arrowDirectionEnum';
+import { ArrowDirectionEnum } from '../Arrow/types';
 
 interface LanguageSwitcherProps {
   lang: string;
@@ -74,9 +74,8 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         data-test={dataTestButton}
       >
         <span className={flagClassName} />
-        {plainCountryName}
-        <span className={styles.dropDownCaret} />
-        <Arrow direction={ArrowDirectionEnum.Top} />
+        <span className={styles.plainCountryName}>{plainCountryName}</span>
+        <Arrow direction={ArrowDirectionEnum.Top} caret={true} />
       </Button>
 
       <ul
