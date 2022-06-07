@@ -1,50 +1,44 @@
 .loader {
-  display: block;
-  margin: 0 auto;
-  animation: spin 2s linear infinite;
-  will-change: transform;
-  max-height: 3rem;
+  animation: spin 1.4s linear infinite;
 }
 
 .loadingCircle {
-  stroke-dasharray: 160;
-  stroke-dashoffset: 160;
-  stroke-linecap: round;
-  animation: loading-circle 1.7s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-  transform: translateZ(0);
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
   transform-origin: center;
-  will-change: stroke-dashoffset;
-  stroke-width: 4px;
-  stroke: var(--primary);
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
 }
 
 /**************************/
 /******* KEYFRAMES ********/
 /**************************/
 @keyframes spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: rotate(270deg);
   }
 }
 
-@keyframes loading-circle {
+@keyframes colors {
   0% {
-    stroke-dashoffset: 143;
-    transform: scaleY(1);
-  }
-  49.99% {
-    stroke-dashoffset: 0;
-    transform: scaleY(1);
-  }
-  50% {
-    stroke-dashoffset: 0;
-    transform: scaleY(-1) rotate(25deg);
+    stroke: var(--primary);
   }
   100% {
-    stroke-dashoffset: 143;
-    transform: scaleY(-1) rotate(-32deg);
+    stroke: var(--primary);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
   }
 }
