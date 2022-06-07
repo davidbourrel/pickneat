@@ -40,8 +40,6 @@ const Navigation: FC<NavigationProps> = ({
     adminTitle,
     login,
     loginTitle,
-    logout,
-    logoutTitle,
     profile,
     switchLangTitle,
   } = translations;
@@ -71,15 +69,10 @@ const Navigation: FC<NavigationProps> = ({
               <Image
                 src={user.picture}
                 alt="User profile"
-                width="50"
-                height="50"
+                width="35"
+                height="35"
                 className={styles.userPicture}
               />
-            </ActiveLink>
-          </li>
-          <li title={logoutTitle}>
-            <ActiveLink href="/api/logout" path={asPath}>
-              {logout}
             </ActiveLink>
           </li>
         </>
@@ -90,7 +83,7 @@ const Navigation: FC<NavigationProps> = ({
           </ActiveLink>
         </li>
       ),
-    [loading, user, asPath, profile, logout, logoutTitle, login, loginTitle]
+    [loading, user, asPath, profile, login, loginTitle]
   );
 
   return (

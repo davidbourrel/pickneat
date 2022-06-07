@@ -6,6 +6,7 @@ import useTranslation from 'hooks/useTranslation';
 import auth0 from 'lib/auth0';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { UserProfile } from '@auth0/nextjs-auth0';
+import Link from 'components/elements/Link';
 
 interface ProfileProps {
   user: UserProfile;
@@ -15,7 +16,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
   const { locale } = useRouter();
 
   const translations = useTranslation(navigation, locale);
-  const { login } = translations;
+  const { login, logout, logoutTitle } = translations;
 
   const userPicture = useMemo(
     () =>
@@ -32,6 +33,9 @@ const Profile: FC<ProfileProps> = ({ user }) => {
       {userPicture}
       <p>nickname: {user.nickname}</p>
       <p>name: {user.name}</p>
+      <Link title={logoutTitle} href="/api/logout">
+        {logout}
+      </Link>
     </main>
   );
 };

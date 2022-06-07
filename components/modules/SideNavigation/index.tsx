@@ -44,8 +44,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
     adminTitle,
     login,
     loginTitle,
-    logout,
-    logoutTitle,
     profile,
     switchLangTitle,
   } = translations;
@@ -87,11 +85,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
               />
             </ActiveLink>
           </li>
-          <li title={logoutTitle} className={styles.item}>
-            <ActiveLink href="/api/logout" path={asPath} closeMenu={closeMenu}>
-              {logout}
-            </ActiveLink>
-          </li>
         </>
       ) : (
         <li title={loginTitle} className={styles.item}>
@@ -100,17 +93,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
           </ActiveLink>
         </li>
       ),
-    [
-      loading,
-      user,
-      asPath,
-      closeMenu,
-      profile,
-      logout,
-      logoutTitle,
-      login,
-      loginTitle,
-    ]
+    [loading, user, asPath, closeMenu, profile, login, loginTitle]
   );
 
   return (
