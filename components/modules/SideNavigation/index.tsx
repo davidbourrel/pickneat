@@ -7,6 +7,7 @@ import styles from './SideNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
 import { UserProfile } from '@auth0/nextjs-auth0';
+import Loader from 'components/elements/Loader';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -55,7 +56,9 @@ const SideNavigation: FC<SideNavigationProps> = ({
 
   const adminTab = useMemo(
     () =>
-      !loading && user ? (
+      loading ? (
+        <Loader />
+      ) : !loading && user ? (
         <li title={adminTitle} className={styles.item}>
           <ActiveLink href="/admin" path={asPath} closeMenu={closeMenu}>
             {admin}
@@ -67,7 +70,9 @@ const SideNavigation: FC<SideNavigationProps> = ({
 
   const userTab = useMemo(
     () =>
-      !loading && user && user.picture ? (
+      loading ? (
+        <Loader />
+      ) : !loading && user && user.picture ? (
         <>
           <li title={profile} className={styles.item}>
             <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>

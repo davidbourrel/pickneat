@@ -34,7 +34,7 @@
         "plugin:react-hooks/recommended", // React hooks rules
         "plugin:jsx-a11y/recommended", // Accessibility rules
         "plugin:prettier/recommended", // Prettier plugin
-        "plugin:cypress/recommended" // cypress plugin
+        "plugin:cypress/recommended" // Cypress plugin
       ],
       "rules": {
         "no-console": "error",
@@ -49,13 +49,10 @@
 
         // Why would you want unused vars?
         "@typescript-eslint/no-unused-vars": ["error"],
-
-        // I suggest this setting for requiring return types on functions only where useful
         "@typescript-eslint/explicit-function-return-type": [
-          "warn",
+          "off",
           {
-            "allowExpressions": true,
-            "allowConciseArrowFunctionExpressionsStartingWithVoid": true
+            "allowExpressions": true
           }
         ],
         "prettier/prettier": ["error", {}, { "usePrettierrc": true }], // Includes .prettierrc.js rules

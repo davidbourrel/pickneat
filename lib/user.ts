@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useFetchUserProps } from './types';
 
 export const fetchUser = async (cookie = '') => {
   if (typeof window !== 'undefined' && window.__user) {
@@ -23,13 +24,13 @@ export const fetchUser = async (cookie = '') => {
 
   const json = await res.json();
   if (typeof window !== 'undefined') {
-    return (window.__user = json);
+    window.__user = json;
   }
 
   return json;
 };
 
-export const useFetchUser = ({ required }: any = {}) => {
+export const useFetchUser = ({ required } = {} as useFetchUserProps) => {
   const [loading, setLoading] = useState(
     () => !(typeof window !== 'undefined' && window.__user)
   );
