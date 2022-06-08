@@ -58,8 +58,7 @@ export const getServerSideProps = async ({
     res.writeHead(302, {
       Location: '/api/login',
     });
-    res.end();
-    return;
+    return res.end();
   }
 
   return { props: { user: session.user } };

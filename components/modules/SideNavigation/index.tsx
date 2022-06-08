@@ -5,7 +5,6 @@ import navigation from 'public/translations/navigation.json';
 import useTranslation from 'hooks/useTranslation';
 import styles from './SideNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
-import Loader from 'components/elements/Loader';
 import Image from 'next/image';
 import { UserProfile } from '@auth0/nextjs-auth0';
 
@@ -56,9 +55,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
 
   const adminTab = useMemo(
     () =>
-      loading ? (
-        <Loader />
-      ) : !loading && user ? (
+      !loading && user ? (
         <li title={adminTitle} className={styles.item}>
           <ActiveLink href="/admin" path={asPath} closeMenu={closeMenu}>
             {admin}
@@ -70,9 +67,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
 
   const userTab = useMemo(
     () =>
-      loading ? (
-        <Loader />
-      ) : !loading && user && user.picture ? (
+      !loading && user && user.picture ? (
         <>
           <li title={profile} className={styles.item}>
             <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>

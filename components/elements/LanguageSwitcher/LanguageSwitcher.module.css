@@ -87,6 +87,7 @@
   .langsList {
     top: 55px;
     bottom: unset;
+    right: 18px;
   }
 
   .active {
