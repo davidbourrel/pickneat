@@ -23,6 +23,9 @@
     gap: 12px;
     align-items: center;
   }
+  .navList li {
+    position: relative;
+  }
   .userPicture {
     border-radius: 50%;
   }

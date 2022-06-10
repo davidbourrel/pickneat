@@ -4,7 +4,7 @@
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  min-height: 5rem;
+  min-height: 60px;
   padding: 0 1.5rem;
   box-sizing: border-box;
   z-index: 10;
@@ -18,8 +18,17 @@
 
 .mainLogo {
   font-family: 'Baloo Paaji 2', cursive;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--primary);
   cursor: pointer;
   user-select: none;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .header {
+    min-height: 90px;
+  }
 }
