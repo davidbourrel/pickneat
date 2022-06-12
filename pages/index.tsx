@@ -10,6 +10,8 @@ import sodaImage from 'public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Un
 import dessertImage from 'public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
 import saladImage from 'public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 import dynamic from 'next/dynamic';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Slider = dynamic(() => import('components/modules/Slider'));
 
@@ -83,7 +85,7 @@ const Home: FC = () => {
           />
         </SwiperSlide>
       </Slider>
-      <h1>{homeMainTitle}</h1>
+      <Headings level={HeadingsLevelEnum.One}>{homeMainTitle}</Headings>
     </main>
   );
 };

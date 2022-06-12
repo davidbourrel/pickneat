@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Admin: FC = () => {
   const { push, locale } = useRouter();
@@ -22,7 +24,7 @@ const Admin: FC = () => {
       <Head>
         <title>PickN`Eat | {admin}</title>
       </Head>
-      <h1>Admin</h1>
+      <Headings level={HeadingsLevelEnum.One}>Admin</Headings>
     </main>
   );
 };

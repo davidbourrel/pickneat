@@ -1,0 +1,10 @@
+.one {
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+.two {
+  font-size: 1.5rem;
+}
+.three {
+  font-size: 1.25rem;
+}

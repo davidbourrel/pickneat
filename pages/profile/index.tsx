@@ -7,6 +7,10 @@ import auth0 from 'lib/auth0';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { UserProfile } from '@auth0/nextjs-auth0';
 import Link from 'components/elements/Link';
+import styles from './Profile.module.css';
+import Button from 'components/elements/buttons/Button';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 interface ProfileProps {
   user: UserProfile;
@@ -25,16 +29,18 @@ const Profile: FC<ProfileProps> = ({ user }) => {
   );
 
   return (
-    <main>
+    <main className="sidePadding">
       <Head>
         <title>PickN`Eat | {login}</title>
       </Head>
-      <h1>Profile</h1>
+      <Headings level={HeadingsLevelEnum.One} className={styles.profileTitle}>
+        Profile
+      </Headings>
       {userPicture}
       <p>nickname: {user.nickname}</p>
       <p>name: {user.name}</p>
       <Link title={logoutTitle} href="/api/logout">
-        {logout}
+        <Button> {logout}</Button>
       </Link>
     </main>
   );

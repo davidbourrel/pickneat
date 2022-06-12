@@ -7,6 +7,8 @@ import restaurantsTrans from 'public/translations/pages/restaurants.json';
 import styles from './Restaurants.module.css';
 import OpenLayersMap from 'components/modules/OpenLayersMap';
 import RestaurantsTable from 'components/modules/RestaurantsTable';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Restaurants: FC = () => {
   const { locale } = useRouter();
@@ -19,18 +21,23 @@ const Restaurants: FC = () => {
     restaurantsTranslations;
 
   return (
-    <main>
+    <main className="sidePadding">
       <Head>
         <title>PickN`Eat | {restaurants}</title>
       </Head>
-      <h1 className={styles.mainTitle}>{restaurantsMainTitle}</h1>
+      <Headings
+        level={HeadingsLevelEnum.One}
+        className={styles.restaurantsTitle}
+      >
+        {restaurantsMainTitle}
+      </Headings>
       <div className={styles.restaurantsContent}>
         <section>
-          <h2>{location}</h2>
+          <Headings level={HeadingsLevelEnum.Two}>{location}</Headings>
           <OpenLayersMap />
         </section>
         <section>
-          <h2>{openingHours}</h2>
+          <Headings level={HeadingsLevelEnum.Two}>{openingHours}</Headings>
           <RestaurantsTable />
         </section>
       </div>

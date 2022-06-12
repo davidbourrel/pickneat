@@ -68,6 +68,10 @@ main {
 .capitalize::first-letter {
   text-transform: capitalize;
 }
+.sidePadding {
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
 
 /* Controle buttons in Openlayers */
 .ol-control button {

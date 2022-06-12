@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
 import errors from 'public/translations/pages/errors.json';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const NotFound: FC = () => {
   const { locale } = useRouter();
@@ -15,7 +17,7 @@ const NotFound: FC = () => {
       <Head>
         <title>PickN`Eat | {shortError404}</title>
       </Head>
-      <h1>{longError404}</h1>
+      <Headings level={HeadingsLevelEnum.One}>{longError404}</Headings>
     </main>
   );
 };

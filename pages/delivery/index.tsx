@@ -6,6 +6,8 @@ import deliveryTranslations from 'public/translations/pages/delivery.json';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 import styles from './Delivery.module.css';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Delivery: FC = () => {
   const { locale } = useRouter();
@@ -22,12 +24,12 @@ const Delivery: FC = () => {
   } = translations;
 
   return (
-    <main className={styles.deliveryMainContent}>
+    <main className={`${styles.mainContent} sidePadding`}>
       <Head>
         <title>PickN`Eat | {delivery}</title>
       </Head>
       <div className={styles.deliveryBackground}>
-        <h1>{delivery}</h1>
+        <Headings level={HeadingsLevelEnum.One}>{delivery}</Headings>
         <p>{deliveryContent}</p>
         <Link href="https://deliveroo.fr/fr/" target="_blank">
           <Button>{deliveryButton}</Button>
@@ -39,7 +41,7 @@ const Delivery: FC = () => {
         <span></span>
       </div>
       <div className={styles.takeAwayBackground}>
-        <h2>{takeAway}</h2>
+        <Headings level={HeadingsLevelEnum.Two}>{takeAway}</Headings>
         <p>{takeAwayContent}</p>
         <Link href="/">
           <Button>{takeAwayButton}</Button>

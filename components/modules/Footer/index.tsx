@@ -5,6 +5,8 @@ import styles from './Footer.module.css';
 import footer from 'public/translations/footer.json';
 import useTranslation from 'hooks/useTranslation';
 import Link from 'components/elements/Link';
+import Headings from 'components/elements/Headings';
+import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Footer: FC = () => {
   const { locale } = useRouter();
@@ -30,7 +32,7 @@ const Footer: FC = () => {
       <Container>
         <div className={styles.blockContainer}>
           <div className={styles.block}>
-            <h2>{aboutUs}</h2>
+            <Headings level={HeadingsLevelEnum.Two}>{aboutUs}</Headings>
             <ul>
               <li>
                 <Link href="/">{leadershipTeam}</Link>
@@ -44,7 +46,7 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className={styles.block}>
-            <h2>{careers}</h2>
+            <Headings level={HeadingsLevelEnum.Two}>{careers}</Headings>
             <ul>
               <li>
                 <Link href="/">{employeePerks}</Link>
@@ -58,7 +60,7 @@ const Footer: FC = () => {
             </ul>
           </div>
           <div className={styles.block}>
-            <h2>{contactUs}</h2>
+            <Headings level={HeadingsLevelEnum.Two}>{contactUs}</Headings>
             <ul>
               <li>
                 <Link href="/">{restaurantFeedback}</Link>
