@@ -20,7 +20,7 @@ const Admin: FC = () => {
   const { admin } = translations;
 
   return (
-    <main>
+    <main className="sidePadding">
       <Head>
         <title>PickN`Eat | {admin}</title>
       </Head>

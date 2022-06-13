@@ -20,6 +20,8 @@
   font-family: 'Baloo Paaji 2', cursive;
   cursor: pointer;
   user-select: none;
+  font-size: 1.75rem;
+  color: var(--primary);
 }
 
 /**************************/

@@ -31,8 +31,8 @@ const Footer: FC = () => {
     <footer className={styles.footer}>
       <Container>
         <div className={styles.blockContainer}>
-          <div className={styles.block}>
-            <Headings level={HeadingsLevelEnum.Two}>{aboutUs}</Headings>
+          <nav className={styles.block}>
+            <Headings level={HeadingsLevelEnum.Three}>{aboutUs}</Headings>
             <ul>
               <li>
                 <Link href="/">{leadershipTeam}</Link>
@@ -44,9 +44,9 @@ const Footer: FC = () => {
                 <Link href="/">{franchiseInfo}</Link>
               </li>
             </ul>
-          </div>
-          <div className={styles.block}>
-            <Headings level={HeadingsLevelEnum.Two}>{careers}</Headings>
+          </nav>
+          <nav className={styles.block}>
+            <Headings level={HeadingsLevelEnum.Three}>{careers}</Headings>
             <ul>
               <li>
                 <Link href="/">{employeePerks}</Link>
@@ -58,9 +58,9 @@ const Footer: FC = () => {
                 <Link href="/">{applyNow}</Link>
               </li>
             </ul>
-          </div>
-          <div className={styles.block}>
-            <Headings level={HeadingsLevelEnum.Two}>{contactUs}</Headings>
+          </nav>
+          <nav className={styles.block}>
+            <Headings level={HeadingsLevelEnum.Three}>{contactUs}</Headings>
             <ul>
               <li>
                 <Link href="/">{restaurantFeedback}</Link>
@@ -72,7 +72,7 @@ const Footer: FC = () => {
                 <Link href="/">{sendAnEmail}</Link>
               </li>
             </ul>
-          </div>
+          </nav>
         </div>
       </Container>
     </footer>

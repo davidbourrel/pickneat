@@ -31,7 +31,7 @@ const Delivery: FC = () => {
       <div className={styles.deliveryBackground}>
         <Headings level={HeadingsLevelEnum.One}>{delivery}</Headings>
         <p>{deliveryContent}</p>
-        <Link href="https://deliveroo.fr/fr/" target="_blank">
+        <Link href="https://deliveroo.fr/fr/" target="_blank" rel="nofollow">
           <Button>{deliveryButton}</Button>
         </Link>
       </div>

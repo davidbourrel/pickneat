@@ -8,8 +8,6 @@ import useOutsideClick from 'hooks/useOutsideClick';
 import { useRouter } from 'next/router';
 import Link from 'components/elements/Link';
 import { UserProfile } from '@auth0/nextjs-auth0';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
@@ -50,13 +48,9 @@ const Header: FC<HeaderProps> = ({
       <Container>
         <div className={styles.headerContent}>
           <Link href="/">
-            <Headings
-              level={HeadingsLevelEnum.One}
-              className={styles.mainLogo}
-              data-test="mainLogo"
-            >
+            <span className={styles.mainLogo} data-test="mainLogo">
               PickN`Eat
-            </Headings>
+            </span>
           </Link>
           <Navigation
             lang={lang}

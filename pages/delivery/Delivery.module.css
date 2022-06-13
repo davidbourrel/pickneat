@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 1rem;
+  min-height: 60vh;
 }
 .mainContent div:first-child,
 .mainContent div:last-child {
