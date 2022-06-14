@@ -13,7 +13,7 @@ const NotFound: FC = () => {
   const { shortError500, longError500 } = translations;
 
   return (
-    <main id="not-found">
+    <main id="not-found" className="sidePadding">
       <Head>
         <title>PickN`Eat | {shortError500}</title>
       </Head>

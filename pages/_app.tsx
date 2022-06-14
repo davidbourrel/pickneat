@@ -11,11 +11,13 @@ import useKonami from 'hooks/useKonami';
 import { useFetchUser } from 'lib/user';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  const { user, loading } = useFetchUser();
+  const { user } = useFetchUser();
   const { locale } = useRouter();
   const translations = useTranslation(navigation, locale);
 
   const { menu } = translations;
+
+  console.log('TOOO User', user);
 
   useKonami();
 
@@ -134,7 +136,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
           crossOrigin=""
         />
       </Head>
-      <Layout user={user} loading={loading}>
+      <Layout>
         <Component {...pageProps} />
       </Layout>
     </div>

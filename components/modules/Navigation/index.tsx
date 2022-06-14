@@ -6,16 +6,13 @@ import ActiveLink from 'components/elements/ActiveLink';
 import styles from './Navigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
-import { UserProfile } from '@auth0/nextjs-auth0';
-import Loader from 'components/elements/Loader';
+import { useFetchUser } from 'lib/user';
 
 interface NavigationProps {
   lang: string;
   handleLangClick: (e: MouseEvent) => void;
   isLangSwitcherOpened: boolean;
   setIsLangSwitcherOpened: Dispatch<SetStateAction<boolean>>;
-  user: UserProfile;
-  loading: boolean;
 }
 
 const Navigation: FC<NavigationProps> = ({
@@ -23,9 +20,8 @@ const Navigation: FC<NavigationProps> = ({
   handleLangClick,
   isLangSwitcherOpened,
   setIsLangSwitcherOpened,
-  user,
-  loading,
 }) => {
+  const { user } = useFetchUser();
   const { asPath, locale } = useRouter();
 
   const translations = useTranslation(navigation, locale);
@@ -46,23 +42,19 @@ const Navigation: FC<NavigationProps> = ({
 
   const adminTab = useMemo(
     () =>
-      loading ? (
-        <Loader />
-      ) : !loading && user ? (
+      user ? (
         <li title={adminTitle} className={styles.item}>
           <ActiveLink href="/admin" path={asPath}>
             {admin}
           </ActiveLink>
         </li>
       ) : null,
-    [loading, user, asPath, adminTitle, admin]
+    [user, asPath, adminTitle, admin]
   );
 
   const userTab = useMemo(
     () =>
-      loading ? (
-        <Loader />
-      ) : !loading && user && user.picture ? (
+      user && user.picture ? (
         <>
           <li title={profile}>
             <ActiveLink href="/profile" path={asPath}>
@@ -83,7 +75,7 @@ const Navigation: FC<NavigationProps> = ({
           </ActiveLink>
         </li>
       ),
-    [loading, user, asPath, profile, login, loginTitle]
+    [user, asPath, profile, login, loginTitle]
   );
 
   return (

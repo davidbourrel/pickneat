@@ -1,4 +1,3 @@
-import { UserProfile } from '@auth0/nextjs-auth0';
 import {
   FC,
   ReactNode,
@@ -13,11 +12,9 @@ import styles from './Layout.module.css';
 
 interface LayoutProps {
   children: ReactNode;
-  user: UserProfile;
-  loading: boolean;
 }
 
-const Layout: FC<LayoutProps> = ({ children, user, loading }) => {
+const Layout: FC<LayoutProps> = ({ children }) => {
   const [isSideNavOpened, setIsSideNavOpened] = useState(false);
 
   const handleToggleMenu = useCallback(() => {
@@ -53,8 +50,6 @@ const Layout: FC<LayoutProps> = ({ children, user, loading }) => {
         isSideNavOpened={isSideNavOpened}
         closeMenu={closeMenu}
         handleToggleMenu={handleToggleMenu}
-        user={user}
-        loading={loading}
       />
       <div className={mainContainerClassName}>{children}</div>
       <div className={footerContainerClassName}>

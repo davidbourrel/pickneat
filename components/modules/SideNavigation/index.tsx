@@ -6,8 +6,7 @@ import useTranslation from 'hooks/useTranslation';
 import styles from './SideNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
-import { UserProfile } from '@auth0/nextjs-auth0';
-import Loader from 'components/elements/Loader';
+import { useFetchUser } from 'lib/user';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -16,8 +15,6 @@ interface SideNavigationProps {
   handleLangClick: (e: MouseEvent) => void;
   isLangSwitcherOpened: boolean;
   setIsLangSwitcherOpened: Dispatch<SetStateAction<boolean>>;
-  user: UserProfile;
-  loading: boolean;
 }
 
 const SideNavigation: FC<SideNavigationProps> = ({
@@ -27,9 +24,8 @@ const SideNavigation: FC<SideNavigationProps> = ({
   handleLangClick,
   isLangSwitcherOpened,
   setIsLangSwitcherOpened,
-  user,
-  loading,
 }) => {
+  const { user } = useFetchUser();
   const { asPath, locale } = useRouter();
 
   const translations = useTranslation(navigation, locale);
@@ -56,23 +52,19 @@ const SideNavigation: FC<SideNavigationProps> = ({
 
   const adminTab = useMemo(
     () =>
-      loading ? (
-        <Loader />
-      ) : !loading && user ? (
+      user ? (
         <li title={adminTitle} className={styles.item}>
           <ActiveLink href="/admin" path={asPath} closeMenu={closeMenu}>
             {admin}
           </ActiveLink>
         </li>
       ) : null,
-    [loading, user, adminTitle, admin, asPath, closeMenu]
+    [user, adminTitle, admin, asPath, closeMenu]
   );
 
   const userTab = useMemo(
     () =>
-      loading ? (
-        <Loader />
-      ) : !loading && user && user.picture ? (
+      user && user.picture ? (
         <>
           <li title={profile} className={styles.item}>
             <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>
@@ -93,7 +85,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
           </ActiveLink>
         </li>
       ),
-    [loading, user, asPath, closeMenu, profile, login, loginTitle]
+    [user, asPath, closeMenu, profile, login, loginTitle]
   );
 
   return (

@@ -7,22 +7,17 @@ import SideNavigation from '../SideNavigation';
 import useOutsideClick from 'hooks/useOutsideClick';
 import { useRouter } from 'next/router';
 import Link from 'components/elements/Link';
-import { UserProfile } from '@auth0/nextjs-auth0';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
   closeMenu: () => void;
   handleToggleMenu: () => void;
-  user: UserProfile;
-  loading: boolean;
 }
 
 const Header: FC<HeaderProps> = ({
   isSideNavOpened,
   closeMenu,
   handleToggleMenu,
-  user,
-  loading,
 }) => {
   const { locale } = useRouter();
 
@@ -57,8 +52,6 @@ const Header: FC<HeaderProps> = ({
             handleLangClick={handleLangClick}
             isLangSwitcherOpened={isLangSwitcherOpened}
             setIsLangSwitcherOpened={setIsLangSwitcherOpened}
-            user={user}
-            loading={loading}
           />
           <BurgerMenuToggle
             isSideNavOpened={isSideNavOpened}
@@ -71,8 +64,6 @@ const Header: FC<HeaderProps> = ({
             handleLangClick={handleLangClick}
             isLangSwitcherOpened={isLangSwitcherOpened}
             setIsLangSwitcherOpened={setIsLangSwitcherOpened}
-            user={user}
-            loading={loading}
           />
         </div>
       </Container>
