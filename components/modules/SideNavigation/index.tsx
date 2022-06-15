@@ -36,8 +36,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
     restaurantsTitle,
     delivery,
     deliveryTitle,
-    admin,
-    adminTitle,
     login,
     loginTitle,
     profile,
@@ -48,18 +46,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
     () =>
       `${styles.nav} ${isSideNavOpened ? styles.navOpened : styles.navClosed}`,
     [isSideNavOpened]
-  );
-
-  const adminTab = useMemo(
-    () =>
-      user ? (
-        <li title={adminTitle} className={styles.item}>
-          <ActiveLink href="/admin" path={asPath} closeMenu={closeMenu}>
-            {admin}
-          </ActiveLink>
-        </li>
-      ) : null,
-    [user, adminTitle, admin, asPath, closeMenu]
   );
 
   const userTab = useMemo(
@@ -113,7 +99,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
               {delivery}
             </ActiveLink>
           </li>
-          {adminTab}
         </ul>
         <ul>
           {userTab}

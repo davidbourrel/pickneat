@@ -8,16 +8,12 @@ import '../styles/globals.css';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
 import useKonami from 'hooks/useKonami';
-import { useFetchUser } from 'lib/user';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  const { user } = useFetchUser();
   const { locale } = useRouter();
   const translations = useTranslation(navigation, locale);
 
   const { menu } = translations;
-
-  console.log('TOOO User', user);
 
   useKonami();
 

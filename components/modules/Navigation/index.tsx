@@ -32,25 +32,11 @@ const Navigation: FC<NavigationProps> = ({
     restaurantsTitle,
     delivery,
     deliveryTitle,
-    admin,
-    adminTitle,
     login,
     loginTitle,
     profile,
     switchLangTitle,
   } = translations;
-
-  const adminTab = useMemo(
-    () =>
-      user ? (
-        <li title={adminTitle} className={styles.item}>
-          <ActiveLink href="/admin" path={asPath}>
-            {admin}
-          </ActiveLink>
-        </li>
-      ) : null,
-    [user, asPath, adminTitle, admin]
-  );
 
   const userTab = useMemo(
     () =>
@@ -101,7 +87,6 @@ const Navigation: FC<NavigationProps> = ({
               {delivery}
             </ActiveLink>
           </li>
-          {adminTab}
         </ul>
         <ul className={styles.navList}>
           {userTab}
