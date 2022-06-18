@@ -24,7 +24,7 @@ const Arrow: FC<ArrowProps> = ({ direction, caret = false }) => {
   }, [direction]);
 
   const arrowClassName = useMemo(
-    () => `${rotateClassName} ${styles.container}`,
+    () => `${rotateClassName} ${styles.arrowContainer}`,
     [rotateClassName]
   );
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ClassNameComponentProps } from '_types/components';
 
-const ArrowIcon: FC<ClassNameComponentProps> = ({ className }) => {
+const ArrowIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
   return (
     <svg className={className} viewBox="0 0 24 24">
       <title>ArrowIcon</title>

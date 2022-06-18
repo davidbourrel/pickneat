@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ClassNameComponentProps } from '_types/components';
 
-const ItineraryIcon: FC<ClassNameComponentProps> = ({ className }) => {
+const ItineraryIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
   return (
     <svg className={className} viewBox="0 0 14 14">
       <title>ItineraryIcon</title>

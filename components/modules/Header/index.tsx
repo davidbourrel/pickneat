@@ -1,5 +1,4 @@
 import { FC, MouseEvent, useCallback, useRef, useState } from 'react';
-import Container from '../Container';
 import Navigation from '../Navigation';
 import styles from './Header.module.css';
 import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
@@ -40,33 +39,35 @@ const Header: FC<HeaderProps> = ({
 
   return (
     <header ref={HeaderRef} className={styles.header}>
-      <Container>
-        <div className={styles.headerContent}>
-          <Link href="/">
-            <span className={styles.mainLogo} data-test="mainLogo">
-              PickN`Eat
-            </span>
-          </Link>
-          <Navigation
-            lang={lang}
-            handleLangClick={handleLangClick}
-            isLangSwitcherOpened={isLangSwitcherOpened}
-            setIsLangSwitcherOpened={setIsLangSwitcherOpened}
-          />
-          <BurgerMenuToggle
-            isSideNavOpened={isSideNavOpened}
-            handleToggleMenu={handleToggleMenu}
-          />
-          <SideNavigation
-            isSideNavOpened={isSideNavOpened}
-            closeMenu={closeMenu}
-            lang={lang}
-            handleLangClick={handleLangClick}
-            isLangSwitcherOpened={isLangSwitcherOpened}
-            setIsLangSwitcherOpened={setIsLangSwitcherOpened}
-          />
-        </div>
-      </Container>
+      <div className={`${styles.headerContent} container`}>
+        <Link href="/">
+          <span
+            aria-label="PickN`Eat Logo"
+            className={styles.mainLogo}
+            data-test="mainLogo"
+          >
+            PickN`Eat
+          </span>
+        </Link>
+        <Navigation
+          lang={lang}
+          handleLangClick={handleLangClick}
+          isLangSwitcherOpened={isLangSwitcherOpened}
+          setIsLangSwitcherOpened={setIsLangSwitcherOpened}
+        />
+        <BurgerMenuToggle
+          isSideNavOpened={isSideNavOpened}
+          handleToggleMenu={handleToggleMenu}
+        />
+        <SideNavigation
+          isSideNavOpened={isSideNavOpened}
+          closeMenu={closeMenu}
+          lang={lang}
+          handleLangClick={handleLangClick}
+          isLangSwitcherOpened={isLangSwitcherOpened}
+          setIsLangSwitcherOpened={setIsLangSwitcherOpened}
+        />
+      </div>
     </header>
   );
 };

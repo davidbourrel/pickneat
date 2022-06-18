@@ -61,7 +61,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   );
 
   return (
-    <div className={styles.languageSwitcherContainer}>
+    <>
       <Button
         headless
         type="button"
@@ -82,10 +82,14 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         id={ariaControlsId}
         className={langsListClassName}
         role="menu"
-        aria-labelledby={`${ariaControlsId}-button`}
+        aria-labelledby={`${ariaControlsId}-list`}
         data-test={dataTestLangsList}
       >
-        <li role="menuitem" className={styles.langItem}>
+        <li
+          role="menuitem"
+          aria-labelledby="lang-item-English"
+          className={styles.langItem}
+        >
           <Link href={asPath} passHref locale="en">
             <Button
               headless
@@ -93,13 +97,18 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
               onClick={handleLangClick}
               className={styles.langButton}
               data-test={`${dataTestLangButton}English`}
+              aria-labelledby={`${ariaControlsId}-item-en-button`}
             >
               <span>English</span>
               <CheckMark lang="en" />
             </Button>
           </Link>
         </li>
-        <li role="menuitem" className={styles.langItem}>
+        <li
+          role="menuitem"
+          aria-labelledby="lang-item-French"
+          className={styles.langItem}
+        >
           <Link href={asPath} passHref locale="fr">
             <Button
               headless
@@ -107,6 +116,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
               onClick={handleLangClick}
               className={styles.langButton}
               data-test={`${dataTestLangButton}French`}
+              aria-labelledby={`${ariaControlsId}-item-fr-button`}
             >
               <span>Français</span>
               <CheckMark lang="fr" />
@@ -114,7 +124,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
           </Link>
         </li>
       </ul>
-    </div>
+    </>
   );
 };
 
