@@ -29,9 +29,9 @@ const Arrow: FC<ArrowProps> = ({ direction, caret = false }) => {
   );
 
   return caret ? (
-    <span className={styles.caret} />
+    <span aria-hidden="true" className={styles.caret} />
   ) : (
-    <div className={arrowClassName}>
+    <div aria-hidden="true" className={arrowClassName}>
       <ArrowIcon className={styles.arrow} />
     </div>
   );

@@ -67,7 +67,7 @@ const Navigation: FC<NavigationProps> = ({
   return (
     <nav
       className={styles.nav}
-      aria-label="main menu"
+      aria-label="main navigation"
       data-test="mainNavigation"
     >
       <div className={styles.navListContainer}>
@@ -90,11 +90,12 @@ const Navigation: FC<NavigationProps> = ({
         </ul>
         <ul className={styles.navList}>
           {userTab}
-          <li title={switchLangTitle}>
+          <li>
             <LanguageSwitcher
               lang={lang}
               handleLangClick={handleLangClick}
-              ariaControlsId="lang-menu-desktop"
+              title={switchLangTitle}
+              ariaControlsId="lang-switcher-desktop"
               dataTestButton="langSwitcherDesktopButton"
               dataTestLangsList="langSwitcherDesktopLangsList"
               dataTestLangButton="langSwitcherDesktopLangButton"

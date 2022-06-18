@@ -78,7 +78,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
     <nav
       id="side-navigation"
       className={navClassName}
-      aria-label="side menu"
+      aria-label="side navigation"
       data-test="sideNavigation"
     >
       <div className={styles.topBoxShadow} />
@@ -102,11 +102,12 @@ const SideNavigation: FC<SideNavigationProps> = ({
         </ul>
         <ul>
           {userTab}
-          <li title={switchLangTitle}>
+          <li>
             <LanguageSwitcher
               lang={lang}
               handleLangClick={handleLangClick}
-              ariaControlsId="lang-menu-mobile"
+              title={switchLangTitle}
+              ariaControlsId="lang-switcher-mobile"
               dataTestButton="langSwitcherMobileButton"
               dataTestLangsList="langSwitcherMobileLangsList"
               dataTestLangButton="langSwitcherMobileLangButton"

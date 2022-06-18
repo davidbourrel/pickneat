@@ -17,6 +17,7 @@ import { ArrowDirectionEnum } from '../Arrow/types';
 interface LanguageSwitcherProps {
   lang: string;
   handleLangClick: (e: MouseEvent) => void;
+  title: string;
   ariaControlsId: string;
   dataTestButton: string;
   dataTestLangsList: string;
@@ -28,6 +29,7 @@ interface LanguageSwitcherProps {
 const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   lang,
   handleLangClick,
+  title,
   ariaControlsId,
   dataTestButton,
   dataTestLangsList,
@@ -65,15 +67,16 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
       <Button
         headless
         type="button"
-        id={`${ariaControlsId}-button`}
         onClick={handleLanguageSwitcherClick}
         className={styles.languageSwitcherButton}
+        title={title}
+        aria-label={title}
         aria-haspopup={true}
         aria-expanded={isLangSwitcherOpened}
         aria-controls={ariaControlsId}
         data-test={dataTestButton}
       >
-        <span className={flagClassName} />
+        <span aria-hidden="true" className={flagClassName} />
         <span className={styles.plainCountryName}>{plainCountryName}</span>
         <Arrow direction={ArrowDirectionEnum.Top} caret={true} />
       </Button>
@@ -81,42 +84,36 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
       <ul
         id={ariaControlsId}
         className={langsListClassName}
-        role="menu"
         aria-labelledby={`${ariaControlsId}-list`}
         data-test={dataTestLangsList}
+        role="listbox"
       >
-        <li
-          role="menuitem"
-          aria-labelledby="lang-item-English"
-          className={styles.langItem}
-        >
-          <Link href={asPath} passHref locale="en">
+        <li aria-labelledby="lang-item-English" className={styles.langItem}>
+          <Link href={asPath} passHref locale="en" lang="en" hrefLang="en">
             <Button
               headless
               value="en"
               onClick={handleLangClick}
               className={styles.langButton}
               data-test={`${dataTestLangButton}English`}
-              aria-labelledby={`${ariaControlsId}-item-en-button`}
+              aria-labelledby={`${ariaControlsId}-en-button`}
+              role="option"
             >
               <span>English</span>
               <CheckMark lang="en" />
             </Button>
           </Link>
         </li>
-        <li
-          role="menuitem"
-          aria-labelledby="lang-item-French"
-          className={styles.langItem}
-        >
-          <Link href={asPath} passHref locale="fr">
+        <li aria-labelledby="lang-item-French" className={styles.langItem}>
+          <Link href={asPath} passHref locale="fr" lang="fr" hrefLang="fr">
             <Button
               headless
               value="fr"
               onClick={handleLangClick}
               className={styles.langButton}
               data-test={`${dataTestLangButton}French`}
-              aria-labelledby={`${ariaControlsId}-item-fr-button`}
+              aria-labelledby={`${ariaControlsId}-fr-button`}
+              role="option"
             >
               <span>Français</span>
               <CheckMark lang="fr" />
