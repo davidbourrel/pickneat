@@ -29,7 +29,6 @@ select {
   font-size: 14px;
   line-height: 20px;
 }
-
 a {
   color: inherit;
   text-decoration: none;
@@ -39,14 +38,6 @@ button:focus {
   border: var(--primary);
   box-sizing: border-box;
 }
-
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 #app {
   width: 100%;
   min-height: 100vh;
@@ -60,11 +51,12 @@ button:focus {
 }
 #not-found {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 #not-found h1 {
-  transform: translateY(-100px);
+  transform: translateY(-50px);
   font-weight: 700;
   font-size: 1.5rem;
   color: var(--error);
@@ -77,12 +69,18 @@ main {
   margin-right: auto;
   box-sizing: border-box;
 }
-.capitalize::first-letter {
-  text-transform: capitalize;
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .sidePadding {
   padding: 0 1.5rem;
   box-sizing: border-box;
+}
+.capitalize::first-letter {
+  text-transform: capitalize;
 }
 
 /* Controle buttons in Openlayers */

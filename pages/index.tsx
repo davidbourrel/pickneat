@@ -12,6 +12,7 @@ import saladImage from 'public/images/home carousel/Photo_by_Ive_Erhard_on_Unspl
 import dynamic from 'next/dynamic';
 import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import styles from '../styles/Home.module.css';
 
 const Slider = dynamic(() => import('components/modules/Slider'));
 
@@ -22,70 +23,74 @@ const Home: FC = () => {
   const { homeMainTitle } = translations;
 
   return (
-    <main>
-      <Slider>
-        <SwiperSlide>
-          <Image
-            layout="responsive"
-            placeholder="blur"
-            src={burgerImage}
-            width="1920"
-            height="1280"
-            data-test="burgerImage"
-            alt="burger"
-            quality={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            layout="responsive"
-            placeholder="blur"
-            src={friesImage}
-            width="1920"
-            height="1280"
-            data-test="friesImage"
-            alt="fries"
-            quality={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            layout="responsive"
-            placeholder="blur"
-            src={sodaImage}
-            width="1920"
-            height="1280"
-            data-test="sodaImage"
-            alt="soda"
-            quality={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            layout="responsive"
-            placeholder="blur"
-            src={dessertImage}
-            width="1920"
-            height="1280"
-            data-test="dessertImage"
-            alt="dessert"
-            quality={100}
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            layout="responsive"
-            placeholder="blur"
-            src={saladImage}
-            width="1920"
-            height="1280"
-            data-test="saladImage"
-            alt="salad"
-            quality={100}
-          />
-        </SwiperSlide>
-      </Slider>
-      <Headings level={HeadingsLevelEnum.One}>{homeMainTitle}</Headings>
+    <main className={styles.main}>
+      <section>
+        <Slider>
+          <SwiperSlide>
+            <Image
+              layout="responsive"
+              placeholder="blur"
+              src={burgerImage}
+              width="1920"
+              height="1280"
+              data-test="burgerImage"
+              alt="burger"
+              quality={100}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              layout="responsive"
+              placeholder="blur"
+              src={friesImage}
+              width="1920"
+              height="1280"
+              data-test="friesImage"
+              alt="fries"
+              quality={100}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              layout="responsive"
+              placeholder="blur"
+              src={sodaImage}
+              width="1920"
+              height="1280"
+              data-test="sodaImage"
+              alt="soda"
+              quality={100}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              layout="responsive"
+              placeholder="blur"
+              src={dessertImage}
+              width="1920"
+              height="1280"
+              data-test="dessertImage"
+              alt="dessert"
+              quality={100}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              layout="responsive"
+              placeholder="blur"
+              src={saladImage}
+              width="1920"
+              height="1280"
+              data-test="saladImage"
+              alt="salad"
+              quality={100}
+            />
+          </SwiperSlide>
+        </Slider>
+        <Headings level={HeadingsLevelEnum.One}>{homeMainTitle}</Headings>
+      </section>
+      <section>Second section</section>
+      <section>Third section</section>
     </main>
   );
 };

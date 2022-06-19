@@ -1,15 +1,17 @@
 {
   "en": {
     "shortError404": "404 error",
+    "longError404": "Woops ! This page is not found",
     "shortError500": "500 error",
-    "longError404": "Woops ! 404 error ! This page is not found",
-    "longError500": "Woops ! 500 error ! Cannot be found"
+    "longError500": "Woops ! The server has problems !",
+    "backButton": "Go back to the previous page"
   },
 
   "fr": {
     "shortError404": "Erreur 404",
+    "longError404": "Oups ! La page demandée n'a pas été trouvée",
     "shortError500": "Erreur 500",
-    "longError404": "Oups ! Erreur 404 ! La page demandée n'a pas été trouvée",
-    "longError500": "Oups ! Erreur 500 ! La page demandée n'a pas été trouvée"
+    "longError500": "Oups ! Nos serveurs rencontrent actuellement quelques difficultés",
+    "backButton": "Revenir à la page précédente"
   }
 }

@@ -34,7 +34,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
         <title>PickN`Eat | {login}</title>
       </Head>
       <Headings level={HeadingsLevelEnum.One} className={styles.profileTitle}>
-        Profile
+        [Profile]
       </Headings>
       {userPicture}
       <p>nickname: {user.nickname}</p>
