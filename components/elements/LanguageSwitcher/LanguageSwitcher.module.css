@@ -61,7 +61,6 @@
   align-items: center;
   transition: color 150ms ease-out, background-color 150ms ease-out;
   color: var(--primary);
-  width: 100%;
   padding: 0.5rem;
   line-height: 2rem;
 }

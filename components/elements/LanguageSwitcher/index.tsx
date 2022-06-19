@@ -89,35 +89,35 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         role="listbox"
       >
         <li aria-labelledby="lang-item-English" className={styles.langItem}>
-          <Link href={asPath} passHref locale="en" lang="en" hrefLang="en">
-            <Button
-              headless
-              value="en"
-              onClick={handleLangClick}
-              className={styles.langButton}
-              data-test={`${dataTestLangButton}English`}
-              aria-labelledby={`${ariaControlsId}-en-button`}
-              role="option"
-            >
-              <span>English</span>
-              <CheckMark lang="en" />
-            </Button>
+          <Link
+            href={asPath}
+            passHref
+            locale="en"
+            lang="en"
+            onClick={handleLangClick}
+            className={styles.langButton}
+            aria-labelledby={`${ariaControlsId}-en-button`}
+            role="option"
+            data-test={`${dataTestLangButton}English`}
+          >
+            <span>English</span>
+            <CheckMark lang="en" />
           </Link>
         </li>
         <li aria-labelledby="lang-item-French" className={styles.langItem}>
-          <Link href={asPath} passHref locale="fr" lang="fr" hrefLang="fr">
-            <Button
-              headless
-              value="fr"
-              onClick={handleLangClick}
-              className={styles.langButton}
-              data-test={`${dataTestLangButton}French`}
-              aria-labelledby={`${ariaControlsId}-fr-button`}
-              role="option"
-            >
-              <span>Français</span>
-              <CheckMark lang="fr" />
-            </Button>
+          <Link
+            href={asPath}
+            passHref
+            locale="fr"
+            lang="fr"
+            onClick={handleLangClick}
+            className={styles.langButton}
+            aria-labelledby={`${ariaControlsId}-fr-button`}
+            role="option"
+            data-test={`${dataTestLangButton}French`}
+          >
+            <span>Français</span>
+            <CheckMark lang="fr" />
           </Link>
         </li>
       </ul>

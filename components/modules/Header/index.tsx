@@ -24,7 +24,7 @@ const Header: FC<HeaderProps> = ({
   const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
 
   const handleLangClick = useCallback((e: MouseEvent) => {
-    setLang((e.target as HTMLButtonElement).value);
+    setLang((e.target as HTMLButtonElement).lang);
     setIsLangSwitcherOpened(false);
   }, []);
 
@@ -40,14 +40,14 @@ const Header: FC<HeaderProps> = ({
   return (
     <header ref={HeaderRef} className={styles.header}>
       <div className={`${styles.headerContent} container`}>
-        <Link href="/">
-          <span
-            aria-label="PickN`Eat Logo"
-            className={styles.mainLogo}
-            data-test="mainLogo"
-          >
-            PickN`Eat
-          </span>
+        <Link
+          href="/"
+          className={styles.mainLogo}
+          onClick={closeMenu}
+          aria-label="PickN`Eat Logo"
+          data-test="mainLogo"
+        >
+          <span>PickN`Eat</span>
         </Link>
         <Navigation
           lang={lang}
