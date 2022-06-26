@@ -22,6 +22,14 @@
   --transition: cubic-bezier(0.55, 0.06, 0.68, 0.19);
 }
 
+*:focus-visible {
+  outline: solid blue 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
 html,
 body,
 select {
@@ -33,11 +41,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
-button:focus {
-  color: var(--primary-hover);
-  border: var(--primary);
-  box-sizing: border-box;
-}
+
 #app {
   width: 100%;
   min-height: 100vh;
