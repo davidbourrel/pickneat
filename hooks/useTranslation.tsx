@@ -1,16 +1,19 @@
-export type JSONValue =
+export type TranslationType =
   | string
   | number
   | boolean
-  | { [x: string]: JSONValue }
-  | Array<JSONValue>;
+  | { [x: string]: TranslationType }
+  | Array<TranslationType>;
 
-type useTranslationValue = {
+type useTranslationType = {
   [key: string]: string;
 };
 
-const useTranslation = (obj: JSONValue, locale = 'en'): useTranslationValue => {
-  return obj[locale as keyof typeof obj];
+const useTranslation = (
+  translation: TranslationType,
+  locale = 'en'
+): useTranslationType => {
+  return translation[locale as keyof typeof translation];
 };
 
 export default useTranslation;
