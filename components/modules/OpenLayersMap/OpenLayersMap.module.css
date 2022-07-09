@@ -11,8 +11,6 @@
   left: -93px;
   width: 150px;
   height: 90px;
-  max-width: 150px;
-  max-height: 90px;
   padding: 1rem;
   border-radius: 0.5rem;
   border: 2px solid var(--primary);

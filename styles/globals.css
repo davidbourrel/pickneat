@@ -29,13 +29,16 @@
 *:focus:not(:focus-visible) {
   outline: none;
 }
+html {
+  font: 87.5% sans-serif;
+}
 
-html,
 body,
 select {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
 }
 a {
   color: inherit;
@@ -60,10 +63,11 @@ a {
   align-items: center;
 }
 #not-found h1 {
-  transform: translateY(-50px);
+  transform: translateY(-100%);
   font-weight: 700;
   font-size: 1.5rem;
   color: var(--error);
+  text-align: center;
 }
 main {
   flex: 1;

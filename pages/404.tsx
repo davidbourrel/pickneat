@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
@@ -7,7 +6,7 @@ import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 import Button from 'components/elements/buttons/Button';
 
-const NotFound: FC = () => {
+const NotFound = () => {
   const { locale, back } = useRouter();
 
   const translations = useTranslation(errors, locale);

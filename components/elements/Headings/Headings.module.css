@@ -1,19 +1,25 @@
 .one {
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   color: var(--primary);
+  line-height: 2.25rem;
 }
 .two {
   font-size: 1.5rem;
+  line-height: 2rem;
 }
 .three {
   font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .four {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .five {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .six {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }

@@ -1,5 +1,5 @@
 .activeLink {
-  padding: 4px 0;
+  padding: 0.5rem 0;
   display: inline-flex;
   position: relative;
   overflow: hidden;
@@ -10,7 +10,7 @@
 .activeLink::after {
   content: '';
   position: absolute;
-  left: 0px;
+  left: 0;
   top: calc(100% - 2px);
   transition: transform 300ms ease-out;
   display: inline-block;
@@ -20,8 +20,8 @@
   background: var(--primary) none repeat scroll 0% 0%;
 }
 .activeLink:hover::after {
-  transform: translateX(0px);
+  transform: translateX(0);
 }
 .active.activeLink::after {
-  transform: translateX(0px);
+  transform: translateX(0);
 }

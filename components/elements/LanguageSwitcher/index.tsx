@@ -88,7 +88,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         data-test={dataTestLangsList}
         role="listbox"
       >
-        <li aria-labelledby="lang-item-English" className={styles.langItem}>
+        <li aria-labelledby="lang-item-English">
           <Link
             href={asPath}
             passHref
@@ -104,7 +104,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             <CheckMark lang="en" />
           </Link>
         </li>
-        <li aria-labelledby="lang-item-French" className={styles.langItem}>
+        <li aria-labelledby="lang-item-French">
           <Link
             href={asPath}
             passHref

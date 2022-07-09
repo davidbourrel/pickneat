@@ -16,7 +16,7 @@
   border-width: 0.5rem 0.4rem 0;
   content: '';
   position: relative;
-  top: 4px;
+  top: 0.25rem;
   transform: translateY(-50%);
 }
 
