@@ -26,11 +26,6 @@
   vertical-align: middle;
 }
 
-.table tbody tr:nth-child(2n + 3),
-.table tbody tr:first-child {
-  background-color: var(--lightGray);
-}
-
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/

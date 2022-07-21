@@ -1,9 +1,9 @@
 import { FC, RefObject, useMemo, useRef, useState } from 'react';
 import { Circle, Fill, Stroke, Style } from 'ol/style';
 import { Feature, Map, Overlay, View } from 'ol/index';
-import { OSM, Vector as VectorSource } from 'ol/source';
+import { TileJSON, Vector as VectorSource } from 'ol/source';
 import { Point } from 'ol/geom';
-import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
+import { Tile, Vector as VectorLayer } from 'ol/layer';
 import { useGeographic } from 'ol/proj';
 import styles from './OpenLayersMap.module.css';
 import 'ol/ol.css';
@@ -22,11 +22,15 @@ const OpenLayersMap: FC = () => {
     const point = new Point(position);
 
     /** Base map */
-    const rasterLayer = new TileLayer({
-      source: new OSM(),
+    const rasterLayer = new Tile({
+      source: new TileJSON({
+        url: `${process.env.NEXT_PUBLIC_MAPTILER_URL}${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
+        tileSize: 512,
+        crossOrigin: 'anonymous',
+      }),
     });
 
-    /** Vector layer */
+    /** Circle pin */
     const vectorLayer = new VectorLayer({
       source: new VectorSource({
         features: [new Feature(point)],
@@ -44,6 +48,7 @@ const OpenLayersMap: FC = () => {
     const initialMap = new Map({
       target: mapRef.current as HTMLDivElement,
       view: new View({
+        constrainResolution: true,
         center: position,
         zoom: 14,
       }),
