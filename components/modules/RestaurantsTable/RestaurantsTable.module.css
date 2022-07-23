@@ -5,11 +5,11 @@
 
 /* Header */
 .table thead th {
-  padding: 1rem 0;
+  padding: 0.75rem 0.5rem;
   border: 2px solid var(--primary);
   font-weight: 700;
-  font-size: 1.125rem;
-  color: var(--secondary);
+  font-size: 1.25rem;
+  color: var(--primary);
   vertical-align: middle;
 }
 
@@ -17,13 +17,15 @@
 .table tbody {
   text-align: center;
 }
-.table tbody tr {
-  border: 2px solid var(--primary);
-}
-.table tbody td {
-  padding: 0.5rem 0;
+.table td,
+.table th {
+  padding: 0.5rem 1rem;
   border: 2px solid var(--primary);
   vertical-align: middle;
+}
+.currentDay {
+  background-color: var(--primary-hover);
+  color: var(--white);
 }
 
 /**************************/

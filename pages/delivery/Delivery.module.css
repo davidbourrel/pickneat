@@ -15,12 +15,18 @@
   text-align: center;
 }
 
-.mainContent h1,
-.mainContent h2 {
+.mainTitle {
   color: var(--primary);
   font-weight: 700;
   font-size: 1.75rem;
   margin: 2rem 0 1rem 0;
+  text-align: center;
+}
+
+.mainContent h2 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-top: 2rem;
 }
 
 .separation {

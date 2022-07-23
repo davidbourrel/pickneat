@@ -14,6 +14,7 @@ const Delivery: FC = () => {
 
   const translations = useTranslation(deliveryTranslations, locale);
   const {
+    deliveryMainTitle,
     delivery,
     deliveryContent,
     deliveryButton,
@@ -24,28 +25,33 @@ const Delivery: FC = () => {
   } = translations;
 
   return (
-    <main className={`${styles.mainContent} sidePadding`}>
+    <main className="sidePadding">
       <Head>
         <title>PickN`Eat | {delivery}</title>
       </Head>
-      <div className={styles.deliveryBackground}>
-        <Headings level={HeadingsLevelEnum.One}>{delivery}</Headings>
-        <p>{deliveryContent}</p>
-        <Link href="https://deliveroo.fr/fr/" target="_blank" rel="nofollow">
-          <Button>{deliveryButton}</Button>
-        </Link>
-      </div>
-      <div className={styles.separation}>
-        <span></span>
-        <span>{or}</span>
-        <span></span>
-      </div>
-      <div className={styles.takeAwayBackground}>
-        <Headings level={HeadingsLevelEnum.Two}>{takeAway}</Headings>
-        <p>{takeAwayContent}</p>
-        <Link href="/">
-          <Button>{takeAwayButton}</Button>
-        </Link>
+      <Headings level={HeadingsLevelEnum.One} className={styles.mainTitle}>
+        {deliveryMainTitle}
+      </Headings>
+      <div className={styles.mainContent}>
+        <div className={styles.deliveryBackground}>
+          <Headings level={HeadingsLevelEnum.Two}>{delivery}</Headings>
+          <p>{deliveryContent}</p>
+          <Link href="https://deliveroo.fr/fr/" target="_blank" rel="nofollow">
+            <Button>{deliveryButton}</Button>
+          </Link>
+        </div>
+        <div className={styles.separation}>
+          <span></span>
+          <span>{or}</span>
+          <span></span>
+        </div>
+        <div className={styles.takeAwayBackground}>
+          <Headings level={HeadingsLevelEnum.Two}>{takeAway}</Headings>
+          <p>{takeAwayContent}</p>
+          <Link href="/">
+            <Button>{takeAwayButton}</Button>
+          </Link>
+        </div>
       </div>
     </main>
   );

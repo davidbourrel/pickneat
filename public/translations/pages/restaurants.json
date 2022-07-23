@@ -2,7 +2,7 @@
   "en": {
     "restaurantsMainTitle": "Find a PickN`Eat",
     "location": "Where to find PickN`Eat ?",
-    "openingHours": "The restaurant's opening hours",
+    "openingHours": "Opening hours",
     "day": "Day",
     "lunch": "Lunch",
     "dinner": "Dinner",
@@ -13,16 +13,16 @@
     "friday": "Friday",
     "saturday": "Saturday",
     "sunday": "Sunday",
-    "lunchWeeklyHours": "11am - 3pm",
-    "lunchWeekendHours": "10am - 4pm",
-    "dinnerWeeklyHours": "6pm - 9pm",
-    "dinnerWeekendHours": "6pm - 10pm"
+    "lunchWeeklyHours": "12:00 PM ~ 2:30 PM",
+    "lunchWeekendHours": "12:00 PM ~ 3:30 PM",
+    "dinnerWeeklyHours": "7:00 PM ~ 10:30 PM",
+    "dinnerWeekendHours": "7:00 PM ~ 11:00 PM"
   },
 
   "fr": {
     "restaurantsMainTitle": "Trouver un PickN`Eat",
     "location": "Où trouver un restaurant PickN`Eat ?",
-    "openingHours": "Heures d'ouverture",
+    "openingHours": "Horaires",
     "day": "Jour",
     "lunch": "Midi",
     "dinner": "Soir",
@@ -33,9 +33,9 @@
     "friday": "Vendredi",
     "saturday": "Samedi",
     "sunday": "Dimanche",
-    "lunchWeeklyHours": "11h - 15h",
-    "lunchWeekendHours": "10h - 16h",
-    "dinnerWeeklyHours": "18h - 21h",
-    "dinnerWeekendHours": "18h - 22h"
+    "lunchWeeklyHours": "12:00 ~ 14:30",
+    "lunchWeekendHours": "12:00 ~ 15:30",
+    "dinnerWeeklyHours": "19:00 ~ 22:30",
+    "dinnerWeekendHours": "19:00 ~ 23:00"
   }
 }

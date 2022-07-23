@@ -12,7 +12,7 @@
   position: absolute;
   left: 0;
   top: calc(100% - 2px);
-  transition: transform 300ms ease-out;
+  transition: transform 200ms ease-out;
   display: inline-block;
   height: 2px;
   width: 100%;

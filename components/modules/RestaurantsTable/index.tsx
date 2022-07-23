@@ -3,6 +3,7 @@ import styles from './RestaurantsTable.module.css';
 import restaurants from 'public/translations/pages/restaurants.json';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
+import DayRow from './DayRow';
 
 const RestaurantsTable: FC = () => {
   const { locale } = useRouter();
@@ -35,41 +36,48 @@ const RestaurantsTable: FC = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>{monday}</td>
-          <td>{lunchWeeklyHours}</td>
-          <td>{dinnerWeeklyHours}</td>
-        </tr>
-        <tr>
-          <td>{tuesday}</td>
-          <td>{lunchWeeklyHours}</td>
-          <td>{dinnerWeeklyHours}</td>
-        </tr>
-        <tr>
-          <td>{wednesday}</td>
-          <td>{lunchWeeklyHours}</td>
-          <td>{dinnerWeeklyHours}</td>
-        </tr>
-        <tr>
-          <td>{thursday}</td>
-          <td>{lunchWeeklyHours}</td>
-          <td>{dinnerWeeklyHours}</td>
-        </tr>
-        <tr>
-          <td>{friday}</td>
-          <td>{lunchWeeklyHours}</td>
-          <td>{dinnerWeeklyHours}</td>
-        </tr>
-        <tr>
-          <td>{saturday}</td>
-          <td>{lunchWeekendHours}</td>
-          <td>{dinnerWeekendHours}</td>
-        </tr>
-        <tr>
-          <td>{sunday}</td>
-          <td>{lunchWeekendHours}</td>
-          <td>{dinnerWeekendHours}</td>
-        </tr>
+        <DayRow
+          day="monday"
+          dayTranslation={monday}
+          lunchTranslation={lunchWeeklyHours}
+          dinnerTranslation={dinnerWeeklyHours}
+        />
+        <DayRow
+          day="tuesday"
+          dayTranslation={tuesday}
+          lunchTranslation={lunchWeeklyHours}
+          dinnerTranslation={dinnerWeeklyHours}
+        />
+        <DayRow
+          day="wednesday"
+          dayTranslation={wednesday}
+          lunchTranslation={lunchWeeklyHours}
+          dinnerTranslation={dinnerWeeklyHours}
+        />
+        <DayRow
+          day="thursday"
+          dayTranslation={thursday}
+          lunchTranslation={lunchWeeklyHours}
+          dinnerTranslation={dinnerWeeklyHours}
+        />
+        <DayRow
+          day="friday"
+          dayTranslation={friday}
+          lunchTranslation={lunchWeeklyHours}
+          dinnerTranslation={dinnerWeeklyHours}
+        />
+        <DayRow
+          day="saturday"
+          dayTranslation={saturday}
+          lunchTranslation={lunchWeekendHours}
+          dinnerTranslation={dinnerWeekendHours}
+        />
+        <DayRow
+          day="sunday"
+          dayTranslation={sunday}
+          lunchTranslation={lunchWeekendHours}
+          dinnerTranslation={dinnerWeekendHours}
+        />
       </tbody>
     </table>
   );

@@ -1,5 +1,6 @@
 {
   "en": {
+    "deliveryMainTitle": "How do I get my order ?",
     "delivery": "Delivery",
     "deliveryContent": "Place an order and get delivered",
     "deliveryButton": "Order with Deliveroo",
@@ -10,6 +11,7 @@
   },
 
   "fr": {
+    "deliveryMainTitle": "Comment récupérer ma commande ?",
     "delivery": "Livraison",
     "deliveryContent": "Commandez et soyez livré chez vous",
     "deliveryButton": "Commandez avec Deliveroo",
