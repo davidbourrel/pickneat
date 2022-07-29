@@ -103,7 +103,10 @@ const Navigation: FC<NavigationProps> = ({
             />
           </li>
           <li>
-            <ThemeSwitcher title={switchThemeTitle} />
+            <ThemeSwitcher
+              title={switchThemeTitle}
+              dataTestButton="themeSwitcherDesktopButton"
+            />
           </li>
         </ul>
       </div>

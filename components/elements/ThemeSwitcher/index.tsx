@@ -6,9 +6,10 @@ import useDarkMode from 'contexts/themeContext/useDarkMode';
 
 interface ThemeSwitcherProps {
   title: string;
+  dataTestButton: string;
 }
 
-const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ title }) => {
+const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ title, dataTestButton }) => {
   const { isDarkMode, handleThemeClick } = useDarkMode();
 
   const svgClassName = useMemo(
@@ -22,6 +23,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ title }) => {
       title={title}
       headless
       className={styles.switcherButton}
+      data-test={dataTestButton}
     >
       <MoonIcon className={svgClassName} />
     </Button>

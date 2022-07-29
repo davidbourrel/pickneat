@@ -119,7 +119,10 @@ const SideNavigation: FC<SideNavigationProps> = ({
             />
           </li>
           <li>
-            <ThemeSwitcher title={switchThemeTitle} />
+            <ThemeSwitcher
+              title={switchThemeTitle}
+              dataTestButton="themeSwitcherMobileButton"
+            />
           </li>
         </ul>
       </div>

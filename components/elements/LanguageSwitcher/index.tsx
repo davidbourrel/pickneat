@@ -85,8 +85,8 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         id={ariaControlsId}
         className={langsListClassName}
         aria-labelledby={`${ariaControlsId}-list`}
-        data-test={dataTestLangsList}
         role="listbox"
+        data-test={dataTestLangsList}
       >
         <li aria-labelledby="lang-item-English">
           <Link
