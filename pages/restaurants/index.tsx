@@ -13,12 +13,12 @@ import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 const Restaurants: FC = () => {
   const { locale } = useRouter();
 
-  const navTranslations = useTranslation(navigation, locale);
-  const { restaurants } = navTranslations;
+  const { restaurants } = useTranslation(navigation, locale);
 
-  const restaurantsTranslations = useTranslation(restaurantsTrans, locale);
-  const { restaurantsMainTitle, location, openingHours } =
-    restaurantsTranslations;
+  const { restaurantsMainTitle, location, openingHours } = useTranslation(
+    restaurantsTrans,
+    locale
+  );
 
   return (
     <main className="sidePadding">

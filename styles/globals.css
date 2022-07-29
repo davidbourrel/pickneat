@@ -6,6 +6,7 @@
 :root {
   --black: #171717;
   --gray: #595959;
+  --lightGray: #d3d3d3;
   --white: #fff;
 
   --primary: #72391d;
@@ -19,6 +20,15 @@
   --error: #ad2216;
 
   --transition: cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+
+html[data-theme='dark'] {
+  --black: #ffffff;
+  --gray: #cecece;
+  --lightGray: #3d3d3d;
+  --white: #171717;
+
+  --primary: #da6d36;
 }
 
 *:focus-visible {

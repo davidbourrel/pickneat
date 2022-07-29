@@ -19,8 +19,7 @@ const Slider = dynamic(() => import('components/modules/Slider'));
 const Home: FC = () => {
   const { locale } = useRouter();
 
-  const translations = useTranslation(home, locale);
-  const { homeMainTitle } = translations;
+  const { homeMainTitle } = useTranslation(home, locale);
 
   return (
     <main className={styles.main}>

@@ -49,12 +49,7 @@
 
         // Why would you want unused vars?
         "@typescript-eslint/no-unused-vars": ["error"],
-        "@typescript-eslint/explicit-function-return-type": [
-          "off",
-          {
-            "allowExpressions": true
-          }
-        ],
+        "@typescript-eslint/explicit-function-return-type": "off",
         "prettier/prettier": ["error", {}, { "usePrettierrc": true }], // Includes .prettierrc.js rules
         "jsx-a11y/no-onchange": "off"
       }

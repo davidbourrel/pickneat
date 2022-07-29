@@ -9,8 +9,10 @@ import Button from 'components/elements/buttons/Button';
 const NotFound = () => {
   const { locale, back } = useRouter();
 
-  const translations = useTranslation(errors, locale);
-  const { shortError404, longError404, backButton } = translations;
+  const { shortError404, longError404, backButton } = useTranslation(
+    errors,
+    locale
+  );
 
   return (
     <main id="not-found" className="sidePadding">

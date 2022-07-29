@@ -6,7 +6,8 @@ import ActiveLink from 'components/elements/ActiveLink';
 import styles from './Navigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
-import { useFetchUser } from 'lib/user';
+import { useUser } from '@auth0/nextjs-auth0';
+import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 
 interface NavigationProps {
   lang: string;
@@ -21,10 +22,9 @@ const Navigation: FC<NavigationProps> = ({
   isLangSwitcherOpened,
   setIsLangSwitcherOpened,
 }) => {
-  const { user } = useFetchUser();
   const { asPath, locale } = useRouter();
+  const { user } = useUser();
 
-  const translations = useTranslation(navigation, locale);
   const {
     menu,
     menuTitle,
@@ -36,27 +36,26 @@ const Navigation: FC<NavigationProps> = ({
     loginTitle,
     profile,
     switchLangTitle,
-  } = translations;
+    switchThemeTitle,
+  } = useTranslation(navigation, locale);
 
   const userTab = useMemo(
     () =>
       user && user.picture ? (
-        <>
-          <li title={profile}>
-            <ActiveLink href="/profile" path={asPath}>
-              <Image
-                src={user.picture}
-                alt="User profile"
-                width="35"
-                height="35"
-                className={styles.userPicture}
-              />
-            </ActiveLink>
-          </li>
-        </>
+        <li title={profile}>
+          <ActiveLink href="/profile" path={asPath}>
+            <Image
+              src={user.picture}
+              alt="User profile"
+              width="35"
+              height="35"
+              className={styles.userPicture}
+            />
+          </ActiveLink>
+        </li>
       ) : (
         <li title={loginTitle}>
-          <ActiveLink href="/api/login" path={asPath}>
+          <ActiveLink href="/api/auth/login" path={asPath}>
             {login}
           </ActiveLink>
         </li>
@@ -102,6 +101,9 @@ const Navigation: FC<NavigationProps> = ({
               isLangSwitcherOpened={isLangSwitcherOpened}
               setIsLangSwitcherOpened={setIsLangSwitcherOpened}
             />
+          </li>
+          <li>
+            <ThemeSwitcher title={switchThemeTitle} />
           </li>
         </ul>
       </div>

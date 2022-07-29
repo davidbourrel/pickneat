@@ -12,7 +12,6 @@ import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 const Delivery: FC = () => {
   const { locale } = useRouter();
 
-  const translations = useTranslation(deliveryTranslations, locale);
   const {
     deliveryMainTitle,
     delivery,
@@ -22,7 +21,7 @@ const Delivery: FC = () => {
     takeAway,
     takeAwayContent,
     takeAwayButton,
-  } = translations;
+  } = useTranslation(deliveryTranslations, locale);
 
   return (
     <main className="sidePadding">

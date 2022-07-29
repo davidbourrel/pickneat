@@ -11,7 +11,8 @@
     "logout": "Logout",
     "logoutTitle": "Disconnected",
     "profile": "Profile",
-    "switchLangTitle": "Change the language"
+    "switchLangTitle": "Change the language",
+    "switchThemeTitle": "Change the theme"
   },
 
   "fr": {
@@ -21,11 +22,12 @@
     "restaurantsTitle": "Voir les restaurants",
     "delivery": "Livraison",
     "deliveryTitle": "Choix de la livraison",
-    "login": "Se connecter",
-    "loginTitle": "Aller sur la page login",
-    "logout": "Se déconnecter",
-    "logoutTitle": "Déconnexion",
+    "login": "Connexion",
+    "loginTitle": "Se connecter",
+    "logout": "Déconnexion",
+    "logoutTitle": "Se déconnecter",
     "profile": "Profil",
-    "switchLangTitle": "Changer de langue"
+    "switchLangTitle": "Changer de langue",
+    "switchThemeTitle": "Changer de theme"
   }
 }

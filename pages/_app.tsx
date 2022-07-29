@@ -8,12 +8,13 @@ import '../styles/globals.css';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
 import useKonami from 'hooks/useKonami';
+import { ThemeProvider } from 'contexts/themeContext';
+import { UserProvider } from '@auth0/nextjs-auth0';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { locale } = useRouter();
-  const translations = useTranslation(navigation, locale);
 
-  const { menu } = translations;
+  const { menu } = useTranslation(navigation, locale);
 
   useKonami();
 
@@ -40,101 +41,105 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <div id="app">
-      <Head>
-        <link rel="icon" href="/favicon.svg" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
-        />
-        <title>PickN`Eat | {menu}</title>
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-SemiBoldItalic.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-Italic.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-Light.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-LightItalic.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-        <link
-          rel="preload"
-          href="/fonts/Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin=""
-        />
-      </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <ThemeProvider>
+        <UserProvider>
+          <Head>
+            <link rel="icon" href="/favicon.svg" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1, maximum-scale=5"
+            />
+            <title>PickN`Eat | {menu}</title>
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-SemiBoldItalic.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-Italic.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-Light.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-LightItalic.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+            <link
+              rel="preload"
+              href="/fonts/Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf"
+              as="font"
+              type="font/ttf"
+              crossOrigin=""
+            />
+          </Head>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </UserProvider>
+      </ThemeProvider>
     </div>
   );
 };

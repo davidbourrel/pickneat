@@ -10,7 +10,6 @@ import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 const Footer: FC = () => {
   const { locale } = useRouter();
 
-  const translations = useTranslation(footer, locale);
   const {
     aboutUs,
     leadershipTeam,
@@ -24,7 +23,7 @@ const Footer: FC = () => {
     restaurantFeedback,
     frequentlyAskedQuestions,
     sendAnEmail,
-  } = translations;
+  } = useTranslation(footer, locale);
 
   return (
     <footer className={styles.footer}>

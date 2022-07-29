@@ -8,7 +8,6 @@ import DayRow from './DayRow';
 const RestaurantsTable: FC = () => {
   const { locale } = useRouter();
 
-  const translations = useTranslation(restaurants, locale);
   const {
     day,
     lunch,
@@ -24,7 +23,7 @@ const RestaurantsTable: FC = () => {
     lunchWeekendHours,
     dinnerWeeklyHours,
     dinnerWeekendHours,
-  } = translations;
+  } = useTranslation(restaurants, locale);
 
   return (
     <table className={styles.table}>

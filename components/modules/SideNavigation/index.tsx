@@ -6,7 +6,8 @@ import useTranslation from 'hooks/useTranslation';
 import styles from './SideNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
-import { useFetchUser } from 'lib/user';
+import { useUser } from '@auth0/nextjs-auth0';
+import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -25,10 +26,9 @@ const SideNavigation: FC<SideNavigationProps> = ({
   isLangSwitcherOpened,
   setIsLangSwitcherOpened,
 }) => {
-  const { user } = useFetchUser();
+  const { user } = useUser();
   const { asPath, locale } = useRouter();
 
-  const translations = useTranslation(navigation, locale);
   const {
     menu,
     menuTitle,
@@ -40,7 +40,8 @@ const SideNavigation: FC<SideNavigationProps> = ({
     loginTitle,
     profile,
     switchLangTitle,
-  } = translations;
+    switchThemeTitle,
+  } = useTranslation(navigation, locale);
 
   const navClassName = useMemo(
     () =>
@@ -51,22 +52,24 @@ const SideNavigation: FC<SideNavigationProps> = ({
   const userTab = useMemo(
     () =>
       user && user.picture ? (
-        <>
-          <li title={profile} className={styles.item}>
-            <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>
-              <Image
-                src={user.picture}
-                alt="User profile"
-                width="50"
-                height="50"
-                className={styles.userPicture}
-              />
-            </ActiveLink>
-          </li>
-        </>
+        <li title={profile} className={styles.item}>
+          <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>
+            <Image
+              src={user.picture}
+              alt="User profile"
+              width="50"
+              height="50"
+              className={styles.userPicture}
+            />
+          </ActiveLink>
+        </li>
       ) : (
         <li title={loginTitle} className={styles.item}>
-          <ActiveLink href="/api/login" path={asPath} closeMenu={closeMenu}>
+          <ActiveLink
+            href="/api/auth/login"
+            path={asPath}
+            closeMenu={closeMenu}
+          >
             {login}
           </ActiveLink>
         </li>
@@ -102,7 +105,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
         </ul>
         <ul>
           {userTab}
-          <li>
+          <li className={styles.item}>
             <LanguageSwitcher
               lang={lang}
               handleLangClick={handleLangClick}
@@ -114,6 +117,9 @@ const SideNavigation: FC<SideNavigationProps> = ({
               isLangSwitcherOpened={isLangSwitcherOpened}
               setIsLangSwitcherOpened={setIsLangSwitcherOpened}
             />
+          </li>
+          <li>
+            <ThemeSwitcher title={switchThemeTitle} />
           </li>
         </ul>
       </div>
