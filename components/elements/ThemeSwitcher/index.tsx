@@ -26,6 +26,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ title, dataTestButton }) => {
       data-test={dataTestButton}
     >
       <MoonIcon className={svgClassName} />
+      <span>Theme</span>
     </Button>
   );
 };

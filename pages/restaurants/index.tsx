@@ -4,11 +4,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import navigation from 'public/translations/navigation.json';
 import restaurantsTrans from 'public/translations/pages/restaurants.json';
-import styles from './Restaurants.module.css';
 import OpenLayersMap from 'components/modules/OpenLayersMap';
-import RestaurantsTable from 'components/modules/RestaurantsTable';
+import OpeningHours from 'components/modules/OpeningHours';
 import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import styles from './Restaurants.module.css';
 
 const Restaurants: FC = () => {
   const { locale } = useRouter();
@@ -38,7 +38,7 @@ const Restaurants: FC = () => {
         </section>
         <section>
           <Headings level={HeadingsLevelEnum.Two}>{openingHours}</Headings>
-          <RestaurantsTable />
+          <OpeningHours />
         </section>
       </div>
     </main>

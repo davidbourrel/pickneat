@@ -1,11 +1,22 @@
 import { FC } from 'react';
-import styles from './RestaurantsTable.module.css';
 import restaurants from 'public/translations/pages/restaurants.json';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
+import styles from './OpeningHours.module.css';
 import DayRow from './DayRow';
+import TableHeader from './TableHeader';
 
-const RestaurantsTable: FC = () => {
+export enum DaysOfTheWeekEnum {
+  Monday = 'monday',
+  Tuesday = 'tuesday',
+  Wednesday = 'wednesday',
+  Thursday = 'thursday',
+  Friday = 'friday',
+  Saturday = 'saturday',
+  Sunday = 'sunday',
+}
+
+const OpeningHours: FC = () => {
   const { locale } = useRouter();
 
   const {
@@ -26,53 +37,47 @@ const RestaurantsTable: FC = () => {
   } = useTranslation(restaurants, locale);
 
   return (
-    <table className={styles.table}>
-      <thead>
-        <tr>
-          <th>{day}</th>
-          <th>{lunch}</th>
-          <th>{dinner}</th>
-        </tr>
-      </thead>
+    <table className={styles.table} data-test="openingHours">
+      <TableHeader day={day} lunch={lunch} dinner={dinner} />
       <tbody>
         <DayRow
-          day="monday"
+          day={DaysOfTheWeekEnum.Monday}
           dayTranslation={monday}
           lunchTranslation={lunchWeeklyHours}
           dinnerTranslation={dinnerWeeklyHours}
         />
         <DayRow
-          day="tuesday"
+          day={DaysOfTheWeekEnum.Tuesday}
           dayTranslation={tuesday}
           lunchTranslation={lunchWeeklyHours}
           dinnerTranslation={dinnerWeeklyHours}
         />
         <DayRow
-          day="wednesday"
+          day={DaysOfTheWeekEnum.Wednesday}
           dayTranslation={wednesday}
           lunchTranslation={lunchWeeklyHours}
           dinnerTranslation={dinnerWeeklyHours}
         />
         <DayRow
-          day="thursday"
+          day={DaysOfTheWeekEnum.Thursday}
           dayTranslation={thursday}
           lunchTranslation={lunchWeeklyHours}
           dinnerTranslation={dinnerWeeklyHours}
         />
         <DayRow
-          day="friday"
+          day={DaysOfTheWeekEnum.Friday}
           dayTranslation={friday}
           lunchTranslation={lunchWeeklyHours}
           dinnerTranslation={dinnerWeeklyHours}
         />
         <DayRow
-          day="saturday"
+          day={DaysOfTheWeekEnum.Saturday}
           dayTranslation={saturday}
           lunchTranslation={lunchWeekendHours}
           dinnerTranslation={dinnerWeekendHours}
         />
         <DayRow
-          day="sunday"
+          day={DaysOfTheWeekEnum.Sunday}
           dayTranslation={sunday}
           lunchTranslation={lunchWeekendHours}
           dinnerTranslation={dinnerWeekendHours}
@@ -82,4 +87,4 @@ const RestaurantsTable: FC = () => {
   );
 };
 
-export default RestaurantsTable;
+export default OpeningHours;

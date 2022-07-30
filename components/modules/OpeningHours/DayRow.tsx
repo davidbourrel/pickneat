@@ -1,3 +1,4 @@
+import { FC, useMemo } from 'react';
 import {
   isFriday,
   isMonday,
@@ -7,8 +8,8 @@ import {
   isTuesday,
   isWednesday,
 } from 'date-fns';
-import { FC, useMemo } from 'react';
-import styles from './RestaurantsTable.module.css';
+import { DaysOfTheWeekEnum } from '.';
+import styles from './OpeningHours.module.css';
 
 interface DayRowProps {
   day: string;
@@ -25,19 +26,19 @@ const DayRow: FC<DayRowProps> = ({
 }) => {
   const currentDayClassName = useMemo(() => {
     switch (day) {
-      case 'monday':
+      case DaysOfTheWeekEnum.Monday:
         return isMonday(Date.now()) ? styles.currentDay : '';
-      case 'tuesday':
+      case DaysOfTheWeekEnum.Tuesday:
         return isTuesday(Date.now()) ? styles.currentDay : '';
-      case 'wednesday':
+      case DaysOfTheWeekEnum.Wednesday:
         return isWednesday(Date.now()) ? styles.currentDay : '';
-      case 'thursday':
+      case DaysOfTheWeekEnum.Thursday:
         return isThursday(Date.now()) ? styles.currentDay : '';
-      case 'friday':
+      case DaysOfTheWeekEnum.Friday:
         return isFriday(Date.now()) ? styles.currentDay : '';
-      case 'saturday':
+      case DaysOfTheWeekEnum.Saturday:
         return isSaturday(Date.now()) ? styles.currentDay : '';
-      case 'sunday':
+      case DaysOfTheWeekEnum.Sunday:
         return isSunday(Date.now()) ? styles.currentDay : '';
 
       default:
