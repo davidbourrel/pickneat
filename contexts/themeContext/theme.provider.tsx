@@ -44,12 +44,15 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
       if (localStorage.getItem(PICKANDEAT_THEME)) {
         if (localStorage.getItem(PICKANDEAT_THEME) === ThemeEnum.Dark) {
           handleSetTheme(ThemeEnum.Dark);
+          setIsDarkMode(true);
         }
         if (localStorage.getItem(PICKANDEAT_THEME) === ThemeEnum.Light) {
           handleSetTheme(ThemeEnum.Light);
+          setIsDarkMode(false);
         }
       } else {
         handleSetTheme(ThemeEnum.Light);
+        setIsDarkMode(false);
       }
     };
     refetchTheme();

@@ -17,9 +17,9 @@ const ActiveLink: FC<ActiveLinkProps> = ({
 }) => {
   const linkClassName = useMemo(
     () =>
-      `capitalize ${styles.activeLink} ${
-        path === href && path !== '/profile' ? styles.active : ''
-      }`,
+      `capitalize ${
+        href !== '/profile' && href !== '/cart' && styles.activeLink
+      } ${path === href && styles.active}`,
     [href, path]
   );
   return (

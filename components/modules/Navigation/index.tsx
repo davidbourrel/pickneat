@@ -8,6 +8,7 @@ import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
+import CartCount from 'components/elements/CartCount';
 
 interface NavigationProps {
   lang: string;
@@ -88,7 +89,6 @@ const Navigation: FC<NavigationProps> = ({
           </li>
         </ul>
         <ul className={styles.navList}>
-          {userTab}
           <li>
             <LanguageSwitcher
               lang={lang}
@@ -108,6 +108,12 @@ const Navigation: FC<NavigationProps> = ({
               dataTestButton="themeSwitcherDesktopButton"
             />
           </li>
+          <li>
+            <ActiveLink href="/cart" path={asPath}>
+              <CartCount />
+            </ActiveLink>
+          </li>
+          {userTab}
         </ul>
       </div>
     </nav>

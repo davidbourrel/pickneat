@@ -8,6 +8,7 @@ import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
+import CartCount from 'components/elements/CartCount';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -52,7 +53,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
   const userTab = useMemo(
     () =>
       user && user.picture ? (
-        <li title={profile} className={styles.item}>
+        <li title={profile}>
           <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>
             <Image
               src={user.picture}
@@ -64,7 +65,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
           </ActiveLink>
         </li>
       ) : (
-        <li title={loginTitle} className={styles.item}>
+        <li title={loginTitle}>
           <ActiveLink
             href="/api/auth/login"
             path={asPath}
@@ -104,7 +105,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
           </li>
         </ul>
         <ul>
-          {userTab}
           <li className={styles.item}>
             <LanguageSwitcher
               lang={lang}
@@ -118,12 +118,18 @@ const SideNavigation: FC<SideNavigationProps> = ({
               setIsLangSwitcherOpened={setIsLangSwitcherOpened}
             />
           </li>
-          <li>
+          <li className={styles.item}>
             <ThemeSwitcher
               title={switchThemeTitle}
               dataTestButton="themeSwitcherMobileButton"
             />
           </li>
+          <li className={styles.item}>
+            <ActiveLink href="/cart" path={asPath}>
+              <CartCount />
+            </ActiveLink>
+          </li>
+          {userTab}
         </ul>
       </div>
     </nav>

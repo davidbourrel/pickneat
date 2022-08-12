@@ -1,0 +1,31 @@
+.cartCountContainer {
+  padding-right: 1rem;
+  position: relative;
+  width: max-content;
+}
+.cartCountContainer:hover .cartSvg {
+  fill: var(--primary);
+}
+
+.cartSvg {
+  fill: var(--black);
+}
+
+.notEmptyCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  font-size: 0.938rem;
+  color: var(--white);
+  background-color: var(--primary);
+  border-radius: 50%;
+  user-select: none;
+}
+.emptyCart {
+  display: none;
+}

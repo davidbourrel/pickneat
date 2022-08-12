@@ -34,7 +34,7 @@
   background-color: var(--white);
 }
 .item {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 .userPicture {
