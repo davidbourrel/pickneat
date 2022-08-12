@@ -36,8 +36,9 @@ describe('Navigation menu', () => {
       cy.get('@sideNavigation').contains('Menu');
       cy.get('@sideNavigation').contains('Restaurants');
       cy.get('@sideNavigation').contains('Delivery');
-      cy.get('@sideNavigation').contains('Login');
       cy.get('@sideNavigation').contains('English');
+      cy.get('@sideNavigation').contains('Theme');
+      cy.get('@sideNavigation').contains('Login');
     });
   });
 
@@ -55,8 +56,9 @@ describe('Navigation menu', () => {
       cy.get('@mainNavigation').contains('Menu');
       cy.get('@mainNavigation').contains('Restaurants');
       cy.get('@mainNavigation').contains('Delivery');
-      cy.get('@mainNavigation').contains('Login');
       cy.get('@mainNavigation').contains('English');
+      cy.get('@mainNavigation').contains('Theme');
+      cy.get('@mainNavigation').contains('Login');
     });
   });
 });
