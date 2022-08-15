@@ -26,22 +26,30 @@ describe('Theme Switcher', () => {
       cy.get('@burgerToggleButton').click();
 
       cy.get('[data-theme="light"]').should('exist');
+      cy.get('[dark-mode="light"]').should('exist');
+
+      /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherMobileButton"]').click();
       cy.get('[data-theme="light"]').should('not.exist');
       cy.get('[data-theme="dark"]').should('exist');
+      cy.get('[dark-mode="dark"]').should('exist');
     });
 
     it('should switch to the light mode', () => {
       cy.get('@burgerToggleButton').click();
 
       cy.get('[data-theme="light"]').should('exist');
+      cy.get('[dark-mode="light"]').should('exist');
+
       /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherMobileButton"]').click();
       cy.get('[data-theme="dark"]').should('exist');
+      cy.get('[dark-mode="dark"]').should('exist');
 
       /** Switch to the light mode */
       cy.get('[data-test="themeSwitcherMobileButton"]').click();
       cy.get('[data-theme="light"]').should('exist');
+      cy.get('[dark-mode="light"]').should('exist');
     });
   });
 
@@ -56,20 +64,28 @@ describe('Theme Switcher', () => {
 
     it('should switch to the dark mode', () => {
       cy.get('[data-theme="light"]').should('exist');
+      cy.get('[dark-mode="light"]').should('exist');
+
+      /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherDesktopButton"]').click();
       cy.get('[data-theme="light"]').should('not.exist');
       cy.get('[data-theme="dark"]').should('exist');
+      cy.get('[dark-mode="dark"]').should('exist');
     });
 
     it('should switch to the light mode', () => {
       cy.get('[data-theme="light"]').should('exist');
+      cy.get('[dark-mode="light"]').should('exist');
+
       /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherDesktopButton"]').click();
       cy.get('[data-theme="dark"]').should('exist');
+      cy.get('[dark-mode="dark"]').should('exist');
 
       /** Switch to the light mode */
       cy.get('[data-test="themeSwitcherDesktopButton"]').click();
       cy.get('[data-theme="light"]').should('exist');
+      cy.get('[dark-mode="light"]').should('exist');
     });
   });
 });

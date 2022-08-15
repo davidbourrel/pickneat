@@ -9,13 +9,9 @@ import {
 import themeContext from './theme.context';
 import { ThemeContextInterface } from './theme.types';
 import { PICKANDEAT_THEME } from '../../_constants/localStorage';
+import { ThemeEnum } from '_types/theme';
 
 const { Provider } = themeContext;
-
-export enum ThemeEnum {
-  Light = 'light',
-  Dark = 'dark',
-}
 
 interface ThemeProviderProps {
   children: ReactNode;
