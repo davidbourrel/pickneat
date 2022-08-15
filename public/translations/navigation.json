@@ -1,7 +1,7 @@
 {
   "en": {
     "menu": "Menu",
-    "menuTitle": "See the menu",
+    "menuTitle": "See the menus",
     "restaurants": "Restaurants",
     "restaurantsTitle": "See the restaurants",
     "delivery": "Delivery",
@@ -13,14 +13,14 @@
     "loginTitle": "Go to the login page",
     "logout": "Logout",
     "logoutTitle": "Disconnected",
-    "profile": "Profile"
+    "profile": "Your profile"
   },
 
   "fr": {
     "menu": "Menus",
-    "menuTitle": "Voir les menus",
+    "menuTitle": "Voir nos menus",
     "restaurants": "Restaurants",
-    "restaurantsTitle": "Voir les restaurants",
+    "restaurantsTitle": "Voir nos restaurants",
     "delivery": "Livraison",
     "deliveryTitle": "Choix de la livraison",
     "switchLangTitle": "Changer de langue",
@@ -30,6 +30,6 @@
     "loginTitle": "Se connecter",
     "logout": "Déconnexion",
     "logoutTitle": "Se déconnecter",
-    "profile": "Profil"
+    "profile": "Votre profil"
   }
 }

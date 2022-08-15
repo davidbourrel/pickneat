@@ -8,7 +8,7 @@ import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
-import UserIcon from 'components/images/icons/UserIcon';
+import ProfileIcon from 'components/elements/ProfileIcon';
 
 const Navigation: FC = () => {
   const { asPath, locale } = useRouter();
@@ -34,7 +34,7 @@ const Navigation: FC = () => {
       user && user.picture ? (
         <li title={profile}>
           <ActiveLink href="/profile" path={asPath}>
-            <UserIcon className={styles.userIcon} />
+            <ProfileIcon />
           </ActiveLink>
         </li>
       ) : (

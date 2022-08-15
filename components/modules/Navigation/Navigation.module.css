@@ -26,7 +26,4 @@
   .navList li {
     position: relative;
   }
-  .userIcon {
-    display: flex;
-  }
 }

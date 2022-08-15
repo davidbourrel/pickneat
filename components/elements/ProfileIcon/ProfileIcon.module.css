@@ -1,0 +1,8 @@
+.userIcon {
+  display: flex;
+  color: var(--black);
+}
+
+.userIcon:hover {
+  color: var(--primary);
+}

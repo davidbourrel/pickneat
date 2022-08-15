@@ -54,7 +54,7 @@ a {
   text-decoration: none;
 }
 svg {
-  transition: stroke 150ms ease-out, fill 150ms ease-out,
+  transition: stroke 150ms ease-out, fill 150ms ease-out, color 150ms ease-out,
     background-color 150ms ease-out, transform 300ms var(--transition);
   max-width: 1.7rem;
   max-height: 1.7rem;
