@@ -1,4 +1,4 @@
-import { Dispatch, FC, MouseEvent, SetStateAction, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
@@ -10,19 +10,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 
-interface NavigationProps {
-  lang: string;
-  handleLangClick: (e: MouseEvent) => void;
-  isLangSwitcherOpened: boolean;
-  setIsLangSwitcherOpened: Dispatch<SetStateAction<boolean>>;
-}
-
-const Navigation: FC<NavigationProps> = ({
-  lang,
-  handleLangClick,
-  isLangSwitcherOpened,
-  setIsLangSwitcherOpened,
-}) => {
+const Navigation: FC = () => {
   const { asPath, locale } = useRouter();
   const { user } = useUser();
 
@@ -91,15 +79,11 @@ const Navigation: FC<NavigationProps> = ({
         <ul className={styles.navList}>
           <li>
             <LanguageSwitcher
-              lang={lang}
-              handleLangClick={handleLangClick}
               title={switchLangTitle}
               ariaControlsId="lang-switcher-desktop"
               dataTestButton="langSwitcherDesktopButton"
               dataTestLangsList="langSwitcherDesktopLangsList"
               dataTestLangButton="langSwitcherDesktopLangButton"
-              isLangSwitcherOpened={isLangSwitcherOpened}
-              setIsLangSwitcherOpened={setIsLangSwitcherOpened}
             />
           </li>
           <li>

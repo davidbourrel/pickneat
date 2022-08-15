@@ -1,10 +1,9 @@
-import { FC, MouseEvent, useCallback, useRef, useState } from 'react';
+import { FC, useCallback, useRef } from 'react';
 import Navigation from '../Navigation';
 import styles from './Header.module.css';
 import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
 import SideNavigation from '../SideNavigation';
 import useOutsideClick from 'hooks/useOutsideClick';
-import { useRouter } from 'next/router';
 import Link from 'components/elements/Link';
 
 interface HeaderProps {
@@ -18,16 +17,6 @@ const Header: FC<HeaderProps> = ({
   closeMenu,
   handleToggleMenu,
 }) => {
-  const { locale } = useRouter();
-
-  const [lang, setLang] = useState(locale ?? 'en');
-  const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
-
-  const handleLangClick = useCallback((e: MouseEvent) => {
-    setLang((e.target as HTMLButtonElement).lang);
-    setIsLangSwitcherOpened(false);
-  }, []);
-
   // Close side navigation on outside click
   const HeaderRef = useRef(null as unknown as HTMLHeadingElement);
   const handleOutsideClick = useCallback(() => {
@@ -49,12 +38,7 @@ const Header: FC<HeaderProps> = ({
         >
           <span>PickN`Eat</span>
         </Link>
-        <Navigation
-          lang={lang}
-          handleLangClick={handleLangClick}
-          isLangSwitcherOpened={isLangSwitcherOpened}
-          setIsLangSwitcherOpened={setIsLangSwitcherOpened}
-        />
+        <Navigation />
         <BurgerMenuToggle
           isSideNavOpened={isSideNavOpened}
           handleToggleMenu={handleToggleMenu}
@@ -62,10 +46,6 @@ const Header: FC<HeaderProps> = ({
         <SideNavigation
           isSideNavOpened={isSideNavOpened}
           closeMenu={closeMenu}
-          lang={lang}
-          handleLangClick={handleLangClick}
-          isLangSwitcherOpened={isLangSwitcherOpened}
-          setIsLangSwitcherOpened={setIsLangSwitcherOpened}
         />
       </div>
     </header>

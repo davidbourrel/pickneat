@@ -1,11 +1,4 @@
-import {
-  Dispatch,
-  FC,
-  MouseEvent,
-  SetStateAction,
-  useCallback,
-  useMemo,
-} from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
 import Button from '../buttons/Button';
@@ -13,31 +6,27 @@ import Link from '../Link';
 import CheckMark from '../CheckMark';
 import Arrow from '../Arrow';
 import { ArrowDirectionEnum } from '../Arrow/types';
+import useLang from 'contexts/i18nContext/useLang';
+import useLangPopup from 'contexts/i18nContext/useLangPopup';
 
 interface LanguageSwitcherProps {
-  lang: string;
-  handleLangClick: (e: MouseEvent) => void;
   title: string;
   ariaControlsId: string;
   dataTestButton: string;
   dataTestLangsList: string;
   dataTestLangButton: string;
-  isLangSwitcherOpened: boolean;
-  setIsLangSwitcherOpened: Dispatch<SetStateAction<boolean>>;
 }
 
 const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
-  lang,
-  handleLangClick,
   title,
   ariaControlsId,
   dataTestButton,
   dataTestLangsList,
   dataTestLangButton,
-  isLangSwitcherOpened,
-  setIsLangSwitcherOpened,
 }) => {
   const { asPath } = useRouter();
+  const { lang, handleLangClick } = useLang();
+  const { isLangSwitcherOpened, setIsLangSwitcherOpened } = useLangPopup();
 
   const handleLanguageSwitcherClick = useCallback(
     () => setIsLangSwitcherOpened((c) => !c),

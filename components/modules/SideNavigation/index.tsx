@@ -1,4 +1,4 @@
-import { FC, useMemo, MouseEvent, Dispatch, SetStateAction } from 'react';
+import { FC, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import ActiveLink from 'components/elements/ActiveLink';
 import navigation from 'public/translations/navigation.json';
@@ -13,19 +13,11 @@ import CartCount from 'components/elements/CartCount';
 interface SideNavigationProps {
   isSideNavOpened: boolean;
   closeMenu: () => void;
-  lang: string;
-  handleLangClick: (e: MouseEvent) => void;
-  isLangSwitcherOpened: boolean;
-  setIsLangSwitcherOpened: Dispatch<SetStateAction<boolean>>;
 }
 
 const SideNavigation: FC<SideNavigationProps> = ({
   isSideNavOpened,
   closeMenu,
-  lang,
-  handleLangClick,
-  isLangSwitcherOpened,
-  setIsLangSwitcherOpened,
 }) => {
   const { user } = useUser();
   const { asPath, locale } = useRouter();
@@ -107,15 +99,11 @@ const SideNavigation: FC<SideNavigationProps> = ({
         <ul>
           <li className={styles.item}>
             <LanguageSwitcher
-              lang={lang}
-              handleLangClick={handleLangClick}
               title={switchLangTitle}
               ariaControlsId="lang-switcher-mobile"
               dataTestButton="langSwitcherMobileButton"
               dataTestLangsList="langSwitcherMobileLangsList"
               dataTestLangButton="langSwitcherMobileLangButton"
-              isLangSwitcherOpened={isLangSwitcherOpened}
-              setIsLangSwitcherOpened={setIsLangSwitcherOpened}
             />
           </li>
           <li className={styles.item}>
