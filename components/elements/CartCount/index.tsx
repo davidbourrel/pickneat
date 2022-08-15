@@ -4,17 +4,18 @@ import styles from './CartCount.module.css';
 
 interface CartCountInterface {
   count?: number;
+  title: string;
 }
 // TODO : enlever "?" à count et enlever la valeur par défaut
 
-const CartCount: FC<CartCountInterface> = ({ count = 2 }) => {
+const CartCount: FC<CartCountInterface> = ({ count = 2, title }) => {
   const computedCartCountClassName = useMemo(
     () => (count > 0 ? styles.notEmptyCart : styles.emptyCart),
     [count]
   );
 
   return (
-    <div className={styles.cartCountContainer}>
+    <div title={title} className={styles.cartCountContainer}>
       <CartIcon className={styles.cartSvg} />
       <span className={computedCartCountClassName}>{count}</span>
     </div>

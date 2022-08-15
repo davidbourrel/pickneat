@@ -37,8 +37,8 @@
   margin-bottom: 1.5rem;
   position: relative;
 }
-.userPicture {
-  border-radius: 50%;
+.userIcon {
+  display: flex;
 }
 
 /**************************/

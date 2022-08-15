@@ -26,7 +26,7 @@
   .navList li {
     position: relative;
   }
-  .userPicture {
-    border-radius: 50%;
+  .userIcon {
+    display: flex;
   }
 }

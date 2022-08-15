@@ -1,7 +1,8 @@
 .cartCountContainer {
-  padding-right: 1rem;
+  display: flex;
   position: relative;
   width: max-content;
+  padding-right: 1rem;
 }
 .cartCountContainer:hover .cartSvg {
   fill: var(--primary);

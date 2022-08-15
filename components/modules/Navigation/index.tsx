@@ -5,10 +5,10 @@ import navigation from 'public/translations/navigation.json';
 import ActiveLink from 'components/elements/ActiveLink';
 import styles from './Navigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
-import Image from 'next/image';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
+import UserIcon from 'components/images/icons/UserIcon';
 
 const Navigation: FC = () => {
   const { asPath, locale } = useRouter();
@@ -26,6 +26,7 @@ const Navigation: FC = () => {
     profile,
     switchLangTitle,
     switchThemeTitle,
+    cartTitle,
   } = useTranslation(navigation, locale);
 
   const userTab = useMemo(
@@ -33,13 +34,7 @@ const Navigation: FC = () => {
       user && user.picture ? (
         <li title={profile}>
           <ActiveLink href="/profile" path={asPath}>
-            <Image
-              src={user.picture}
-              alt="User profile"
-              width="35"
-              height="35"
-              className={styles.userPicture}
-            />
+            <UserIcon className={styles.userIcon} />
           </ActiveLink>
         </li>
       ) : (
@@ -94,7 +89,7 @@ const Navigation: FC = () => {
           </li>
           <li>
             <ActiveLink href="/cart" path={asPath}>
-              <CartCount />
+              <CartCount title={cartTitle} />
             </ActiveLink>
           </li>
           {userTab}

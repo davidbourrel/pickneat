@@ -46,10 +46,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
     [lang]
   );
 
-  const plainCountryName = useMemo(
-    () => (lang === 'en' ? 'English' : 'Français'),
-    [lang]
-  );
+  const plainCountryName = useMemo(() => (lang === 'en' ? 'EN' : 'FR'), [lang]);
 
   return (
     <>

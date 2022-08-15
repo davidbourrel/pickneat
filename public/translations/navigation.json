@@ -6,13 +6,14 @@
     "restaurantsTitle": "See the restaurants",
     "delivery": "Delivery",
     "deliveryTitle": "Choose how to get your burger",
+    "switchLangTitle": "Change the language",
+    "switchThemeTitle": "Change the theme",
+    "cartTitle": "Your cart",
     "login": "Login",
     "loginTitle": "Go to the login page",
     "logout": "Logout",
     "logoutTitle": "Disconnected",
-    "profile": "Profile",
-    "switchLangTitle": "Change the language",
-    "switchThemeTitle": "Change the theme"
+    "profile": "Profile"
   },
 
   "fr": {
@@ -22,12 +23,13 @@
     "restaurantsTitle": "Voir les restaurants",
     "delivery": "Livraison",
     "deliveryTitle": "Choix de la livraison",
+    "switchLangTitle": "Changer de langue",
+    "switchThemeTitle": "Changer de theme",
+    "cartTitle": "Votre panier",
     "login": "Connexion",
     "loginTitle": "Se connecter",
     "logout": "Déconnexion",
     "logoutTitle": "Se déconnecter",
-    "profile": "Profil",
-    "switchLangTitle": "Changer de langue",
-    "switchThemeTitle": "Changer de theme"
+    "profile": "Profil"
   }
 }
