@@ -10,9 +10,9 @@
     "switchThemeTitle": "Change the theme",
     "cartTitle": "Your cart",
     "login": "Login",
-    "loginTitle": "Go to the login page",
+    "loginTitle": "Login",
     "logout": "Logout",
-    "logoutTitle": "Disconnected",
+    "logoutTitle": "Logout",
     "profile": "Your profile"
   },
 
@@ -26,9 +26,9 @@
     "switchLangTitle": "Changer de langue",
     "switchThemeTitle": "Changer de theme",
     "cartTitle": "Votre panier",
-    "login": "Connexion",
+    "login": "Se connecter",
     "loginTitle": "Se connecter",
-    "logout": "Déconnexion",
+    "logout": "Se déconnecter",
     "logoutTitle": "Se déconnecter",
     "profile": "Votre profil"
   }

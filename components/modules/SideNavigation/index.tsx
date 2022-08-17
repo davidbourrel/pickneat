@@ -9,6 +9,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
+import Button from 'components/elements/buttons/Button';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -57,8 +58,9 @@ const SideNavigation: FC<SideNavigationProps> = ({
             href="/api/auth/login"
             path={asPath}
             closeMenu={closeMenu}
+            tabIndex={-1}
           >
-            {login}
+            <Button border>{login}</Button>
           </ActiveLink>
         </li>
       ),

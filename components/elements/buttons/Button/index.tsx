@@ -12,6 +12,7 @@ import Loader from '../../Loader';
 export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
   busy?: boolean;
   headless?: boolean;
+  border?: boolean;
   hideBusyWheel?: boolean;
   busyClassName?: string;
   disabledClassName?: string;
@@ -24,6 +25,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     type,
     disabled,
     headless,
+    border,
     busy,
     hideBusyWheel,
     onClick,
@@ -52,7 +54,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     () =>
       headless
         ? className
-        : `${styles.button} ${
+        : `${styles.button} ${border ? styles.border : styles.filled} ${
             busy || disabled
               ? `${busy ? busyClassName : disabledClassName} ${
                   definitelyDisabled ? styles.definitelyDisabled : ''
@@ -61,6 +63,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
           } ${className}`,
     [
       headless,
+      border,
       className,
       busy,
       disabled,

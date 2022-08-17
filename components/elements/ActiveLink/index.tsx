@@ -1,29 +1,34 @@
-import { FC, ReactNode, useMemo } from 'react';
+import { FC, HTMLProps, ReactNode, useMemo } from 'react';
 import Link from '../Link';
 import styles from './ActiveLink.module.css';
 
-interface ActiveLinkProps {
+interface ActiveLinkProps extends HTMLProps<HTMLAnchorElement> {
   children: ReactNode;
-  path: string;
   href: string;
+  path: string;
   closeMenu?: () => void;
 }
 
 const ActiveLink: FC<ActiveLinkProps> = ({
   children,
-  path,
   href,
+  path,
   closeMenu,
+  ...rest
 }) => {
   const linkClassName = useMemo(
     () =>
       `capitalize ${
-        href !== '/profile' && href !== '/cart' && styles.activeLink
+        href !== '/profile' &&
+        href !== '/cart' &&
+        href !== '/api/auth/login' &&
+        styles.activeLink
       } ${path === href && styles.active}`,
     [href, path]
   );
+
   return (
-    <Link href={href} onClick={closeMenu} className={linkClassName}>
+    <Link href={href} onClick={closeMenu} className={linkClassName} {...rest}>
       {children}
     </Link>
   );

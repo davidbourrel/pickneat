@@ -9,6 +9,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
+import Button from 'components/elements/buttons/Button';
 
 const Navigation: FC = () => {
   const { asPath, locale } = useRouter();
@@ -39,8 +40,8 @@ const Navigation: FC = () => {
         </li>
       ) : (
         <li title={loginTitle}>
-          <ActiveLink href="/api/auth/login" path={asPath}>
-            {login}
+          <ActiveLink href="/api/auth/login" path={asPath} tabIndex={-1}>
+            <Button border>{login}</Button>
           </ActiveLink>
         </li>
       ),

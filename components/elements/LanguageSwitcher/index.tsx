@@ -48,6 +48,11 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
   const plainCountryName = useMemo(() => (lang === 'en' ? 'EN' : 'FR'), [lang]);
 
+  const computedTabIndex = useMemo(
+    () => (isLangSwitcherOpened ? 0 : -1),
+    [isLangSwitcherOpened]
+  );
+
   return (
     <>
       <Button
@@ -85,6 +90,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             aria-labelledby={`${ariaControlsId}-en-button`}
             role="option"
             data-test={`${dataTestLangButton}English`}
+            tabIndex={computedTabIndex}
           >
             <span>English</span>
             <CheckMark lang="en" />
@@ -101,6 +107,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             aria-labelledby={`${ariaControlsId}-fr-button`}
             role="option"
             data-test={`${dataTestLangButton}French`}
+            tabIndex={computedTabIndex}
           >
             <span>Français</span>
             <CheckMark lang="fr" />
