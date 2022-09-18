@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { FC, useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/router';
 import ActiveLink from 'components/elements/ActiveLink';
 import navigation from 'public/translations/navigation.json';
@@ -10,6 +10,8 @@ import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
+import useOutsideClick from 'hooks/useOutsideClick';
+import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -21,8 +23,8 @@ const SideNavigation: FC<SideNavigationProps> = ({
   closeMenu,
 }) => {
   const { user } = useUser();
-  const { asPath, locale } = useRouter();
 
+  const { asPath, locale } = useRouter();
   const {
     menu,
     menuTitle,
@@ -36,11 +38,31 @@ const SideNavigation: FC<SideNavigationProps> = ({
     switchLangTitle,
     switchThemeTitle,
     cartTitle,
+    burgerMenuClose,
   } = useTranslation(navigation, locale);
 
-  const navClassName = useMemo(
+  // Close side navigation on outside click
+  const sideNavigationRef = useRef(null as unknown as HTMLHeadingElement);
+  const handleOutsideClick = useCallback(() => {
+    if (isSideNavOpened) {
+      closeMenu();
+    }
+  }, [isSideNavOpened, closeMenu]);
+  useOutsideClick(sideNavigationRef, handleOutsideClick);
+
+  const blackFilterClassName = useMemo(
     () =>
-      `${styles.nav} ${isSideNavOpened ? styles.navOpened : styles.navClosed}`,
+      `${styles.blackFilter} ${
+        isSideNavOpened ? styles.activeBlackFilter : ''
+      }`,
+    [isSideNavOpened]
+  );
+
+  const sideNavContainerClassName = useMemo(
+    () =>
+      `${styles.sideNavContainer} ${
+        isSideNavOpened ? styles.sideNavContainerOpened : ''
+      }`,
     [isSideNavOpened]
   );
 
@@ -68,56 +90,69 @@ const SideNavigation: FC<SideNavigationProps> = ({
   );
 
   return (
-    <nav
-      id="side-navigation"
-      className={navClassName}
-      aria-label="side navigation"
-      data-test="sideNavigation"
-    >
-      <div className={styles.topBoxShadow} />
-      <div className={styles.navListContainer}>
-        <ul>
-          <li title={menuTitle} className={styles.item}>
-            <ActiveLink href="/" path={asPath} closeMenu={closeMenu}>
-              {menu}
-            </ActiveLink>
-          </li>
-          <li title={restaurantsTitle} className={styles.item}>
-            <ActiveLink href="/restaurants" path={asPath} closeMenu={closeMenu}>
-              {restaurants}
-            </ActiveLink>
-          </li>
-          <li title={deliveryTitle} className={styles.item}>
-            <ActiveLink href="/delivery" path={asPath} closeMenu={closeMenu}>
-              {delivery}
-            </ActiveLink>
-          </li>
-        </ul>
-        <ul>
-          <li className={styles.item}>
-            <LanguageSwitcher
-              title={switchLangTitle}
-              ariaControlsId="lang-switcher-mobile"
-              dataTestButton="langSwitcherMobileButton"
-              dataTestLangsList="langSwitcherMobileLangsList"
-              dataTestLangButton="langSwitcherMobileLangButton"
-            />
-          </li>
-          <li className={styles.item}>
-            <ThemeSwitcher
-              title={switchThemeTitle}
-              dataTestButton="themeSwitcherMobileButton"
-            />
-          </li>
-          <li className={styles.item}>
-            <ActiveLink href="/cart" path={asPath}>
-              <CartCount title={cartTitle} />
-            </ActiveLink>
-          </li>
-          {userTab}
-        </ul>
-      </div>
-    </nav>
+    <div className={blackFilterClassName}>
+      <aside
+        id="side-navigation"
+        className={sideNavContainerClassName}
+        ref={sideNavigationRef}
+        aria-label="side navigation"
+        data-test="sideNavigation"
+      >
+        <nav className={styles.sideNavigation}>
+          <BurgerMenuToggle
+            isSideNavOpened={isSideNavOpened}
+            closeMenu={closeMenu}
+            title={burgerMenuClose}
+            className={styles.topRightCloseButton}
+          />
+          <ul className={styles.firstNavigation}>
+            <li title={menuTitle} className={styles.item}>
+              <ActiveLink href="/" path={asPath} closeMenu={closeMenu}>
+                {menu}
+              </ActiveLink>
+            </li>
+            <li title={restaurantsTitle} className={styles.item}>
+              <ActiveLink
+                href="/restaurants"
+                path={asPath}
+                closeMenu={closeMenu}
+              >
+                {restaurants}
+              </ActiveLink>
+            </li>
+            <li title={deliveryTitle} className={styles.item}>
+              <ActiveLink href="/delivery" path={asPath} closeMenu={closeMenu}>
+                {delivery}
+              </ActiveLink>
+            </li>
+          </ul>
+          
+          <ul className={styles.secondNavigation}>
+            <li className={styles.item}>
+              <LanguageSwitcher
+                title={switchLangTitle}
+                ariaControlsId="lang-switcher-mobile"
+                dataTestButton="langSwitcherMobileButton"
+                dataTestLangsList="langSwitcherMobileLangsList"
+                dataTestLangButton="langSwitcherMobileLangButton"
+              />
+            </li>
+            <li className={styles.item}>
+              <ThemeSwitcher
+                title={switchThemeTitle}
+                dataTestButton="themeSwitcherMobileButton"
+              />
+            </li>
+            <li className={styles.item}>
+              <ActiveLink href="/cart" path={asPath} closeMenu={closeMenu}>
+                <CartCount title={cartTitle} />
+              </ActiveLink>
+            </li>
+            {userTab}
+          </ul>
+        </nav>
+      </aside>
+    </div>
   );
 };
 

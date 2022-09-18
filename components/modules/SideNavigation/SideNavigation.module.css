@@ -1,61 +1,71 @@
-.nav {
-  display: flex;
-  position: fixed;
+.blackFilter {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 100;
+  background-color: transparent;
+  transform: scale(0, 0);
+  transition: background-color 350ms ease-in-out;
+}
+.activeBlackFilter {
+  transform: scale(1, 1);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.sideNavContainer {
+  display: none;
+  position: absolute;
   top: 0;
   right: 0;
-  height: 100vh;
-  box-sizing: border-box;
-  padding-top: 60px;
+  bottom: 0;
 }
-.navOpened {
-  transition: width 300ms ease-out;
-  width: 80%;
+.sideNavContainerOpened {
+  display: flex;
+  animation: appear-side-navigation-effect 300ms ease-in-out;
 }
-.navClosed {
-  width: 0;
-  height: 0;
+@keyframes appear-side-navigation-effect {
+  0% {
+    transform: translate(200%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
-.topBoxShadow {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
-    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  position: absolute;
-  top: 55px;
-  left: 0;
-  height: 5px;
-  width: 100%;
-}
-.navListContainer {
-  width: 100%;
+
+.sideNavigation {
+  min-width: 250px;
   padding: 1.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--white);
+  height: 100%;
+  overflow-y: auto;
+}
+.topRightCloseButton {
+  position: absolute;
+  align-self: end;
+}
+.firstNavigation {
+  border-top: 1px solid var(--primary);
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+}
+.secondNavigation .item {
+  padding: 0.3rem 0;
 }
 .item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/
-@media screen and (min-width: 540px) {
-  .navOpened {
-    transition: width 300ms ease-out;
-    width: 60%;
-  }
-}
-@media screen and (min-width: 768px) {
-  .navOpened {
-    transition: width 300ms ease-out;
-    width: 40%;
-  }
-}
 @media screen and (min-width: 1024px) {
-  .navOpened,
-  .navClosed {
+  .blackFilter {
     display: none;
   }
 }

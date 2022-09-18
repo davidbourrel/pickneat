@@ -1,14 +1,7 @@
-import {
-  FC,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
-import styles from './Layout.module.css';
+import SideNavigation from '../SideNavigation';
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,19 +18,6 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     setIsSideNavOpened(false);
   }, []);
 
-  const mainContainerClassName = useMemo(
-    () =>
-      ` ${styles.mainContainer} ${isSideNavOpened ? styles.blackFilter : ''} `,
-    [isSideNavOpened]
-  );
-  const footerContainerClassName = useMemo(
-    () =>
-      ` ${styles.footerContainer} ${
-        isSideNavOpened ? styles.blackFilter : ''
-      } `,
-    [isSideNavOpened]
-  );
-
   useEffect(() => {
     isSideNavOpened
       ? (document.body.style.overflow = 'hidden')
@@ -51,10 +31,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         closeMenu={closeMenu}
         handleToggleMenu={handleToggleMenu}
       />
-      <div className={mainContainerClassName}>{children}</div>
-      <div className={footerContainerClassName}>
-        <Footer />
-      </div>
+      <SideNavigation isSideNavOpened={isSideNavOpened} closeMenu={closeMenu} />
+      {children}
+      <Footer />
     </>
   );
 };

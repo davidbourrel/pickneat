@@ -13,7 +13,11 @@
     "loginTitle": "Login",
     "logout": "Logout",
     "logoutTitle": "Logout",
-    "profile": "Your profile"
+    "profile": "Your profile",
+    "burgerMenuOpen": "Menu",
+    "burgerMenuClose": "Close",
+    "burgerMenuOpenTitle": "Open the menu",
+    "burgerMenuCloseTitle": "Close the menu"
   },
 
   "fr": {
@@ -30,6 +34,10 @@
     "loginTitle": "Se connecter",
     "logout": "Se déconnecter",
     "logoutTitle": "Se déconnecter",
-    "profile": "Votre profil"
+    "profile": "Votre profil",
+    "burgerMenuOpen": "Menu",
+    "burgerMenuClose": "Fermer",
+    "burgerMenuOpenTitle": "Ouvrir le menu",
+    "burgerMenuCloseTitle": "Fermer le menu"
   }
 }

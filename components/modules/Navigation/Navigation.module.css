@@ -20,7 +20,7 @@
   }
   .navList {
     display: flex;
-    gap: 12px;
+    gap: 1rem;
     align-items: center;
   }
   .navList li {

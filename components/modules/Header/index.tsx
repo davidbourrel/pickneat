@@ -1,10 +1,11 @@
-import { FC, useCallback, useRef } from 'react';
+import { FC } from 'react';
 import Navigation from '../Navigation';
 import styles from './Header.module.css';
 import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
-import SideNavigation from '../SideNavigation';
-import useOutsideClick from 'hooks/useOutsideClick';
 import Link from 'components/elements/Link';
+import { useRouter } from 'next/router';
+import useTranslation from 'hooks/useTranslation';
+import navigation from 'public/translations/navigation.json';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
@@ -17,17 +18,11 @@ const Header: FC<HeaderProps> = ({
   closeMenu,
   handleToggleMenu,
 }) => {
-  // Close side navigation on outside click
-  const HeaderRef = useRef(null as unknown as HTMLHeadingElement);
-  const handleOutsideClick = useCallback(() => {
-    if (isSideNavOpened) {
-      closeMenu();
-    }
-  }, [isSideNavOpened, closeMenu]);
-  useOutsideClick(HeaderRef, handleOutsideClick);
+  const { locale } = useRouter();
+  const { burgerMenuOpen } = useTranslation(navigation, locale);
 
   return (
-    <header ref={HeaderRef} className={styles.header}>
+    <header className={styles.header}>
       <div className={`${styles.headerContent} container`}>
         <Link
           href="/"
@@ -42,10 +37,7 @@ const Header: FC<HeaderProps> = ({
         <BurgerMenuToggle
           isSideNavOpened={isSideNavOpened}
           handleToggleMenu={handleToggleMenu}
-        />
-        <SideNavigation
-          isSideNavOpened={isSideNavOpened}
-          closeMenu={closeMenu}
+          title={burgerMenuOpen}
         />
       </div>
     </header>
