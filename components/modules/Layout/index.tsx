@@ -1,4 +1,4 @@
-import { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import { FC, ReactNode, useCallback, useState } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
 import SideNavigation from '../SideNavigation';
@@ -17,12 +17,6 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   const closeMenu = useCallback(() => {
     setIsSideNavOpened(false);
   }, []);
-
-  useEffect(() => {
-    isSideNavOpened
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'auto');
-  }, [isSideNavOpened]);
 
   return (
     <>

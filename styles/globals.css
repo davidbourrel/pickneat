@@ -93,6 +93,9 @@ main {
   margin-right: auto;
   box-sizing: border-box;
 }
+#app > main {
+  padding-top: 4rem;
+}
 .container {
   width: 100%;
   max-width: 1280px;
@@ -113,4 +116,13 @@ main {
 }
 .ol-control button:hover {
   cursor: pointer;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  #app > main {
+    padding-top: unset;
+  }
 }

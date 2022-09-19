@@ -44,8 +44,8 @@
 .separation span:last-child {
   display: inline-block;
   background-color: var(--primary-hover);
-  width: 30px;
-  height: 2px;
+  width: 3rem;
+  height: 0.1rem;
 }
 .separation span:nth-child(2) {
   margin: 0 1rem;
@@ -58,13 +58,13 @@
   .deliveryBackground {
     background-image: url('../../components/images/backgrounds/deliveryBackground.svg');
     background-repeat: no-repeat;
-    background-size: 200px;
+    background-size: 14rem;
     background-position: 0 81%;
   }
   .takeAwayBackground {
     background-image: url('../../components/images/backgrounds/takeAwayBackground.svg');
     background-repeat: no-repeat;
-    background-size: 200px;
+    background-size: 14rem;
     background-position: 100% 79%;
   }
 }

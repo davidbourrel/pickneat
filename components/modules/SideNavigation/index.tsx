@@ -126,7 +126,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
               </ActiveLink>
             </li>
           </ul>
-          
+
           <ul className={styles.secondNavigation}>
             <li className={styles.item}>
               <LanguageSwitcher

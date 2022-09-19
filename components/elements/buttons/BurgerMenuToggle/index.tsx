@@ -43,7 +43,7 @@ const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
 
   const ariaLabel = useMemo(
     () => (isSideNavOpened ? burgerMenuCloseTitle : burgerMenuOpenTitle),
-    [isSideNavOpened, locale]
+    [isSideNavOpened, burgerMenuCloseTitle, burgerMenuOpenTitle]
   );
 
   const ariaExpanded = useMemo(
