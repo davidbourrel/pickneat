@@ -34,7 +34,7 @@ const Delivery: FC = () => {
       <div className={styles.mainContent}>
         <div className={styles.deliveryBackground}>
           <Headings level={HeadingsLevelEnum.Two}>{delivery}</Headings>
-          <p>{deliveryContent}</p>
+          <p className={styles.description}>{deliveryContent}</p>
           <Link
             href="https://deliveroo.fr/fr/"
             target="_blank"
@@ -51,7 +51,7 @@ const Delivery: FC = () => {
         </div>
         <div className={styles.takeAwayBackground}>
           <Headings level={HeadingsLevelEnum.Two}>{takeAway}</Headings>
-          <p>{takeAwayContent}</p>
+          <p className={styles.description}>{takeAwayContent}</p>
           <Link href="/" tabIndex={-1}>
             <Button>{takeAwayButton}</Button>
           </Link>
