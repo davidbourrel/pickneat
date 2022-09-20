@@ -70,7 +70,6 @@ svg {
   background-color: var(--white);
   color: var(--black);
   position: relative;
-  overflow-x: hidden;
 }
 #not-found {
   display: flex;
