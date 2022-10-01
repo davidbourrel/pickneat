@@ -14,10 +14,10 @@
     "logout": "Logout",
     "logoutTitle": "Logout",
     "profile": "Your profile",
-    "burgerMenuOpen": "Menu",
-    "burgerMenuClose": "Close",
-    "burgerMenuOpenTitle": "Open the menu",
-    "burgerMenuCloseTitle": "Close the menu"
+    "openBurgerMenu": "Menu",
+    "closeBurgerMenu": "Close",
+    "openBurgerMenuTitle": "Open the menu",
+    "closeBurgerMenuTitle": "Close the menu"
   },
 
   "fr": {
@@ -35,9 +35,9 @@
     "logout": "Se déconnecter",
     "logoutTitle": "Se déconnecter",
     "profile": "Votre profil",
-    "burgerMenuOpen": "Menu",
-    "burgerMenuClose": "Fermer",
-    "burgerMenuOpenTitle": "Ouvrir le menu",
-    "burgerMenuCloseTitle": "Fermer le menu"
+    "openBurgerMenu": "Menu",
+    "closeBurgerMenu": "Fermer",
+    "openBurgerMenuTitle": "Ouvrir le menu",
+    "closeBurgerMenuTitle": "Fermer le menu"
   }
 }

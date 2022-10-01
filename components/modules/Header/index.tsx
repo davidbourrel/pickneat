@@ -19,7 +19,7 @@ const Header: FC<HeaderProps> = ({
   handleToggleMenu,
 }) => {
   const { locale } = useRouter();
-  const { burgerMenuOpen } = useTranslation(navigation, locale);
+  const { openBurgerMenu } = useTranslation(navigation, locale);
 
   return (
     <header className={styles.header}>
@@ -37,7 +37,8 @@ const Header: FC<HeaderProps> = ({
         <BurgerMenuToggle
           isSideNavOpened={isSideNavOpened}
           handleToggleMenu={handleToggleMenu}
-          title={burgerMenuOpen}
+          title={openBurgerMenu}
+          dataTest="openBurgerMenuButton"
         />
       </div>
     </header>

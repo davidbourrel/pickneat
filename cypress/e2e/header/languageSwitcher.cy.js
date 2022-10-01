@@ -11,11 +11,12 @@ describe('Language Switcher', () => {
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
       /** Open the side navigation before each tests */
-      cy.get('[data-test="burgerToggleButton"]').as('burgerToggleButton');
+      cy.get('[data-test="openBurgerMenuButton"]')
+      .as('openBurgerMenuButton');
     });
 
     it('should be visible', () => {
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
 
       cy.get('[data-test="sideNavigation"]').should('be.visible');
       cy.get('[data-test="langSwitcherMobileButton"]').click();
@@ -29,7 +30,7 @@ describe('Language Switcher', () => {
     });
 
     it('should toggle between English and French language', () => {
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
       cy.get('[data-test="langSwitcherMobileButton"]').as(
         'langSwitcherMobileButton'
       );

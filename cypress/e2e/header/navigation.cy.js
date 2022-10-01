@@ -10,27 +10,28 @@ describe('Navigation menu', () => {
    */
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
-      cy.get('[data-test="burgerToggleButton"]').as('burgerToggleButton');
+      cy.get('[data-test="openBurgerMenuButton"]').as('openBurgerMenuButton');
+      cy.get('[data-test="closeBurgerMenuButton"]').as('closeBurgerMenuButton');
     });
 
     it('should have a visible burger toggle button', () => {
-      cy.get('@burgerToggleButton').should('exist').should('be.visible');
-      cy.get('@burgerToggleButton').contains('MENU');
+      cy.get('@openBurgerMenuButton').should('exist').should('be.visible');
+      cy.get('@openBurgerMenuButton').contains('Menu');
     });
 
     it('should have a side navigation and be able to toggle', () => {
       /** Open the menu */
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
       cy.get('[data-test="sideNavigation"]').as('sideNavigation');
       cy.get('@sideNavigation').should('exist').should('be.visible');
 
       /** Close the menu */
-      cy.get('@burgerToggleButton').click();
+      cy.get('@closeBurgerMenuButton').click();
       cy.get('@sideNavigation').should('not.be.visible');
     });
 
     it('should have a side navigation and contains all links inside', () => {
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
       cy.get('[data-test="sideNavigation"]').as('sideNavigation');
 
       cy.get('@sideNavigation').contains('Menu');
@@ -47,7 +48,7 @@ describe('Navigation menu', () => {
    */
   describe('Desktop', { viewportWidth: 1500 }, () => {
     it('should not have a visible burger toggle button', () => {
-      cy.get('[data-test="burgerToggleButton"]').should('not.be.visible');
+      cy.get('[data-test="openBurgerMenuButton"]').should('not.be.visible');
     });
 
     it('should have a main navigation and contains all links inside', () => {

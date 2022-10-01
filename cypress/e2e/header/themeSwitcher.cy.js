@@ -12,18 +12,18 @@ describe('Theme Switcher', () => {
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
       /** Open the side navigation before each tests */
-      cy.get('[data-test="burgerToggleButton"]').as('burgerToggleButton');
+      cy.get('[data-test="openBurgerMenuButton"]').as('openBurgerMenuButton');
     });
 
     it('should be visible', () => {
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
 
       cy.get('[data-test="sideNavigation"]').should('be.visible');
       cy.get('[data-test="themeSwitcherMobileButton"]').should('be.visible');
     });
 
     it('should switch to the dark mode', () => {
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
 
       cy.get('[data-theme="light"]').should('exist');
       cy.get('[dark-mode="light"]').should('exist');
@@ -36,7 +36,7 @@ describe('Theme Switcher', () => {
     });
 
     it('should switch to the light mode', () => {
-      cy.get('@burgerToggleButton').click();
+      cy.get('@openBurgerMenuButton').click();
 
       cy.get('[data-theme="light"]').should('exist');
       cy.get('[dark-mode="light"]').should('exist');

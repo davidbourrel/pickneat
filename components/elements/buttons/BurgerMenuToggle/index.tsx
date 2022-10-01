@@ -11,6 +11,7 @@ interface BurgerToggleButtonProps extends ClassNameComponentProps {
   closeMenu?: () => void;
   isSideNavOpened: boolean;
   title?: string;
+  dataTest: string;
 }
 
 const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
@@ -19,9 +20,10 @@ const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
   isSideNavOpened,
   title,
   className,
+  dataTest,
 }) => {
   const { locale } = useRouter();
-  const { burgerMenuOpenTitle, burgerMenuCloseTitle } = useTranslation(
+  const { openBurgerMenuTitle, closeBurgerMenuTitle } = useTranslation(
     navigation,
     locale
   );
@@ -42,8 +44,8 @@ const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
   );
 
   const ariaLabel = useMemo(
-    () => (isSideNavOpened ? burgerMenuCloseTitle : burgerMenuOpenTitle),
-    [isSideNavOpened, burgerMenuCloseTitle, burgerMenuOpenTitle]
+    () => (isSideNavOpened ? closeBurgerMenuTitle : openBurgerMenuTitle),
+    [isSideNavOpened, closeBurgerMenuTitle, openBurgerMenuTitle]
   );
 
   const ariaExpanded = useMemo(
@@ -76,7 +78,7 @@ const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}
       aria-controls="side-navigation"
-      data-test="burgerToggleButton"
+      data-test={dataTest}
     >
       {computedTitle}
       <div className={styles.barsContainer}>

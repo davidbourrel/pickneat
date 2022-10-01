@@ -38,7 +38,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
     switchLangTitle,
     switchThemeTitle,
     cartTitle,
-    burgerMenuClose,
+    closeBurgerMenu,
   } = useTranslation(navigation, locale);
 
   // Close side navigation on outside click
@@ -102,8 +102,9 @@ const SideNavigation: FC<SideNavigationProps> = ({
           <BurgerMenuToggle
             isSideNavOpened={isSideNavOpened}
             closeMenu={closeMenu}
-            title={burgerMenuClose}
+            title={closeBurgerMenu}
             className={styles.topRightCloseButton}
+            dataTest="closeBurgerMenuButton"
           />
           <ul className={styles.firstNavigation}>
             <li title={menuTitle} className={styles.item}>
