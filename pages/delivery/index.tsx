@@ -32,7 +32,7 @@ const Delivery: FC = () => {
         {deliveryMainTitle}
       </Headings>
       <div className={styles.mainContent}>
-        <div className={styles.deliveryBackground}>
+        <section className={styles.deliverySection}>
           <Headings level={HeadingsLevelEnum.Two}>{delivery}</Headings>
           <p className={styles.description}>{deliveryContent}</p>
           <Link
@@ -43,19 +43,19 @@ const Delivery: FC = () => {
           >
             <Button>{deliveryButton}</Button>
           </Link>
-        </div>
+        </section>
         <div className={styles.separation}>
           <span></span>
           <span>{or}</span>
           <span></span>
         </div>
-        <div className={styles.takeAwayBackground}>
+        <section className={styles.takeAwaySection}>
           <Headings level={HeadingsLevelEnum.Two}>{takeAway}</Headings>
           <p className={styles.description}>{takeAwayContent}</p>
           <Link href="/" tabIndex={-1}>
             <Button>{takeAwayButton}</Button>
           </Link>
-        </div>
+        </section>
       </div>
     </main>
   );

@@ -4,7 +4,7 @@
 @import url('./slider.css');
 
 :root {
-  --black: #171717;
+  --black: #333;
   --gray: #595959;
   --lightGray: #d3d3d3;
   --white: #fff;

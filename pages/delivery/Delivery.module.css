@@ -17,8 +17,13 @@
   font-size: 1.75rem;
 }
 
-.deliveryBackground {
-  text-align: center;
+.mainContent section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .separation {
@@ -44,25 +49,24 @@
   margin: 0 1rem;
 }
 
-.takeAwayBackground {
+.description {
+  margin: 2rem 0;
   text-align: center;
 }
-
-.description {
-  margin: 1rem 0 2rem 0;
+.mainContent section a {
+  margin-top: auto;
 }
-
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/
-@media screen and (min-width: 640px) {
-  .deliveryBackground {
+@media screen and (min-width: 768px) {
+  .deliverySection {
     background-image: url('../../components/images/backgrounds/deliveryBackground.svg');
     background-repeat: no-repeat;
     background-size: 14rem;
     background-position: 0 100%;
   }
-  .takeAwayBackground {
+  .takeAwaySection {
     background-image: url('../../components/images/backgrounds/takeAwayBackground.svg');
     background-repeat: no-repeat;
     background-size: 14rem;

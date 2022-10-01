@@ -4,18 +4,18 @@
 }
 
 .restaurantsContent {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-bottom: 2rem;
 }
-.restaurantsContent > section {
+.restaurantsContent section {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 1rem 0;
 }
-.restaurantsContent h2 {
+.restaurantsContent section h2 {
   color: var(--black);
   font-weight: 900;
   margin-bottom: 2rem;
@@ -26,6 +26,6 @@
 /**************************/
 @media screen and (min-width: 1024px) {
   .restaurantsContent {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-direction: row;
   }
 }
