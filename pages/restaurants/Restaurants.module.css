@@ -28,4 +28,8 @@
   .restaurantsContent {
     flex-direction: row;
   }
+
+  .restaurantsContent section:first-child {
+    margin-right: 2rem;
+  }
 }
