@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import useTranslation from 'hooks/useTranslation';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import deliveryTranslations from 'public/translations/pages/delivery.json';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
@@ -10,8 +9,6 @@ import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Delivery: FC = () => {
-  const { locale } = useRouter();
-
   const {
     deliveryMainTitle,
     delivery,
@@ -21,7 +18,7 @@ const Delivery: FC = () => {
     takeAway,
     takeAwayContent,
     takeAwayButton,
-  } = useTranslation(deliveryTranslations, locale);
+  } = useTranslation(deliveryTranslations);
 
   return (
     <main className="sidePadding">

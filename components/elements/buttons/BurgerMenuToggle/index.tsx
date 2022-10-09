@@ -1,6 +1,5 @@
 import { FC, useMemo } from 'react';
 import useTranslation from 'hooks/useTranslation';
-import { useRouter } from 'next/router';
 import { ClassNameComponentProps } from '_types/components';
 import Button from '../Button';
 import styles from './BurgerMenuToggle.module.css';
@@ -22,11 +21,8 @@ const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
   className,
   dataTest,
 }) => {
-  const { locale } = useRouter();
-  const { openBurgerMenuTitle, closeBurgerMenuTitle } = useTranslation(
-    navigation,
-    locale
-  );
+  const { openBurgerMenuTitle, closeBurgerMenuTitle } =
+    useTranslation(navigation);
 
   const computedButtonClassName = useMemo(
     () => (className ? `${styles.button} ${className}` : styles.button),

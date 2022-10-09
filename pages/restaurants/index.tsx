@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import useTranslation from 'hooks/useTranslation';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import navigation from 'public/translations/navigation.json';
 import restaurantsTrans from 'public/translations/pages/restaurants.json';
 import OpenLayersMap from 'components/modules/OpenLayersMap';
@@ -11,14 +10,10 @@ import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 import styles from './Restaurants.module.css';
 
 const Restaurants: FC = () => {
-  const { locale } = useRouter();
+  const { restaurants } = useTranslation(navigation);
 
-  const { restaurants } = useTranslation(navigation, locale);
-
-  const { restaurantsMainTitle, location, openingHours } = useTranslation(
-    restaurantsTrans,
-    locale
-  );
+  const { restaurantsMainTitle, location, openingHours } =
+    useTranslation(restaurantsTrans);
 
   return (
     <main className="sidePadding">

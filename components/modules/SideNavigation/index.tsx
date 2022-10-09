@@ -24,7 +24,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
 }) => {
   const { user } = useUser();
 
-  const { asPath, locale } = useRouter();
+  const { asPath } = useRouter();
   const {
     menu,
     menuTitle,
@@ -39,7 +39,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
     switchThemeTitle,
     cartTitle,
     closeBurgerMenu,
-  } = useTranslation(navigation, locale);
+  } = useTranslation(navigation);
 
   // Close side navigation on outside click
   const sideNavigationRef = useRef(null as unknown as HTMLHeadingElement);

@@ -1,6 +1,5 @@
 import { FC, useMemo } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import navigation from 'public/translations/navigation.json';
 import useTranslation from 'hooks/useTranslation';
 import type { NextApiRequest, NextApiResponse } from 'next';
@@ -16,9 +15,7 @@ interface ProfileProps {
 }
 
 const Profile: FC<ProfileProps> = ({ user }) => {
-  const { locale } = useRouter();
-
-  const { login, logout, logoutTitle } = useTranslation(navigation, locale);
+  const { login, logout, logoutTitle } = useTranslation(navigation);
 
   const userPicture = useMemo(
     () =>

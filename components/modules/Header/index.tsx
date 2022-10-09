@@ -3,7 +3,6 @@ import Navigation from '../Navigation';
 import styles from './Header.module.css';
 import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
 import Link from 'components/elements/Link';
-import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
 
@@ -18,8 +17,7 @@ const Header: FC<HeaderProps> = ({
   closeMenu,
   handleToggleMenu,
 }) => {
-  const { locale } = useRouter();
-  const { openBurgerMenu } = useTranslation(navigation, locale);
+  const { openBurgerMenu } = useTranslation(navigation);
 
   return (
     <header className={styles.header}>

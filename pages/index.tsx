@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useRouter } from 'next/router';
 import { SwiperSlide } from 'swiper/react';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
@@ -17,9 +16,7 @@ import styles from '../styles/Home.module.css';
 const Slider = dynamic(() => import('components/modules/Slider'));
 
 const Home: FC = () => {
-  const { locale } = useRouter();
-
-  const { homeMainTitle } = useTranslation(home, locale);
+  const { homeMainTitle } = useTranslation(home);
 
   return (
     <main className={styles.main}>

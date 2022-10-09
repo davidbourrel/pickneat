@@ -12,7 +12,7 @@ import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 
 const Navigation: FC = () => {
-  const { asPath, locale } = useRouter();
+  const { asPath } = useRouter();
   const { user } = useUser();
 
   const {
@@ -28,7 +28,7 @@ const Navigation: FC = () => {
     switchLangTitle,
     switchThemeTitle,
     cartTitle,
-  } = useTranslation(navigation, locale);
+  } = useTranslation(navigation);
 
   const userTab = useMemo(
     () =>

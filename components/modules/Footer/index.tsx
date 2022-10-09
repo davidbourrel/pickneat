@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useRouter } from 'next/router';
 import styles from './Footer.module.css';
 import footer from 'public/translations/footer.json';
 import useTranslation from 'hooks/useTranslation';
@@ -8,8 +7,6 @@ import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 
 const Footer: FC = () => {
-  const { locale } = useRouter();
-
   const {
     aboutUs,
     leadershipTeam,
@@ -23,7 +20,7 @@ const Footer: FC = () => {
     restaurantFeedback,
     frequentlyAskedQuestions,
     sendAnEmail,
-  } = useTranslation(footer, locale);
+  } = useTranslation(footer);
 
   return (
     <footer className={styles.footer}>

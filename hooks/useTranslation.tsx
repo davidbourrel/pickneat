@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router';
+
 export type TranslationType =
   | string
   | number
@@ -9,10 +11,9 @@ type useTranslationType = {
   [key: string]: string;
 };
 
-const useTranslation = (
-  translation: TranslationType,
-  locale = 'en'
-): useTranslationType => {
+const useTranslation = (translation: TranslationType): useTranslationType => {
+  const { locale = 'en' } = useRouter();
+
   return translation[locale as keyof typeof translation];
 };
 

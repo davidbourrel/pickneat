@@ -7,12 +7,9 @@ import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 import Button from 'components/elements/buttons/Button';
 
 const NotFound = () => {
-  const { locale, back } = useRouter();
+  const { back } = useRouter();
 
-  const { shortError404, longError404, backButton } = useTranslation(
-    errors,
-    locale
-  );
+  const { shortError404, longError404, backButton } = useTranslation(errors);
 
   return (
     <main id="not-found" className="sidePadding">

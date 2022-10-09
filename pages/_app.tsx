@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 import nProgress from 'nprogress';
 import Layout from '../components/modules/Layout';
 import '../styles/globals.css';
@@ -13,9 +13,7 @@ import { ThemeProvider } from 'contexts/themeContext';
 import { I18nProvider } from 'contexts/i18nContext';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  const { locale } = useRouter();
-
-  const { menu } = useTranslation(navigation, locale);
+  const { menu } = useTranslation(navigation);
 
   useKonami();
 

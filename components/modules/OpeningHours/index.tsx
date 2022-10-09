@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import restaurants from 'public/translations/pages/restaurants.json';
-import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
 import styles from './OpeningHours.module.css';
 import DayRow from './DayRow';
@@ -17,8 +16,6 @@ export enum DaysOfTheWeekEnum {
 }
 
 const OpeningHours: FC = () => {
-  const { locale } = useRouter();
-
   const {
     day,
     lunch,
@@ -34,7 +31,7 @@ const OpeningHours: FC = () => {
     lunchWeekendHours,
     dinnerWeeklyHours,
     dinnerWeekendHours,
-  } = useTranslation(restaurants, locale);
+  } = useTranslation(restaurants);
 
   return (
     <table className={styles.table} data-test="openingHours">
