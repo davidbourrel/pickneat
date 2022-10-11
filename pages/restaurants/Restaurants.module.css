@@ -31,5 +31,6 @@
 
   .restaurantsContent section:first-child {
     margin-right: 2rem;
+    margin-bottom: 0;
   }
 }
