@@ -1,0 +1,35 @@
+[
+  {
+    "product_id": "6c66d592-dac9-47cc-8f17-c938b689b07e",
+    "name": "Ultimate Choco Brownie",
+    "description": "The generous meeting of a creamy vanilla, an authentic brownie, under a chocolate-hazelnut topping and a greedy layer of whipped cream.",
+    "price": 3,
+    "in_stock": false,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "allergens": "milk, gluten",
+    "category": "DESSERT"
+  },
+  {
+    "product_id": "a60ebb6c-3080-4591-b58f-1051b35c4d3c",
+    "name": "Oreo Fusion",
+    "description": "Our classic soft serve ice cream with Oreo® chunks whisked in.",
+    "price": 2,
+    "in_stock": true,
+    "new_release": true,
+    "image": "https://images.unsplash.com/photo-1561088411-d6fbd5cab600?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+    "allergens": "milk, soy, wheat, gluten",
+    "category": "DESSERT"
+  },
+  {
+    "product_id": "f6aa3e0e-121e-4e2e-aa67-856bc5204ece",
+    "name": "Chocolate Cake",
+    "description": "The best chocolate cake we ever made! We love it !",
+    "price": 2,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1089&q=80",
+    "allergens": "milk, gluten",
+    "category": "DESSERT"
+  }
+]

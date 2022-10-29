@@ -1,0 +1,57 @@
+[
+  {
+    "product_id": "6d642ded-8e5e-4c3b-beda-6615e42aa8f1",
+    "name": "Double Tower Cheeseburger",
+    "description": "Two Flame-Grilled beef patties, two slices of American cheese, a heap of bacon, BBQ sauce, mayo and three crispy onion rings served in a sesame seed bun.",
+    "price": 9,
+    "in_stock": true,
+    "new_release": true,
+    "image": "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80",
+    "allergens": "wheat, sesame, gluten, milk, eggs",
+    "category": "BURGER"
+  },
+  {
+    "product_id": "9e7f2949-ff83-439c-9257-981909d8363c",
+    "name": "Bacon Double XL",
+    "description": "Two flamed-grilled beef patties topped with Applewood smoked bacon and American cheese, all in our toasted sesame seed bun.",
+    "price": 8,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1610440042657-612c34d95e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "allergens": "wheat, sesame, celery, gluten, milk, eggs, soy",
+    "category": "BURGER"
+  },
+  {
+    "product_id": "bdc33b06-1599-43f5-a104-fe915928d058",
+    "name": "Kids Hamburger",
+    "description": "Our original burger with ketchup served in a sesame seed bun.",
+    "price": 6,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1626082892105-1650809e18aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "allergens": "sesame, celery, gluten, milk, eggs",
+    "category": "BURGER"
+  },
+  {
+    "product_id": "cdb505e4-1555-4edb-a6b1-8570f02cf37c",
+    "name": "Farmhouse Angus",
+    "description": "A flame-grilled Angus Beef Patty, toasted onion mayo, crispy bacon, oak-smoked cheddar cheese, rocket and pink pickled onions sandwiched between a soft brioche bun. You'd be barney not to try it.",
+    "price": 7,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1549611016-3a70d82b5040?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1130&q=80",
+    "allergens": "wheat, sesame, celery, gluten, milk, eggs, soy",
+    "category": "BURGER"
+  },
+  {
+    "product_id": "3d5bb966-15a8-433c-8739-5180ef35a7ce",
+    "name": "French Veggie Burger",
+    "description": "Flame-grilled veggie hash, old-fashioned mustard sauce, crispy onions, arugula and slices of melted cheddar! Same process as the other products.",
+    "price": 7,
+    "in_stock": true,
+    "new_release": true,
+    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "allergens": "sesame, celery, milk, eggs",
+    "category": "BURGER"
+  }
+]

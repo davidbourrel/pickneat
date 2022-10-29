@@ -6,8 +6,7 @@
   border-radius: 1.3rem;
   border: 1px solid transparent;
   transition: border-color 150ms ease-out;
-  padding-right: 0.5rem;
-  margin-left: -0.5rem;
+  padding: 0 0.8rem;
 }
 .switcherButton:hover {
   border: 1px solid var(--lightGray);
@@ -19,6 +18,9 @@
 .switcherButton svg {
   padding: 0.4rem;
   border-radius: 50%;
+}
+.switcherButton span {
+  padding-right: 0.5rem;
 }
 
 .light {

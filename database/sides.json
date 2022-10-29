@@ -1,0 +1,35 @@
+[
+  {
+    "product_id": "9fa7b5ff-ddb7-4621-884b-8d7757b31ed0",
+    "name": "Chicken Nuggets",
+    "description": "Bite-sized Chicken Nuggets, coated in a crispy tempura. Served with our BK dip.",
+    "price": 4,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1627378378952-a736d8e12219?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1052&q=80",
+    "allergens": "wheat, mustard, celery, gluten, milk, eggs, soy, sulphur dioxide",
+    "category": "SIDE"
+  },
+  {
+    "product_id": "e4bb8149-9671-40cc-8b0a-2c4f4ad8cef4",
+    "name": "Fries",
+    "description": "Our signature thick cut salted French Fries.",
+    "price": 2,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "allergens": "soy, wheat, mustard, sesame, celery, gluten, sulphur dioxide",
+    "category": "SIDE"
+  },
+  {
+    "product_id": "eb27e3d3-a0d0-437f-8fdc-e83fd2833bff",
+    "name": "Vegan Nuggets",
+    "description": "Certified by the Vegan Society®- Vegan Nuggets served with a dip of your choice.",
+    "price": 3,
+    "in_stock": true,
+    "new_release": true,
+    "image": "https://images.unsplash.com/photo-1646475696467-dea01be909d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+    "allergens": "soy, wheat, celery, gluten, sulphur dioxide, mustard, sesame",
+    "category": "SIDE"
+  }
+]

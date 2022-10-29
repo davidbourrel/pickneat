@@ -1,6 +1,8 @@
 .userIcon {
   display: flex;
   color: var(--black);
+  width: 2rem;
+  height: 2rem;
 }
 
 .userIcon:hover {

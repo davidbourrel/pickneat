@@ -9,7 +9,7 @@ import styles from './Link.module.css';
 interface FLinkProps
   extends Omit<
       HTMLProps<HTMLAnchorElement>,
-      'href' | 'as' | 'onClick' | 'onMouseEnter'
+      'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart'
     >,
     LinkProps {
   obfuscate?: boolean;

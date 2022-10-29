@@ -1,0 +1,35 @@
+[
+  {
+    "product_id": "3b3433d1-d270-484f-ac35-2d9f984ed14d",
+    "name": "Sprite",
+    "description": "The sun-drenched & deliciously refreshing iced drink",
+    "price": 4,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "allergens": null,
+    "category": "DRINK"
+  },
+  {
+    "product_id": "a5cd43ef-6460-4d79-bd9e-4ef4a09719f0",
+    "name": "Fanta",
+    "description": "Enjoy the fruity, refreshing taste of Fanta Orange, with zero added sugars. © 2019 The Coca-Cola Company. Fanta is a registered trademark of The Coca-Cola Company.",
+    "price": 3,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1624517452488-04869289c4ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=803&q=80",
+    "allergens": null,
+    "category": "DRINK"
+  },
+  {
+    "product_id": "b5d7f5ef-74c7-4854-a10c-981502746caf",
+    "name": "Coca-cola",
+    "description": "With its secret recipe, COCA-COLA is a sparkling and refreshing drink with a unique taste since 1886",
+    "price": 2,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+    "allergens": null,
+    "category": "DRINK"
+  }
+]

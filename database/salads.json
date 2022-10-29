@@ -1,0 +1,35 @@
+[
+  {
+    "product_id": "35f9d768-9770-4a19-bb79-bbfa1f53a95e",
+    "name": "The variety",
+    "description": "A tasty mix of salads, Neapolitan-style penne, marinated tomatoes, Grana Padano cheese, breaded chicken, and a delicious shallot and herb duo!",
+    "price": 4,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+    "allergens": null,
+    "category": "SALAD"
+  },
+  {
+    "product_id": "60f7f619-4d35-43a4-951c-798247120bcb",
+    "name": "Big green",
+    "description": "A tasty mix of salads, coral and spelt lentils, marinated tomatoes, Mozzarella balls, breaded chicken and a delicious shallot and herb duo!",
+    "price": 4,
+    "in_stock": true,
+    "new_release": false,
+    "image": "https://images.unsplash.com/photo-1607532941433-304659e8198a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1078&q=80",
+    "allergens": null,
+    "category": "SALAD"
+  },
+  {
+    "product_id": "600ea737-bb40-4a21-b9fc-6613945e8ade",
+    "name": "Greeny Cracky",
+    "description": "A tasty mix of salads, coral and spelt lentils, marinated tomatoes, Mozzarella balls, breaded chicken and a delicious shallot and herb duo!",
+    "price": 5,
+    "in_stock": true,
+    "new_release": true,
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "allergens": null,
+    "category": "SALAD"
+  }
+]

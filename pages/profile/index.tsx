@@ -19,7 +19,13 @@ const Profile: FC<ProfileProps> = ({ user }) => {
 
   const userPicture = useMemo(
     () =>
-      user && user.picture ? <img src={user.picture} alt="toto test" /> : null,
+      user && user.picture ? (
+        <img
+          src={user.picture}
+          className={styles.profilePicture}
+          alt="toto test"
+        />
+      ) : null,
     [user]
   );
 

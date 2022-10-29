@@ -12,11 +12,16 @@ import dynamic from 'next/dynamic';
 import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 import styles from '../styles/Home.module.css';
+import useProducts from '../SWR/useProducts';
 
 const Slider = dynamic(() => import('components/modules/Slider'));
 
 const Home: FC = () => {
   const { homeMainTitle } = useTranslation(home);
+  const { products, isProductsLoading, isProductsError } = useProducts();
+
+  if (isProductsLoading) return <div>Loading</div>;
+  if (isProductsError) return <div>Error</div>;
 
   return (
     <main className={styles.main}>
@@ -84,9 +89,18 @@ const Home: FC = () => {
           </SwiperSlide>
         </Slider>
         <Headings level={HeadingsLevelEnum.One}>{homeMainTitle}</Headings>
+        <div>
+          {products.length
+            ? products.map((product, i) => <span key={i}>{product.name}</span>)
+            : null}
+        </div>
       </section>
-      <section>Second section</section>
-      <section>Third section</section>
+      <section>
+        <h2>Second section</h2>
+      </section>
+      <section>
+        <h2>Third section</h2>
+      </section>
     </main>
   );
 };
