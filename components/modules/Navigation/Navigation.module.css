@@ -26,5 +26,6 @@
   }
   .navList li {
     position: relative;
+    text-transform: uppercase;
   }
 }

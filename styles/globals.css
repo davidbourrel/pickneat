@@ -36,7 +36,7 @@
 }
 
 html[data-theme='dark'] {
-  --primary: var(--orange-400);
+  --primary: #dc9458;
   --primary-hover: var(--orange-200);
 
   --neutral-900: #fafafa;
@@ -98,7 +98,7 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-50);
   position: relative;
 }
 .notFound {
@@ -149,8 +149,8 @@ p {
 
 /* Controle buttons in Openlayers */
 .ol-control button {
-  background-color: var(--primary) !important;
-  color: var(--neutral-50) !important;
+  background-color: #fff !important;
+  color: #000 !important;
 }
 .ol-control button:hover {
   cursor: pointer;

@@ -2,8 +2,8 @@
   "en": {
     "menu": "Menu",
     "menuTitle": "See the menus",
-    "restaurants": "Restaurants",
-    "restaurantsTitle": "See the restaurants",
+    "restaurants": "Locate",
+    "restaurantsTitle": "Locate us",
     "delivery": "Delivery",
     "deliveryTitle": "Choose how to get your burger",
     "switchLangTitle": "Change the language",
@@ -23,7 +23,7 @@
   "fr": {
     "menu": "Menus",
     "menuTitle": "Voir nos menus",
-    "restaurants": "Restaurants",
+    "restaurants": "Nos restaurants",
     "restaurantsTitle": "Voir nos restaurants",
     "delivery": "Livraison",
     "deliveryTitle": "Choix de la livraison",

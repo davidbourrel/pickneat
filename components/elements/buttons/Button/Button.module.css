@@ -27,17 +27,9 @@
 }
 
 .disable {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.5);
+  opacity: 0.3;
 }
 
-.disable:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.5);
-  cursor: default;
-}
 .definitelyDisabled {
   pointer-events: none;
 }

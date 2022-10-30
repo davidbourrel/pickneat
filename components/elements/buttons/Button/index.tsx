@@ -11,9 +11,10 @@ import Loader from '../../Loader';
 
 export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
   busy?: boolean;
-  headless?: boolean;
   border?: boolean;
+  headless?: boolean;
   hideBusyWheel?: boolean;
+  onDisabledClick?: React.HTMLProps<HTMLButtonElement>['onClick'];
   busyClassName?: string;
   disabledClassName?: string;
 }
@@ -23,12 +24,13 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     children,
     className = '',
     type,
+    border,
     disabled,
     headless,
-    border,
     busy,
     hideBusyWheel,
     onClick,
+    onDisabledClick,
     busyClassName = styles.disable,
     disabledClassName = styles.disable,
     ...rest
@@ -39,15 +41,20 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     () => type as 'button' | 'submit' | 'reset' | undefined,
     [type]
   );
-  const definitelyDisabled = useMemo(() => busy || disabled, [busy, disabled]);
+  const definitelyDisabled = useMemo(
+    () => busy || (disabled && !onDisabledClick),
+    [busy, disabled, onDisabledClick]
+  );
 
   const handleClick = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
-      if (!definitelyDisabled && onClick) {
+      if (disabled && onDisabledClick) {
+        onDisabledClick(e);
+      } else if (!definitelyDisabled && onClick) {
         onClick(e);
       }
     },
-    [definitelyDisabled, onClick]
+    [disabled, definitelyDisabled, onClick, onDisabledClick]
   );
 
   const buttonClassName = useMemo(

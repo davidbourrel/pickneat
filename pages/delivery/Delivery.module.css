@@ -42,7 +42,7 @@
 .separation span:last-child {
   display: inline-block;
   background-color: var(--primary);
-  width: 3rem;
+  width: 5rem;
   height: 0.1rem;
 }
 .separation span:nth-child(2) {

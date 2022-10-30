@@ -107,12 +107,12 @@ const SideNavigation: FC<SideNavigationProps> = ({
             dataTest="closeBurgerMenuButton"
           />
           <ul className={styles.firstNavigation}>
-            <li title={menuTitle} className={styles.item}>
+            <li title={menuTitle}>
               <ActiveLink href="/" path={asPath} closeMenu={closeMenu}>
                 {menu}
               </ActiveLink>
             </li>
-            <li title={restaurantsTitle} className={styles.item}>
+            <li title={restaurantsTitle}>
               <ActiveLink
                 href="/restaurants"
                 path={asPath}
@@ -121,7 +121,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
                 {restaurants}
               </ActiveLink>
             </li>
-            <li title={deliveryTitle} className={styles.item}>
+            <li title={deliveryTitle}>
               <ActiveLink href="/delivery" path={asPath} closeMenu={closeMenu}>
                 {delivery}
               </ActiveLink>
@@ -129,7 +129,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
           </ul>
 
           <ul className={styles.secondNavigation}>
-            <li className={styles.item}>
+            <li>
               <LanguageSwitcher
                 title={switchLangTitle}
                 ariaControlsId="lang-switcher-mobile"
@@ -138,13 +138,13 @@ const SideNavigation: FC<SideNavigationProps> = ({
                 dataTestLangButton="langSwitcherMobileLangButton"
               />
             </li>
-            <li className={styles.item}>
+            <li>
               <ThemeSwitcher
                 title={switchThemeTitle}
                 dataTestButton="themeSwitcherMobileButton"
               />
             </li>
-            <li className={styles.item}>
+            <li>
               <ActiveLink href="/cart" path={asPath} closeMenu={closeMenu}>
                 <CartCount title={cartTitle} />
               </ActiveLink>
