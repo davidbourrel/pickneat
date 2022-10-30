@@ -9,7 +9,7 @@
 }
 
 .cartSvg {
-  fill: var(--black);
+  fill: var(--neutral-900);
   width: 2rem;
   height: 2rem;
 }
@@ -23,7 +23,7 @@
   right: 0;
   width: 1.4rem;
   font-size: 0.938rem;
-  color: var(--white);
+  color: var(--neutral-50);
   background-color: var(--primary);
   border-radius: 50%;
   user-select: none;

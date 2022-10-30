@@ -1,22 +1,14 @@
-import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
+import { ClassNameComponentProps } from '_types/components';
 import styles from './CheckMark.module.css';
 
-interface CheckMarkProps {
-  lang: string;
-  className?: string;
-}
-
-const CheckMark: FC<CheckMarkProps> = ({ lang, className = '' }) => {
-  const { locale } = useRouter();
-
+const CheckMark: FC<ClassNameComponentProps> = ({ className = '' }) => {
   const computedClassName = useMemo(
     () => `${styles.checkMark}${className}`,
     [className]
   );
-  return lang === locale ? (
-    <span className={computedClassName}>&#10003;</span>
-  ) : null;
+
+  return <span className={computedClassName}>&#10003;</span>;
 };
 
 export default CheckMark;

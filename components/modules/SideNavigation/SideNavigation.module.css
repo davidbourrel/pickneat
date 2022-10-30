@@ -10,7 +10,7 @@
 }
 .activeBlackFilter {
   transform: scale(1, 1);
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .sideNavContainer {
@@ -40,7 +40,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--white);
+  background-color: var(--neutral-100);
+  color: var(--neutral-900);
   height: 100%;
   overflow-y: auto;
 }

@@ -3,11 +3,11 @@ import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
 import Button from '../buttons/Button';
 import Link from '../Link';
-import CheckMark from '../CheckMark';
 import Arrow from '../Arrow';
 import { ArrowDirectionEnum } from '../Arrow/types';
 import useLang from 'contexts/i18nContext/useLang';
 import useLangPopup from 'contexts/i18nContext/useLangPopup';
+import LangItem from './LangItem';
 
 interface LanguageSwitcherProps {
   title: string;
@@ -33,6 +33,13 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
     [setIsLangSwitcherOpened]
   );
 
+  const flagClassName = useMemo(
+    () => `${styles.flag} ${lang === 'en' ? styles.enFlag : styles.frFlag} `,
+    [lang]
+  );
+
+  const plainCountryName = useMemo(() => (lang === 'en' ? 'EN' : 'FR'), [lang]);
+
   const langsListClassName = useMemo(
     () =>
       `${styles.langsList} ${
@@ -40,13 +47,6 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
       } `,
     [isLangSwitcherOpened]
   );
-
-  const flagClassName = useMemo(
-    () => `${styles.flag} ${lang === 'en' ? styles.enFlag : styles.frFlag} `,
-    [lang]
-  );
-
-  const plainCountryName = useMemo(() => (lang === 'en' ? 'EN' : 'FR'), [lang]);
 
   const computedTabIndex = useMemo(
     () => (isLangSwitcherOpened ? 0 : -1),
@@ -92,8 +92,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             data-test={`${dataTestLangButton}English`}
             tabIndex={computedTabIndex}
           >
-            <span>English</span>
-            <CheckMark lang="en" />
+            <LangItem countryLang="English" locale="en" />
           </Link>
         </li>
         <li aria-labelledby="lang-item-French">
@@ -109,8 +108,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             data-test={`${dataTestLangButton}French`}
             tabIndex={computedTabIndex}
           >
-            <span>Français</span>
-            <CheckMark lang="fr" />
+            <LangItem countryLang="Français" locale="fr" />
           </Link>
         </li>
       </ul>

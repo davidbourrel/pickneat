@@ -11,7 +11,7 @@ import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 import useOutsideClick from 'hooks/useOutsideClick';
-import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
+import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
@@ -99,7 +99,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
         data-test="sideNavigation"
       >
         <nav className={styles.sideNavigation}>
-          <BurgerMenuToggle
+          <BurgerMenuButton
             isSideNavOpened={isSideNavOpened}
             closeMenu={closeMenu}
             title={closeBurgerMenu}

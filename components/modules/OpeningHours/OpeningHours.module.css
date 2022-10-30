@@ -6,10 +6,10 @@
 /* Header */
 .table thead th {
   padding: 0.75rem 0.5rem;
-  border: 2px solid var(--primary);
-  font-weight: 700;
+  border: 2px solid var(--neutral-600);
+  color: var(--neutral-900);
+  font-weight: 800;
   font-size: 1.25rem;
-  color: var(--primary);
   vertical-align: middle;
 }
 
@@ -20,12 +20,16 @@
 .table td,
 .table th {
   padding: 0.5rem 1rem;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--neutral-600);
   vertical-align: middle;
 }
+.day {
+  color: var(--neutral-600);
+}
 .currentDay {
-  background-color: var(--primary-hover);
-  color: var(--white);
+  background-color: var(--neutral-200);
+  color: var(--primary);
+  font-weight: 800;
 }
 
 /**************************/

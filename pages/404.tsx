@@ -12,7 +12,7 @@ const NotFound = () => {
   const { shortError404, longError404, backButton } = useTranslation(errors);
 
   return (
-    <main id="not-found" className="sidePadding">
+    <main className="notFound sidePadding">
       <Head>
         <title>PickN`Eat | {shortError404}</title>
       </Head>

@@ -4,7 +4,7 @@
 }
 
 #nprogress .bar {
-  background-color: var(--primary-hover);
+  background-color: var(--primary);
   position: fixed;
   z-index: 50;
   top: 0;

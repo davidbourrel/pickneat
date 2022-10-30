@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import Navigation from '../Navigation';
 import styles from './Header.module.css';
-import BurgerMenuToggle from 'components/elements/buttons/BurgerMenuToggle';
 import Link from 'components/elements/Link';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
+import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
@@ -32,7 +32,7 @@ const Header: FC<HeaderProps> = ({
           <span>PickN`Eat</span>
         </Link>
         <Navigation />
-        <BurgerMenuToggle
+        <BurgerMenuButton
           isSideNavOpened={isSideNavOpened}
           handleToggleMenu={handleToggleMenu}
           title={openBurgerMenu}

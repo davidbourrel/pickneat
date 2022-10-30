@@ -1,4 +1,6 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import Arrow from '../Arrow';
+import { ArrowDirectionEnum } from '../Arrow/types';
 import Button from '../buttons/Button';
 import styles from './ScrollToTopButton.module.css';
 
@@ -34,7 +36,9 @@ const ScrollToTopButton: FC = () => {
       onClick={handleScrollToTopButton}
       aria-label="scroll to top"
     >
-      <span className={styles.span} />
+      <div className={styles.svgContainer}>
+        <Arrow direction={ArrowDirectionEnum.Top} />
+      </div>
     </Button>
   );
 };

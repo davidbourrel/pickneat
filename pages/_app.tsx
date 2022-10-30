@@ -39,7 +39,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <div id="app">
+    <div id="app" className="app">
       <I18nProvider>
         <ThemeProvider>
           <UserProvider>

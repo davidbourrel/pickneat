@@ -1,12 +1,13 @@
 .languageSwitcherButton {
   display: flex;
   align-items: center;
-  background: none;
-  transition: color 150ms ease-out;
-  margin-top: 1.5rem;
+  transition: border 150ms ease-out;
+  border: 1px solid transparent;
+  padding: 0.25rem;
+  margin-left: -0.25rem;
 }
 .languageSwitcherButton:hover {
-  color: var(--primary-hover);
+  border: 1px solid var(--neutral-300);
 }
 
 .flag {
@@ -31,14 +32,18 @@
 
 .langsList {
   display: block;
-  background-color: var(--white);
-  border-radius: 4px;
-  box-shadow: 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  background-color: var(--neutral-100);
+  border: 1px solid var(--neutral-300);
+  border-radius: 0.5rem;
   position: absolute;
   bottom: 3rem;
   font-weight: 600;
   min-width: 6rem;
   padding: 0.5rem;
+}
+
+.langsList li:not(:last-child) {
+  border-bottom: 1px solid var(--neutral-300);
 }
 
 .active {
@@ -54,15 +59,14 @@
   display: flex;
   align-items: center;
   transition: color 150ms ease-out, background-color 150ms ease-out;
-  color: var(--primary);
   padding: 0.5rem 1rem;
-  line-height: 2rem;
 }
 .langButton:hover {
-  color: var(--primary-hover);
-  background-color: var(--primary-bg);
+  color: var(--primary);
 }
-
+.activeCountry {
+  color: var(--primary);
+}
 .langButton span {
   pointer-events: none;
 }
@@ -73,9 +77,10 @@
 @media screen and (min-width: 1024px) {
   .languageSwitcherButton {
     margin-top: 0;
+    margin-left: -0.25rem;
   }
   .langsList {
-    top: 2rem;
+    top: 3rem;
     bottom: unset;
     right: 0;
   }

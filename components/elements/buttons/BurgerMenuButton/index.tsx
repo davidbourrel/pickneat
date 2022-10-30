@@ -2,10 +2,10 @@ import { FC, useMemo } from 'react';
 import useTranslation from 'hooks/useTranslation';
 import { ClassNameComponentProps } from '_types/components';
 import Button from '../Button';
-import styles from './BurgerMenuToggle.module.css';
+import styles from './BurgerMenuButton.module.css';
 import navigation from 'public/translations/navigation.json';
 
-interface BurgerToggleButtonProps extends ClassNameComponentProps {
+interface BurgerMenuButtonProps extends ClassNameComponentProps {
   handleToggleMenu?: () => void;
   closeMenu?: () => void;
   isSideNavOpened: boolean;
@@ -13,7 +13,7 @@ interface BurgerToggleButtonProps extends ClassNameComponentProps {
   dataTest: string;
 }
 
-const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
+const BurgerMenuButton: FC<BurgerMenuButtonProps> = ({
   handleToggleMenu,
   closeMenu,
   isSideNavOpened,
@@ -86,4 +86,4 @@ const BurgerMenuToggle: FC<BurgerToggleButtonProps> = ({
   );
 };
 
-export default BurgerMenuToggle;
+export default BurgerMenuButton;

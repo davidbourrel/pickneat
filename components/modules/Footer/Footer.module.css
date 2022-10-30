@@ -1,9 +1,9 @@
 .footer {
-  color: var(--white);
-  background-color: var(--primary);
+  background-color: var(--neutral-50);
   width: 100%;
   padding: 1.5rem;
   box-sizing: border-box;
+  border-top: 1px solid var(--neutral-300);
 }
 
 .blockContainer {
@@ -16,10 +16,12 @@
   font-weight: 700;
   font-size: 1.25rem;
   padding: 1.5rem 0;
+  color: var(--primary);
 }
 .block li {
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
+  color: var(--neutral-600);
 }
 
 /**************************/

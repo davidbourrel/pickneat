@@ -47,7 +47,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
   );
 };
 
-interface getServerSidePropsInterface {
+interface GetServerSidePropsInterface {
   req: NextApiRequest;
   res: NextApiResponse;
 }
@@ -55,7 +55,7 @@ interface getServerSidePropsInterface {
 export const getServerSideProps = async ({
   req,
   res,
-}: getServerSidePropsInterface) => {
+}: GetServerSidePropsInterface) => {
   const session = await getSession(req, res);
 
   if (!session || !session.user) {

@@ -13,6 +13,7 @@ import Headings from 'components/elements/Headings';
 import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 import styles from '../styles/Home.module.css';
 import useProducts from '../SWR/useProducts';
+import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 
 const Slider = dynamic(() => import('components/modules/Slider'));
 
@@ -25,6 +26,7 @@ const Home: FC = () => {
 
   return (
     <main className={styles.main}>
+      <ScrollToTopButton />
       <section>
         <Slider>
           <SwiperSlide>

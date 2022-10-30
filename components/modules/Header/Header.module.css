@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--white);
+  background-color: var(--neutral-50);
   align-items: center;
   display: flex;
   width: 100%;
@@ -12,6 +12,7 @@
   padding: 0 1.5rem;
   box-sizing: border-box;
   z-index: 10;
+  border-bottom: 1px solid var(--neutral-300);
 }
 
 .headerContent {

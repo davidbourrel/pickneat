@@ -7,28 +7,39 @@
   border: 1px solid transparent;
   transition: border-color 150ms ease-out;
   padding: 0 0.8rem;
+  margin-left: -0.5rem;
 }
 .switcherButton:hover {
-  border: 1px solid var(--lightGray);
-}
-.switcherButton:hover svg {
-  background-color: var(--lightGray);
+  border: 1px solid var(--neutral-300);
 }
 
 .switcherButton svg {
   padding: 0.4rem;
   border-radius: 50%;
 }
+.switcherButton:hover svg {
+  background-color: var(--neutral-300);
+}
+
 .switcherButton span {
   padding-right: 0.5rem;
 }
 
 .light {
-  fill: var(--white);
+  fill: var(--neutral-50);
   transform: rotate(360deg);
 }
 
 .dark {
   fill: #ffce45;
   stroke: transparent;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .switcherButton {
+    margin-left: 0;
+  }
 }

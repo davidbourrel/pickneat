@@ -1,6 +1,9 @@
 .arrowContainer {
-  width: 12px;
-  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
 }
 
 .arrow {

@@ -12,7 +12,7 @@
 
 .filled {
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--neutral-50);
 }
 .filled:hover {
   background-color: var(--primary-hover);
@@ -23,7 +23,7 @@
 }
 .border:hover {
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--neutral-50);
 }
 
 .disable {

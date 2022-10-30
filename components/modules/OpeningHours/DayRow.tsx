@@ -27,19 +27,19 @@ const DayRow: FC<DayRowProps> = ({
   const currentDayClassName = useMemo(() => {
     switch (day) {
       case DaysOfTheWeekEnum.Monday:
-        return isMonday(Date.now()) ? styles.currentDay : '';
+        return isMonday(Date.now()) ? styles.currentDay : styles.day;
       case DaysOfTheWeekEnum.Tuesday:
-        return isTuesday(Date.now()) ? styles.currentDay : '';
+        return isTuesday(Date.now()) ? styles.currentDay : styles.day;
       case DaysOfTheWeekEnum.Wednesday:
-        return isWednesday(Date.now()) ? styles.currentDay : '';
+        return isWednesday(Date.now()) ? styles.currentDay : styles.day;
       case DaysOfTheWeekEnum.Thursday:
-        return isThursday(Date.now()) ? styles.currentDay : '';
+        return isThursday(Date.now()) ? styles.currentDay : styles.day;
       case DaysOfTheWeekEnum.Friday:
-        return isFriday(Date.now()) ? styles.currentDay : '';
+        return isFriday(Date.now()) ? styles.currentDay : styles.day;
       case DaysOfTheWeekEnum.Saturday:
-        return isSaturday(Date.now()) ? styles.currentDay : '';
+        return isSaturday(Date.now()) ? styles.currentDay : styles.day;
       case DaysOfTheWeekEnum.Sunday:
-        return isSunday(Date.now()) ? styles.currentDay : '';
+        return isSunday(Date.now()) ? styles.currentDay : styles.day;
 
       default:
         return '';

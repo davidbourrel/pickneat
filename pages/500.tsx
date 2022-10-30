@@ -12,7 +12,7 @@ const ServerError = () => {
   const { shortError500, longError500, backButton } = useTranslation(errors);
 
   return (
-    <main id="not-found" className="sidePadding">
+    <main className="notFound sidePadding">
       <Head>
         <title>PickN`Eat | {shortError500}</title>
       </Head>
