@@ -35,7 +35,7 @@ describe('Navigation menu', () => {
       cy.get('[data-test="sideNavigation"]').as('sideNavigation');
 
       cy.get('@sideNavigation').contains('Menu');
-      cy.get('@sideNavigation').contains('Restaurants');
+      cy.get('@sideNavigation').contains('Locate');
       cy.get('@sideNavigation').contains('Delivery');
       cy.get('@sideNavigation').contains('English');
       cy.get('@sideNavigation').contains('Theme');
@@ -55,7 +55,7 @@ describe('Navigation menu', () => {
       cy.get('[data-test="mainNavigation"]').as('mainNavigation');
 
       cy.get('@mainNavigation').contains('Menu');
-      cy.get('@mainNavigation').contains('Restaurants');
+      cy.get('@mainNavigation').contains('Locate');
       cy.get('@mainNavigation').contains('Delivery');
       cy.get('@mainNavigation').contains('English');
       cy.get('@mainNavigation').contains('Theme');
