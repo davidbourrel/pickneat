@@ -5,7 +5,6 @@
   padding: 0;
   border: none;
   background-color: transparent;
-  z-index: 20;
   color: var(--primary);
   font-size: 1.25rem;
 }

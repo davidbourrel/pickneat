@@ -45,7 +45,7 @@
   height: 100%;
   overflow-y: auto;
 }
-.sideNavigation li {
+.firstNavigation > li {
   margin-bottom: 1rem;
   position: relative;
   text-transform: uppercase;
@@ -59,8 +59,12 @@
   margin-top: 2.5rem;
   padding-top: 0.5rem;
 }
-.secondNavigation li {
+.secondNavigation > li {
   padding: 0.3rem 0;
+  position: relative;
+}
+.secondNavigation > li:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 /**************************/

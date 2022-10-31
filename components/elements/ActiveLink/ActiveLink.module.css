@@ -3,7 +3,6 @@
   display: inline-flex;
   position: relative;
   overflow: hidden;
-  font-weight: 600;
   font-size: 1.25rem;
   transition: color 150ms ease-out;
 }

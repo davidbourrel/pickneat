@@ -13,7 +13,7 @@
   margin-bottom: 2rem;
 }
 .mainContent h2 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.75rem;
 }
 
@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.5rem;
   color: var(--primary);
   text-transform: uppercase;

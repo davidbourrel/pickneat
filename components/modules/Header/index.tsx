@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import Navigation from '../Navigation';
 import styles from './Header.module.css';
-import Link from 'components/elements/Link';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
+import Logo from 'components/elements/Logo';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
@@ -22,15 +22,7 @@ const Header: FC<HeaderProps> = ({
   return (
     <header className={styles.header}>
       <div className={`${styles.headerContent} container`}>
-        <Link
-          href="/"
-          className={styles.mainLogo}
-          onClick={closeMenu}
-          aria-label="PickN`Eat Logo"
-          data-test="mainLogo"
-        >
-          <span>PickN`Eat</span>
-        </Link>
+        <Logo closeMenu={closeMenu} />
         <Navigation />
         <BurgerMenuButton
           isSideNavOpened={isSideNavOpened}

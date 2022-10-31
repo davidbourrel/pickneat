@@ -37,13 +37,11 @@
   border-radius: 0.5rem;
   position: absolute;
   bottom: 3rem;
-  font-weight: 600;
   min-width: 6rem;
   padding: 0.5rem;
 }
 .langsList li {
-  margin: 0;
-  padding: 0;
+  text-transform: capitalize;
 }
 .langsList li:not(:last-child) {
   border-bottom: 1px solid var(--neutral-300);
