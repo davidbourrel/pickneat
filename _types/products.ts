@@ -9,3 +9,11 @@ export interface Products {
   allergens?: string | null;
   category: string;
 }
+
+export enum Category {
+  Burger = 'BURGER',
+  Side = 'SIDE',
+  Drink = 'DRINK',
+  Dessert = 'DESSERT',
+  Salad = 'SALAD',
+}
