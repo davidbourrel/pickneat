@@ -54,7 +54,7 @@ const Headings: FC<HeadingsProps> = ({
         );
     }
   }, [children, level, className, rest]);
-  return <>{heading}</>;
+  return heading;
 };
 
 export default Headings;

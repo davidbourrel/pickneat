@@ -21,9 +21,8 @@ const Home: FC = () => {
   const { homeMainTitle } = useTranslation(home);
 
   return (
-    <main className={styles.main}>
-      <ScrollToTopButton />
-      <section>
+    <main>
+      <header className={styles.homeHeader}>
         <Slider>
           <SwiperSlide>
             <Image
@@ -87,14 +86,16 @@ const Home: FC = () => {
           </SwiperSlide>
         </Slider>
         <Headings level={HeadingsLevelEnum.One}>{homeMainTitle}</Headings>
-        <ProductsList />
-      </section>
+      </header>
+      <ProductsList />
+
       <section>
         <h2>Second section</h2>
       </section>
       <section>
         <h2>Third section</h2>
       </section>
+      <ScrollToTopButton />
     </main>
   );
 };

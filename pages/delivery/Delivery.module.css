@@ -13,7 +13,6 @@
   margin-bottom: 2rem;
 }
 .mainContent h2 {
-  font-weight: 600;
   font-size: 1.75rem;
 }
 
@@ -53,6 +52,7 @@
   margin: 2rem 0;
   text-align: center;
 }
+
 .mainContent section a {
   margin-top: auto;
 }

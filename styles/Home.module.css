@@ -1,3 +1,7 @@
 .main > section {
   min-height: 100vh;
 }
+.homeHeader h1 {
+  text-align: center;
+  padding: 1rem;
+}

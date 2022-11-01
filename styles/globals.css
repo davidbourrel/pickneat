@@ -2,6 +2,7 @@
 @import url('./fonts.css');
 @import url('./loader.css');
 @import url('./slider.css');
+@import url('./map.css');
 
 :root {
   --primary: #6e4a2c;
@@ -107,13 +108,13 @@ main {
 }
 h2 {
   color: var(--neutral-900);
+  font-weight: 600;
+  margin-bottom: 2rem;
 }
 p {
   color: var(--neutral-600);
 }
-.app > main {
-  padding-top: 4rem;
-}
+
 .container {
   width: 100%;
   max-width: 1280px;
@@ -126,22 +127,4 @@ p {
 }
 .capitalize::first-letter {
   text-transform: capitalize;
-}
-
-/* Controle buttons in Openlayers */
-.ol-control button {
-  background-color: #fff !important;
-  color: #000 !important;
-}
-.ol-control button:hover {
-  cursor: pointer;
-}
-
-/**************************/
-/****** MEDIA QUERIES *****/
-/**************************/
-@media screen and (min-width: 1024px) {
-  .app > main {
-    padding-top: unset;
-  }
 }

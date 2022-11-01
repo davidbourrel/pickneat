@@ -1,0 +1,8 @@
+/* Controle buttons in Openlayers */
+.ol-control button {
+  background-color: #fff !important;
+  color: #000 !important;
+}
+.ol-control button:hover {
+  cursor: pointer;
+}
