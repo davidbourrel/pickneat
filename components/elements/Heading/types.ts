@@ -1,4 +1,4 @@
-export enum HeadingsLevelEnum {
+export enum HeadingLevelEnum {
   One = 'ONE',
   Two = 'TWO',
   Three = 'THREE',

@@ -5,8 +5,8 @@ import navigation from 'public/translations/navigation.json';
 import restaurantsTrans from 'public/translations/pages/restaurants.json';
 import OpenLayersMap from 'components/modules/OpenLayersMap';
 import OpeningHours from 'components/modules/OpeningHours';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from './Restaurants.module.css';
 
 const Restaurants: FC = () => {
@@ -20,19 +20,16 @@ const Restaurants: FC = () => {
       <Head>
         <title>PickN`Eat | {restaurants}</title>
       </Head>
-      <Headings
-        level={HeadingsLevelEnum.One}
-        className={styles.restaurantsTitle}
-      >
+      <Heading level={HeadingLevelEnum.One} className={styles.restaurantsTitle}>
         {restaurantsMainTitle}
-      </Headings>
+      </Heading>
       <div className={styles.restaurantsContent}>
         <section>
-          <Headings level={HeadingsLevelEnum.Two}>{location}</Headings>
+          <Heading level={HeadingLevelEnum.Two}>{location}</Heading>
           <OpenLayersMap />
         </section>
         <section>
-          <Headings level={HeadingsLevelEnum.Two}>{openingHours}</Headings>
+          <Heading level={HeadingLevelEnum.Two}>{openingHours}</Heading>
           <OpeningHours />
         </section>
       </div>

@@ -5,8 +5,8 @@ import deliveryTranslations from 'public/translations/pages/delivery.json';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 import styles from './Delivery.module.css';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 
 const Delivery: FC = () => {
   const {
@@ -25,12 +25,12 @@ const Delivery: FC = () => {
       <Head>
         <title>PickN`Eat | {delivery}</title>
       </Head>
-      <Headings level={HeadingsLevelEnum.One} className={styles.mainTitle}>
+      <Heading level={HeadingLevelEnum.One} className={styles.mainTitle}>
         {deliveryMainTitle}
-      </Headings>
+      </Heading>
       <div className={styles.mainContent}>
         <section className={styles.deliverySection}>
-          <Headings level={HeadingsLevelEnum.Two}>{delivery}</Headings>
+          <Heading level={HeadingLevelEnum.Two}>{delivery}</Heading>
           <p className={styles.description}>{deliveryContent}</p>
           <Link
             href="https://deliveroo.fr/fr/"
@@ -47,7 +47,7 @@ const Delivery: FC = () => {
           <span></span>
         </div>
         <section className={styles.takeAwaySection}>
-          <Headings level={HeadingsLevelEnum.Two}>{takeAway}</Headings>
+          <Heading level={HeadingLevelEnum.Two}>{takeAway}</Heading>
           <p className={styles.description}>{takeAwayContent}</p>
           <Link href="/" tabIndex={-1}>
             <Button>{takeAwayButton}</Button>

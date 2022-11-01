@@ -9,8 +9,8 @@ import sodaImage from 'public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Un
 import dessertImage from 'public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
 import saladImage from 'public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 import dynamic from 'next/dynamic';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from '../styles/Home.module.css';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import ProductsList from 'components/modules/ProductsList';
@@ -85,15 +85,15 @@ const Home: FC = () => {
             />
           </SwiperSlide>
         </Slider>
-        <Headings level={HeadingsLevelEnum.One}>{homeMainTitle}</Headings>
+        <Heading level={HeadingLevelEnum.One}>{homeMainTitle}</Heading>
       </header>
       <ProductsList />
 
       <section>
-        <h2>Second section</h2>
+        <Heading level={HeadingLevelEnum.Two}>Second section</Heading>
       </section>
       <section>
-        <h2>Third section</h2>
+        <Heading level={HeadingLevelEnum.Two}>Third section</Heading>
       </section>
       <ScrollToTopButton />
     </main>

@@ -7,8 +7,8 @@ import { getSession, UserProfile } from '@auth0/nextjs-auth0';
 import Link from 'components/elements/Link';
 import styles from './Profile.module.css';
 import Button from 'components/elements/buttons/Button';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 
 interface ProfileProps {
   user: UserProfile;
@@ -34,9 +34,9 @@ const Profile: FC<ProfileProps> = ({ user }) => {
       <Head>
         <title>PickN`Eat | {login}</title>
       </Head>
-      <Headings level={HeadingsLevelEnum.One} className={styles.profileTitle}>
+      <Heading level={HeadingLevelEnum.One} className={styles.profileTitle}>
         [Profile]
-      </Headings>
+      </Heading>
       {userPicture}
       <p>nickname: {user.nickname}</p>
       <p>name: {user.name}</p>

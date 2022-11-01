@@ -3,5 +3,7 @@
 }
 .homeHeader h1 {
   text-align: center;
+  font-weight: 600;
   padding: 1rem;
+  margin-bottom: 1rem;
 }

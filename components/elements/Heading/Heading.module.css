@@ -1,12 +1,15 @@
 .one {
-  font-size: 1.875rem;
   color: var(--primary);
+  font-size: 1.875rem;
   line-height: 2.25rem;
 }
 .two {
+  color: var(--neutral-900);
+  font-weight: 600;
   font-size: 1.5rem;
   line-height: 2rem;
   text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 .three {
   font-size: 1.25rem;

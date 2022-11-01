@@ -3,8 +3,8 @@ import styles from './Footer.module.css';
 import footer from 'public/translations/footer.json';
 import useTranslation from 'hooks/useTranslation';
 import Link from 'components/elements/Link';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 
 const Footer: FC = () => {
   const {
@@ -26,7 +26,7 @@ const Footer: FC = () => {
     <footer className={styles.footer}>
       <div className={`${styles.blockContainer} container`}>
         <nav className={styles.block}>
-          <Headings level={HeadingsLevelEnum.Three}>{aboutUs}</Headings>
+          <Heading level={HeadingLevelEnum.Three}>{aboutUs}</Heading>
           <ul>
             <li>
               <Link href="/">{leadershipTeam}</Link>
@@ -40,7 +40,7 @@ const Footer: FC = () => {
           </ul>
         </nav>
         <nav className={styles.block}>
-          <Headings level={HeadingsLevelEnum.Three}>{careers}</Headings>
+          <Heading level={HeadingLevelEnum.Three}>{careers}</Heading>
           <ul>
             <li>
               <Link href="/">{employeePerks}</Link>
@@ -54,7 +54,7 @@ const Footer: FC = () => {
           </ul>
         </nav>
         <nav className={styles.block}>
-          <Headings level={HeadingsLevelEnum.Three}>{contactUs}</Headings>
+          <Heading level={HeadingLevelEnum.Three}>{contactUs}</Heading>
           <ul>
             <li>
               <Link href="/">{restaurantFeedback}</Link>

@@ -3,13 +3,13 @@ import useProducts from '../../../SWR/useProducts';
 import styles from './ProductsList.module.css';
 import Loader from '../../elements/Loader';
 import { Category } from '_types/products';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
 import BurgersList from './categories/BurgersList';
 import SidesList from './categories/SidesList';
 import DrinksList from './categories/DrinksList';
 import DessertsList from './categories/DessertsList';
 import SaladsList from './categories/SaladsList';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 
 const ProductsList: FC = () => {
   const { products, isProductsLoading, isProductsError } = useProducts();
@@ -25,23 +25,38 @@ const ProductsList: FC = () => {
   return (
     <ul className={styles.productsList}>
       <li>
-        <Headings level={HeadingsLevelEnum.Two}>{Category.Burger}</Headings>
+        <div className={styles.headingContainer}>
+          <Heading level={HeadingLevelEnum.Two}>{Category.Burger}</Heading>
+          <span className={styles.stroke} />
+        </div>
         <BurgersList products={products} />
       </li>
       <li>
-        <Headings level={HeadingsLevelEnum.Two}>{Category.Side}</Headings>
+        <div className={styles.headingContainer}>
+          <Heading level={HeadingLevelEnum.Two}>{Category.Side}</Heading>
+          <span className={styles.stroke} />
+        </div>
         <SidesList products={products} />
       </li>
       <li>
-        <Headings level={HeadingsLevelEnum.Two}>{Category.Drink}</Headings>
+        <div className={styles.headingContainer}>
+          <Heading level={HeadingLevelEnum.Two}>{Category.Drink}</Heading>
+          <span className={styles.stroke} />
+        </div>
         <DrinksList products={products} />
       </li>
       <li>
-        <Headings level={HeadingsLevelEnum.Two}>{Category.Dessert}</Headings>
+        <div className={styles.headingContainer}>
+          <Heading level={HeadingLevelEnum.Two}>{Category.Dessert}</Heading>
+          <span className={styles.stroke} />
+        </div>
         <DessertsList products={products} />
       </li>
       <li>
-        <Headings level={HeadingsLevelEnum.Two}>{Category.Salad}</Headings>
+        <div className={styles.headingContainer}>
+          <Heading level={HeadingLevelEnum.Two}>{Category.Salad}</Heading>
+          <span className={styles.stroke} />
+        </div>
         <SaladsList products={products} />
       </li>
     </ul>

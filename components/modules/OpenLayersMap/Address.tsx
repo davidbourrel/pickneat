@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import ItineraryIcon from 'components/images/icons/ItineraryIcon';
 import styles from './OpenLayersMap.module.css';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 
 const Address: FC = () => {
   return (
     <address className={styles.address}>
-      <Headings level={HeadingsLevelEnum.Three}>PickN`Eat</Headings>
+      <Heading level={HeadingLevelEnum.Three}>PickN`Eat</Heading>
       <span>
         {' '}
         <ItineraryIcon className={styles.itineraryIcon} />

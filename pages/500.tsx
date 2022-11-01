@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
 import errors from 'public/translations/pages/errors.json';
-import Headings from 'components/elements/Headings';
-import { HeadingsLevelEnum } from 'components/elements/Headings/types';
+import Heading from 'components/elements/Heading';
+import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Button from 'components/elements/buttons/Button';
 
 const ServerError = () => {
@@ -16,7 +16,7 @@ const ServerError = () => {
       <Head>
         <title>PickN`Eat | {shortError500}</title>
       </Head>
-      <Headings level={HeadingsLevelEnum.One}>{longError500}</Headings>
+      <Heading level={HeadingLevelEnum.One}>{longError500}</Heading>
       <Button onClick={back}>{backButton}</Button>
     </main>
   );

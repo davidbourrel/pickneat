@@ -1,13 +1,13 @@
 import { FC, HTMLProps, ReactNode, useMemo } from 'react';
-import { HeadingsLevelEnum } from './types';
-import styles from './Headings.module.css';
+import { HeadingLevelEnum } from './types';
+import styles from './Heading.module.css';
 
-interface HeadingsProps extends HTMLProps<HTMLHeadingElement> {
+interface HeadingProps extends HTMLProps<HTMLHeadingElement> {
   children: ReactNode;
   level: string;
 }
 
-const Headings: FC<HeadingsProps> = ({
+const Heading: FC<HeadingProps> = ({
   children,
   level,
   className = '',
@@ -15,37 +15,37 @@ const Headings: FC<HeadingsProps> = ({
 }) => {
   const heading = useMemo(() => {
     switch (level) {
-      case HeadingsLevelEnum.One:
+      case HeadingLevelEnum.One:
         return (
           <h1 className={`${styles.one} ${className}`} {...rest}>
             {children}
           </h1>
         );
-      case HeadingsLevelEnum.Two:
+      case HeadingLevelEnum.Two:
         return (
           <h2 className={`${styles.two} ${className}`} {...rest}>
             {children}
           </h2>
         );
-      case HeadingsLevelEnum.Three:
+      case HeadingLevelEnum.Three:
         return (
           <h3 className={`${styles.three} ${className}`} {...rest}>
             {children}
           </h3>
         );
-      case HeadingsLevelEnum.Four:
+      case HeadingLevelEnum.Four:
         return (
           <h4 className={`${styles.four} ${className}`} {...rest}>
             {children}
           </h4>
         );
-      case HeadingsLevelEnum.Five:
+      case HeadingLevelEnum.Five:
         return (
           <h5 className={`${styles.five} ${className}`} {...rest}>
             {children}
           </h5>
         );
-      case HeadingsLevelEnum.Six:
+      case HeadingLevelEnum.Six:
       default:
         return (
           <h6 className={`${styles.six} ${className}`} {...rest}>
@@ -57,4 +57,4 @@ const Headings: FC<HeadingsProps> = ({
   return heading;
 };
 
-export default Headings;
+export default Heading;
