@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo, useRef } from 'react';
+import { FC, useCallback, useMemo, useRef } from 'react';
 import { useRouter } from 'next/router';
 import ActiveLink from 'components/elements/ActiveLink';
 import navigation from 'public/translations/navigation.json';
@@ -88,32 +88,6 @@ const SideNavigation: FC<SideNavigationProps> = ({
       ),
     [user, asPath, closeMenu, profile, login, loginTitle]
   );
-
-  useEffect(() => {
-    const disableScroll = () => {
-      const scrollable = document.querySelector('.app') as HTMLDivElement;
-      scrollable.classList.add('disable-scroll');
-    };
-    const enableScroll = () => {
-      const scrollable = document.querySelector('.app') as HTMLDivElement;
-      scrollable.classList.remove('disable-scroll');
-    };
-
-    if (
-      typeof window !== 'undefined' &&
-      'matchMedia' in window &&
-      isSideNavOpened
-    ) {
-      if (window.matchMedia('(min-width:640px)').matches) {
-        const scrollable = document.querySelector('.app') as HTMLDivElement;
-        scrollable.addEventListener('touchmove', disableScroll, {
-          passive: false,
-        });
-      } else {
-        enableScroll();
-      }
-    }
-  }, [isSideNavOpened]);
 
   return (
     <div className={blackFilterClassName}>
