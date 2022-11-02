@@ -16,16 +16,17 @@
   position: relative;
   z-index: 60;
   margin-left: 1rem;
+  font-size: 1.875rem;
 }
 .stroke {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotate(-5deg) translate(0.2rem, 0.6rem);
+  transform: rotate(-5deg) translate(0.2rem, 0.4rem);
   background-color: #dc9458;
   opacity: 0.5;
-  width: calc(100% + 1rem);
-  height: calc(100% - 1rem);
+  width: calc(100% + 1.25rem);
+  height: calc(100% - 0.85rem);
 }
 
 .categoryList {

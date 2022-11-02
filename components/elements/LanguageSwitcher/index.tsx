@@ -79,7 +79,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         role="listbox"
         data-test={dataTestLangsList}
       >
-        <li aria-labelledby="lang-item-English">
+        <li className="capitalize" aria-labelledby="lang-item-English">
           <Link
             href={asPath}
             passHref
@@ -95,7 +95,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             <LangItem countryLang="English" locale="en" />
           </Link>
         </li>
-        <li aria-labelledby="lang-item-French">
+        <li className="capitalize" aria-labelledby="lang-item-French">
           <Link
             href={asPath}
             passHref

@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -0.7rem;
+  transform: translateY(-0.7rem);
   right: 0;
   width: 1.4rem;
   font-size: 0.938rem;

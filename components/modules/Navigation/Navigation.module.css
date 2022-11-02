@@ -24,8 +24,8 @@
     align-items: center;
     color: var(--neutral-900);
   }
-  .navList li {
+  .navList > li {
     position: relative;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 }

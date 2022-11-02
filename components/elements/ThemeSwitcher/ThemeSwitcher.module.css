@@ -7,7 +7,7 @@
   border: 1px solid transparent;
   transition: border-color 150ms ease-out;
   padding: 0 0.8rem;
-  margin-left: -0.5rem;
+  transform: translateX(-0.5rem);
 }
 .switcherButton:hover {
   border: 1px solid var(--neutral-300);
@@ -40,6 +40,6 @@
 /**************************/
 @media screen and (min-width: 1024px) {
   .switcherButton {
-    margin-left: 0;
+    transform: translateX(0);
   }
 }

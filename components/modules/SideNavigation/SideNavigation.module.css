@@ -45,20 +45,23 @@
   height: 100%;
   overflow-y: auto;
 }
-.firstNavigation > li {
-  margin-bottom: 1rem;
-  position: relative;
-  text-transform: uppercase;
-}
+
 .topRightCloseButton {
   position: absolute;
   align-self: end;
 }
+
 .firstNavigation {
   border-top: 1px solid var(--primary);
   margin-top: 2.5rem;
   padding-top: 0.5rem;
 }
+.firstNavigation > li {
+  margin-bottom: 1rem;
+  position: relative;
+  text-transform: capitalize;
+}
+
 .secondNavigation > li {
   padding: 0.3rem 0;
   position: relative;
