@@ -1,0 +1,23 @@
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 2rem;
+}
+.input {
+  height: 100%;
+  width: 100%;
+  max-width: 8rem;
+  margin: 0 1rem;
+  border: 1px solid var(--neutral-200);
+  border-radius: 0.2rem;
+  text-align: center;
+}
+.minus,
+.plus {
+  font-size: 1.5rem;
+  height: 100%;
+  width: 1.8rem;
+  background-color: var(--neutral-200);
+  flex-shrink: 0;
+}

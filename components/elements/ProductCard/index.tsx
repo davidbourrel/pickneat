@@ -1,17 +1,22 @@
 import { FC, useMemo } from 'react';
 import { Products } from '_types/products';
+import QuantityButton from '../buttons/QuantityButton';
+import Heading from '../Heading';
+import { HeadingLevelEnum } from '../Heading/types';
 import styles from './ProductCard.module.css';
 
 interface ProductCardProps {
   product: Products;
 }
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const description = useMemo(
+  const title = useMemo(
     () =>
-      product?.description ? (
-        <div className={styles.cardDescription}>{product.description}</div>
+      product?.name ? (
+        <Heading className={styles.cardTitle} level={HeadingLevelEnum.Three}>
+          {product.name}
+        </Heading>
       ) : null,
-    [product.description]
+    [product.name]
   );
   return (
     <li className={styles.card}>
@@ -20,8 +25,10 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
         className={styles.cardImage}
         alt="todo use nextjs"
       />
-      {description}
-      <button>Details</button>
+      <div className={styles.cardContent}>
+        {title}
+        <QuantityButton />
+      </div>
     </li>
   );
 };

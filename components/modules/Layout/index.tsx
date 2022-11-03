@@ -1,13 +1,9 @@
-import { FC, ReactNode, useCallback, useState } from 'react';
+import { FC, PropsWithChildren, useCallback, useState } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
 import SideNavigation from '../SideNavigation';
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout: FC<LayoutProps> = ({ children }) => {
+const Layout: FC = ({ children }: PropsWithChildren) => {
   const [isSideNavOpened, setIsSideNavOpened] = useState(false);
 
   const handleToggleMenu = useCallback(() => {

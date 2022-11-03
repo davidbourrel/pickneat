@@ -1,4 +1,11 @@
-import { FC, HTMLProps, KeyboardEvent, useCallback, useMemo } from 'react';
+import {
+  FC,
+  HTMLProps,
+  KeyboardEvent,
+  PropsWithChildren,
+  useCallback,
+  useMemo,
+} from 'react';
 import NextLink, { LinkProps } from 'next/link';
 import useIsClient from 'hooks/useIsClient';
 import styles from './Link.module.css';
@@ -11,7 +18,8 @@ interface FLinkProps
       HTMLProps<HTMLAnchorElement>,
       'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart'
     >,
-    LinkProps {
+    LinkProps,
+    PropsWithChildren {
   obfuscate?: boolean;
   isLoading?: boolean;
 }
