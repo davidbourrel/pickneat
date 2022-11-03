@@ -1,10 +1,9 @@
-import { FC, HTMLProps, PropsWithChildren, useMemo } from 'react';
+import { FC, HTMLProps, ReactNode, useMemo } from 'react';
 import Link from '../Link';
 import styles from './ActiveLink.module.css';
 
-interface ActiveLinkProps
-  extends HTMLProps<HTMLAnchorElement>,
-    PropsWithChildren {
+interface ActiveLinkProps extends HTMLProps<HTMLAnchorElement> {
+  children: ReactNode;
   href: string;
   path: string;
   closeMenu?: () => void;

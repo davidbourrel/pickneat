@@ -5,14 +5,13 @@ import {
   useCallback,
   useMemo,
   MouseEvent,
-  PropsWithChildren,
+  ReactNode,
 } from 'react';
 import styles from './Button.module.css';
 import Loader from '../../Loader';
 
-export interface ButtonProps
-  extends Omit<HTMLProps<HTMLButtonElement>, 'ref'>,
-    PropsWithChildren {
+export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
+  children: ReactNode;
   busy?: boolean;
   border?: boolean;
   headless?: boolean;

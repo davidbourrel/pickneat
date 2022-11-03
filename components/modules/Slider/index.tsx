@@ -1,10 +1,11 @@
-import { FC, PropsWithChildren, useMemo } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 import { Swiper } from 'swiper/react';
 import { A11y, Keyboard, Navigation, Pagination, SwiperOptions } from 'swiper';
 import styles from './Slider.module.css';
 import Loader from 'components/elements/Loader';
 
-interface SliderProps extends SwiperOptions, PropsWithChildren {
+interface SliderProps extends SwiperOptions {
+  children: ReactNode;
   loading?: boolean;
 }
 

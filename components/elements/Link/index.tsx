@@ -2,7 +2,7 @@ import {
   FC,
   HTMLProps,
   KeyboardEvent,
-  PropsWithChildren,
+  ReactNode,
   useCallback,
   useMemo,
 } from 'react';
@@ -18,8 +18,8 @@ interface FLinkProps
       HTMLProps<HTMLAnchorElement>,
       'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart'
     >,
-    LinkProps,
-    PropsWithChildren {
+    LinkProps {
+  children: ReactNode;
   obfuscate?: boolean;
   isLoading?: boolean;
 }

@@ -1,10 +1,9 @@
-import { FC, HTMLProps, PropsWithChildren, useMemo } from 'react';
+import { FC, HTMLProps, ReactNode, useMemo } from 'react';
 import { HeadingLevelEnum } from './types';
 import styles from './Heading.module.css';
 
-interface HeadingProps
-  extends HTMLProps<HTMLHeadingElement>,
-    PropsWithChildren {
+interface HeadingProps extends HTMLProps<HTMLHeadingElement> {
+  children: ReactNode;
   level: string;
 }
 
