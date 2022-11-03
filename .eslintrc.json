@@ -14,7 +14,14 @@
     "!.prettierrc.js",
     "cypress/*"
   ], // We don"t want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "plugin:react/recommended",
+    "next/core-web-vitals",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
   "plugins": ["cypress"],
   "overrides": [
     // This configuration will apply only to TypeScript files
