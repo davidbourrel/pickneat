@@ -4,7 +4,7 @@ import {
   useMemo,
   useCallback,
   useState,
-  PropsWithChildren,
+  ReactNode,
 } from 'react';
 import themeContext from './theme.context';
 import { ThemeContextInterface } from './theme.types';
@@ -13,7 +13,11 @@ import { ThemeEnum } from '_types/theme';
 
 const { Provider } = themeContext;
 
-const ThemeProvider: FC = ({ children }: PropsWithChildren) => {
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleSetTheme = useCallback((theme: string) => {

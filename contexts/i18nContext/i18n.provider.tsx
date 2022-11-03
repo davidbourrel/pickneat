@@ -1,11 +1,15 @@
-import { FC, useMemo, useCallback, useState, PropsWithChildren } from 'react';
+import { FC, useMemo, useCallback, useState, ReactNode } from 'react';
 import i18nContext from './i18n.context';
 import { I18nContextInterface } from './i18n.types';
 import { useRouter } from 'next/router';
 
 const { Provider } = i18nContext;
 
-const I18nProvider: FC = ({ children }: PropsWithChildren) => {
+interface I18nProviderProps {
+  children: ReactNode;
+}
+
+const I18nProvider: FC<I18nProviderProps> = ({ children }) => {
   const { locale } = useRouter();
 
   const [lang, setLang] = useState(locale ?? 'en');
