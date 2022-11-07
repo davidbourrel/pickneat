@@ -1,0 +1,40 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/************** 
+    Generic Labels
+**************/
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+.label:first-child {
+  margin-bottom: 0.25rem;
+}
+.errorLabel {
+  color: var(--error);
+}
+
+/************** 
+    Generic Inputs
+**************/
+.input {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  box-sizing: border-box;
+  border-radius: 9999px;
+  border: 1px solid var(--neutral-200);
+}
+.errorInput {
+  border-color: var(--error);
+}
+
+.errorMessage {
+  font-size: 0.875rem;
+  color: var(--error);
+  margin-top: 0.25rem;
+}

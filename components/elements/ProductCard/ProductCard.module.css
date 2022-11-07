@@ -3,8 +3,9 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  min-height: 20rem;
+  height: 20rem;
   overflow: hidden;
+  color: var(--neutral-900);
   border: 2px solid var(--neutral-200);
   border-radius: 1rem;
   transition: border 150ms ease-out;
@@ -16,7 +17,7 @@
 .cardImage {
   width: 100%;
   object-fit: cover;
-  height: 12rem;
+  height: 60%;
 }
 
 .cardContent {

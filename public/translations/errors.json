@@ -4,7 +4,9 @@
     "longError404": "Woops ! This page is not found",
     "shortError500": "500 error",
     "longError500": "Woops ! The server has problems !",
-    "backButton": "Go back to the previous page"
+    "backButtonMessage": "Go back to the previous page",
+    "requiredMessage": "This field is Message",
+    "maxLengthMessage": "The maximum length is:"
   },
 
   "fr": {
@@ -12,6 +14,8 @@
     "longError404": "Oups ! La page demandée n'a pas été trouvée",
     "shortError500": "Erreur 500",
     "longError500": "Oups ! Nos serveurs rencontrent actuellement quelques difficultés",
-    "backButton": "Revenir à la page précédente"
+    "backButtonMessage": "Revenir à la page précédente",
+    "requiredMessage": "Ce champ est obligatoire",
+    "maxLengthMessage": "Le nombre maximal de caractères pris en charge est de :"
   }
 }

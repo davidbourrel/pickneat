@@ -6,6 +6,9 @@
   gap: 2rem;
   padding: 1rem;
 }
+.productsList > li {
+  width: 100%;
+}
 
 .headingContainer {
   position: relative;
