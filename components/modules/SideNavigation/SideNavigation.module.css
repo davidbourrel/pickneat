@@ -53,8 +53,8 @@
 
 .firstNavigation {
   border-top: 1px solid var(--primary);
-  margin-top: 2.5rem;
-  padding-top: 0.5rem;
+  margin-top: 2.9rem;
+  padding-top: 1rem;
 }
 .firstNavigation > li {
   margin-bottom: 1rem;

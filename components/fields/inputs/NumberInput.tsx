@@ -23,14 +23,15 @@ const NumberInput: FC<NumberInputProps> = ({
   id,
   label,
   error: incomingError,
-  showError,
+  showError = true,
+  showErrorMessage = true,
   className = '',
   inputClassName: incomingInputClassName = '',
   onChange,
   setErrorStatus,
   ...props
 }) => {
-  const { requiredMessage, maxLengthMessage } = useTranslation(errors);
+  const { requiredMessage, outOfRangeMessage } = useTranslation(errors);
 
   /***********
    * Validation
@@ -39,24 +40,30 @@ const NumberInput: FC<NumberInputProps> = ({
     () => props.required && !props.value,
     [props.required, props.value]
   );
-  const isTooLong = useMemo(
-    () => props.maxLength && props.value > props.maxLength,
-    [props.maxLength, props.value]
-  );
+
+  const isOutOfRange = useMemo(() => {
+    if (props.max) {
+      return props.value > props.max;
+    }
+    if (props.min) {
+      return props.value < props.min;
+    }
+  }, [props.max, props.min, props.value]);
+
   const localError = useMemo(() => {
     if (isRequiredEmpty) {
       return requiredMessage;
     }
-    if (isTooLong) {
-      return `${maxLengthMessage} ${props.maxLength}`;
+    if (isOutOfRange) {
+      return `${outOfRangeMessage} ${props.max}`;
     }
     return null as unknown as string;
   }, [
     isRequiredEmpty,
-    isTooLong,
-    props.maxLength,
+    isOutOfRange,
+    props.max,
     requiredMessage,
-    maxLengthMessage,
+    outOfRangeMessage,
   ]);
 
   useEffect(() => {
@@ -102,10 +109,10 @@ const NumberInput: FC<NumberInputProps> = ({
 
   const errorComponent = useMemo(
     () =>
-      showError && error ? (
+      showError && showErrorMessage && error ? (
         <p className={styles.errorMessage}>{error}</p>
       ) : null,
-    [showError, error]
+    [showError, showErrorMessage, error]
   );
 
   return (

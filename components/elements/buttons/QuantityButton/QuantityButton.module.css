@@ -11,13 +11,20 @@
   height: 100%;
   width: 100%;
   max-width: 8rem;
+  min-width: 2rem;
   text-align: center;
+  -moz-appearance: textfield;
+  padding: 0;
+  background-color: var(--neutral-200);
+  border-radius: 0.25rem;
+  color: var(--neutral-900);
 }
 .minus,
 .plus {
   font-size: 1.5rem;
   height: 100%;
-  width: 1.8rem;
+  width: 2rem;
   background-color: var(--neutral-200);
   flex-shrink: 0;
+  border-radius: 0.25rem;
 }

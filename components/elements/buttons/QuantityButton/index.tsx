@@ -20,12 +20,14 @@ const QuantityButton: FC = () => {
         <span>&#8722;</span>
       </Button>
       <NumberInput
-        id="first_name_field"
-        maxLength={20}
+        id="product_quantity_field"
+        min={0}
+        max={20}
         className={styles.inputContainer}
         inputClassName={styles.input}
         onChange={handleChange}
         value={lastName}
+        showErrorMessage={false}
       />
 
       <Button className={styles.plus} headless>
