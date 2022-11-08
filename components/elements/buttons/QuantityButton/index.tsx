@@ -3,7 +3,11 @@ import NumberInput from 'components/fields/inputs/NumberInput';
 import Button from '../Button';
 import styles from './QuantityButton.module.css';
 
-const QuantityButton: FC = () => {
+interface QuantityButtonProps {
+  productId: string;
+}
+
+const QuantityButton: FC<QuantityButtonProps> = ({ productId }) => {
   // TODO : Remove when cart context will be created
   const [lastName, setLastName] = useState(5);
   const handleChange = useCallback(
@@ -20,7 +24,7 @@ const QuantityButton: FC = () => {
         <span>&#8722;</span>
       </Button>
       <NumberInput
-        id="product_quantity_field"
+        id={`product_quantity_field_${productId}`}
         min={0}
         max={20}
         className={styles.inputContainer}

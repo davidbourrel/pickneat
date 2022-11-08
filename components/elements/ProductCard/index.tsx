@@ -18,6 +18,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       ) : null,
     [product.name]
   );
+
   return (
     <li className={styles.card}>
       <img
@@ -27,7 +28,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       />
       <div className={styles.cardContent}>
         {title}
-        <QuantityButton />
+        <QuantityButton productId={product.product_id} />
       </div>
     </li>
   );
