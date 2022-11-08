@@ -8,6 +8,7 @@ export interface Products {
   image: string;
   allergens?: string | null;
   category: string;
+  amount: number;
 }
 
 export enum Category {
