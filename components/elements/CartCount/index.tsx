@@ -1,23 +1,24 @@
 import { FC, useMemo } from 'react';
 import CartIcon from 'components/images/icons/CartIcon';
 import styles from './CartCount.module.css';
+import useCartTotal from 'contexts/cartContext/useCartTotal';
 
 interface CartCountInterface {
-  count?: number;
   title: string;
 }
-// TODO : enlever "?" à count et enlever la valeur par défaut
 
-const CartCount: FC<CartCountInterface> = ({ count = 2, title }) => {
+const CartCount: FC<CartCountInterface> = ({ title }) => {
+  const { cartTotalItems } = useCartTotal();
+
   const computedCartCountClassName = useMemo(
-    () => (count > 0 ? styles.notEmptyCart : styles.emptyCart),
-    [count]
+    () => (cartTotalItems > 0 ? styles.notEmptyCart : styles.emptyCart),
+    [cartTotalItems]
   );
 
   return (
     <div title={title} className={styles.cartCountContainer}>
       <CartIcon className={styles.cartSvg} />
-      <span className={computedCartCountClassName}>{count}</span>
+      <span className={computedCartCountClassName}>{cartTotalItems}</span>
     </div>
   );
 };
