@@ -12,13 +12,14 @@
   transition: border 150ms ease-out;
 }
 .card:hover {
-  cursor: pointer;
+  border: 1px solid var(--primary);
 }
 
 .cardImage {
   width: 100%;
   object-fit: cover;
   height: 60%;
+  user-select: none;
 }
 
 .cardContent {
@@ -33,10 +34,10 @@
 }
 
 /**************************/
-/****** MEDIA QUERIES *****/
+/* PREFERS REDUCED MOTION */
 /**************************/
-@media screen and (min-width: 1024px) {
-  .card:hover {
-    border: 1px solid var(--primary);
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: unset;
   }
 }

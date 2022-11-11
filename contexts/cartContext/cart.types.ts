@@ -6,7 +6,7 @@ export interface CartContextInterface {
   setCart: Dispatch<SetStateAction<Products[]>>;
   cartTotalPrice: number;
   cartTotalItems: number;
-  addToCart: (item: Products) => void;
+  addToCart: (product: Products) => void;
   removeFromCart: (product_id: string) => void;
   removeItemsFromCart: (product_id: string) => void;
   removeAllFromCart: () => void;

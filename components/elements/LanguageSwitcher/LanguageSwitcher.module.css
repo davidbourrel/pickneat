@@ -30,7 +30,7 @@
   margin: 0 0.3rem 0 0.1rem;
 }
 
-.langsList {
+.langList {
   display: block;
   background-color: var(--neutral-100);
   border: 1px solid var(--neutral-300);
@@ -41,7 +41,7 @@
   padding: 0.5rem;
 }
 
-.langsList > li:not(:last-child) {
+.langList > li:not(:last-child) {
   border-bottom: 1px solid var(--neutral-300);
 }
 
@@ -77,7 +77,7 @@
   .languageSwitcherButton {
     transform: translateX(0);
   }
-  .langsList {
+  .langList {
     top: 3rem;
     bottom: unset;
     right: 0;

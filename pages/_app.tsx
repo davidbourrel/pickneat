@@ -11,6 +11,7 @@ import useKonami from 'hooks/useKonami';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { ThemeProvider } from 'contexts/themeContext';
 import { I18nProvider } from 'contexts/i18nContext';
+import { CartProvider } from 'contexts/cartContext';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { menu } = useTranslation(navigation);
@@ -43,17 +44,19 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
       <I18nProvider>
         <ThemeProvider>
           <UserProvider>
-            <Head>
-              <link rel="icon" href="/favicon.svg" />
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1, maximum-scale=5"
-              />
-              <title>PickN`Eat | {menu}</title>
-            </Head>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
+            <CartProvider>
+              <Head>
+                <link rel="icon" href="/favicon.svg" />
+                <meta
+                  name="viewport"
+                  content="width=device-width, initial-scale=1, maximum-scale=5"
+                />
+                <title>PickN`Eat | {menu}</title>
+              </Head>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </CartProvider>
           </UserProvider>
         </ThemeProvider>
       </I18nProvider>

@@ -2,29 +2,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 2rem;
 }
-.inputContainer {
-  margin: 0 0.5rem;
-}
-.input {
-  height: 100%;
+
+.quantity {
   width: 100%;
   max-width: 8rem;
   min-width: 2rem;
   text-align: center;
-  -moz-appearance: textfield;
-  padding: 0;
+  margin: 0 0.5rem;
   background-color: var(--neutral-200);
   border-radius: 0.25rem;
   color: var(--neutral-900);
+  user-select: none;
 }
 .minus,
 .plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   font-size: 1.5rem;
-  height: 100%;
   width: 2rem;
   background-color: var(--neutral-200);
-  flex-shrink: 0;
   border-radius: 0.25rem;
+  transition: background-color 100ms var(--transition),
+    color 100ms var(--transition);
+}
+.minus:hover,
+.plus:hover {
+  background-color: var(--primary);
+  color: var(--neutral-50);
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .quantity {
+    font-size: 1.25rem;
+  }
+
+  .minus,
+  .plus {
+    font-size: 1.85rem;
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .minus,
+  .plus {
+    transition: unset;
+  }
 }

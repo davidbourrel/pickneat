@@ -11,8 +11,7 @@ describe('Language Switcher', () => {
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
       /** Open the side navigation before each tests */
-      cy.get('[data-test="openBurgerMenuButton"]')
-      .as('openBurgerMenuButton');
+      cy.get('[data-test="openBurgerMenuButton"]').as('openBurgerMenuButton');
     });
 
     it('should be visible', () => {
@@ -20,7 +19,7 @@ describe('Language Switcher', () => {
 
       cy.get('[data-test="sideNavigation"]').should('be.visible');
       cy.get('[data-test="langSwitcherMobileButton"]').click();
-      cy.get('[data-test="langSwitcherMobileLangsList"]').should('be.visible');
+      cy.get('[data-test="langSwitcherMobileLangList"]').should('be.visible');
       cy.get('[data-test="langSwitcherMobileLangButtonEnglish"]').should(
         'be.visible'
       );
@@ -54,7 +53,7 @@ describe('Language Switcher', () => {
     it('should be visible', () => {
       cy.get('[data-test="mainNavigation"]').should('be.visible');
       cy.get('[data-test="langSwitcherDesktopButton"]').click();
-      cy.get('[data-test="langSwitcherDesktopLangsList"]').should('be.visible');
+      cy.get('[data-test="langSwitcherDesktopLangList"]').should('be.visible');
       cy.get('[data-test="langSwitcherDesktopLangButtonEnglish"]').should(
         'be.visible'
       );

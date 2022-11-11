@@ -9,6 +9,7 @@
   .nav {
     display: block;
     flex: 1;
+    user-select: none;
   }
   .navListContainer {
     display: flex;

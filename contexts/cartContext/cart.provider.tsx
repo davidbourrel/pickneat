@@ -25,12 +25,13 @@ const CartProvider: FC<CartProviderProps> = ({ children }) => {
 
   const addToCart = useCallback((clickedItem: Products) => {
     setCart((currentCart) => {
-      // Is the item already added in the cart?
-      const checkIndex = currentCart.findIndex(
+      // Is the item already added in the current cart?
+      const indexOfClickedItem = currentCart.findIndex(
         (item) => item.product_id === clickedItem.product_id
       );
+      const itemAlreadyExists = indexOfClickedItem !== -1;
 
-      if (checkIndex !== -1) {
+      if (itemAlreadyExists) {
         return currentCart.map((item) =>
           item.product_id === clickedItem.product_id
             ? { ...item, amount: item.amount + 1 }

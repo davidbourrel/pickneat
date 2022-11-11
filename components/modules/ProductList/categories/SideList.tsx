@@ -1,31 +1,31 @@
 import { FC, useMemo } from 'react';
 import ProductCard from 'components/elements/ProductCard';
 import { Category, Products } from '_types/products';
-import styles from '../ProductsList.module.css';
+import styles from '../ProductList.module.css';
 
-interface SidesListProps {
+interface SideListProps {
   products: Products[];
 }
 
-const SidesList: FC<SidesListProps> = ({ products }) => {
-  const filteredSidesList = useMemo(
+const SideList: FC<SideListProps> = ({ products }) => {
+  const filteredSideList = useMemo(
     () => products?.filter((product) => product.category === Category.Side),
     [products]
   );
 
-  const sidesList = useMemo(
+  const sideList = useMemo(
     () =>
-      filteredSidesList?.length ? (
-        <ul className={styles.categoryList}>
-          {filteredSidesList.map((product, i) => (
+      filteredSideList?.length ? (
+        <ul className={styles.productList}>
+          {filteredSideList.map((product, i) => (
             <ProductCard key={`side-key-${i}`} product={product} />
           ))}
         </ul>
       ) : null,
-    [filteredSidesList]
+    [filteredSideList]
   );
 
-  return sidesList;
+  return sideList;
 };
 
-export default SidesList;
+export default SideList;

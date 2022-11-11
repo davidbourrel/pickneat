@@ -13,7 +13,7 @@ interface LanguageSwitcherProps {
   title: string;
   ariaControlsId: string;
   dataTestButton: string;
-  dataTestLangsList: string;
+  dataTestLangList: string;
   dataTestLangButton: string;
 }
 
@@ -21,7 +21,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   title,
   ariaControlsId,
   dataTestButton,
-  dataTestLangsList,
+  dataTestLangList,
   dataTestLangButton,
 }) => {
   const { asPath } = useRouter();
@@ -40,9 +40,9 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
   const plainCountryName = useMemo(() => (lang === 'en' ? 'EN' : 'FR'), [lang]);
 
-  const langsListClassName = useMemo(
+  const langListClassName = useMemo(
     () =>
-      `${styles.langsList} ${
+      `${styles.langList} ${
         isLangSwitcherOpened ? styles.active : styles.close
       } `,
     [isLangSwitcherOpened]
@@ -74,10 +74,10 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
       <ul
         id={ariaControlsId}
-        className={langsListClassName}
+        className={langListClassName}
         aria-labelledby={`${ariaControlsId}-list`}
         role="listbox"
-        data-test={dataTestLangsList}
+        data-test={dataTestLangList}
       >
         <li className="capitalize" aria-labelledby="lang-item-English">
           <Link

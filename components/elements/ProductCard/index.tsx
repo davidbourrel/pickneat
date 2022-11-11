@@ -28,7 +28,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       />
       <div className={styles.cardContent}>
         {title}
-        <QuantityButton productId={product.product_id} />
+        <QuantityButton product={product} />
       </div>
     </li>
   );

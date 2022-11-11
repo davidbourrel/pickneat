@@ -134,7 +134,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
                 title={switchLangTitle}
                 ariaControlsId="lang-switcher-mobile"
                 dataTestButton="langSwitcherMobileButton"
-                dataTestLangsList="langSwitcherMobileLangsList"
+                dataTestLangList="langSwitcherMobileLangList"
                 dataTestLangButton="langSwitcherMobileLangButton"
               />
             </li>

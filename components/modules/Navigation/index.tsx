@@ -78,7 +78,7 @@ const Navigation: FC = () => {
               title={switchLangTitle}
               ariaControlsId="lang-switcher-desktop"
               dataTestButton="langSwitcherDesktopButton"
-              dataTestLangsList="langSwitcherDesktopLangsList"
+              dataTestLangList="langSwitcherDesktopLangList"
               dataTestLangButton="langSwitcherDesktopLangButton"
             />
           </li>
