@@ -16,7 +16,7 @@ import styles from './Link.module.css';
 interface FLinkProps
   extends Omit<
       HTMLProps<HTMLAnchorElement>,
-      'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart'
+      'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart' | 'ref'
     >,
     LinkProps {
   children: ReactNode;
@@ -102,18 +102,15 @@ const Link: FC<FLinkProps> = ({
       passHref={passHref}
       prefetch={prefetch}
       locale={locale}
+      tabIndex={0}
+      target={target}
+      role="link"
+      onClick={handleClick}
+      onKeyUp={handleKeyUp}
+      className={computedClassName}
+      {...props}
     >
-      <a
-        tabIndex={0}
-        target={target}
-        role="link"
-        onClick={handleClick}
-        onKeyUp={handleKeyUp}
-        className={computedClassName}
-        {...props}
-      >
-        {children}
-      </a>
+      {children}
     </NextLink>
   ) : (
     <span {...props} className={computedClassName}>

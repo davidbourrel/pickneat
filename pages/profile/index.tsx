@@ -23,7 +23,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
         <img
           src={user.picture}
           className={styles.profilePicture}
-          alt="toto test"
+          alt="User profile"
         />
       ) : null,
     [user]

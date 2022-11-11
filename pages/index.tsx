@@ -26,62 +26,57 @@ const Home: FC = () => {
         <Slider>
           <SwiperSlide>
             <Image
-              layout="responsive"
-              placeholder="blur"
               src={burgerImage}
-              width="1920"
-              height="1280"
-              data-test="burgerImage"
               alt="burger"
-              quality={100}
+              layout="responsive"
+              width="1920"
+              height="1280"
+              placeholder="blur"
+              data-test="burgerImage"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              layout="responsive"
-              placeholder="blur"
               src={friesImage}
-              width="1920"
-              height="1280"
-              data-test="friesImage"
               alt="fries"
-              quality={100}
+              layout="responsive"
+              width="1920"
+              height="1280"
+              placeholder="blur"
+              data-test="friesImage"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              layout="responsive"
-              placeholder="blur"
               src={sodaImage}
-              width="1920"
-              height="1280"
-              data-test="sodaImage"
               alt="soda"
-              quality={100}
+              layout="responsive"
+              width="1920"
+              height="1280"
+              placeholder="blur"
+              data-test="sodaImage"
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              layout="responsive"
-              placeholder="blur"
               src={dessertImage}
+              alt="dessert"
+              layout="responsive"
               width="1920"
               height="1280"
+              placeholder="blur"
               data-test="dessertImage"
-              alt="dessert"
-              quality={100}
             />
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              layout="responsive"
-              placeholder="blur"
               src={saladImage}
+              alt="salad"
+              layout="responsive"
               width="1920"
               height="1280"
+              placeholder="blur"
               data-test="saladImage"
-              alt="salad"
-              quality={100}
             />
           </SwiperSlide>
         </Slider>

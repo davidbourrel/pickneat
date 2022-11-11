@@ -24,7 +24,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       <img
         src={product?.image}
         className={styles.cardImage}
-        alt="todo use nextjs"
+        alt={product?.name}
       />
       <div className={styles.cardContent}>
         {title}
