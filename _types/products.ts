@@ -11,7 +11,7 @@ export interface Products {
   amount: number;
 }
 
-export enum Category {
+export enum CategoryEnum {
   Burger = 'BURGER',
   Side = 'SIDE',
   Drink = 'DRINK',

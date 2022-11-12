@@ -13,7 +13,7 @@ import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from '../styles/Home.module.css';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
-import ProductList from 'components/modules/ProductList';
+import CategoryList from 'components/modules/CategoryList';
 
 const Slider = dynamic(() => import('components/modules/Slider'));
 
@@ -82,7 +82,7 @@ const Home: FC = () => {
         </Slider>
         <Heading level={HeadingLevelEnum.One}>{homeMainTitle}</Heading>
       </header>
-      <ProductList />
+      <CategoryList />
       <ScrollToTopButton />
     </main>
   );

@@ -1,36 +1,3 @@
-.categoryList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-.categoryList > li {
-  width: 100%;
-}
-
-.headingContainer {
-  position: relative;
-  width: max-content;
-}
-
-.headingContainer h2 {
-  position: relative;
-  z-index: 60;
-  margin-left: 1rem;
-  font-size: 1.875rem;
-}
-.stroke {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(-3deg) translate(0.2rem, 0.4rem);
-  background-color: #dc9458;
-  opacity: 0.4;
-  width: calc(100% + 1.25rem);
-  height: calc(100% - 0.85rem);
-}
-
 .productList {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
