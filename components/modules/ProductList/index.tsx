@@ -7,10 +7,9 @@ import SideList from './categories/SideList';
 import DrinkList from './categories/DrinkList';
 import DessertList from './categories/DessertList';
 import SaladList from './categories/SaladList';
-import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
+import ProductItem from './ProductItem';
 
 const ProductList: FC = () => {
   const { burgerTitle, sideTitle, drinkTitle, dessertTitle, saladTitle } =
@@ -27,41 +26,21 @@ const ProductList: FC = () => {
 
   return (
     <ul className={styles.categoryList}>
-      <li>
-        <div className={styles.headingContainer}>
-          <Heading level={HeadingLevelEnum.Two}>{burgerTitle}</Heading>
-          <span className={styles.stroke} />
-        </div>
+      <ProductItem title={burgerTitle}>
         <BurgerList products={products} />
-      </li>
-      <li>
-        <div className={styles.headingContainer}>
-          <Heading level={HeadingLevelEnum.Two}>{sideTitle}</Heading>
-          <span className={styles.stroke} />
-        </div>
+      </ProductItem>
+      <ProductItem title={sideTitle}>
         <SideList products={products} />
-      </li>
-      <li>
-        <div className={styles.headingContainer}>
-          <Heading level={HeadingLevelEnum.Two}>{drinkTitle}</Heading>
-          <span className={styles.stroke} />
-        </div>
+      </ProductItem>
+      <ProductItem title={drinkTitle}>
         <DrinkList products={products} />
-      </li>
-      <li>
-        <div className={styles.headingContainer}>
-          <Heading level={HeadingLevelEnum.Two}>{dessertTitle}</Heading>
-          <span className={styles.stroke} />
-        </div>
+      </ProductItem>
+      <ProductItem title={dessertTitle}>
         <DessertList products={products} />
-      </li>
-      <li>
-        <div className={styles.headingContainer}>
-          <Heading level={HeadingLevelEnum.Two}>{saladTitle}</Heading>
-          <span className={styles.stroke} />
-        </div>
+      </ProductItem>
+      <ProductItem title={saladTitle}>
         <SaladList products={products} />
-      </li>
+      </ProductItem>
     </ul>
   );
 };
