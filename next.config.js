@@ -8,6 +8,6 @@ module.exports = {
     locales: JSON.parse(process.env.NEXT_PUBLIC_LANGS),
   },
   images: {
-    domains: ['s.gravatar.com'],
+    domains: ['images.unsplash.com'],
   },
 };

@@ -83,13 +83,6 @@ const Home: FC = () => {
         <Heading level={HeadingLevelEnum.One}>{homeMainTitle}</Heading>
       </header>
       <ProductList />
-
-      <section>
-        <Heading level={HeadingLevelEnum.Two}>Second section</Heading>
-      </section>
-      <section>
-        <Heading level={HeadingLevelEnum.Two}>Third section</Heading>
-      </section>
       <ScrollToTopButton />
     </main>
   );

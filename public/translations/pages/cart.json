@@ -1,9 +1,11 @@
 {
   "en": {
-    "cart": "Cart"
+    "cart": "Cart",
+    "addToCartTextButton": "Add to cart"
   },
 
   "fr": {
-    "cart": "Panier"
+    "cart": "Panier",
+    "addToCartTextButton": "Ajouter au panier"
   }
 }

@@ -1,9 +1,19 @@
 {
   "en": {
-    "homeMainTitle": "Just pick what you want, just PickN`Eat !"
+    "homeMainTitle": "Just pick what you want, just PickN`Eat !",
+    "burgerTitle": "Burgers",
+    "sideTitle": "Sides",
+    "drinkTitle": "Drinks",
+    "dessertTitle": "Desserts",
+    "saladTitle": "Salads"
   },
 
   "fr": {
-    "homeMainTitle": "Prenez uniquement ce que vous voulez, just PickN`Eat !"
+    "homeMainTitle": "Prenez uniquement ce que vous voulez, just PickN`Eat !",
+    "burgerTitle": "Burgers",
+    "sideTitle": "Petite faim",
+    "drinkTitle": "Boissons",
+    "dessertTitle": "Desserts",
+    "saladTitle": "Salades"
   }
 }

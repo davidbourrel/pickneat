@@ -24,7 +24,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotate(-5deg) translate(0.2rem, 0.4rem);
+  transform: rotate(-3deg) translate(0.2rem, 0.4rem);
   background-color: #dc9458;
   opacity: 0.4;
   width: calc(100% + 1.25rem);
