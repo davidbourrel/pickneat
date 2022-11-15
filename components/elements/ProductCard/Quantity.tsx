@@ -7,7 +7,7 @@ import MinusButton from '../buttons/PlusMinusButtons/MinusButton';
 import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useTranslation from 'hooks/useTranslation';
-import transCart from 'public/translations/pages/cart.json';
+import home from 'public/translations/pages/home.json';
 
 interface QuantityProps {
   product: Products;
@@ -16,7 +16,7 @@ interface QuantityProps {
 const Quantity: FC<QuantityProps> = ({ product }) => {
   const { product_id } = product;
 
-  const { addToCartTextButton } = useTranslation(transCart);
+  const { addToCartTextButton } = useTranslation(home);
   const { cart } = useCart();
   const addToCart = useAddToCart();
 

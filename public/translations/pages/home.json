@@ -5,7 +5,9 @@
     "sideTitle": "Sides",
     "drinkTitle": "Drinks",
     "dessertTitle": "Desserts",
-    "saladTitle": "Salads"
+    "saladTitle": "Salads",
+    "addToCartTextButton": "Add to cart",
+    "badgeNewReleaseText": "New"
   },
 
   "fr": {
@@ -14,6 +16,8 @@
     "sideTitle": "Petite faim",
     "drinkTitle": "Boissons",
     "dessertTitle": "Desserts",
-    "saladTitle": "Salades"
+    "saladTitle": "Salades",
+    "addToCartTextButton": "Ajouter",
+    "badgeNewReleaseText": "Nouveau"
   }
 }
