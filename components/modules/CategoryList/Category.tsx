@@ -4,9 +4,10 @@ import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from './CategoryList.module.css';
 import ProductList from '../ProductList';
 import { CategoryEnum, Products } from '_types/products';
+import { Maybe } from '_types/maybe';
 
 interface CategoryProps {
-  products: Products[];
+  products: Maybe<Products[]>;
   title: string;
   category: CategoryEnum;
 }

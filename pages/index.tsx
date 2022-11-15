@@ -8,16 +8,20 @@ import friesImage from 'public/images/home carousel/Photo_by_Louis_Hansel_on_Uns
 import sodaImage from 'public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Unsplash.jpg';
 import dessertImage from 'public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
 import saladImage from 'public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
-import dynamic from 'next/dynamic';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from '../styles/Home.module.css';
+import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
+import { getProductsFromAPI } from 'database/getProductsFromAPI';
+import { Products } from '_types/products';
 
-const Slider = dynamic(() => import('components/modules/Slider'));
+interface HomeProps {
+  ssrProducts: Products[];
+}
 
-const Home: FC = () => {
+const Home: FC<HomeProps> = ({ ssrProducts }) => {
   const { homeMainTitle } = useTranslation(home);
 
   return (
@@ -82,10 +86,18 @@ const Home: FC = () => {
         </Slider>
         <Heading level={HeadingLevelEnum.One}>{homeMainTitle}</Heading>
       </header>
-      <CategoryList />
+      <CategoryList ssrProducts={ssrProducts} />
       <ScrollToTopButton />
     </main>
   );
+};
+
+export const getStaticProps = async () => {
+  const products = await getProductsFromAPI();
+
+  return {
+    props: { ssrProducts: products.products },
+  };
 };
 
 export default Home;

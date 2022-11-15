@@ -1,16 +1,30 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import useProducts from '../../../SWR/useProducts';
 import styles from './CategoryList.module.css';
 import Loader from '../../elements/Loader';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
 import Category from './Category';
-import { CategoryEnum } from '_types/products';
+import { CategoryEnum, Products } from '_types/products';
 
-const CategoryList: FC = () => {
+interface CategoryListProps {
+  ssrProducts: Products[];
+}
+
+const CategoryList: FC<CategoryListProps> = ({ ssrProducts }) => {
   const { burgerTitle, sideTitle, drinkTitle, dessertTitle, saladTitle } =
     useTranslation(home);
   const { products, isProductsLoading, isProductsError } = useProducts();
+
+  const reconciledProducts = useMemo(() => {
+    if (products) {
+      return products;
+    }
+    if (ssrProducts) {
+      return ssrProducts;
+    }
+    return null;
+  }, [ssrProducts, products]);
 
   if (isProductsLoading)
     return (
@@ -24,27 +38,27 @@ const CategoryList: FC = () => {
     <ul className={styles.categoryList}>
       <Category
         title={burgerTitle}
-        products={products}
+        products={reconciledProducts}
         category={CategoryEnum.Burger}
       />
       <Category
         title={sideTitle}
-        products={products}
+        products={reconciledProducts}
         category={CategoryEnum.Side}
       />
       <Category
         title={drinkTitle}
-        products={products}
+        products={reconciledProducts}
         category={CategoryEnum.Drink}
       />
       <Category
         title={dessertTitle}
-        products={products}
+        products={reconciledProducts}
         category={CategoryEnum.Dessert}
       />
       <Category
         title={saladTitle}
-        products={products}
+        products={reconciledProducts}
         category={CategoryEnum.Salad}
       />
     </ul>

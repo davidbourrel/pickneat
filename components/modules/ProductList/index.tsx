@@ -1,10 +1,11 @@
 import ProductCard from 'components/elements/ProductCard';
 import { FC, useMemo } from 'react';
+import { Maybe } from '_types/maybe';
 import { CategoryEnum, Products } from '_types/products';
 import styles from './ProductList.module.css';
 
 interface ProductListProps {
-  products: Products[];
+  products: Maybe<Products[]>;
   category: CategoryEnum;
 }
 
