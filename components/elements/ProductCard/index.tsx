@@ -8,46 +8,49 @@ import styles from './ProductCard.module.css';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
 import { useRouter } from 'next/router';
+import Link from '../Link';
 
 interface ProductCardProps {
   product: Products;
 }
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-  const { image, name, price, new_release } = product;
-
+  const { image, name, price, new_release, product_id } = product;
   const { locale } = useRouter();
-
-  const { badgeNewReleaseText } = useTranslation(home);
+  const { badgeNewReleaseText, seeMoreDetails } = useTranslation(home);
 
   const badgeNewRelease = useMemo(
     () =>
-      new_release ? (
-        <div className={styles.badge}>{badgeNewReleaseText}</div>
-      ) : null,
+      new_release && <div className={styles.badge}>{badgeNewReleaseText}</div>,
     [new_release, badgeNewReleaseText]
   );
 
   const cardImage = useMemo(
     () =>
-      image ? (
-        <Image
-          alt={name}
-          src={image}
-          width={500}
-          height={200}
-          className={styles.cardImage}
-        />
-      ) : null,
-    [image, name]
+      image && (
+        <Link
+          href={`product/${product_id}`}
+          className={styles.imageContainer}
+          title={seeMoreDetails}
+        >
+          <Image
+            className={styles.image}
+            alt={name}
+            src={image}
+            width={500}
+            height={200}
+          />
+        </Link>
+      ),
+    [image, name, seeMoreDetails, product_id]
   );
 
   const cardTitle = useMemo(
     () =>
-      name ? (
+      name && (
         <Heading className={styles.cardTitle} level={HeadingLevelEnum.Three}>
           {name}
         </Heading>
-      ) : null,
+      ),
     [name]
   );
 

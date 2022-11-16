@@ -7,19 +7,23 @@
   overflow: hidden;
   color: var(--neutral-900);
   border: 1px solid var(--neutral-300);
-  background-color: var(--neutral-100);
   border-radius: 1rem;
+  background-color: var(--neutral-100);
   transition: border 150ms ease-out;
 }
 .card:hover {
   border: 1px solid var(--primary);
 }
 
-.cardImage {
+.imageContainer {
   width: 100%;
-  object-fit: cover;
   height: 50%;
   user-select: none;
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .badge {

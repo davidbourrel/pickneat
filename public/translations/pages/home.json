@@ -7,7 +7,8 @@
     "dessertTitle": "Desserts",
     "saladTitle": "Salads",
     "addToCartTextButton": "Add to cart",
-    "badgeNewReleaseText": "New"
+    "badgeNewReleaseText": "New",
+    "seeMoreDetails": "See More Details"
   },
 
   "fr": {
@@ -18,6 +19,7 @@
     "dessertTitle": "Desserts",
     "saladTitle": "Salades",
     "addToCartTextButton": "Ajouter",
-    "badgeNewReleaseText": "Nouveau"
+    "badgeNewReleaseText": "Nouveau",
+    "seeMoreDetails": "Voir plus de détails"
   }
 }
