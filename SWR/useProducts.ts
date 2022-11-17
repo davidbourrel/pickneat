@@ -5,11 +5,9 @@ import fetcher from './fetcher';
 const useProducts = () => {
   const { data, error } = useSWR(`/api/products`, fetcher);
 
-  const products = data?.products as Products[];
-
   return {
-    products,
-    isProductsLoading: !error && !products,
+    products: data as Products[],
+    isProductsLoading: !error && !data,
     isProductsError: error,
   };
 };

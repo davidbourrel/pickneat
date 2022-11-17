@@ -5,11 +5,9 @@ import fetcher from './fetcher';
 const useProduct = (id: string) => {
   const { data, error } = useSWR(`/api/products/${id}`, fetcher);
 
-  const product = data?.product as Products;
-
   return {
-    product,
-    isProductLoading: !error && !product,
+    product: data as Products,
+    isProductLoading: !error && !data,
     isProductError: error,
   };
 };

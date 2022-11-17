@@ -35,7 +35,7 @@ const CategoryList: FC<CategoryListProps> = ({ ssrProducts }) => {
   if (isProductsError) return <div className={styles.categoryList}>Error</div>;
 
   return (
-    <ul className={styles.categoryList}>
+    <ul className={styles.categoryList} data-test="categoryList">
       <Category
         title={burgerTitle}
         products={reconciledProducts}

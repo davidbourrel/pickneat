@@ -96,7 +96,7 @@ export const getStaticProps = async () => {
   const products = await getProductsFromAPI();
 
   return {
-    props: { ssrProducts: products.products },
+    props: { ssrProducts: products },
   };
 };
 

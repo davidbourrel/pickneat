@@ -17,20 +17,20 @@ describe('Home slider', () => {
       cy.get('@firstImage').should('exist').should('be.visible');
 
       /* Swipe twice to the left to not be able to see the first image */
-      cy.SwipeOnceWithFingers('@sliderContainer', 'left');
-      cy.SwipeOnceWithFingers('@sliderContainer', 'left');
+      cy.swipeOnceWithFingers('@sliderContainer', 'left');
+      cy.swipeOnceWithFingers('@sliderContainer', 'left');
       cy.get('@firstImage').should('not.be.visible');
     });
 
     it('should comeback to the first image', () => {
       cy.get('@firstImage').should('be.visible');
-      cy.SwipeOnceWithFingers('@sliderContainer', 'left');
-      cy.SwipeOnceWithFingers('@sliderContainer', 'left');
+      cy.swipeOnceWithFingers('@sliderContainer', 'left');
+      cy.swipeOnceWithFingers('@sliderContainer', 'left');
       cy.get('@firstImage').should('not.be.visible');
 
       /* Swipe twice to the right to be able to see the first image again */
-      cy.SwipeOnceWithFingers('@sliderContainer', 'right');
-      cy.SwipeOnceWithFingers('@sliderContainer', 'right');
+      cy.swipeOnceWithFingers('@sliderContainer', 'right');
+      cy.swipeOnceWithFingers('@sliderContainer', 'right');
       cy.get('@firstImage').should('be.visible');
     });
   });
