@@ -7,3 +7,8 @@
   padding: 1rem;
   margin-bottom: 1rem;
 }
+
+.sliderImage {
+  width: 100%;
+  height: auto;
+}

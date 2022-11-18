@@ -32,10 +32,10 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={burgerImage}
               alt="burger"
-              layout="responsive"
-              width="1920"
-              height="1280"
-              placeholder="blur"
+              width={1280}
+              height={560}
+              className={styles.sliderImage}
+              priority
               data-test="burgerImage"
             />
           </SwiperSlide>
@@ -43,10 +43,10 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={friesImage}
               alt="fries"
-              layout="responsive"
-              width="1920"
-              height="1280"
-              placeholder="blur"
+              width={1280}
+              height={560}
+              className={styles.sliderImage}
+              priority
               data-test="friesImage"
             />
           </SwiperSlide>
@@ -54,10 +54,10 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={sodaImage}
               alt="soda"
-              layout="responsive"
-              width="1920"
-              height="1280"
-              placeholder="blur"
+              width={1280}
+              height={560}
+              className={styles.sliderImage}
+              priority
               data-test="sodaImage"
             />
           </SwiperSlide>
@@ -65,10 +65,10 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={dessertImage}
               alt="dessert"
-              layout="responsive"
-              width="1920"
-              height="1280"
-              placeholder="blur"
+              width={1280}
+              height={560}
+              className={styles.sliderImage}
+              priority
               data-test="dessertImage"
             />
           </SwiperSlide>
@@ -76,10 +76,10 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={saladImage}
               alt="salad"
-              layout="responsive"
-              width="1920"
-              height="1280"
-              placeholder="blur"
+              width={1280}
+              height={560}
+              className={styles.sliderImage}
+              priority
               data-test="saladImage"
             />
           </SwiperSlide>

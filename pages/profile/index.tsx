@@ -9,6 +9,7 @@ import styles from './Profile.module.css';
 import Button from 'components/elements/buttons/Button';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
+import Image from 'next/image';
 
 interface ProfileProps {
   user: UserProfile;
@@ -20,10 +21,12 @@ const Profile: FC<ProfileProps> = ({ user }) => {
   const userPicture = useMemo(
     () =>
       user && user.picture ? (
-        <img
+        <Image
           src={user.picture}
-          className={styles.profilePicture}
           alt="User profile"
+          width={400}
+          height={400}
+          className={styles.profilePicture}
         />
       ) : null,
     [user]

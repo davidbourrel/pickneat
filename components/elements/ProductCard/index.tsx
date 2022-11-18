@@ -36,8 +36,8 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             className={styles.image}
             alt={name}
             src={image}
-            width={500}
-            height={200}
+            width={400}
+            height={140}
           />
         </Link>
       ),
