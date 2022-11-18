@@ -76,7 +76,6 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         id={ariaControlsId}
         className={langListClassName}
         aria-labelledby={`${ariaControlsId}-list`}
-        role="listbox"
         data-test={dataTestLangList}
       >
         <li className="capitalize" aria-labelledby="lang-item-English">
@@ -88,7 +87,6 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             onClick={handleLangClick}
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-en-button`}
-            role="option"
             data-test={`${dataTestLangButton}English`}
             tabIndex={computedTabIndex}
           >
