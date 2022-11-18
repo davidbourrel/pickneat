@@ -5,6 +5,8 @@
 .swiper-pagination-bullet {
   background-color: #fff;
   opacity: 1;
+  width: 0.7rem;
+  height: 0.7rem;
 }
 .swiper-pagination-bullet-active {
   background-color: var(--primary);
