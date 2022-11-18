@@ -102,7 +102,6 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
             onClick={handleLangClick}
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-fr-button`}
-            role="option"
             data-test={`${dataTestLangButton}French`}
             tabIndex={computedTabIndex}
           >
