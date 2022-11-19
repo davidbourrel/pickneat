@@ -8,12 +8,13 @@ import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
+import { ClassNameComponentProps } from '_types/components';
 
-interface QuantityProps {
+interface QuantityProps extends ClassNameComponentProps {
   product: Products;
 }
 
-const Quantity: FC<QuantityProps> = ({ product }) => {
+const Quantity: FC<QuantityProps> = ({ product, className = '' }) => {
   const { product_id } = product;
 
   const { addToCartTextButton } = useTranslation(home);
@@ -34,6 +35,11 @@ const Quantity: FC<QuantityProps> = ({ product }) => {
   const amount = useMemo(
     () => (productFromCart?.amount ? productFromCart.amount : 0),
     [productFromCart?.amount]
+  );
+
+  const computedClassName = useMemo(
+    () => `${styles.quantityContainer} ${className}`,
+    [className]
   );
 
   const minusButton = useMemo(
@@ -62,7 +68,7 @@ const Quantity: FC<QuantityProps> = ({ product }) => {
   );
 
   return (
-    <div className={styles.quantityContainer}>
+    <div className={computedClassName}>
       {minusButton}
       {quantity}
       {plusButton}

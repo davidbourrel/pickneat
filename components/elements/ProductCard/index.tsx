@@ -7,15 +7,14 @@ import { HeadingLevelEnum } from '../Heading/types';
 import styles from './ProductCard.module.css';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
-import { useRouter } from 'next/router';
 import Link from '../Link';
+import PriceTag from '../PriceTag';
 
 interface ProductCardProps {
   product: Products;
 }
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const { image, name, price, new_release, product_id } = product;
-  const { locale } = useRouter();
   const { badgeNewReleaseText, seeMoreDetails } = useTranslation(home);
 
   const badgeNewRelease = useMemo(
@@ -33,11 +32,11 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
           title={seeMoreDetails}
         >
           <Image
-            className={styles.image}
-            alt={name}
             src={image}
+            alt={name}
             width={400}
             height={140}
+            className={styles.image}
           />
         </Link>
       ),
@@ -54,24 +53,13 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     [name]
   );
 
-  const cardPrice = useMemo(() => {
-    switch (locale) {
-      case 'fr':
-        return <span className={styles.cardPrice}>{price}€</span>;
-      case 'en':
-        return <span className={styles.cardPrice}>${price}</span>;
-      default:
-        return null;
-    }
-  }, [price, locale]);
-
   return (
     <li className={styles.card}>
       {cardImage}
       {badgeNewRelease}
       <div className={styles.cardContent}>
         {cardTitle}
-        {cardPrice}
+        <PriceTag price={price} className={styles.cardPrice} />
         <Quantity product={product} />
       </div>
     </li>

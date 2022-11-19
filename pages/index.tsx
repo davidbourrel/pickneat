@@ -3,11 +3,11 @@ import { SwiperSlide } from 'swiper/react';
 import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
 import Image from 'next/image';
-import burgerImage from 'public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';
-import friesImage from 'public/images/home carousel/Photo_by_Louis_Hansel_on_Unsplash.jpg';
-import sodaImage from 'public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Unsplash.jpg';
-import dessertImage from 'public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
-import saladImage from 'public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
+import burgerImage from '../public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';
+import friesImage from '../public/images/home carousel/Photo_by_Louis_Hansel_on_Unsplash.jpg';
+import sodaImage from '../public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Unsplash.jpg';
+import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
+import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from '../styles/Home.module.css';
@@ -32,8 +32,6 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={burgerImage}
               alt="burger"
-              width={1280}
-              height={560}
               className={styles.sliderImage}
               priority
               data-test="burgerImage"
@@ -43,8 +41,6 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={friesImage}
               alt="fries"
-              width={1280}
-              height={560}
               className={styles.sliderImage}
               priority
               data-test="friesImage"
@@ -54,8 +50,6 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={sodaImage}
               alt="soda"
-              width={1280}
-              height={560}
               className={styles.sliderImage}
               priority
               data-test="sodaImage"
@@ -65,8 +59,6 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={dessertImage}
               alt="dessert"
-              width={1280}
-              height={560}
               className={styles.sliderImage}
               priority
               data-test="dessertImage"
@@ -76,8 +68,6 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             <Image
               src={saladImage}
               alt="salad"
-              width={1280}
-              height={560}
               className={styles.sliderImage}
               priority
               data-test="saladImage"

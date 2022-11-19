@@ -6,10 +6,21 @@ import { useRouter } from 'next/router';
 import useProduct from '../../SWR/useProduct';
 import Loader from 'components/elements/Loader';
 import styles from './Product.module.css';
+import Image from 'next/image';
+import Quantity from 'components/elements/ProductCard/Quantity';
+import PriceTag from 'components/elements/PriceTag';
+import useTranslation from 'hooks/useTranslation';
+import productTranslations from 'public/translations/pages/product.json';
 
 const ProductId: FC = () => {
   const router = useRouter();
   const { id } = router.query;
+
+  const {
+    description: descriptionTranslation,
+    allergens: allergensTranslation,
+    noAllergens,
+  } = useTranslation(productTranslations);
 
   const { product, isProductLoading, isProductError } = useProduct(
     id as string
@@ -17,22 +28,54 @@ const ProductId: FC = () => {
 
   if (isProductLoading)
     return (
-      <div className={styles.productContainer}>
-        <Loader />
-      </div>
+      <main className="sidePadding">
+        <div className={styles.productContainer}>
+          <Loader />
+        </div>
+      </main>
     );
   if (isProductError)
-    return <div className={styles.productContainer}>Error</div>;
+    return (
+      <main className="sidePadding">
+        <div className={styles.productContainer}>Error</div>
+      </main>
+    );
+
+  const { name, description, price, image, allergens } = product;
 
   return (
     <main className="sidePadding">
       <Head>
-        <title>PickN`Eat | {product.name}</title>
+        <title>PickN`Eat | {name}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One}>PRODUCT PAGE</Heading>
-      <div>{product.category}</div>
-      <div>{product.name}</div>
-      <div> {product.description}</div>
+      <div className={styles.productContainer}>
+        <Image
+          src={image}
+          alt={name}
+          width={400}
+          height={140}
+          className={styles.productImage}
+        />
+
+        <div className={styles.productInfo}>
+          <Heading level={HeadingLevelEnum.One}>{name}</Heading>
+          <PriceTag price={price} className={styles.productPrice} />
+          <section>
+            <Heading level={HeadingLevelEnum.Two} className={styles.productH2}>
+              {descriptionTranslation}
+            </Heading>
+            <div className={styles.productDescription}> {description}</div>
+          </section>
+          <section>
+            <Heading level={HeadingLevelEnum.Two} className={styles.productH2}>
+              {allergensTranslation}
+            </Heading>
+            <p>{allergens && allergens.length > 0 ? allergens : noAllergens}</p>
+          </section>
+
+          <Quantity product={product} className={styles.productQuantity} />
+        </div>
+      </div>
     </main>
   );
 };

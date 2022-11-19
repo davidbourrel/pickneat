@@ -53,11 +53,9 @@
 }
 
 .cardPrice {
-  display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
-  font-weight: 600;
   font-size: 1.25rem;
 }
 
@@ -65,18 +63,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--neutral-900);
 }
 
 .quantity {
   width: 100%;
-  max-width: 8rem;
+  max-width: 10rem;
   min-width: 2rem;
   text-align: center;
   margin: 0 0.5rem;
   padding: 0.25rem;
   background-color: var(--neutral-200);
   border-radius: 0.25rem;
-  color: var(--neutral-900);
   user-select: none;
 }
 
