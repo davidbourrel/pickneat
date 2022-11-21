@@ -58,6 +58,7 @@
   .productImage {
     height: 30rem;
     width: 60%;
+    align-self: center;
   }
 
   .productInfo {

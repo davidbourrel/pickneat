@@ -1,7 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { Products } from '_types/products';
 import { products } from '../../../database/products';
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
+type Data = Products[];
+
+const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === 'GET') {
     const productsResponse = products ? products : [];
 

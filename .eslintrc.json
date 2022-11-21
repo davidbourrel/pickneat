@@ -15,10 +15,10 @@
     "cypress/*"
   ], // We don"t want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   "extends": [
+    "next/core-web-vitals",
     "eslint:recommended",
     "prettier",
     "plugin:react/recommended",
-    "next/core-web-vitals",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended"
   ],
