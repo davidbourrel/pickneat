@@ -6,7 +6,7 @@
   border-radius: 1.3rem;
   border: 1px solid transparent;
   transition: border-color 150ms ease-out;
-  padding: 0 0.8rem;
+  width: 6rem;
   transform: translateX(-0.5rem);
 }
 .switcherButton:hover {
