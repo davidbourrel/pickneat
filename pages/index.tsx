@@ -14,7 +14,6 @@ import styles from '../styles/Home.module.css';
 import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
-import { getProductsFromAPI } from 'database/getProductsFromAPI';
 import { Products } from '_types/products';
 
 interface HomeProps {
@@ -83,10 +82,11 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
 };
 
 export const getStaticProps = async () => {
-  const products = await getProductsFromAPI();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
+  const ssrProducts = await res.json();
 
   return {
-    props: { ssrProducts: products },
+    props: { ssrProducts },
   };
 };
 
