@@ -29,7 +29,7 @@
 
 .productH2 {
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
   text-transform: capitalize;
   font-weight: 500;
 }
@@ -50,25 +50,35 @@
 /**************************/
 @media screen and (min-width: 768px) {
   .productContainer {
+    align-items: center;
     flex-direction: row;
     flex-grow: 1;
     gap: 2rem;
   }
 
   .productImage {
-    height: 30rem;
+    height: 40rem;
     width: 60%;
-    align-self: center;
   }
 
   .productInfo {
-    justify-content: center;
-    padding: 1rem 0;
+    height: 40rem;
     width: 40%;
+    padding: 1rem 0;
+    box-sizing: border-box;
+  }
+
+  .productPrice {
+    font-size: 2rem;
+    margin: 2rem 0 2.5rem 0;
+    color: var(--neutral-900);
   }
 
   .productQuantity {
+    flex-grow: 1;
     margin-bottom: 0;
     align-self: flex-start;
+    align-items: flex-end;
+    justify-content: start;
   }
 }
