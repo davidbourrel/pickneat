@@ -6,9 +6,7 @@ type Data = Products[];
 
 const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === 'GET') {
-    const productsResponse = products ? products : [];
-
-    res.status(200).json(productsResponse);
+    res.status(200).json(products);
   }
 };
 

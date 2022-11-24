@@ -5,14 +5,13 @@ import { products } from '../../../database/products';
 type Data = Products;
 
 const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  const { id } = req.query;
+  const { query } = req;
+  const { id } = query;
 
   if (req.method === 'GET') {
-    const product = products.find(
-      (product) => product.product_id === id
-    ) as Products;
+    const filtered = products.find((p) => p.product_id === id) as Products;
 
-    res.status(200).json(product);
+    res.status(200).json(filtered);
   }
 };
 
