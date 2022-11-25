@@ -50,19 +50,19 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .cardPrice {
-  align-items: center;
   justify-content: center;
-  flex: 1;
   font-size: 1.25rem;
 }
 
 .quantityContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  flex-grow: 1;
   color: var(--neutral-900);
 }
 
