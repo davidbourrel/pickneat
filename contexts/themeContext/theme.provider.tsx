@@ -8,7 +8,7 @@ import {
 } from 'react';
 import themeContext from './theme.context';
 import { ThemeContextInterface } from './theme.types';
-import { PICKANDEAT_THEME } from '../../_constants/localStorage';
+import { PICKNEAT_THEME } from '../../_constants/localStorage';
 import { ThemeEnum } from '_types/theme';
 
 const { Provider } = themeContext;
@@ -21,7 +21,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleSetTheme = useCallback((theme: string) => {
-    localStorage.setItem(PICKANDEAT_THEME, theme);
+    localStorage.setItem(PICKNEAT_THEME, theme);
     document.documentElement.setAttribute('data-theme', theme);
   }, []);
 
@@ -37,12 +37,12 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
    /**************/
   useEffect(() => {
     const refetchTheme = () => {
-      if (localStorage.getItem(PICKANDEAT_THEME)) {
-        if (localStorage.getItem(PICKANDEAT_THEME) === ThemeEnum.Dark) {
+      if (localStorage.getItem(PICKNEAT_THEME)) {
+        if (localStorage.getItem(PICKNEAT_THEME) === ThemeEnum.Dark) {
           handleSetTheme(ThemeEnum.Dark);
           setIsDarkMode(true);
         }
-        if (localStorage.getItem(PICKANDEAT_THEME) === ThemeEnum.Light) {
+        if (localStorage.getItem(PICKNEAT_THEME) === ThemeEnum.Light) {
           handleSetTheme(ThemeEnum.Light);
           setIsDarkMode(false);
         }

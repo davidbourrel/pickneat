@@ -1,4 +1,11 @@
-import { FC, useMemo, useCallback, useState, ReactNode } from 'react';
+import {
+  FC,
+  useMemo,
+  useCallback,
+  useState,
+  ReactNode,
+  MouseEvent,
+} from 'react';
 import i18nContext from './i18n.context';
 import { I18nContextInterface } from './i18n.types';
 import { useRouter } from 'next/router';
