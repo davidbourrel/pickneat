@@ -15,6 +15,7 @@ import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
 import { Products } from '_types/products';
+import { GetStaticProps } from 'next';
 
 interface HomeProps {
   ssrProducts: Products[];
@@ -81,9 +82,13 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
   const ssrProducts = await res.json();
+
+  if (!ssrProducts) {
+    return { props: { notFound: true } };
+  }
 
   return {
     props: { ssrProducts },

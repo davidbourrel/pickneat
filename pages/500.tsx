@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
@@ -6,7 +7,7 @@ import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Button from 'components/elements/buttons/Button';
 
-const ServerError = () => {
+const NotFound: FC = () => {
   const { back } = useRouter();
 
   const { shortError500, longError500, backButtonMessage } =
@@ -23,4 +24,4 @@ const ServerError = () => {
   );
 };
 
-export default ServerError;
+export default NotFound;
