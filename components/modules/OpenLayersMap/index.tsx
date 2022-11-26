@@ -20,7 +20,7 @@ const OpenLayersMap: FC = () => {
     const position = [1.443700595572556, 43.600301];
     const point = new Point(position);
 
-    /** Base map */
+    /** Base map **/
     const rasterLayer = new Tile({
       source: new TileJSON({
         url: `${process.env.NEXT_PUBLIC_MAPTILER_URL}${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
