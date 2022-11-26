@@ -9,8 +9,8 @@
   width: 2rem;
   background-color: var(--neutral-200);
   border-radius: 0.25rem;
-  transition: background-color 100ms var(--transition),
-    color 100ms var(--transition);
+  transition: background-color 100ms var(--transition-easeInOut),
+    color 100ms var(--transition-easeInOut);
 }
 .minus:active,
 .plus:active {

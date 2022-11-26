@@ -1,6 +1,6 @@
 .userIcon {
   display: flex;
-  color: var(--neutral-900);
+  color: var(--neutral-600);
   width: 2rem;
   height: 2rem;
 }

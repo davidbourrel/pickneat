@@ -27,8 +27,9 @@
   border-radius: 6px;
   position: absolute;
   will-change: transform;
-  transition: transform 300ms var(--transition),
-    transform-origin 300ms var(--transition), background-color 150ms ease-out;
+  transition: transform 300ms var(--transition-easeInOut),
+    transform-origin 300ms var(--transition-easeInOut),
+    background-color 150ms var(--transition-easeInOut);
 }
 .button:hover .bar {
   background-color: var(--primary-hover);

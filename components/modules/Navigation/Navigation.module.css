@@ -23,7 +23,7 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    color: var(--neutral-900);
+    color: var(--neutral-600);
   }
   .navList > li {
     position: relative;

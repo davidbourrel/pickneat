@@ -6,7 +6,7 @@
   z-index: 90;
   background-color: transparent;
   transform: scale(0, 0);
-  transition: background-color 350ms ease-in-out;
+  transition: background-color 350ms var(--transition-easeInOut);
 }
 .activeBlackFilter {
   transform: scale(1, 1);
@@ -23,7 +23,7 @@
 }
 .sideNavContainerOpened {
   display: flex;
-  animation: appear-side-navigation-effect 300ms ease-in-out;
+  animation: appear-side-navigation-effect 300ms var(--transition-easeInOut);
 }
 @keyframes appear-side-navigation-effect {
   0% {
@@ -42,7 +42,7 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--neutral-100);
-  color: var(--neutral-900);
+  color: var(--neutral-600);
   height: 100%;
   overflow-y: auto;
 }

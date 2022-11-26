@@ -8,7 +8,7 @@
 **************/
 .label {
   font-weight: 600;
-  color: var(--neutral-900);
+  color: var(--neutral-600);
 }
 .label:first-child {
   margin-bottom: 0.25rem;
@@ -24,7 +24,7 @@
   font-weight: 600;
   padding: 0.25rem 0.5rem;
   box-sizing: border-box;
-  border: 1px solid var(--neutral-200);
+  border: 1px solid var(--neutral-300);
 }
 .errorInput {
   border: 1px solid var(--error);

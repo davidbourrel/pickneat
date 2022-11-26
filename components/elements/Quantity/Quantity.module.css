@@ -8,7 +8,6 @@
 
 .quantity {
   width: 100%;
-  max-width: 12rem;
   min-width: 2rem;
   text-align: center;
   margin: 0 0.5rem;
@@ -32,10 +31,4 @@
   .quantity {
     font-size: 1.25rem;
   }
-}
-
-/**************************/
-/* PREFERS REDUCED MOTION */
-/**************************/
-@media (prefers-reduced-motion: reduce) {
 }
