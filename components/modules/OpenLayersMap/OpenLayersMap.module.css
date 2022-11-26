@@ -14,7 +14,7 @@
   padding: 1rem;
   border-radius: 0.5rem;
   border: 2px solid var(--primary);
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-50);
   color: var(--neutral-600);
   opacity: 1;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
@@ -54,7 +54,7 @@
   left: 5.8rem;
   width: 1.35rem;
   height: 1.35rem;
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-50);
   border-right: 2px solid var(--primary);
   border-bottom: 2px solid var(--primary);
   border-radius: 0 1px 0 1px;
