@@ -1,14 +1,14 @@
 import { FC, useCallback, useMemo } from 'react';
-import Button from '../buttons/Button';
-import styles from './ProductCard.module.css';
-import { Products } from '_types/products';
+import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useCart from 'contexts/cartContext/useCart';
+import useTranslation from 'hooks/useTranslation';
+import { ClassNameComponentProps } from '_types/components';
+import { Products } from '_types/products';
+import Button from '../buttons/Button';
 import MinusButton from '../buttons/PlusMinusButtons/MinusButton';
 import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
-import useAddToCart from 'contexts/cartContext/useAddToCart ';
-import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
-import { ClassNameComponentProps } from '_types/components';
+import styles from './Quantity.module.css';
 
 interface QuantityProps extends ClassNameComponentProps {
   product: Products;

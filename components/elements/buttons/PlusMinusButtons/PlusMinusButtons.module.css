@@ -12,8 +12,8 @@
   transition: background-color 100ms var(--transition),
     color 100ms var(--transition);
 }
-.minus:hover,
-.plus:hover {
+.minus:active,
+.plus:active {
   background-color: var(--primary);
   color: var(--neutral-50);
 }
@@ -25,6 +25,11 @@
   .minus,
   .plus {
     font-size: 1.85rem;
+  }
+  .minus:hover,
+  .plus:hover {
+    background-color: var(--primary);
+    color: var(--neutral-50);
   }
 }
 

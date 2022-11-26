@@ -1,7 +1,6 @@
 import { FC, useMemo } from 'react';
 import Image from 'next/image';
 import { Products } from '_types/products';
-import Quantity from './Quantity';
 import Heading from '../Heading';
 import { HeadingLevelEnum } from '../Heading/types';
 import styles from './ProductCard.module.css';
@@ -9,6 +8,7 @@ import useTranslation from 'hooks/useTranslation';
 import home from 'public/translations/pages/home.json';
 import Link from '../Link';
 import PriceTag from '../PriceTag';
+import Quantity from '../Quantity';
 
 interface ProductCardProps {
   product: Products;
@@ -46,7 +46,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const cardTitle = useMemo(
     () =>
       name && (
-        <Heading className={styles.cardTitle} level={HeadingLevelEnum.Three}>
+        <Heading className={styles.title} level={HeadingLevelEnum.Three}>
           {name}
         </Heading>
       ),
@@ -58,8 +58,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       {cardImage}
       {badgeNewRelease}
       <div className={styles.cardContent}>
-        {cardTitle}
-        <PriceTag price={price} className={styles.cardPrice} />
+        <div className={styles.titleContainer}>
+          {cardTitle}
+          <div className={styles.priceContainer}>
+            <PriceTag price={price} className={styles.price} />
+          </div>
+        </div>
         <Quantity product={product} />
       </div>
     </li>

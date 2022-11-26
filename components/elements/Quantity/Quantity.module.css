@@ -1,0 +1,41 @@
+.quantityContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-grow: 1;
+  color: var(--neutral-900);
+}
+
+.quantity {
+  width: 100%;
+  max-width: 12rem;
+  min-width: 2rem;
+  text-align: center;
+  margin: 0 0.5rem;
+  padding: 0.25rem;
+  background-color: var(--neutral-200);
+  border-radius: 0.25rem;
+  user-select: none;
+}
+
+.addToCartButton {
+  width: 100%;
+  justify-content: center;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .quantity {
+    font-size: 1.25rem;
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+}

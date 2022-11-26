@@ -7,10 +7,10 @@ import useProduct from '../../SWR/useProduct';
 import Loader from 'components/elements/Loader';
 import styles from './Product.module.css';
 import Image from 'next/image';
-import Quantity from 'components/elements/ProductCard/Quantity';
 import PriceTag from 'components/elements/PriceTag';
 import useTranslation from 'hooks/useTranslation';
 import productTranslations from 'public/translations/pages/product.json';
+import Quantity from 'components/elements/Quantity';
 
 const ProductId: FC = () => {
   const router = useRouter();
