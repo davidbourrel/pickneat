@@ -1,4 +1,4 @@
-import { FC, RefObject, useMemo, useRef, useState, useEffect } from 'react';
+import { FC, RefObject, useMemo, useRef, useState } from 'react';
 import { Circle, Fill, Stroke, Style } from 'ol/style';
 import { Feature, Map, Overlay, View } from 'ol/index';
 import { TileJSON, Vector as VectorSource } from 'ol/source';
@@ -7,6 +7,7 @@ import { Tile, Vector as VectorLayer } from 'ol/layer';
 import { useGeographic } from 'ol/proj';
 import styles from './OpenLayersMap.module.css';
 import 'ol/ol.css';
+import useEffectOnce from 'hooks/useEffectOnce';
 import Address from './Address';
 
 const OpenLayersMap: FC = () => {
@@ -16,11 +17,11 @@ const OpenLayersMap: FC = () => {
 
   useGeographic();
 
-  useEffect(() => {
+  useEffectOnce(() => {
     const position = [1.443700595572556, 43.600301];
     const point = new Point(position);
 
-    /** Base map **/
+    /** Base map */
     const rasterLayer = new Tile({
       source: new TileJSON({
         url: `${process.env.NEXT_PUBLIC_MAPTILER_URL}${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
@@ -46,11 +47,12 @@ const OpenLayersMap: FC = () => {
     /** Map creation */
     const initialMap = new Map({
       target: mapRef.current as HTMLDivElement,
-      layers: [rasterLayer, vectorLayer],
       view: new View({
+        constrainResolution: true,
         center: position,
         zoom: 14,
       }),
+      layers: [rasterLayer, vectorLayer],
     });
 
     initialMap.on('pointermove', (event) => {
@@ -72,7 +74,7 @@ const OpenLayersMap: FC = () => {
     });
     popup.setPosition(position);
     initialMap.addOverlay(popup);
-  }, []);
+  });
 
   const modalContainerClassName = useMemo(
     () => `${styles.popup} ${isModalVisible ? styles.show : styles.hidden}`,
