@@ -10,7 +10,7 @@ const Cart: FC = () => {
   return (
     <main className="sidePadding">
       <Head>
-        <title>PickN`Eat | {cart}</title>
+        <title>{`PickN\`Eat | ${cart}`}</title>
       </Head>
       <Heading level={HeadingLevelEnum.One}>CART PAGE</Heading>
     </main>

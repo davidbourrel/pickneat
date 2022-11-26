@@ -11,17 +11,13 @@ interface LangItemProps {
 const LangItem: FC<LangItemProps> = ({ countryLang, locale }) => {
   const { lang } = useLang();
 
-  return (
-    <>
-      {lang === locale ? (
-        <div className={styles.activeCountry}>
-          <span>{countryLang}</span>
-          <CheckMark />
-        </div>
-      ) : (
-        <span>{countryLang}</span>
-      )}
-    </>
+  return lang === locale ? (
+    <div className={styles.activeCountry}>
+      <span>{countryLang}</span>
+      <CheckMark />
+    </div>
+  ) : (
+    <span>{countryLang}</span>
   );
 };
 

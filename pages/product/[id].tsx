@@ -46,7 +46,7 @@ const ProductId: FC = () => {
   return (
     <main className="sidePadding">
       <Head>
-        <title>PickN`Eat | {name}</title>
+        <title>{`PickN\`Eat | ${name}`}</title>
       </Head>
       <div className={styles.productContainer}>
         <Image

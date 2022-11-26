@@ -18,7 +18,7 @@ const Restaurants: FC = () => {
   return (
     <main className="sidePadding">
       <Head>
-        <title>PickN`Eat | {restaurants}</title>
+        <title>{`PickN\`Eat | ${restaurants}`}</title>
       </Head>
       <Heading level={HeadingLevelEnum.One} className={styles.restaurantsTitle}>
         {restaurantsMainTitle}

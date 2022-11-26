@@ -16,7 +16,7 @@ const NotFound: FC = () => {
   return (
     <main className="notFound sidePadding">
       <Head>
-        <title>PickN`Eat | {shortError500}</title>
+        <title>{`PickN\`Eat | ${shortError500}`}</title>
       </Head>
       <Heading level={HeadingLevelEnum.One}>{longError500}</Heading>
       <Button onClick={back}>{backButtonMessage}</Button>

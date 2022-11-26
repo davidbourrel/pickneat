@@ -51,7 +51,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
                   name="viewport"
                   content="width=device-width, initial-scale=1, maximum-scale=5"
                 />
-                <title>PickN`Eat | {menu}</title>
+                <title>{`PickN\`Eat | ${menu}`}</title>
               </Head>
               <Layout>
                 <Component {...pageProps} />

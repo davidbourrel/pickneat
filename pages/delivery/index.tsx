@@ -23,7 +23,7 @@ const Delivery: FC = () => {
   return (
     <main className="sidePadding">
       <Head>
-        <title>PickN`Eat | {delivery}</title>
+        <title>{`PickN\`Eat | ${delivery}`}</title>
       </Head>
       <Heading level={HeadingLevelEnum.One} className={styles.mainTitle}>
         {deliveryMainTitle}

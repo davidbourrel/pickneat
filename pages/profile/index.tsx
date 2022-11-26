@@ -35,7 +35,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
   return (
     <main className="sidePadding">
       <Head>
-        <title>PickN`Eat | {login}</title>
+        <title>{`PickN\`Eat | ${login}`}</title>
       </Head>
       <Heading level={HeadingLevelEnum.One} className={styles.profileTitle}>
         [Profile]
