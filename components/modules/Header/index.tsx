@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Navigation from '../Navigation';
+import MainNavigation from '../MainNavigation';
 import styles from './Header.module.css';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
@@ -23,7 +23,7 @@ const Header: FC<HeaderProps> = ({
     <header className={styles.header}>
       <div className={`${styles.headerContent} container`}>
         <Logo closeMenu={closeMenu} />
-        <Navigation />
+        <MainNavigation />
         <BurgerMenuButton
           isSideNavOpened={isSideNavOpened}
           handleToggleMenu={handleToggleMenu}

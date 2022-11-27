@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import useTranslation from 'hooks/useTranslation';
 import navigation from 'public/translations/navigation.json';
 import ActiveLink from 'components/elements/ActiveLink';
-import styles from './Navigation.module.css';
+import styles from './MainNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
@@ -11,7 +11,7 @@ import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 
-const Navigation: FC = () => {
+const MainNavigation: FC = () => {
   const { asPath } = useRouter();
   const { user } = useUser();
 
@@ -100,4 +100,4 @@ const Navigation: FC = () => {
   );
 };
 
-export default Navigation;
+export default MainNavigation;
