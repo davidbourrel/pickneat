@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { LangEnum } from '_types/lang';
 
 export type TranslationType =
   | string
@@ -12,7 +13,7 @@ type useTranslationType = {
 };
 
 const useTranslation = (translation: TranslationType): useTranslationType => {
-  const { locale = 'en' } = useRouter();
+  const { locale = LangEnum.En } = useRouter();
 
   return translation[locale as keyof typeof translation];
 };

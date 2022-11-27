@@ -8,6 +8,7 @@ import { ArrowDirectionEnum } from '../Arrow/types';
 import useLang from 'contexts/i18nContext/useLang';
 import useLangPopup from 'contexts/i18nContext/useLangPopup';
 import LangItem from './LangItem';
+import { LangEnum } from '_types/lang';
 
 interface LanguageSwitcherProps {
   title: string;
@@ -34,11 +35,15 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   );
 
   const flagClassName = useMemo(
-    () => `${styles.flag} ${lang === 'en' ? styles.enFlag : styles.frFlag} `,
+    () =>
+      `${styles.flag} ${lang === LangEnum.En ? styles.enFlag : styles.frFlag} `,
     [lang]
   );
 
-  const plainCountryName = useMemo(() => (lang === 'en' ? 'EN' : 'FR'), [lang]);
+  const plainCountryName = useMemo(
+    () => (lang === LangEnum.En ? 'EN' : 'FR'),
+    [lang]
+  );
 
   const langListClassName = useMemo(
     () =>
@@ -82,15 +87,15 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
           <Link
             href={asPath}
             passHref
-            locale="en"
-            lang="en"
+            locale={LangEnum.En}
+            lang={LangEnum.En}
             onClick={handleLangClick}
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-en-button`}
             data-test={`${dataTestLangButton}English`}
             tabIndex={computedTabIndex}
           >
-            <LangItem countryLang="English" locale="en" />
+            <LangItem countryLang="English" locale={LangEnum.En} />
           </Link>
         </li>
         <li className="capitalize" aria-labelledby="lang-item-French">

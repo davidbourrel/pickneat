@@ -2,6 +2,7 @@ import { FC, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import styles from './PriceTag.module.css';
 import { ClassNameComponentProps } from '_types/components';
+import { LangEnum } from '_types/lang';
 
 interface PriceTagProps extends ClassNameComponentProps {
   price: number;
@@ -12,9 +13,9 @@ const PriceTag: FC<PriceTagProps> = ({ price, className = '' }) => {
 
   const priceWithCurrencySymbol = useMemo(() => {
     switch (locale) {
-      case 'fr':
+      case LangEnum.Fr:
         return <span className={`${styles.price} ${className}`}>{price}€</span>;
-      case 'en':
+      case LangEnum.En:
         return <span className={`${styles.price} ${className}`}>${price}</span>;
       default:
         return null;

@@ -5,8 +5,8 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   i18n: {
-    defaultLocale: process.env.NEXT_PUBLIC_LANG,
     locales: JSON.parse(process.env.NEXT_PUBLIC_LANGS),
+    defaultLocale: process.env.NEXT_PUBLIC_LANG,
   },
   images: {
     domains: ['s.gravatar.com', 'images.unsplash.com'],
