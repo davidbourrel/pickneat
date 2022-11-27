@@ -9,7 +9,7 @@ import {
   isWednesday,
 } from 'date-fns';
 import { DaysOfTheWeekEnum } from '.';
-import styles from './OpeningHours.module.css';
+import styles from './OpeningTimes.module.css';
 
 interface DayRowProps {
   day: string;

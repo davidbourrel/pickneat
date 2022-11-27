@@ -2,7 +2,7 @@
   "en": {
     "restaurantsMainTitle": "Find a PickN`Eat",
     "location": "Where to find PickN`Eat ?",
-    "openingHours": "Opening Times",
+    "openingTimes": "Opening Times",
     "day": "Day",
     "lunch": "Lunch",
     "dinner": "Dinner",
@@ -22,7 +22,7 @@
   "fr": {
     "restaurantsMainTitle": "Trouver un PickN`Eat",
     "location": "Où trouver un restaurant PickN`Eat ?",
-    "openingHours": "Horaires",
+    "openingTimes": "Horaires",
     "day": "Jour",
     "lunch": "Midi",
     "dinner": "Soir",

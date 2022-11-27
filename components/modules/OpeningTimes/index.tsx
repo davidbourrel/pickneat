@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import restaurants from 'public/translations/pages/restaurants.json';
 import useTranslation from 'hooks/useTranslation';
-import styles from './OpeningHours.module.css';
+import styles from './OpeningTimes.module.css';
 import DayRow from './DayRow';
 import TableHeader from './TableHeader';
 
@@ -15,7 +15,7 @@ export enum DaysOfTheWeekEnum {
   Sunday = 'sunday',
 }
 
-const OpeningHours: FC = () => {
+const OpeningTimes: FC = () => {
   const {
     day,
     lunch,
@@ -34,7 +34,7 @@ const OpeningHours: FC = () => {
   } = useTranslation(restaurants);
 
   return (
-    <table className={styles.table} data-test="openingHours">
+    <table className={styles.table} data-test="openingTimes">
       <TableHeader day={day} lunch={lunch} dinner={dinner} />
       <tbody>
         <DayRow
@@ -84,4 +84,4 @@ const OpeningHours: FC = () => {
   );
 };
 
-export default OpeningHours;
+export default OpeningTimes;

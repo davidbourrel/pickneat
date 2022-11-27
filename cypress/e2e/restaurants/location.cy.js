@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('Openlayers Map', () => {
+describe('Map', () => {
   beforeEach(() => {
     cy.visit('/restaurants');
   });
