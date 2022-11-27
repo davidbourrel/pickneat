@@ -3,34 +3,41 @@
 describe('Map', () => {
   beforeEach(() => {
     cy.visit('/restaurants');
+
+    cy.get('.leaflet-marker-icon').as('pinIcon');
   });
 
   it('should be visible', () => {
-    cy.get('[data-test="mapContainer"] canvas')
+    cy.get('[data-test="mapContainer"] div')
       .should('exist')
       .should('be.visible');
   });
 
   it('should have controls and be visible', () => {
-    cy.get('[data-test="mapContainer"] .ol-zoom-in')
+    cy.get('[data-test="mapContainer"] .leaflet-control-zoom-in')
       .should('exist')
       .should('be.visible');
-    cy.get('[data-test="mapContainer"] .ol-zoom-out')
+    cy.get('[data-test="mapContainer"] .leaflet-control-zoom-out')
       .should('exist')
       .should('be.visible');
   });
 
   it('should have modal and be visible', () => {
-    cy.get('[data-test="mapModal"]').should('exist').should('be.visible');
+    cy.get('@pinIcon').click();
+    cy.get('[data-test="mapContainer"] .leaflet-popup')
+      .should('exist')
+      .should('be.visible');
   });
 
   it('should have modal and be able to toggle', () => {
-    /** Click to close the modal */
-    cy.get('[data-test="mapContainer"] canvas').click('bottomLeft');
-    cy.get('[data-test="mapModal"]').should('not.be.visible');
+    /** Click to open the modal */
+    cy.get('@pinIcon').click();
+    cy.get('[data-test="mapContainer"] .leaflet-popup').should('be.visible');
 
-    /** Click to re-open the modal */
-    cy.get('[data-test="mapContainer"] canvas').click();
-    cy.get('[data-test="mapModal"]').should('be.visible');
+    /** Click to close the modal */
+    cy.get('.leaflet-popup-close-button').click('bottomLeft');
+    cy.get('[data-test="mapContainer"] .leaflet-popup').should(
+      'not.be.visible'
+    );
   });
 });

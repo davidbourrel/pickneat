@@ -1,8 +1,5 @@
-/* Controle buttons in Openlayers */
-.ol-control button {
-  background-color: #fff !important;
-  color: #000 !important;
-}
-.ol-control button:hover {
-  cursor: pointer;
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-pane {
+  z-index: 0 !important;
 }

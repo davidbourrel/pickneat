@@ -3,6 +3,9 @@
   height: 24rem;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .popup {
   display: flex;

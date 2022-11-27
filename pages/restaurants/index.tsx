@@ -3,7 +3,7 @@ import useTranslation from 'hooks/useTranslation';
 import Head from 'next/head';
 import navigation from 'public/translations/navigation.json';
 import restaurantsTrans from 'public/translations/pages/restaurants.json';
-import OpenLayersMap from 'components/modules/OpenLayersMap';
+import Location from 'components/modules/Location';
 import OpeningTimes from 'components/modules/OpeningTimes';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
@@ -26,7 +26,7 @@ const Restaurants: FC = () => {
       <div className={styles.restaurantsContent}>
         <section>
           <Heading level={HeadingLevelEnum.Two}>{location}</Heading>
-          <OpenLayersMap />
+          <Location />
         </section>
         <section>
           <Heading level={HeadingLevelEnum.Two}>{openingTimes}</Heading>
