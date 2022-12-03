@@ -1,0 +1,105 @@
+{
+  "Errors": {
+    "shortError404": "Erreur 404",
+    "longError404": "Oups ! La page demandée n'a pas été trouvée",
+    "shortError500": "Erreur 500",
+    "longError500": "Oups ! Nos serveurs rencontrent actuellement quelques difficultés",
+    "backButtonMessage": "Revenir à la page précédente",
+    "requiredMessage": "Ce champ est obligatoire",
+    "maxLengthMessage": "Le nombre maximal de caractères pris en charge est de :",
+    "outOfRangeMessage": "La quantitée maximale est de :"
+  },
+
+  "Seo": {
+    "description": "Bienvenue sur PickN`Eat ! Vous allez pouvoir découvrir..."
+  },
+
+  "Navigation": {
+    "menu": "Menus",
+    "menuTitle": "Voir nos menus",
+    "restaurants": "Nos restaurants",
+    "restaurantsTitle": "Voir nos restaurants",
+    "delivery": "Livraison",
+    "deliveryTitle": "Choix de la livraison",
+    "switchLangTitle": "Changer de langue",
+    "switchThemeTitle": "Changer de theme",
+    "cartTitle": "Votre panier",
+    "login": "Se connecter",
+    "loginTitle": "Se connecter",
+    "logout": "Se déconnecter",
+    "logoutTitle": "Se déconnecter",
+    "profile": "Votre profil",
+    "openBurgerMenu": "Menu",
+    "closeBurgerMenu": "Fermer",
+    "openBurgerMenuTitle": "Ouvrir le menu",
+    "closeBurgerMenuTitle": "Fermer le menu"
+  },
+
+  "Footer": {
+    "aboutUs": "À propos de nous",
+    "leadershipTeam": "L'équipe de direction",
+    "valuesInAction": "Les valeurs en action",
+    "franchiseInfo": "Info sur les franchises",
+    "careers": "Carrières et emplois",
+    "employeePerks": "Avantages du personnel",
+    "workingWithUs": "Travailler avec nous",
+    "applyNow": "Postulez dès maintenant",
+    "contactUs": "Nous contacter",
+    "restaurantFeedback": "Commentaires sur nos restaurants",
+    "frequentlyAskedQuestions": "Foire aux questions",
+    "sendAnEmail": "Nous envoyer un e-mail"
+  },
+
+  "Home": {
+    "homeMainTitle": "Prenez uniquement ce que vous voulez, just PickN`Eat !",
+    "burgerTitle": "Burgers",
+    "sideTitle": "Petite faim",
+    "drinkTitle": "Boissons",
+    "dessertTitle": "Desserts",
+    "saladTitle": "Salades",
+    "addToCartTextButton": "Ajouter",
+    "badgeNewReleaseText": "Nouveau",
+    "seeMoreDetails": "Voir plus de détails"
+  },
+
+  "Restaurants": {
+    "restaurantsMainTitle": "Trouver un PickN`Eat",
+    "location": "Où trouver un restaurant PickN`Eat ?",
+    "openingTimes": "Horaires",
+    "day": "Jour",
+    "lunch": "Midi",
+    "dinner": "Soir",
+    "monday": "Lundi",
+    "tuesday": "Mardi",
+    "wednesday": "Mercredi",
+    "thursday": "Jeudi",
+    "friday": "Vendredi",
+    "saturday": "Samedi",
+    "sunday": "Dimanche",
+    "lunchWeeklyHours": "12:00 - 14:30",
+    "lunchWeekendHours": "12:00 - 15:30",
+    "dinnerWeeklyHours": "19:00 - 22:30",
+    "dinnerWeekendHours": "19:00 - 23:00"
+  },
+
+  "Delivery": {
+    "deliveryMainTitle": "Comment récupérer ma commande ?",
+    "delivery": "Livraison",
+    "deliveryContent": "Commandez et soyez livré chez vous",
+    "deliveryButton": "Commandez avec Deliveroo",
+    "or": "Ou",
+    "takeAway": "À emporter",
+    "takeAwayContent": "Commandez en ligne et récupérez votre commande sur place",
+    "takeAwayButton": "Commandez en ligne"
+  },
+
+  "Product": {
+    "description": "Description",
+    "allergens": "Allergènes",
+    "noAllergens": "Ce produit ne contient pas des allergènes."
+  },
+
+  "Cart": {
+    "cart": "Panier"
+  }
+}

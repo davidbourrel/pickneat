@@ -1,12 +1,10 @@
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
 import Button from '../buttons/Button';
 import Link from '../Link';
 import Arrow from '../Arrow';
 import { ArrowDirectionEnum } from '../Arrow/types';
-import useLang from 'contexts/i18nContext/useLang';
-import useLangPopup from 'contexts/i18nContext/useLangPopup';
 import LangItem from './LangItem';
 import { LangEnum } from '_types/lang';
 
@@ -25,9 +23,12 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
   dataTestLangList,
   dataTestLangButton,
 }) => {
-  const { asPath } = useRouter();
-  const { lang, handleLangClick } = useLang();
-  const { isLangSwitcherOpened, setIsLangSwitcherOpened } = useLangPopup();
+  const { locale, route } = useRouter();
+  const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
+
+  const handleClosePopupClick = useCallback(() => {
+    setIsLangSwitcherOpened(false);
+  }, []);
 
   const handleLanguageSwitcherClick = useCallback(
     () => setIsLangSwitcherOpened((c) => !c),
@@ -36,13 +37,15 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
   const flagClassName = useMemo(
     () =>
-      `${styles.flag} ${lang === LangEnum.En ? styles.enFlag : styles.frFlag} `,
-    [lang]
+      `${styles.flag} ${
+        locale === LangEnum.En ? styles.enFlag : styles.frFlag
+      } `,
+    [locale]
   );
 
   const plainCountryName = useMemo(
-    () => (lang === LangEnum.En ? 'EN' : 'FR'),
-    [lang]
+    () => (locale === LangEnum.En ? 'EN' : 'FR'),
+    [locale]
   );
 
   const langListClassName = useMemo(
@@ -85,32 +88,32 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
       >
         <li className="capitalize" aria-labelledby="lang-item-English">
           <Link
-            href={asPath}
+            href={route}
             passHref
             locale={LangEnum.En}
             lang={LangEnum.En}
-            onClick={handleLangClick}
+            onClick={handleClosePopupClick}
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-en-button`}
             data-test={`${dataTestLangButton}English`}
             tabIndex={computedTabIndex}
           >
-            <LangItem countryLang="English" locale={LangEnum.En} />
+            <LangItem lang="English" incomingLocale={LangEnum.En} />
           </Link>
         </li>
         <li className="capitalize" aria-labelledby="lang-item-French">
           <Link
-            href={asPath}
+            href={route}
             passHref
-            locale="fr"
-            lang="fr"
-            onClick={handleLangClick}
+            locale={LangEnum.Fr}
+            lang={LangEnum.Fr}
+            onClick={handleClosePopupClick}
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-fr-button`}
             data-test={`${dataTestLangButton}French`}
             tabIndex={computedTabIndex}
           >
-            <LangItem countryLang="Français" locale="fr" />
+            <LangItem lang="Français" incomingLocale={LangEnum.Fr} />
           </Link>
         </li>
       </ul>

@@ -1,14 +1,14 @@
 import { FC, useCallback, useMemo } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useCart from 'contexts/cartContext/useCart';
-import useTranslation from 'hooks/useTranslation';
 import { ClassNameComponentProps } from '_types/components';
 import { Products } from '_types/products';
 import Button from '../buttons/Button';
 import MinusButton from '../buttons/PlusMinusButtons/MinusButton';
 import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
-import home from 'public/translations/pages/home.json';
 import styles from './Quantity.module.css';
+import { useTranslations } from 'next-intl';
+import { GetStaticProps } from 'next/types';
 
 interface QuantityProps extends ClassNameComponentProps {
   product: Products;
@@ -17,7 +17,7 @@ interface QuantityProps extends ClassNameComponentProps {
 const Quantity: FC<QuantityProps> = ({ product, className = '' }) => {
   const { product_id } = product;
 
-  const { addToCartTextButton } = useTranslation(home);
+  const t = useTranslations('Home');
   const { cart } = useCart();
   const addToCart = useAddToCart();
 
@@ -54,12 +54,12 @@ const Quantity: FC<QuantityProps> = ({ product, className = '' }) => {
           onClick={handleAddProductClick}
           className={styles.addToCartButton}
         >
-          {addToCartTextButton}
+          {t('addToCartTextButton')}
         </Button>
       ) : (
         <span className={styles.quantity}>{amount}</span>
       ),
-    [amount, handleAddProductClick, addToCartTextButton]
+    [amount, handleAddProductClick, t]
   );
 
   const plusButton = useMemo(
@@ -74,6 +74,14 @@ const Quantity: FC<QuantityProps> = ({ product, className = '' }) => {
       {plusButton}
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${locale}.json`)).default,
+    },
+  };
 };
 
 export default Quantity;

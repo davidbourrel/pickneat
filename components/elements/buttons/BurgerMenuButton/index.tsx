@@ -1,9 +1,10 @@
-import { FC, useMemo } from 'react';
-import useTranslation from 'hooks/useTranslation';
+import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
+import { GetStaticPropsContext } from 'next/types';
+import { pick } from 'lodash';
 import { ClassNameComponentProps } from '_types/components';
 import Button from '../Button';
 import styles from './BurgerMenuButton.module.css';
-import navigation from 'public/translations/navigation.json';
 
 interface BurgerMenuButtonProps extends ClassNameComponentProps {
   handleToggleMenu?: () => void;
@@ -13,16 +14,15 @@ interface BurgerMenuButtonProps extends ClassNameComponentProps {
   dataTest: string;
 }
 
-const BurgerMenuButton: FC<BurgerMenuButtonProps> = ({
+export default function BurgerMenuButton({
   handleToggleMenu,
   closeMenu,
   isSideNavOpened,
   title,
   className,
   dataTest,
-}) => {
-  const { openBurgerMenuTitle, closeBurgerMenuTitle } =
-    useTranslation(navigation);
+}: BurgerMenuButtonProps) {
+  const t = useTranslations('Navigation');
 
   const computedButtonClassName = useMemo(
     () => (className ? `${styles.button} ${className}` : styles.button),
@@ -40,8 +40,9 @@ const BurgerMenuButton: FC<BurgerMenuButtonProps> = ({
   );
 
   const ariaLabel = useMemo(
-    () => (isSideNavOpened ? closeBurgerMenuTitle : openBurgerMenuTitle),
-    [isSideNavOpened, closeBurgerMenuTitle, openBurgerMenuTitle]
+    () =>
+      isSideNavOpened ? t('closeBurgerMenuTitle') : t('openBurgerMenuTitle'),
+    [isSideNavOpened, t]
   );
 
   const ariaExpanded = useMemo(
@@ -84,6 +85,17 @@ const BurgerMenuButton: FC<BurgerMenuButtonProps> = ({
       </div>
     </Button>
   );
-};
+}
 
-export default BurgerMenuButton;
+BurgerMenuButton.messages = ['Navigation'];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: pick(
+        await import(`../../../../messages/${locale}.json`),
+        BurgerMenuButton.messages
+      ),
+    },
+  };
+}

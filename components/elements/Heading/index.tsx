@@ -1,4 +1,4 @@
-import { FC, HTMLProps, ReactNode, useMemo } from 'react';
+import { HTMLProps, ReactNode, useMemo } from 'react';
 import { HeadingLevelEnum } from './types';
 import styles from './Heading.module.css';
 
@@ -7,12 +7,12 @@ interface HeadingProps extends HTMLProps<HTMLHeadingElement> {
   level: string;
 }
 
-const Heading: FC<HeadingProps> = ({
+export default function Heading({
   children,
   level,
   className = '',
   ...rest
-}) => {
+}: HeadingProps) {
   const heading = useMemo(() => {
     switch (level) {
       case HeadingLevelEnum.One:
@@ -55,6 +55,4 @@ const Heading: FC<HeadingProps> = ({
     }
   }, [children, level, className, rest]);
   return heading;
-};
-
-export default Heading;
+}

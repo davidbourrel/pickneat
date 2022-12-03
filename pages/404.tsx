@@ -1,27 +1,37 @@
-import { FC } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import useTranslation from 'hooks/useTranslation';
-import errors from 'public/translations/errors.json';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Button from 'components/elements/buttons/Button';
+import { useTranslations } from 'next-intl';
+import { GetStaticPropsContext } from 'next/types';
+import { pick } from 'lodash';
+import PageLayout from 'components/modules/PageLayout';
 
-const NotFound: FC = () => {
+export default function NotFound() {
   const { back } = useRouter();
-
-  const { shortError404, longError404, backButtonMessage } =
-    useTranslation(errors);
+  const t = useTranslations('Errors');
 
   return (
     <main className="notFound sidePadding">
       <Head>
-        <title>{`PickN\`Eat | ${shortError404}`}</title>
+        <title>{`PickN\`Eat | ${t('shortError404')}`}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One}>{longError404}</Heading>
-      <Button onClick={back}>{backButtonMessage}</Button>
+      <Heading level={HeadingLevelEnum.One}>{t('longError404')}</Heading>
+      <Button onClick={back}>{t('backButtonMessage')}</Button>
     </main>
   );
-};
+}
 
-export default NotFound;
+NotFound.messages = ['Errors', ...PageLayout.messages];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: pick(
+        await import(`../messages/${locale}.json`),
+        NotFound.messages
+      ),
+    },
+  };
+}

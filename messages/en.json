@@ -1,0 +1,105 @@
+{
+  "Errors": {
+    "shortError404": "404 error",
+    "longError404": "Woops ! This page is not found",
+    "shortError500": "500 error",
+    "longError500": "Woops ! The server has problems !",
+    "backButtonMessage": "Go back to the previous page",
+    "requiredMessage": "This field is Message",
+    "maxLengthMessage": "The maximum length is:",
+    "outOfRangeMessage": "The maximum value is:"
+  },
+
+  "Seo": {
+    "description": "Welcome to PickN`Eat ! There are a lot of..."
+  },
+
+  "Navigation": {
+    "menu": "Menu",
+    "menuTitle": "See the menus",
+    "restaurants": "Locate",
+    "restaurantsTitle": "Locate us",
+    "delivery": "Delivery",
+    "deliveryTitle": "Choose how to get your burger",
+    "switchLangTitle": "Change the language",
+    "switchThemeTitle": "Change the theme",
+    "cartTitle": "Your cart",
+    "login": "Login",
+    "loginTitle": "Login",
+    "logout": "Logout",
+    "logoutTitle": "Logout",
+    "profile": "Your profile",
+    "openBurgerMenu": "Menu",
+    "closeBurgerMenu": "Close",
+    "openBurgerMenuTitle": "Open the menu",
+    "closeBurgerMenuTitle": "Close the menu"
+  },
+
+  "Footer": {
+    "aboutUs": "About Us",
+    "leadershipTeam": "Leadership Team",
+    "valuesInAction": "Values In Action",
+    "franchiseInfo": "Franchise Info",
+    "careers": "Careers",
+    "employeePerks": "Employee Perks",
+    "workingWithUs": "Working with Us",
+    "applyNow": "Apply Now",
+    "contactUs": "Contact Us",
+    "restaurantFeedback": "Restaurant Feedback",
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "sendAnEmail": "Send an email"
+  },
+
+  "Home": {
+    "homeMainTitle": "Just pick what you want, just PickN`Eat !",
+    "burgerTitle": "Burgers",
+    "sideTitle": "Sides",
+    "drinkTitle": "Drinks",
+    "dessertTitle": "Desserts",
+    "saladTitle": "Salads",
+    "addToCartTextButton": "Add to cart",
+    "badgeNewReleaseText": "New",
+    "seeMoreDetails": "See More Details"
+  },
+
+  "Restaurants": {
+    "restaurantsMainTitle": "Find a PickN`Eat",
+    "location": "Where to find PickN`Eat ?",
+    "openingTimes": "Opening Times",
+    "day": "Day",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "lunchWeeklyHours": "12.00pm - 2:30pm",
+    "lunchWeekendHours": "12.00pm - 3:30pm",
+    "dinnerWeeklyHours": "7.00pm - 10:30pm",
+    "dinnerWeekendHours": "7.00pm - 11.00pm"
+  },
+
+  "Delivery": {
+    "deliveryMainTitle": "How do I get my order ?",
+    "delivery": "Delivery",
+    "deliveryContent": "Place an order and get delivered",
+    "deliveryButton": "Order with Deliveroo",
+    "or": "Or",
+    "takeAway": "Take Away",
+    "takeAwayContent": "Order now and pick up on site",
+    "takeAwayButton": "Order online"
+  },
+
+  "Product": {
+    "description": "Description",
+    "allergens": "Allergens",
+    "noAllergens": "This product does not contain allergen."
+  },
+
+  "Cart": {
+    "cart": "Cart"
+  }
+}

@@ -1,8 +1,6 @@
 import { FC, useMemo } from 'react';
 import Head from 'next/head';
-import navigation from 'public/translations/navigation.json';
-import useTranslation from 'hooks/useTranslation';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { GetServerSidePropsContext } from 'next';
 import { getSession, UserProfile } from '@auth0/nextjs-auth0';
 import Link from 'components/elements/Link';
 import styles from './Profile.module.css';
@@ -10,13 +8,14 @@ import Button from 'components/elements/buttons/Button';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface ProfileProps {
   user: UserProfile;
 }
 
 const Profile: FC<ProfileProps> = ({ user }) => {
-  const { login, logout, logoutTitle } = useTranslation(navigation);
+  const t = useTranslations('Navigation');
 
   const userPicture = useMemo(
     () =>
@@ -35,7 +34,7 @@ const Profile: FC<ProfileProps> = ({ user }) => {
   return (
     <main className="sidePadding">
       <Head>
-        <title>{`PickN\`Eat | ${login}`}</title>
+        <title>{`PickN\`Eat | ${t('login')}`}</title>
       </Head>
       <Heading level={HeadingLevelEnum.One} className={styles.profileTitle}>
         [Profile]
@@ -43,22 +42,18 @@ const Profile: FC<ProfileProps> = ({ user }) => {
       {userPicture}
       <p>nickname: {user.nickname}</p>
       <p>name: {user.name}</p>
-      <Link title={logoutTitle} href="/api/auth/logout">
-        <Button> {logout}</Button>
+      <Link title={t('logoutTitle')} href="/api/auth/logout">
+        <Button> {t('logout')}</Button>
       </Link>
     </main>
   );
 };
 
-interface GetServerSidePropsInterface {
-  req: NextApiRequest;
-  res: NextApiResponse;
-}
-
 export const getServerSideProps = async ({
   req,
   res,
-}: GetServerSidePropsInterface) => {
+  locale,
+}: GetServerSidePropsContext) => {
   const session = await getSession(req, res);
 
   if (!session || !session.user) {
@@ -68,7 +63,12 @@ export const getServerSideProps = async ({
     return res.end();
   }
 
-  return { props: { user: session.user } };
+  return {
+    props: {
+      user: session.user,
+      messages: (await import(`../../messages/${locale}.json`)).default,
+    },
+  };
 };
 
 export default Profile;

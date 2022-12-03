@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import restaurants from 'public/translations/pages/restaurants.json';
-import useTranslation from 'hooks/useTranslation';
 import styles from './OpeningTimes.module.css';
 import DayRow from './DayRow';
 import TableHeader from './TableHeader';
+import { useTranslations } from 'next-intl';
+import { GetStaticProps } from 'next/types';
 
 export enum DaysOfTheWeekEnum {
   Monday = 'monday',
@@ -16,72 +16,65 @@ export enum DaysOfTheWeekEnum {
 }
 
 const OpeningTimes: FC = () => {
-  const {
-    day,
-    lunch,
-    dinner,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday,
-    sunday,
-    lunchWeeklyHours,
-    lunchWeekendHours,
-    dinnerWeeklyHours,
-    dinnerWeekendHours,
-  } = useTranslation(restaurants);
+  const t = useTranslations('Restaurants');
 
   return (
     <table className={styles.table} data-test="openingTimes">
-      <TableHeader day={day} lunch={lunch} dinner={dinner} />
+      <TableHeader day={t('day')} lunch={t('lunch')} dinner={t('dinner')} />
       <tbody>
         <DayRow
           day={DaysOfTheWeekEnum.Monday}
-          dayTranslation={monday}
-          lunchTranslation={lunchWeeklyHours}
-          dinnerTranslation={dinnerWeeklyHours}
+          dayTranslation={t('monday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Tuesday}
-          dayTranslation={tuesday}
-          lunchTranslation={lunchWeeklyHours}
-          dinnerTranslation={dinnerWeeklyHours}
+          dayTranslation={t('tuesday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Wednesday}
-          dayTranslation={wednesday}
-          lunchTranslation={lunchWeeklyHours}
-          dinnerTranslation={dinnerWeeklyHours}
+          dayTranslation={t('wednesday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Thursday}
-          dayTranslation={thursday}
-          lunchTranslation={lunchWeeklyHours}
-          dinnerTranslation={dinnerWeeklyHours}
+          dayTranslation={t('thursday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Friday}
-          dayTranslation={friday}
-          lunchTranslation={lunchWeeklyHours}
-          dinnerTranslation={dinnerWeeklyHours}
+          dayTranslation={t('friday')}
+          lunchTranslation={t('lunchWeeklyHours')}
+          dinnerTranslation={t('dinnerWeeklyHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Saturday}
-          dayTranslation={saturday}
-          lunchTranslation={lunchWeekendHours}
-          dinnerTranslation={dinnerWeekendHours}
+          dayTranslation={t('saturday')}
+          lunchTranslation={t('lunchWeekendHours')}
+          dinnerTranslation={t('dinnerWeekendHours')}
         />
         <DayRow
           day={DaysOfTheWeekEnum.Sunday}
-          dayTranslation={sunday}
-          lunchTranslation={lunchWeekendHours}
-          dinnerTranslation={dinnerWeekendHours}
+          dayTranslation={t('sunday')}
+          lunchTranslation={t('lunchWeekendHours')}
+          dinnerTranslation={t('dinnerWeekendHours')}
         />
       </tbody>
     </table>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${locale}.json`)).default,
+    },
+  };
 };
 
 export default OpeningTimes;

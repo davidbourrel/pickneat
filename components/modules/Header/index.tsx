@@ -1,10 +1,10 @@
-import { FC } from 'react';
 import MainNavigation from '../MainNavigation';
 import styles from './Header.module.css';
-import useTranslation from 'hooks/useTranslation';
-import navigation from 'public/translations/navigation.json';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
+import { useTranslations } from 'next-intl';
+import { GetStaticProps } from 'next/types';
+import { pick } from 'lodash';
 
 interface HeaderProps {
   isSideNavOpened: boolean;
@@ -12,12 +12,12 @@ interface HeaderProps {
   handleToggleMenu: () => void;
 }
 
-const Header: FC<HeaderProps> = ({
+export default function Header({
   isSideNavOpened,
   closeMenu,
   handleToggleMenu,
-}) => {
-  const { openBurgerMenu } = useTranslation(navigation);
+}: HeaderProps) {
+  const t = useTranslations('Navigation');
 
   return (
     <header className={styles.header}>
@@ -27,12 +27,27 @@ const Header: FC<HeaderProps> = ({
         <BurgerMenuButton
           isSideNavOpened={isSideNavOpened}
           handleToggleMenu={handleToggleMenu}
-          title={openBurgerMenu}
+          title={t('openBurgerMenu')}
           dataTest="openBurgerMenuButton"
         />
       </div>
     </header>
   );
-};
+}
 
-export default Header;
+Header.messages = [
+  'Navigation',
+  ...MainNavigation.messages,
+  ...BurgerMenuButton.messages,
+];
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: pick(
+        await import(`../../../messages/${locale}.json`),
+        Header.messages
+      ),
+    },
+  };
+};

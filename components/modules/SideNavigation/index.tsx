@@ -1,8 +1,7 @@
-import { FC, useCallback, useMemo, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
+import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import ActiveLink from 'components/elements/ActiveLink';
-import navigation from 'public/translations/navigation.json';
-import useTranslation from 'hooks/useTranslation';
 import styles from './SideNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import { useUser } from '@auth0/nextjs-auth0';
@@ -12,34 +11,23 @@ import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 import useOutsideClick from 'hooks/useOutsideClick';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
+import { useTranslations } from 'next-intl';
+import { pick } from 'lodash';
 
 interface SideNavigationProps {
   isSideNavOpened: boolean;
   closeMenu: () => void;
 }
 
-const SideNavigation: FC<SideNavigationProps> = ({
+export default function SideNavigation({
   isSideNavOpened,
   closeMenu,
-}) => {
+}: SideNavigationProps) {
   const { user } = useUser();
 
   const { asPath } = useRouter();
-  const {
-    menu,
-    menuTitle,
-    restaurants,
-    restaurantsTitle,
-    delivery,
-    deliveryTitle,
-    login,
-    loginTitle,
-    profile,
-    switchLangTitle,
-    switchThemeTitle,
-    cartTitle,
-    closeBurgerMenu,
-  } = useTranslation(navigation);
+
+  const t = useTranslations('Navigation');
 
   // Close side navigation on outside click
   const sideNavigationRef = useRef(null as unknown as HTMLHeadingElement);
@@ -69,24 +57,24 @@ const SideNavigation: FC<SideNavigationProps> = ({
   const userTab = useMemo(
     () =>
       user && user.picture ? (
-        <li title={profile}>
+        <li title={t('profile')}>
           <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>
             <ProfileIcon />
           </ActiveLink>
         </li>
       ) : (
-        <li title={loginTitle}>
+        <li title={t('loginTitle')}>
           <ActiveLink
             href="/api/auth/login"
             path={asPath}
             closeMenu={closeMenu}
             tabIndex={-1}
           >
-            <Button border>{login}</Button>
+            <Button border>{t('login')}</Button>
           </ActiveLink>
         </li>
       ),
-    [user, asPath, closeMenu, profile, login, loginTitle]
+    [user, asPath, closeMenu, t]
   );
 
   return (
@@ -102,28 +90,28 @@ const SideNavigation: FC<SideNavigationProps> = ({
           <BurgerMenuButton
             isSideNavOpened={isSideNavOpened}
             closeMenu={closeMenu}
-            title={closeBurgerMenu}
+            title={t('closeBurgerMenu')}
             className={styles.topRightCloseButton}
             dataTest="closeBurgerMenuButton"
           />
           <ul className={styles.firstNavigation}>
-            <li title={menuTitle}>
+            <li title={t('menuTitle')}>
               <ActiveLink href="/" path={asPath} closeMenu={closeMenu}>
-                {menu}
+                {t('menu')}
               </ActiveLink>
             </li>
-            <li title={restaurantsTitle}>
+            <li title={t('restaurantsTitle')}>
               <ActiveLink
                 href="/restaurants"
                 path={asPath}
                 closeMenu={closeMenu}
               >
-                {restaurants}
+                {t('restaurants')}
               </ActiveLink>
             </li>
-            <li title={deliveryTitle}>
+            <li title={t('deliveryTitle')}>
               <ActiveLink href="/delivery" path={asPath} closeMenu={closeMenu}>
-                {delivery}
+                {t('delivery')}
               </ActiveLink>
             </li>
           </ul>
@@ -131,7 +119,7 @@ const SideNavigation: FC<SideNavigationProps> = ({
           <ul className={styles.secondNavigation}>
             <li>
               <LanguageSwitcher
-                title={switchLangTitle}
+                title={t('switchLangTitle')}
                 ariaControlsId="lang-switcher-mobile"
                 dataTestButton="langSwitcherMobileButton"
                 dataTestLangList="langSwitcherMobileLangList"
@@ -140,13 +128,13 @@ const SideNavigation: FC<SideNavigationProps> = ({
             </li>
             <li>
               <ThemeSwitcher
-                title={switchThemeTitle}
+                title={t('switchThemeTitle')}
                 dataTestButton="themeSwitcherMobileButton"
               />
             </li>
             <li>
               <ActiveLink href="/cart" path={asPath} closeMenu={closeMenu}>
-                <CartCount title={cartTitle} />
+                <CartCount title={t('cartTitle')} />
               </ActiveLink>
             </li>
             {userTab}
@@ -155,6 +143,17 @@ const SideNavigation: FC<SideNavigationProps> = ({
       </aside>
     </div>
   );
-};
+}
 
-export default SideNavigation;
+SideNavigation.messages = ['Navigation'];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: pick(
+        await import(`../../../messages/${locale}.json`),
+        SideNavigation.messages
+      ),
+    },
+  };
+}

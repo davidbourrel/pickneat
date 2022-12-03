@@ -1,10 +1,10 @@
-import { FC, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Arrow from '../Arrow';
 import { ArrowDirectionEnum } from '../Arrow/types';
 import Button from '../buttons/Button';
 import styles from './ScrollToTopButton.module.css';
 
-const ScrollToTopButton: FC = () => {
+export default function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
 
   const buttonClassName = useMemo(
@@ -41,6 +41,4 @@ const ScrollToTopButton: FC = () => {
       </div>
     </Button>
   );
-};
-
-export default ScrollToTopButton;
+}

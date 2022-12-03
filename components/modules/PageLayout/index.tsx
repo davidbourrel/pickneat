@@ -1,13 +1,13 @@
-import { FC, ReactNode, useCallback, useState } from 'react';
+import { ReactNode, useCallback, useState } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
 import SideNavigation from '../SideNavigation';
 
-interface LayoutProps {
+interface PageLayoutProps {
   children: ReactNode;
 }
 
-const Layout: FC<LayoutProps> = ({ children }) => {
+export default function PageLayout({ children }: PageLayoutProps) {
   const [isSideNavOpened, setIsSideNavOpened] = useState(false);
 
   const handleToggleMenu = useCallback(() => {
@@ -30,6 +30,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
       <Footer />
     </>
   );
-};
+}
 
-export default Layout;
+PageLayout.messages = [
+  ...Header.messages,
+  ...SideNavigation.messages,
+  ...Footer.messages,
+];

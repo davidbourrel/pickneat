@@ -1,21 +1,26 @@
-import { FC, useEffect } from 'react';
-import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
+import { AppProps } from 'next/app';
+import { NextIntlProvider } from 'next-intl';
 import Head from 'next/head';
 import Router from 'next/router';
 import nProgress from 'nprogress';
-import Layout from '../components/modules/Layout';
+import PageLayout from '../components/modules/PageLayout';
 import '../styles/globals.css';
-import useTranslation from 'hooks/useTranslation';
-import navigation from 'public/translations/navigation.json';
 import useKonami from 'hooks/useKonami';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { ThemeProvider } from 'contexts/themeContext';
-import { I18nProvider } from 'contexts/i18nContext';
 import { CartProvider } from 'contexts/cartContext';
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  const { menu } = useTranslation(navigation);
+type PageProps = {
+  messages: IntlMessages;
+  now: number;
+};
 
+type Props = Omit<AppProps<PageProps>, 'pageProps'> & {
+  pageProps: PageProps;
+};
+
+export default function MyApp({ Component, pageProps }: Props) {
   useKonami();
 
   useEffect(() => {
@@ -41,7 +46,20 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <div id="app" className="app">
-      <I18nProvider>
+      <NextIntlProvider
+        formats={{
+          dateTime: {
+            short: {
+              day: 'numeric',
+              month: 'short',
+              year: 'numeric',
+            },
+          },
+        }}
+        messages={pageProps.messages}
+        now={new Date(pageProps.now)}
+        timeZone="Europe/London"
+      >
         <ThemeProvider>
           <UserProvider>
             <CartProvider>
@@ -51,17 +69,15 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
                   name="viewport"
                   content="width=device-width, initial-scale=1, maximum-scale=5"
                 />
-                <title>{`PickN\`Eat | ${menu}`}</title>
+                <title>{`PickN\`Eat`}</title>
               </Head>
-              <Layout>
+              <PageLayout>
                 <Component {...pageProps} />
-              </Layout>
+              </PageLayout>
             </CartProvider>
           </UserProvider>
         </ThemeProvider>
-      </I18nProvider>
+      </NextIntlProvider>
     </div>
   );
-};
-
-export default MyApp;
+}

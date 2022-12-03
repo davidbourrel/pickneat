@@ -1,10 +1,10 @@
 import { FC, HTMLProps, useEffect, useMemo } from 'react';
-import useTranslation from 'hooks/useTranslation';
 import { ClassNameComponentProps } from '_types/components';
 import { InputCommonProps } from './types';
 import useInputClassNames from './useInputClassNames';
-import errors from 'public/translations/errors.json';
 import styles from './Inputs.module.css';
+import { useTranslations } from 'next-intl';
+import { GetStaticProps } from 'next/types';
 
 export interface NumberInputProps
   extends ClassNameComponentProps,
@@ -31,7 +31,7 @@ const NumberInput: FC<NumberInputProps> = ({
   setErrorStatus,
   ...props
 }) => {
-  const { requiredMessage, outOfRangeMessage } = useTranslation(errors);
+  const t = useTranslations('Errors');
 
   /***********
    * Validation
@@ -52,19 +52,13 @@ const NumberInput: FC<NumberInputProps> = ({
 
   const localError = useMemo(() => {
     if (isRequiredEmpty) {
-      return requiredMessage;
+      return t('requiredMessage');
     }
     if (isOutOfRange) {
-      return `${outOfRangeMessage} ${props.max}`;
+      return `${t('outOfRangeMessage')} ${props.max}`;
     }
     return null as unknown as string;
-  }, [
-    isRequiredEmpty,
-    isOutOfRange,
-    props.max,
-    requiredMessage,
-    outOfRangeMessage,
-  ]);
+  }, [isRequiredEmpty, isOutOfRange, props.max, t]);
 
   useEffect(() => {
     if (setErrorStatus) {
@@ -128,6 +122,14 @@ const NumberInput: FC<NumberInputProps> = ({
       {errorComponent}
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${locale}.json`)).default,
+    },
+  };
 };
 
 export default NumberInput;

@@ -1,23 +1,23 @@
 import { FC } from 'react';
 import styles from './LanguageSwitcher.module.css';
-import useLang from 'contexts/i18nContext/useLang';
 import CheckMark from '../CheckMark';
+import { useRouter } from 'next/router';
 
 interface LangItemProps {
-  countryLang: string;
-  locale: string;
+  lang: string;
+  incomingLocale: string;
 }
 
-const LangItem: FC<LangItemProps> = ({ countryLang, locale }) => {
-  const { lang } = useLang();
+const LangItem: FC<LangItemProps> = ({ lang, incomingLocale }) => {
+  const { locale } = useRouter();
 
-  return lang === locale ? (
+  return locale === incomingLocale ? (
     <div className={styles.activeCountry}>
-      <span>{countryLang}</span>
+      <span>{lang}</span>
       <CheckMark />
     </div>
   ) : (
-    <span>{countryLang}</span>
+    <span>{lang}</span>
   );
 };
 

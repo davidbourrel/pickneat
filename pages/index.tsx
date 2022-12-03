@@ -1,7 +1,4 @@
-import { FC } from 'react';
 import { SwiperSlide } from 'swiper/react';
-import useTranslation from 'hooks/useTranslation';
-import home from 'public/translations/pages/home.json';
 import Image from 'next/image';
 import burgerImage from '../public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';
 import friesImage from '../public/images/home carousel/Photo_by_Louis_Hansel_on_Unsplash.jpg';
@@ -10,19 +7,22 @@ import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli
 import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
+import { GetStaticPropsContext } from 'next';
+import { useTranslations } from 'next-intl';
 import styles from '../styles/Home.module.css';
 import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
 import { Products } from '_types/products';
-import { GetStaticProps } from 'next';
+import PageLayout from 'components/modules/PageLayout';
+import { pick } from 'lodash';
 
 interface HomeProps {
   ssrProducts: Products[];
 }
 
-const Home: FC<HomeProps> = ({ ssrProducts }) => {
-  const { homeMainTitle } = useTranslation(home);
+export default function Home({ ssrProducts }: HomeProps) {
+  const t = useTranslations('Home');
 
   return (
     <main>
@@ -74,15 +74,17 @@ const Home: FC<HomeProps> = ({ ssrProducts }) => {
             />
           </SwiperSlide>
         </Slider>
-        <Heading level={HeadingLevelEnum.One}>{homeMainTitle}</Heading>
+        <Heading level={HeadingLevelEnum.One}>{t('homeMainTitle')}</Heading>
       </header>
       <CategoryList ssrProducts={ssrProducts} />
       <ScrollToTopButton />
     </main>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async () => {
+Home.messages = ['Home', ...PageLayout.messages];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
   const ssrProducts = await res.json();
 
@@ -91,8 +93,9 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 
   return {
-    props: { ssrProducts },
+    props: {
+      ssrProducts,
+      messages: pick(await import(`../messages/${locale}.json`), Home.messages),
+    },
   };
-};
-
-export default Home;
+}

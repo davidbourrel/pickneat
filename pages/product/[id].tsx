@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { GetStaticPropsContext } from 'next';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Head from 'next/head';
@@ -8,19 +8,15 @@ import Loader from 'components/elements/Loader';
 import styles from './Product.module.css';
 import Image from 'next/image';
 import PriceTag from 'components/elements/PriceTag';
-import useTranslation from 'hooks/useTranslation';
-import productTranslations from 'public/translations/pages/product.json';
 import Quantity from 'components/elements/Quantity';
+import { pick } from 'lodash';
+import { useTranslations } from 'next-intl';
 
-const ProductId: FC = () => {
+export default function ProductId() {
   const router = useRouter();
   const { id } = router.query;
 
-  const {
-    description: descriptionTranslation,
-    allergens: allergensTranslation,
-    noAllergens,
-  } = useTranslation(productTranslations);
+  const t = useTranslations('Product');
 
   const { product, isProductLoading, isProductError } = useProduct(
     id as string
@@ -62,15 +58,17 @@ const ProductId: FC = () => {
           <PriceTag price={price} className={styles.productPrice} />
           <section>
             <Heading level={HeadingLevelEnum.Two} className={styles.productH2}>
-              {descriptionTranslation}
+              {t('description')}
             </Heading>
             <div className={styles.productDescription}> {description}</div>
           </section>
           <section>
             <Heading level={HeadingLevelEnum.Two} className={styles.productH2}>
-              {allergensTranslation}
+              {t('allergens')}
             </Heading>
-            <p>{allergens && allergens.length > 0 ? allergens : noAllergens}</p>
+            <p>
+              {allergens && allergens.length > 0 ? allergens : t('noAllergens')}
+            </p>
           </section>
 
           <Quantity product={product} className={styles.productQuantity} />
@@ -78,6 +76,17 @@ const ProductId: FC = () => {
       </div>
     </main>
   );
-};
+}
 
-export default ProductId;
+ProductId.messages = ['Product'];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: pick(
+        await import(`../../messages/${locale}.json`),
+        ProductId.messages
+      ),
+    },
+  };
+}

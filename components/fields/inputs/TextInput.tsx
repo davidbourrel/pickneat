@@ -1,10 +1,10 @@
 import { FC, HTMLProps, useEffect, useMemo } from 'react';
-import useTranslation from 'hooks/useTranslation';
 import { ClassNameComponentProps } from '_types/components';
 import { InputCommonProps } from './types';
 import useInputClassNames from './useInputClassNames';
-import errors from 'public/translations/errors.json';
 import styles from './Inputs.module.css';
+import { useTranslations } from 'next-intl';
+import { GetStaticProps } from 'next/types';
 
 export interface TextInputProps
   extends ClassNameComponentProps,
@@ -30,7 +30,7 @@ const TextInput: FC<TextInputProps> = ({
   setErrorStatus,
   ...props
 }) => {
-  const { requiredMessage, maxLengthMessage } = useTranslation(errors);
+  const t = useTranslations('Errors');
 
   /***********
    * Validation
@@ -45,19 +45,13 @@ const TextInput: FC<TextInputProps> = ({
   );
   const localError = useMemo(() => {
     if (isRequiredEmpty) {
-      return requiredMessage;
+      return t('requiredMessage');
     }
     if (isTooLong) {
-      return `${maxLengthMessage} ${props.maxLength}`;
+      return `${t('maxLengthMessage')} ${props.maxLength}`;
     }
     return null as unknown as string;
-  }, [
-    isRequiredEmpty,
-    isTooLong,
-    props.maxLength,
-    requiredMessage,
-    maxLengthMessage,
-  ]);
+  }, [isRequiredEmpty, isTooLong, props.maxLength, t]);
 
   useEffect(() => {
     if (setErrorStatus) {
@@ -121,6 +115,14 @@ const TextInput: FC<TextInputProps> = ({
       {errorComponent}
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: (await import(`../../../messages/${locale}.json`)).default,
+    },
+  };
 };
 
 export default TextInput;
