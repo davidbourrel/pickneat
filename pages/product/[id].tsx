@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from 'next';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Head from 'next/head';
@@ -9,7 +8,6 @@ import styles from './Product.module.css';
 import Image from 'next/image';
 import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
-import { pick } from 'lodash';
 import { useTranslations } from 'next-intl';
 
 export default function ProductId() {
@@ -76,17 +74,4 @@ export default function ProductId() {
       </div>
     </main>
   );
-}
-
-ProductId.messages = ['Product'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../messages/${locale}.json`),
-        ProductId.messages
-      ),
-    },
-  };
 }
