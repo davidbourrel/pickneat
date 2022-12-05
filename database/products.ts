@@ -3,7 +3,7 @@ import sides from './sides.json';
 import drinks from './drinks.json';
 import desserts from './desserts.json';
 import salads from './salads.json';
-import { Products } from '_types/products';
+import { Product } from '_types/products';
 
 export const products = [
   ...burgers,
@@ -11,4 +11,8 @@ export const products = [
   ...drinks,
   ...desserts,
   ...salads,
-] as Products[];
+] as Product[];
+
+export const getProducts = () => products;
+export const getProduct = (id: string) =>
+  products.find((p) => p.product_id === id) as Product;

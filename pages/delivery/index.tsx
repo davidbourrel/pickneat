@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { GetStaticPropsContext } from 'next/types';
 import Head from 'next/head';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
@@ -6,9 +6,10 @@ import styles from './Delivery.module.css';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import { pick } from 'lodash';
+import PageLayout from 'components/modules/PageLayout';
 
-const Delivery: FC = () => {
+export default function Delivery() {
   const t = useTranslations('Delivery');
 
   return (
@@ -47,14 +48,17 @@ const Delivery: FC = () => {
       </div>
     </main>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+Delivery.messages = ['Delivery', ...PageLayout.messages];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../messages/${locale}.json`),
+        Delivery.messages
+      ),
     },
   };
-};
-
-export default Delivery;
+}

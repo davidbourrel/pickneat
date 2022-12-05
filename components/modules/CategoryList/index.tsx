@@ -1,76 +1,57 @@
-import { FC, useMemo } from 'react';
-import useProducts from '../../../SWR/useProducts';
-import styles from './CategoryList.module.css';
-import Loader from '../../elements/Loader';
-import Category from './Category';
-import { CategoryEnum, Products } from '_types/products';
+import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import styles from './CategoryList.module.css';
+import Category from './Category';
+import { CategoryEnum, Product } from '_types/products';
+import { pick } from 'lodash';
 
 interface CategoryListProps {
-  ssrProducts: Products[];
+  ssrProducts: Product[];
 }
 
-const CategoryList: FC<CategoryListProps> = ({ ssrProducts }) => {
+export default function CategoryList({ ssrProducts }: CategoryListProps) {
   const t = useTranslations('Home');
-
-  const { products, isProductsLoading, isProductsError } = useProducts();
-
-  const reconciledProducts = useMemo(() => {
-    if (products) {
-      return products;
-    }
-    if (ssrProducts) {
-      return ssrProducts;
-    }
-    return null;
-  }, [ssrProducts, products]);
-
-  if (isProductsLoading)
-    return (
-      <div className={styles.categoryList}>
-        <Loader />
-      </div>
-    );
-  if (isProductsError) return <div className={styles.categoryList}>Error</div>;
 
   return (
     <ul className={styles.categoryList} data-test="categoryList">
       <Category
         title={t('burgerTitle')}
-        products={reconciledProducts}
+        products={ssrProducts}
         category={CategoryEnum.Burger}
       />
       <Category
         title={t('sideTitle')}
-        products={reconciledProducts}
+        products={ssrProducts}
         category={CategoryEnum.Side}
       />
       <Category
         title={t('drinkTitle')}
-        products={reconciledProducts}
+        products={ssrProducts}
         category={CategoryEnum.Drink}
       />
       <Category
         title={t('dessertTitle')}
-        products={reconciledProducts}
+        products={ssrProducts}
         category={CategoryEnum.Dessert}
       />
       <Category
         title={t('saladTitle')}
-        products={reconciledProducts}
+        products={ssrProducts}
         category={CategoryEnum.Salad}
       />
     </ul>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+CategoryList.messages = ['Home'];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../../messages/${locale}.json`),
+        CategoryList.messages
+      ),
     },
   };
-};
-
-export default CategoryList;
+}

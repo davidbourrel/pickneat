@@ -1,20 +1,21 @@
-import { FC, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useCart from 'contexts/cartContext/useCart';
 import { ClassNameComponentProps } from '_types/components';
-import { Products } from '_types/products';
+import { Product } from '_types/products';
 import Button from '../buttons/Button';
 import MinusButton from '../buttons/PlusMinusButtons/MinusButton';
 import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
 import styles from './Quantity.module.css';
 import { useTranslations } from 'next-intl';
 import { GetStaticProps } from 'next/types';
+import { pick } from 'lodash';
 
 interface QuantityProps extends ClassNameComponentProps {
-  product: Products;
+  product: Product;
 }
 
-const Quantity: FC<QuantityProps> = ({ product, className = '' }) => {
+export default function Quantity({ product, className = '' }: QuantityProps) {
   const { product_id } = product;
 
   const t = useTranslations('Home');
@@ -74,14 +75,17 @@ const Quantity: FC<QuantityProps> = ({ product, className = '' }) => {
       {plusButton}
     </div>
   );
-};
+}
+
+Quantity.messages = ['Home'];
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      messages: (await import(`../../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../../messages/${locale}.json`),
+        Quantity.messages
+      ),
     },
   };
 };
-
-export default Quantity;

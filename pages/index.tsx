@@ -13,12 +13,13 @@ import styles from '../styles/Home.module.css';
 import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
-import { Products } from '_types/products';
+import { Product } from '_types/products';
 import PageLayout from 'components/modules/PageLayout';
 import { pick } from 'lodash';
+import { getProducts } from 'database/products';
 
 interface HomeProps {
-  ssrProducts: Products[];
+  ssrProducts: Product[];
 }
 
 export default function Home({ ssrProducts }: HomeProps) {
@@ -85,12 +86,7 @@ export default function Home({ ssrProducts }: HomeProps) {
 Home.messages = ['Home', ...PageLayout.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`);
-  const ssrProducts = await res.json();
-
-  if (!ssrProducts) {
-    return { props: { notFound: true } };
-  }
+  const ssrProducts = getProducts();
 
   return {
     props: {

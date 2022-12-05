@@ -2,10 +2,10 @@ import { FC, useCallback } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import Button from '../Button';
 import styles from './PlusMinusButtons.module.css';
-import { Products } from '_types/products';
+import { Product } from '_types/products';
 
 interface PlusButtonProps {
-  product: Products;
+  product: Product;
 }
 
 const PlusButton: FC<PlusButtonProps> = ({ product }) => {

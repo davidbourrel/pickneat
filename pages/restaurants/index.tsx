@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Head from 'next/head';
 import Location from 'components/modules/Location';
 import OpeningTimes from 'components/modules/OpeningTimes';
@@ -6,9 +5,11 @@ import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from './Restaurants.module.css';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import { GetStaticPropsContext } from 'next';
+import { pick } from 'lodash';
+import PageLayout from 'components/modules/PageLayout';
 
-const Restaurants: FC = () => {
+export default function Restaurants() {
   const t = useTranslations('Navigation');
   const r = useTranslations('Restaurants');
 
@@ -32,13 +33,21 @@ const Restaurants: FC = () => {
       </div>
     </main>
   );
-};
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+}
+
+Restaurants.messages = [
+  'Navigation',
+  ...OpeningTimes.messages,
+  ...PageLayout.messages,
+];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../messages/${locale}.json`),
+        Restaurants.messages
+      ),
     },
   };
-};
-
-export default Restaurants;
+}

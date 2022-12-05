@@ -1,4 +1,5 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import Head from 'next/head';
 import type { GetServerSidePropsContext } from 'next';
 import { getSession, UserProfile } from '@auth0/nextjs-auth0';
@@ -8,13 +9,14 @@ import Button from 'components/elements/buttons/Button';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { pick } from 'lodash';
+import PageLayout from 'components/modules/PageLayout';
 
 interface ProfileProps {
   user: UserProfile;
 }
 
-const Profile: FC<ProfileProps> = ({ user }) => {
+export default function Profile({ user }: ProfileProps) {
   const t = useTranslations('Navigation');
 
   const userPicture = useMemo(
@@ -47,7 +49,9 @@ const Profile: FC<ProfileProps> = ({ user }) => {
       </Link>
     </main>
   );
-};
+}
+
+Profile.messages = ['Navigation', ...PageLayout.messages];
 
 export const getServerSideProps = async ({
   req,
@@ -66,9 +70,10 @@ export const getServerSideProps = async ({
   return {
     props: {
       user: session.user,
-      messages: (await import(`../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../messages/${locale}.json`),
+        Profile.messages
+      ),
     },
   };
 };
-
-export default Profile;

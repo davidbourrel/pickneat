@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { GetStaticPropsContext } from 'next';
 import styles from './OpeningTimes.module.css';
 import DayRow from './DayRow';
 import TableHeader from './TableHeader';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import { pick } from 'lodash';
 
 export enum DaysOfTheWeekEnum {
   Monday = 'monday',
@@ -15,7 +15,7 @@ export enum DaysOfTheWeekEnum {
   Sunday = 'sunday',
 }
 
-const OpeningTimes: FC = () => {
+export default function OpeningTimes() {
   const t = useTranslations('Restaurants');
 
   return (
@@ -67,14 +67,17 @@ const OpeningTimes: FC = () => {
       </tbody>
     </table>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+OpeningTimes.messages = ['Restaurants'];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../../messages/${locale}.json`),
+        OpeningTimes.messages
+      ),
     },
   };
-};
-
-export default OpeningTimes;
+}

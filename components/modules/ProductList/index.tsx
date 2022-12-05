@@ -1,15 +1,15 @@
-import ProductCard from 'components/elements/ProductCard';
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Maybe } from '_types/maybe';
-import { CategoryEnum, Products } from '_types/products';
+import ProductCard from 'components/elements/ProductCard';
+import { CategoryEnum, Product } from '_types/products';
 import styles from './ProductList.module.css';
 
 interface ProductListProps {
-  products: Maybe<Products[]>;
+  products: Maybe<Product[]>;
   category: CategoryEnum;
 }
 
-const ProductList: FC<ProductListProps> = ({ products, category }) => {
+export default function ProductList({ products, category }: ProductListProps) {
   const filteredProductsByCategory = useMemo(
     () => products?.filter((product) => product.category === category),
     [products, category]
@@ -28,6 +28,4 @@ const ProductList: FC<ProductListProps> = ({ products, category }) => {
   );
 
   return productList;
-};
-
-export default ProductList;
+}

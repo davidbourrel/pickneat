@@ -1,11 +1,12 @@
-import { FC } from 'react';
+import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import Heading from 'components/elements/Heading';
 import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import { pick } from 'lodash';
+import PageLayout from 'components/modules/PageLayout';
 
-const Cart: FC = () => {
+export default function Cart() {
   const t = useTranslations('Cart');
   return (
     <main className="sidePadding">
@@ -15,14 +16,17 @@ const Cart: FC = () => {
       <Heading level={HeadingLevelEnum.One}>CART PAGE</Heading>
     </main>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+Cart.messages = ['Cart', ...PageLayout.messages];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../messages/${locale}.json`),
+        Cart.messages
+      ),
     },
   };
-};
-
-export default Cart;
+}

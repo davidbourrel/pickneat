@@ -1,6 +1,6 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import Image from 'next/image';
-import { Products } from '_types/products';
+import { Product } from '_types/products';
 import Heading from '../Heading';
 import { HeadingLevelEnum } from '../Heading/types';
 import styles from './ProductCard.module.css';
@@ -8,12 +8,14 @@ import Link from '../Link';
 import PriceTag from '../PriceTag';
 import Quantity from '../Quantity';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import { GetStaticPropsContext } from 'next/types';
+import { pick } from 'lodash';
 
 interface ProductCardProps {
-  product: Products;
+  product: Product;
 }
-const ProductCard: FC<ProductCardProps> = ({ product }) => {
+
+export default function ProductCard({ product }: ProductCardProps) {
   const { image, name, price, new_release, product_id } = product;
   const t = useTranslations('Home');
 
@@ -70,14 +72,17 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
       </div>
     </li>
   );
-};
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+ProductCard.messages = ['Home', ...Quantity.messages];
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
-      messages: (await import(`../../../messages/${locale}.json`)).default,
+      messages: pick(
+        await import(`../../../messages/${locale}.json`),
+        ProductCard.messages
+      ),
     },
   };
-};
-
-export default ProductCard;
+}

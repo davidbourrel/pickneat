@@ -1,5 +1,5 @@
 import { FC, useState, useCallback, useMemo, ReactNode } from 'react';
-import { Products } from '_types/products';
+import { Product } from '_types/products';
 import cartContext from './cart.context';
 import { CartContextInterface } from './cart.types';
 
@@ -10,7 +10,7 @@ interface CartProviderProps {
 }
 
 const CartProvider: FC<CartProviderProps> = ({ children }) => {
-  const [cart, setCart] = useState([] as Products[]);
+  const [cart, setCart] = useState([] as Product[]);
 
   const cartTotalPrice = useMemo(
     () =>
@@ -23,7 +23,7 @@ const CartProvider: FC<CartProviderProps> = ({ children }) => {
     [cart]
   );
 
-  const addToCart = useCallback((clickedItem: Products) => {
+  const addToCart = useCallback((clickedItem: Product) => {
     setCart((currentCart) => {
       // Is the item already added in the current cart?
       const indexOfClickedItem = currentCart.findIndex(
@@ -52,7 +52,7 @@ const CartProvider: FC<CartProviderProps> = ({ children }) => {
         } else {
           return [...total, item];
         }
-      }, [] as Products[])
+      }, [] as Product[])
     );
   }, []);
 
@@ -73,7 +73,7 @@ const CartProvider: FC<CartProviderProps> = ({ children }) => {
     });
   }, []);
 
-  const removeAllFromCart = useCallback(() => setCart([] as Products[]), []);
+  const removeAllFromCart = useCallback(() => setCart([] as Product[]), []);
 
   const contextValue: CartContextInterface = useMemo(
     () => ({
