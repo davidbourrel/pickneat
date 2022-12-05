@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { useCallback } from 'react';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
 import Button from '../Button';
 import styles from './PlusMinusButtons.module.css';
@@ -7,7 +7,7 @@ interface MinusButtonProps {
   productId: string;
 }
 
-const MinusButton: FC<MinusButtonProps> = ({ productId }) => {
+export default function MinusButton({ productId }: MinusButtonProps) {
   const { removeFromCart } = useRemoveCart();
 
   const handleRemoveProductClick = useCallback(
@@ -23,6 +23,4 @@ const MinusButton: FC<MinusButtonProps> = ({ productId }) => {
       <span>&#8722;</span>
     </Button>
   );
-};
-
-export default MinusButton;
+}

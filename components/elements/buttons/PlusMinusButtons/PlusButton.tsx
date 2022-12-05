@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { useCallback } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import Button from '../Button';
 import styles from './PlusMinusButtons.module.css';
@@ -8,7 +8,7 @@ interface PlusButtonProps {
   product: Product;
 }
 
-const PlusButton: FC<PlusButtonProps> = ({ product }) => {
+export default function PlusButton({ product }: PlusButtonProps) {
   const addToCart = useAddToCart();
 
   const handleAddProductClick = useCallback(
@@ -20,6 +20,4 @@ const PlusButton: FC<PlusButtonProps> = ({ product }) => {
       <span>&#43;</span>
     </Button>
   );
-};
-
-export default PlusButton;
+}

@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import Link from '../Link';
 import styles from './Logo.module.css';
 
@@ -6,7 +5,7 @@ interface LogoProps {
   closeMenu: () => void;
 }
 
-const Logo: FC<LogoProps> = ({ closeMenu }) => {
+export default function Logo({ closeMenu }: LogoProps) {
   return (
     <Link
       href="/"
@@ -18,6 +17,4 @@ const Logo: FC<LogoProps> = ({ closeMenu }) => {
       <span>PickN`Eat</span>
     </Link>
   );
-};
-
-export default Logo;
+}

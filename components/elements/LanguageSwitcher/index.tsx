@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
 import Button from '../buttons/Button';
@@ -16,13 +16,13 @@ interface LanguageSwitcherProps {
   dataTestLangButton: string;
 }
 
-const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
+export default function LanguageSwitcher({
   title,
   ariaControlsId,
   dataTestButton,
   dataTestLangList,
   dataTestLangButton,
-}) => {
+}: LanguageSwitcherProps) {
   const { locale, route } = useRouter();
   const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
 
@@ -119,6 +119,4 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
       </ul>
     </>
   );
-};
-
-export default LanguageSwitcher;
+}

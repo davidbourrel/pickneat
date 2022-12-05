@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { ClassNameComponentProps } from '_types/components';
 
-const ArrowIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
+export default function ArrowIcon({ className = '' }: ClassNameComponentProps) {
   return (
     <svg className={className} viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -10,6 +9,4 @@ const ArrowIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
       <line x1="15" y1="8" x2="19" y2="12" />
     </svg>
   );
-};
-
-export default ArrowIcon;
+}

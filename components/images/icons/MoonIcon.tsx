@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { ClassNameComponentProps } from '_types/components';
 
-const MoonIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
+export default function MoonIcon({ className = '' }: ClassNameComponentProps) {
   return (
     <svg
       className={className}
@@ -15,6 +14,4 @@ const MoonIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
       <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
     </svg>
   );
-};
-
-export default MoonIcon;
+}

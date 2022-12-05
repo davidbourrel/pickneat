@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
 import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
+import { GetStaticPropsContext } from 'next/types';
 import { pick } from 'lodash';
 
 interface HeaderProps {
@@ -41,7 +41,7 @@ Header.messages = [
   ...BurgerMenuButton.messages,
 ];
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages: pick(
@@ -50,4 +50,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ),
     },
   };
-};
+}

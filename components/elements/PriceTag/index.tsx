@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import styles from './PriceTag.module.css';
 import { ClassNameComponentProps } from '_types/components';
@@ -8,7 +8,7 @@ interface PriceTagProps extends ClassNameComponentProps {
   price: number;
 }
 
-const PriceTag: FC<PriceTagProps> = ({ price, className = '' }) => {
+export default function PriceTag({ price, className = '' }: PriceTagProps) {
   const { locale } = useRouter();
 
   const priceWithCurrencySymbol = useMemo(() => {
@@ -23,6 +23,4 @@ const PriceTag: FC<PriceTagProps> = ({ price, className = '' }) => {
   }, [price, locale, className]);
 
   return priceWithCurrencySymbol;
-};
-
-export default PriceTag;
+}

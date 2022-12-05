@@ -1,4 +1,4 @@
-import { FC, HTMLProps, ReactNode, useMemo } from 'react';
+import { HTMLProps, ReactNode, useMemo } from 'react';
 import Link from '../Link';
 import styles from './ActiveLink.module.css';
 
@@ -9,13 +9,13 @@ interface ActiveLinkProps extends HTMLProps<HTMLAnchorElement> {
   closeMenu?: () => void;
 }
 
-const ActiveLink: FC<ActiveLinkProps> = ({
+export default function ActiveLink({
   children,
   href,
   path,
   closeMenu,
   ...rest
-}) => {
+}: ActiveLinkProps) {
   const linkClassName = useMemo(
     () =>
       `capitalize ${
@@ -31,6 +31,4 @@ const ActiveLink: FC<ActiveLinkProps> = ({
       {children}
     </Link>
   );
-};
-
-export default ActiveLink;
+}

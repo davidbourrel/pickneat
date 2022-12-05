@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import styles from './ThemeSwitcher.module.css';
 import Button from '../buttons/Button';
 import MoonIcon from 'components/images/icons/MoonIcon';
@@ -10,7 +10,10 @@ interface ThemeSwitcherProps {
   dataTestButton: string;
 }
 
-const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ title, dataTestButton }) => {
+export default function ThemeSwitcher({
+  title,
+  dataTestButton,
+}: ThemeSwitcherProps) {
   const { isDarkMode, handleThemeClick } = useDarkMode();
 
   const svgClassName = useMemo(
@@ -36,6 +39,4 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ title, dataTestButton }) => {
       <span>Theme</span>
     </Button>
   );
-};
-
-export default ThemeSwitcher;
+}

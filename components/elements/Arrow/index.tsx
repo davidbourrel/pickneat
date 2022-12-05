@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import ArrowIcon from 'components/images/icons/ArrowIcon';
 import { ClassNameComponentProps } from '_types/components';
 import styles from './Arrow.module.css';
@@ -9,11 +9,11 @@ interface ArrowProps extends ClassNameComponentProps {
   caret?: boolean;
 }
 
-const Arrow: FC<ArrowProps> = ({
+export default function Arrow({
   direction,
   caret = false,
   className = '',
-}) => {
+}: ArrowProps) {
   const directionClassName = useMemo(() => {
     switch (direction) {
       case ArrowDirectionEnum.Top:
@@ -45,6 +45,4 @@ const Arrow: FC<ArrowProps> = ({
       <ArrowIcon className={styles.arrow} />
     </div>
   );
-};
-
-export default Arrow;
+}

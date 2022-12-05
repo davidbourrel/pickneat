@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import ItineraryIcon from 'components/images/icons/ItineraryIcon';
 import styles from './Location.module.css';
 import Heading from 'components/elements/Heading';
@@ -7,7 +6,7 @@ import Link from 'components/elements/Link';
 
 const itineraryUrl = 'https://www.google.com';
 
-const Address: FC = () => {
+export default function Address() {
   return (
     <address className={styles.address}>
       <Heading level={HeadingLevelEnum.Three}>PickN`Eat restaurant</Heading>
@@ -19,6 +18,4 @@ const Address: FC = () => {
       <span>07 50 40 25 **</span>
     </address>
   );
-};
-
-export default Address;
+}

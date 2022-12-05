@@ -1,11 +1,4 @@
-import {
-  FC,
-  useEffect,
-  useMemo,
-  useCallback,
-  useState,
-  ReactNode,
-} from 'react';
+import { useEffect, useMemo, useCallback, useState, ReactNode } from 'react';
 import themeContext from './theme.context';
 import { ThemeContextInterface } from './theme.types';
 import { PICKNEAT_THEME } from '../../_constants/localStorage';
@@ -17,7 +10,7 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
+export default function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const handleSetTheme = useCallback((theme: string) => {
@@ -67,6 +60,4 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   );
 
   return <Provider value={contextValue}>{children}</Provider>;
-};
-
-export default ThemeProvider;
+}

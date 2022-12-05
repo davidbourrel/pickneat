@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import styles from './Loader.module.css';
 
 interface LoaderProps {
@@ -8,12 +8,12 @@ interface LoaderProps {
   height?: string;
 }
 
-const Loader: FC<LoaderProps> = ({
+export default function Loader({
   svgClassName,
   circleClassName,
   width = '30px',
   height = '30px',
-}) => {
+}: LoaderProps) {
   const computedSvgClassName = useMemo(
     () => (svgClassName ? svgClassName : styles.loader),
     [svgClassName]
@@ -42,6 +42,4 @@ const Loader: FC<LoaderProps> = ({
       />
     </svg>
   );
-};
-
-export default Loader;
+}

@@ -1,4 +1,4 @@
-import { FC, useState, useCallback, useMemo, ReactNode } from 'react';
+import { useState, useCallback, useMemo, ReactNode } from 'react';
 import { Product } from '_types/products';
 import cartContext from './cart.context';
 import { CartContextInterface } from './cart.types';
@@ -9,7 +9,7 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-const CartProvider: FC<CartProviderProps> = ({ children }) => {
+export default function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState([] as Product[]);
 
   const cartTotalPrice = useMemo(
@@ -99,6 +99,4 @@ const CartProvider: FC<CartProviderProps> = ({ children }) => {
   );
 
   return <Provider value={contextValue}>{children}</Provider>;
-};
-
-export default CartProvider;
+}

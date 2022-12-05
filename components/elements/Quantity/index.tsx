@@ -1,4 +1,6 @@
 import { useCallback, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
+import { GetStaticPropsContext } from 'next/types';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useCart from 'contexts/cartContext/useCart';
 import { ClassNameComponentProps } from '_types/components';
@@ -7,8 +9,6 @@ import Button from '../buttons/Button';
 import MinusButton from '../buttons/PlusMinusButtons/MinusButton';
 import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
 import styles from './Quantity.module.css';
-import { useTranslations } from 'next-intl';
-import { GetStaticProps } from 'next/types';
 import { pick } from 'lodash';
 
 interface QuantityProps extends ClassNameComponentProps {
@@ -79,7 +79,7 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
 
 Quantity.messages = ['Home'];
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages: pick(
@@ -88,4 +88,4 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ),
     },
   };
-};
+}

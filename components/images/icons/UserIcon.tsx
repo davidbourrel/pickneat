@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { ClassNameComponentProps } from '../../../_types/components';
 
-const UserIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
+export default function UserIcon({ className = '' }: ClassNameComponentProps) {
   return (
     <svg
       className={className}
@@ -23,6 +22,4 @@ const UserIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
       />
     </svg>
   );
-};
-
-export default UserIcon;
+}

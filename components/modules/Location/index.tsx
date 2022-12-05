@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import dynamic from 'next/dynamic';
 import useIsClient from 'hooks/useIsClient';
 import Loader from 'components/elements/Loader';
@@ -11,7 +10,7 @@ const MapWithSSR = dynamic(() => import('./MapWithSSR'), {
   // ssr: true,
 });
 
-const Location: FC = () => {
+export default function Location() {
   const isClient = useIsClient();
 
   return (
@@ -19,6 +18,4 @@ const Location: FC = () => {
       {isClient ? <MapWithoutSSR /> : <MapWithSSR />}
     </div>
   );
-};
-
-export default Location;
+}

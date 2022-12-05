@@ -1,12 +1,10 @@
-import { FC } from 'react';
-
 interface TableHeaderProps {
   day: string;
   lunch: string;
   dinner: string;
 }
 
-const TableHeader: FC<TableHeaderProps> = ({ day, lunch, dinner }) => {
+export default function TableHeader({ day, lunch, dinner }: TableHeaderProps) {
   return (
     <thead>
       <tr>
@@ -16,6 +14,4 @@ const TableHeader: FC<TableHeaderProps> = ({ day, lunch, dinner }) => {
       </tr>
     </thead>
   );
-};
-
-export default TableHeader;
+}

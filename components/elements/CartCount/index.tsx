@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import CartIcon from 'components/images/icons/CartIcon';
 import styles from './CartCount.module.css';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
@@ -7,7 +7,7 @@ interface CartCountInterface {
   title: string;
 }
 
-const CartCount: FC<CartCountInterface> = ({ title }) => {
+export default function CartCount({ title }: CartCountInterface) {
   const { cartTotalItems } = useCartTotal();
 
   const computedCartCountClassName = useMemo(
@@ -21,6 +21,4 @@ const CartCount: FC<CartCountInterface> = ({ title }) => {
       <span className={computedCartCountClassName}>{cartTotalItems}</span>
     </div>
   );
-};
-
-export default CartCount;
+}

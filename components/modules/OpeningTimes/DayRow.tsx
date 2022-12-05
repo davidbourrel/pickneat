@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import {
   isFriday,
   isMonday,
@@ -18,12 +18,12 @@ interface DayRowProps {
   dinnerTranslation: string;
 }
 
-const DayRow: FC<DayRowProps> = ({
+export default function DayRow({
   day,
   dayTranslation,
   lunchTranslation,
   dinnerTranslation,
-}) => {
+}: DayRowProps) {
   const currentDayClassName = useMemo(() => {
     switch (day) {
       case DaysOfTheWeekEnum.Monday:
@@ -53,6 +53,4 @@ const DayRow: FC<DayRowProps> = ({
       <td>{dinnerTranslation}</td>
     </tr>
   );
-};
-
-export default DayRow;
+}

@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { ClassNameComponentProps } from '../../../_types/components';
 
-const CartIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
+export default function CartIcon({ className = '' }: ClassNameComponentProps) {
   return (
     <svg className={className} viewBox="0 0 118.67 122.88">
       <g>
@@ -9,6 +8,4 @@ const CartIcon: FC<ClassNameComponentProps> = ({ className = '' }) => {
       </g>
     </svg>
   );
-};
-
-export default CartIcon;
+}

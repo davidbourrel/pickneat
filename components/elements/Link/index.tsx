@@ -1,5 +1,4 @@
 import {
-  FC,
   HTMLProps,
   KeyboardEvent,
   ReactNode,
@@ -24,7 +23,7 @@ interface FLinkProps
   isLoading?: boolean;
 }
 
-const Link: FC<FLinkProps> = ({
+export default function Link({
   obfuscate,
   isLoading = false,
   children,
@@ -39,7 +38,7 @@ const Link: FC<FLinkProps> = ({
   target,
   className = '',
   ...props
-}) => {
+}: FLinkProps) {
   const isClient = useIsClient();
 
   const handleClick = useCallback(
@@ -117,6 +116,4 @@ const Link: FC<FLinkProps> = ({
       {children}
     </span>
   );
-};
-
-export default Link;
+}
