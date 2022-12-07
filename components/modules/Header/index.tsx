@@ -1,19 +1,19 @@
-import MainNavigation from '../MainNavigation';
+import { GetStaticPropsContext } from 'next/types';
+import { useTranslations } from 'next-intl';
+import DesktopNavigation from '../Navigation/DesktopNavigation';
 import styles from './Header.module.css';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
-import { useTranslations } from 'next-intl';
-import { GetStaticPropsContext } from 'next/types';
 import { pick } from 'lodash';
 
 interface HeaderProps {
-  isSideNavOpened: boolean;
+  isMobileNavOpened: boolean;
   closeMenu: () => void;
   handleToggleMenu: () => void;
 }
 
 export default function Header({
-  isSideNavOpened,
+  isMobileNavOpened,
   closeMenu,
   handleToggleMenu,
 }: HeaderProps) {
@@ -23,9 +23,9 @@ export default function Header({
     <header className={styles.header}>
       <div className={`${styles.headerContent} container`}>
         <Logo closeMenu={closeMenu} />
-        <MainNavigation />
+        <DesktopNavigation />
         <BurgerMenuButton
-          isSideNavOpened={isSideNavOpened}
+          isMobileNavOpened={isMobileNavOpened}
           handleToggleMenu={handleToggleMenu}
           title={t('openBurgerMenu')}
           dataTest="openBurgerMenuButton"
@@ -37,7 +37,7 @@ export default function Header({
 
 Header.messages = [
   'Navigation',
-  ...MainNavigation.messages,
+  ...DesktopNavigation.messages,
   ...BurgerMenuButton.messages,
 ];
 

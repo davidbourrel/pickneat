@@ -11,14 +11,14 @@ describe('Theme Switcher', () => {
    */
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
-      /** Open the side navigation before each tests */
+      /** Open the mobile navigation before each tests */
       cy.get('[data-test="openBurgerMenuButton"]').as('openBurgerMenuButton');
     });
 
     it('should be visible', () => {
       cy.get('@openBurgerMenuButton').click();
 
-      cy.get('[data-test="sideNavigation"]').should('be.visible');
+      cy.get('[data-test="mobileNavigation"]').should('be.visible');
       cy.get('[data-test="themeSwitcherMobileButton"]').should('be.visible');
     });
 
@@ -58,7 +58,7 @@ describe('Theme Switcher', () => {
    */
   describe('Desktop', { viewportWidth: 1500 }, () => {
     it('should be visible', () => {
-      cy.get('[data-test="mainNavigation"]').should('be.visible');
+      cy.get('[data-test="desktopNavigation"]').should('be.visible');
       cy.get('[data-test="themeSwitcherDesktopButton"]').should('be.visible');
     });
 

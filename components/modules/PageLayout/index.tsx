@@ -1,31 +1,34 @@
 import { ReactNode, useCallback, useState } from 'react';
 import Footer from '../Footer';
 import Header from '../Header';
-import SideNavigation from '../SideNavigation';
+import MobileNavigation from '../Navigation/MobileNavigation';
 
 interface PageLayoutProps {
   children: ReactNode;
 }
 
 export default function PageLayout({ children }: PageLayoutProps) {
-  const [isSideNavOpened, setIsSideNavOpened] = useState(false);
+  const [isMobileNavOpened, setIsMobileNavOpened] = useState(false);
 
   const handleToggleMenu = useCallback(() => {
-    setIsSideNavOpened((c) => !c);
+    setIsMobileNavOpened((c) => !c);
   }, []);
 
   const closeMenu = useCallback(() => {
-    setIsSideNavOpened(false);
+    setIsMobileNavOpened(false);
   }, []);
 
   return (
     <>
       <Header
-        isSideNavOpened={isSideNavOpened}
+        isMobileNavOpened={isMobileNavOpened}
         closeMenu={closeMenu}
         handleToggleMenu={handleToggleMenu}
       />
-      <SideNavigation isSideNavOpened={isSideNavOpened} closeMenu={closeMenu} />
+      <MobileNavigation
+        isMobileNavOpened={isMobileNavOpened}
+        closeMenu={closeMenu}
+      />
       {children}
       <Footer />
     </>
@@ -34,6 +37,6 @@ export default function PageLayout({ children }: PageLayoutProps) {
 
 PageLayout.messages = [
   ...Header.messages,
-  ...SideNavigation.messages,
+  ...MobileNavigation.messages,
   ...Footer.messages,
 ];

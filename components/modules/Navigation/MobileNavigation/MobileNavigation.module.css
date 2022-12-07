@@ -13,7 +13,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.sideNavContainer {
+.mobileNavContainer {
   display: none;
   position: absolute;
   top: 0;
@@ -21,11 +21,11 @@
   bottom: 0;
   user-select: none;
 }
-.sideNavContainerOpened {
+.mobileNavContainerOpened {
   display: flex;
-  animation: appear-side-navigation-effect 300ms var(--transition-easeInOut);
+  animation: appear-mobile-navigation-effect 300ms var(--transition-easeInOut);
 }
-@keyframes appear-side-navigation-effect {
+@keyframes appear-mobile-navigation-effect {
   0% {
     transform: translate(200%, 0);
   }
@@ -34,7 +34,7 @@
   }
 }
 
-.sideNavigation {
+.mobileNavigation {
   min-width: 18rem;
   padding: 1.5rem;
   box-sizing: border-box;

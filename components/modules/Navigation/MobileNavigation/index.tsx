@@ -1,8 +1,9 @@
 import { useCallback, useMemo, useRef } from 'react';
 import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
 import ActiveLink from 'components/elements/ActiveLink';
-import styles from './SideNavigation.module.css';
+import styles from './MobileNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
@@ -11,47 +12,46 @@ import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 import useOutsideClick from 'hooks/useOutsideClick';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
-import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 
-interface SideNavigationProps {
-  isSideNavOpened: boolean;
+interface MobileNavigationProps {
+  isMobileNavOpened: boolean;
   closeMenu: () => void;
 }
 
-export default function SideNavigation({
-  isSideNavOpened,
+export default function MobileNavigation({
+  isMobileNavOpened,
   closeMenu,
-}: SideNavigationProps) {
+}: MobileNavigationProps) {
   const { user } = useUser();
 
   const { asPath } = useRouter();
 
   const t = useTranslations('Navigation');
 
-  // Close side navigation on outside click
-  const sideNavigationRef = useRef(null as unknown as HTMLHeadingElement);
+  // Close mobile navigation on outside click
+  const mobileNavigationRef = useRef(null as unknown as HTMLHeadingElement);
   const handleOutsideClick = useCallback(() => {
-    if (isSideNavOpened) {
+    if (isMobileNavOpened) {
       closeMenu();
     }
-  }, [isSideNavOpened, closeMenu]);
-  useOutsideClick(sideNavigationRef, handleOutsideClick);
+  }, [isMobileNavOpened, closeMenu]);
+  useOutsideClick(mobileNavigationRef, handleOutsideClick);
 
   const blackFilterClassName = useMemo(
     () =>
       `${styles.blackFilter} ${
-        isSideNavOpened ? styles.activeBlackFilter : ''
+        isMobileNavOpened ? styles.activeBlackFilter : ''
       }`,
-    [isSideNavOpened]
+    [isMobileNavOpened]
   );
 
-  const sideNavContainerClassName = useMemo(
+  const mobileNavContainerClassName = useMemo(
     () =>
-      `${styles.sideNavContainer} ${
-        isSideNavOpened ? styles.sideNavContainerOpened : ''
+      `${styles.mobileNavContainer} ${
+        isMobileNavOpened ? styles.mobileNavContainerOpened : ''
       }`,
-    [isSideNavOpened]
+    [isMobileNavOpened]
   );
 
   const userTab = useMemo(
@@ -80,15 +80,15 @@ export default function SideNavigation({
   return (
     <div className={blackFilterClassName}>
       <aside
-        id="side-navigation"
-        className={sideNavContainerClassName}
-        ref={sideNavigationRef}
-        aria-label="side navigation"
-        data-test="sideNavigation"
+        id="mobile-navigation"
+        className={mobileNavContainerClassName}
+        ref={mobileNavigationRef}
+        aria-label="mobile navigation"
+        data-test="mobileNavigation"
       >
-        <nav className={styles.sideNavigation}>
+        <nav className={styles.mobileNavigation}>
           <BurgerMenuButton
-            isSideNavOpened={isSideNavOpened}
+            isMobileNavOpened={isMobileNavOpened}
             closeMenu={closeMenu}
             title={t('closeBurgerMenu')}
             className={styles.topRightCloseButton}
@@ -145,14 +145,14 @@ export default function SideNavigation({
   );
 }
 
-SideNavigation.messages = ['Navigation'];
+MobileNavigation.messages = ['Navigation'];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        SideNavigation.messages
+        await import(`../../../../messages/${locale}.json`),
+        MobileNavigation.messages
       ),
     },
   };

@@ -1,18 +1,18 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
+import { useTranslations } from 'next-intl';
+import { GetStaticPropsContext } from 'next/types';
 import ActiveLink from 'components/elements/ActiveLink';
-import styles from './MainNavigation.module.css';
+import styles from './DesktopNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
-import { useTranslations } from 'next-intl';
-import { GetStaticPropsContext } from 'next/types';
 import { pick } from 'lodash';
 
-export default function MainNavigation() {
+export default function DesktopNavigation() {
   const { asPath } = useRouter();
   const { user } = useUser();
 
@@ -39,8 +39,8 @@ export default function MainNavigation() {
   return (
     <nav
       className={styles.nav}
-      aria-label="main navigation"
-      data-test="mainNavigation"
+      aria-label="desktop navigation"
+      data-test="desktopNavigation"
     >
       <div className={styles.navListContainer}>
         <ul className={styles.navList}>
@@ -88,14 +88,14 @@ export default function MainNavigation() {
   );
 }
 
-MainNavigation.messages = ['Navigation'];
+DesktopNavigation.messages = ['Navigation'];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
     props: {
       messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        MainNavigation.messages
+        await import(`../../../../messages/${locale}.json`),
+        DesktopNavigation.messages
       ),
     },
   };

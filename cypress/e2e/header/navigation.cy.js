@@ -19,27 +19,27 @@ describe('Navigation menu', () => {
       cy.get('@openBurgerMenuButton').contains('Menu');
     });
 
-    it('should have a side navigation and be able to toggle', () => {
+    it('should have a mobile navigation and be able to toggle', () => {
       /** Open the menu */
       cy.get('@openBurgerMenuButton').click();
-      cy.get('[data-test="sideNavigation"]').as('sideNavigation');
-      cy.get('@sideNavigation').should('exist').should('be.visible');
+      cy.get('[data-test="mobileNavigation"]').as('mobileNavigation');
+      cy.get('@mobileNavigation').should('exist').should('be.visible');
 
       /** Close the menu */
       cy.get('@closeBurgerMenuButton').click();
-      cy.get('@sideNavigation').should('not.be.visible');
+      cy.get('@mobileNavigation').should('not.be.visible');
     });
 
-    it('should have a side navigation and contains all links inside', () => {
+    it('should have a mobile navigation and contains all links inside', () => {
       cy.get('@openBurgerMenuButton').click();
-      cy.get('[data-test="sideNavigation"]').as('sideNavigation');
+      cy.get('[data-test="mobileNavigation"]').as('mobileNavigation');
 
-      cy.get('@sideNavigation').contains('Menu');
-      cy.get('@sideNavigation').contains('Locate');
-      cy.get('@sideNavigation').contains('Delivery');
-      cy.get('@sideNavigation').contains('English');
-      cy.get('@sideNavigation').contains('Theme');
-      cy.get('@sideNavigation').contains('Login');
+      cy.get('@mobileNavigation').contains('Menu');
+      cy.get('@mobileNavigation').contains('Locate');
+      cy.get('@mobileNavigation').contains('Delivery');
+      cy.get('@mobileNavigation').contains('English');
+      cy.get('@mobileNavigation').contains('Theme');
+      cy.get('@mobileNavigation').contains('Login');
     });
   });
 
@@ -51,15 +51,15 @@ describe('Navigation menu', () => {
       cy.get('[data-test="openBurgerMenuButton"]').should('not.be.visible');
     });
 
-    it('should have a main navigation and contains all links inside', () => {
-      cy.get('[data-test="mainNavigation"]').as('mainNavigation');
+    it('should have a desktop navigation and contains all links inside', () => {
+      cy.get('[data-test="desktopNavigation"]').as('desktopNavigation');
 
-      cy.get('@mainNavigation').contains('Menu');
-      cy.get('@mainNavigation').contains('Locate');
-      cy.get('@mainNavigation').contains('Delivery');
-      cy.get('@mainNavigation').contains('English');
-      cy.get('@mainNavigation').contains('Theme');
-      cy.get('@mainNavigation').contains('Login');
+      cy.get('@desktopNavigation').contains('Menu');
+      cy.get('@desktopNavigation').contains('Locate');
+      cy.get('@desktopNavigation').contains('Delivery');
+      cy.get('@desktopNavigation').contains('English');
+      cy.get('@desktopNavigation').contains('Theme');
+      cy.get('@desktopNavigation').contains('Login');
     });
   });
 });

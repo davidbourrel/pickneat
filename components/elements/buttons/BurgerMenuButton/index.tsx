@@ -9,7 +9,7 @@ import styles from './BurgerMenuButton.module.css';
 interface BurgerMenuButtonProps extends ClassNameComponentProps {
   handleToggleMenu?: () => void;
   closeMenu?: () => void;
-  isSideNavOpened: boolean;
+  isMobileNavOpened: boolean;
   title?: string;
   dataTest: string;
 }
@@ -17,7 +17,7 @@ interface BurgerMenuButtonProps extends ClassNameComponentProps {
 export default function BurgerMenuButton({
   handleToggleMenu,
   closeMenu,
-  isSideNavOpened,
+  isMobileNavOpened,
   title,
   className,
   dataTest,
@@ -41,29 +41,29 @@ export default function BurgerMenuButton({
 
   const ariaLabel = useMemo(
     () =>
-      isSideNavOpened ? t('closeBurgerMenuTitle') : t('openBurgerMenuTitle'),
-    [isSideNavOpened, t]
+      isMobileNavOpened ? t('closeBurgerMenuTitle') : t('openBurgerMenuTitle'),
+    [isMobileNavOpened, t]
   );
 
   const ariaExpanded = useMemo(
-    () => (isSideNavOpened ? 'true' : 'false'),
-    [isSideNavOpened]
+    () => (isMobileNavOpened ? 'true' : 'false'),
+    [isMobileNavOpened]
   );
 
   const bar1ClassName = useMemo(
     () => `${styles.bar} ${styles.bar1}
-      ${isSideNavOpened && styles.bar1Active}`,
-    [isSideNavOpened]
+      ${isMobileNavOpened && styles.bar1Active}`,
+    [isMobileNavOpened]
   );
   const bar2ClassName = useMemo(
     () => `${styles.bar} ${styles.bar2}
-      ${isSideNavOpened && styles.bar2Active}`,
-    [isSideNavOpened]
+      ${isMobileNavOpened && styles.bar2Active}`,
+    [isMobileNavOpened]
   );
   const bar3ClassName = useMemo(
     () => `${styles.bar} ${styles.bar3}
-      ${isSideNavOpened && styles.bar3Active}`,
-    [isSideNavOpened]
+      ${isMobileNavOpened && styles.bar3Active}`,
+    [isMobileNavOpened]
   );
 
   return (
@@ -74,7 +74,7 @@ export default function BurgerMenuButton({
       title={ariaLabel}
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}
-      aria-controls="side-navigation"
+      aria-controls="mobile-navigation"
       data-test={dataTest}
     >
       {computedTitle}
