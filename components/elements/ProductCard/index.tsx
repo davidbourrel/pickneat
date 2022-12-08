@@ -17,7 +17,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { image, name, price, new_release, product_id } = product;
-  const t = useTranslations('Home');
+  const t = useTranslations('Product');
 
   const badgeNewRelease = useMemo(
     () =>
@@ -74,7 +74,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   );
 }
 
-ProductCard.messages = ['Home', ...Quantity.messages];
+ProductCard.messages = ['Product', ...Quantity.messages, ...PriceTag.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

@@ -18,7 +18,8 @@ interface QuantityProps extends ClassNameComponentProps {
 export default function Quantity({ product, className = '' }: QuantityProps) {
   const { product_id } = product;
 
-  const t = useTranslations('Home');
+  const t = useTranslations('Product');
+
   const { cart } = useCart();
   const addToCart = useAddToCart();
 
@@ -77,7 +78,7 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
   );
 }
 
-Quantity.messages = ['Home'];
+Quantity.messages = ['Product'];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

@@ -56,10 +56,7 @@
     "sideTitle": "Sides",
     "drinkTitle": "Drinks",
     "dessertTitle": "Desserts",
-    "saladTitle": "Salads",
-    "addToCartTextButton": "Add to cart",
-    "badgeNewReleaseText": "New",
-    "seeMoreDetails": "See More Details"
+    "saladTitle": "Salads"
   },
 
   "Restaurants": {
@@ -94,6 +91,10 @@
   },
 
   "Product": {
+    "badgeNewReleaseText": "New",
+    "seeMoreDetails": "See More Details",
+    "price": "{price, number, currency}",
+    "addToCartTextButton": "Add to cart",
     "description": "Description",
     "allergens": "Allergens",
     "noAllergens": "This product does not contain allergen."

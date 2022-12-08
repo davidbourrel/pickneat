@@ -56,10 +56,7 @@
     "sideTitle": "Petite faim",
     "drinkTitle": "Boissons",
     "dessertTitle": "Desserts",
-    "saladTitle": "Salades",
-    "addToCartTextButton": "Ajouter",
-    "badgeNewReleaseText": "Nouveau",
-    "seeMoreDetails": "Voir plus de détails"
+    "saladTitle": "Salades"
   },
 
   "Restaurants": {
@@ -94,6 +91,10 @@
   },
 
   "Product": {
+    "badgeNewReleaseText": "Nouveau",
+    "seeMoreDetails": "Voir plus de détails",
+    "price": "{price, number, currency}",
+    "addToCartTextButton": "Ajouter",
     "description": "Description",
     "allergens": "Allergènes",
     "noAllergens": "Ce produit ne contient pas des allergènes."
