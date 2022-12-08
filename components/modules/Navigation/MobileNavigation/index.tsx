@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
@@ -37,6 +37,12 @@ export default function MobileNavigation({
     }
   }, [isMobileNavOpened, closeMenu]);
   useOutsideClick(mobileNavigationRef, handleOutsideClick);
+
+  useEffect(() => {
+    isMobileNavOpened
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'unset');
+  }, [isMobileNavOpened]);
 
   const blackFilterClassName = useMemo(
     () =>
