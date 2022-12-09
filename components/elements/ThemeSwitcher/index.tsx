@@ -21,7 +21,7 @@ export default function ThemeSwitcher({
     [isDarkMode]
   );
 
-  const dataAttributDarkMode = useMemo(
+  const colorSchemeAttribut = useMemo(
     () => (isDarkMode ? ThemeEnum.Dark : ThemeEnum.Light),
     [isDarkMode]
   );
@@ -32,7 +32,7 @@ export default function ThemeSwitcher({
       title={title}
       headless
       className={styles.switcherButton}
-      dark-mode={dataAttributDarkMode}
+      color-scheme-attribut={colorSchemeAttribut}
       data-test={dataTestButton}
     >
       <MoonIcon className={svgClassName} />

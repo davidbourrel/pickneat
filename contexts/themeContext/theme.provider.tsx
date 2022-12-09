@@ -15,7 +15,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
 
   const handleSetTheme = useCallback((theme: string) => {
     localStorage.setItem(PICKNEAT_THEME, theme);
-    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('color-scheme', theme);
   }, []);
 
   const handleThemeClick = useCallback(() => {

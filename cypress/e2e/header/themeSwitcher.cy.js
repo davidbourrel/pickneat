@@ -12,44 +12,38 @@ describe('Theme Switcher', () => {
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
       /** Open the mobile navigation before each tests */
-      cy.get('[data-test="openBurgerMenuButton"]').as('openBurgerMenuButton');
+      cy.get('[data-test="openBurgerMenuButton"]').click();
     });
 
     it('should be visible', () => {
-      cy.get('@openBurgerMenuButton').click();
-
       cy.get('[data-test="mobileNavigation"]').should('be.visible');
       cy.get('[data-test="themeSwitcherMobileButton"]').should('be.visible');
     });
 
     it('should switch to the dark mode', () => {
-      cy.get('@openBurgerMenuButton').click();
-
-      cy.get('[data-theme="light"]').should('exist');
-      cy.get('[dark-mode="light"]').should('exist');
+      cy.get('[color-scheme="light"]').should('exist');
+      cy.get('[color-scheme-attribut="light"]').should('exist');
 
       /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherMobileButton"]').click();
-      cy.get('[data-theme="light"]').should('not.exist');
-      cy.get('[data-theme="dark"]').should('exist');
-      cy.get('[dark-mode="dark"]').should('exist');
+      cy.get('[color-scheme="light"]').should('not.exist');
+      cy.get('[color-scheme="dark"]').should('exist');
+      cy.get('[color-scheme-attribut="dark"]').should('exist');
     });
 
     it('should switch to the light mode', () => {
-      cy.get('@openBurgerMenuButton').click();
-
-      cy.get('[data-theme="light"]').should('exist');
-      cy.get('[dark-mode="light"]').should('exist');
+      cy.get('[color-scheme="light"]').should('exist');
+      cy.get('[color-scheme-attribut="light"]').should('exist');
 
       /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherMobileButton"]').click();
-      cy.get('[data-theme="dark"]').should('exist');
-      cy.get('[dark-mode="dark"]').should('exist');
+      cy.get('[color-scheme="dark"]').should('exist');
+      cy.get('[color-scheme-attribut="dark"]').should('exist');
 
       /** Switch to the light mode */
       cy.get('[data-test="themeSwitcherMobileButton"]').click();
-      cy.get('[data-theme="light"]').should('exist');
-      cy.get('[dark-mode="light"]').should('exist');
+      cy.get('[color-scheme="light"]').should('exist');
+      cy.get('[color-scheme-attribut="light"]').should('exist');
     });
   });
 
@@ -63,29 +57,29 @@ describe('Theme Switcher', () => {
     });
 
     it('should switch to the dark mode', () => {
-      cy.get('[data-theme="light"]').should('exist');
-      cy.get('[dark-mode="light"]').should('exist');
+      cy.get('[color-scheme="light"]').should('exist');
+      cy.get('[color-scheme-attribut="light"]').should('exist');
 
       /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherDesktopButton"]').click();
-      cy.get('[data-theme="light"]').should('not.exist');
-      cy.get('[data-theme="dark"]').should('exist');
-      cy.get('[dark-mode="dark"]').should('exist');
+      cy.get('[color-scheme="light"]').should('not.exist');
+      cy.get('[color-scheme="dark"]').should('exist');
+      cy.get('[color-scheme-attribut="dark"]').should('exist');
     });
 
     it('should switch to the light mode', () => {
-      cy.get('[data-theme="light"]').should('exist');
-      cy.get('[dark-mode="light"]').should('exist');
+      cy.get('[color-scheme="light"]').should('exist');
+      cy.get('[color-scheme-attribut="light"]').should('exist');
 
       /** Switch to the dark mode */
       cy.get('[data-test="themeSwitcherDesktopButton"]').click();
-      cy.get('[data-theme="dark"]').should('exist');
-      cy.get('[dark-mode="dark"]').should('exist');
+      cy.get('[color-scheme="dark"]').should('exist');
+      cy.get('[color-scheme-attribut="dark"]').should('exist');
 
       /** Switch to the light mode */
       cy.get('[data-test="themeSwitcherDesktopButton"]').click();
-      cy.get('[data-theme="light"]').should('exist');
-      cy.get('[dark-mode="light"]').should('exist');
+      cy.get('[color-scheme="light"]').should('exist');
+      cy.get('[color-scheme-attribut="light"]').should('exist');
     });
   });
 });
