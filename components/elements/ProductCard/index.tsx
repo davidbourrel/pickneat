@@ -74,7 +74,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   );
 }
 
-ProductCard.messages = ['Product', ...Quantity.messages, ...PriceTag.messages];
+ProductCard.messages = ['Product', ...Quantity.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
