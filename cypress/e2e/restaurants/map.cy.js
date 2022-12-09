@@ -8,36 +8,37 @@ describe('Map', () => {
   });
 
   it('should be visible', () => {
-    cy.get('[data-test="mapContainer"] div')
+    cy.get('[data-test="locationContainer"]')
       .should('exist')
       .should('be.visible');
   });
 
   it('should have controls and be visible', () => {
-    cy.get('[data-test="mapContainer"] .leaflet-control-zoom-in')
+    cy.get('[data-test="locationContainer"] .leaflet-control-zoom-in')
       .should('exist')
       .should('be.visible');
-    cy.get('[data-test="mapContainer"] .leaflet-control-zoom-out')
+    cy.get('[data-test="locationContainer"] .leaflet-control-zoom-out')
       .should('exist')
       .should('be.visible');
   });
 
   it('should have modal and be visible', () => {
-    cy.get('@pinIcon').click();
-    cy.get('[data-test="mapContainer"] .leaflet-popup')
+    cy.get('[data-test="locationContainer"] .leaflet-popup')
       .should('exist')
       .should('be.visible');
   });
 
   it('should have modal and be able to toggle', () => {
+    /** Click to close the modal */
+    cy.get('.leaflet-popup-close-button').click();
+    cy.get('[data-test="locationContainer"] .leaflet-popup').should(
+      'not.exist'
+    );
+
     /** Click to open the modal */
     cy.get('@pinIcon').click();
-    cy.get('[data-test="mapContainer"] .leaflet-popup').should('be.visible');
-
-    /** Click to close the modal */
-    cy.get('.leaflet-popup-close-button').click('bottomLeft');
-    cy.get('[data-test="mapContainer"] .leaflet-popup').should(
-      'not.be.visible'
+    cy.get('[data-test="locationContainer"] .leaflet-popup').should(
+      'be.visible'
     );
   });
 });

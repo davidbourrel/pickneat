@@ -1,73 +1,47 @@
-.mapContainer {
+.locationContainer {
   width: 100%;
   height: 24rem;
-  overflow: hidden;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
 }
-.popup {
-  display: flex;
-  position: absolute;
-  top: -10.7rem;
-  left: -6.75rem;
-  width: 11rem;
-  height: 6.5rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 2px solid var(--primary);
-  background-color: var(--neutral-50);
-  color: var(--neutral-600);
-  opacity: 1;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
-.show {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 150ms var(--transition-easeInOut);
-}
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 150ms var(--transition-easeInOut);
-}
+
 .address {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
   text-align: center;
-  justify-content: space-between;
+  font-size: 0.9rem;
 }
-.address h3 {
-  font-size: 1.125rem;
+
+.title {
+  font-size: 1.25rem;
   color: var(--primary);
   font-weight: 600;
+  margin-bottom: 0.5rem;
 }
+
+.link {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
 .itineraryIcon {
   stroke: currentColor;
   width: 0.8rem;
   margin-right: 0.3rem;
-}
-.arrow {
-  transform: rotate(45deg);
-  position: absolute;
-  bottom: -0.8rem;
-  left: 5.8rem;
-  width: 1.35rem;
-  height: 1.35rem;
-  background-color: var(--neutral-50);
-  border-right: 2px solid var(--primary);
-  border-bottom: 2px solid var(--primary);
-  border-radius: 0 1px 0 1px;
 }
 
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/
 @media screen and (min-width: 1024px) {
-  .mapContainer {
+  .locationContainer {
     height: 35.2rem;
   }
 }

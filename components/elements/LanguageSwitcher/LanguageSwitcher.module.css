@@ -37,6 +37,7 @@
   border-radius: 0.5rem;
   position: absolute;
   bottom: 3rem;
+  left: -0.3rem;
   min-width: 6rem;
   padding: 0.5rem;
 }
@@ -78,9 +79,10 @@
     transform: translateX(0);
   }
   .langList {
-    top: 3rem;
+    top: 2.6rem;
     bottom: unset;
     right: 0;
+    left: unset;
   }
 
   .active {

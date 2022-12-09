@@ -26,6 +26,8 @@
 
   .restaurantsContent section:first-child {
     margin-right: 2rem;
+  }
+  .restaurantsContent section {
     margin-bottom: 0;
   }
 }
