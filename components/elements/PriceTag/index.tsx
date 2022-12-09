@@ -46,7 +46,7 @@ export default function PriceTag({ price, className = '' }: PriceTagProps) {
           number: {
             currency: {
               style: 'currency',
-              currency: 'EUR',
+              currency: 'USD',
             },
           },
         }

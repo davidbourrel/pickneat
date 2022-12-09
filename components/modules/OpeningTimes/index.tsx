@@ -1,19 +1,10 @@
 import { GetStaticPropsContext } from 'next';
+import { useTranslations } from 'next-intl';
 import styles from './OpeningTimes.module.css';
 import DayRow from './DayRow';
 import TableHeader from './TableHeader';
-import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
-
-export enum DaysOfTheWeekEnum {
-  Monday = 'monday',
-  Tuesday = 'tuesday',
-  Wednesday = 'wednesday',
-  Thursday = 'thursday',
-  Friday = 'friday',
-  Saturday = 'saturday',
-  Sunday = 'sunday',
-}
+import { DaysOfTheWeekEnum } from './types';
 
 export default function OpeningTimes() {
   const t = useTranslations('Restaurants');

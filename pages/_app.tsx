@@ -13,7 +13,6 @@ import { CartProvider } from 'contexts/cartContext';
 
 type PageProps = {
   messages: IntlMessages;
-  now: number;
 };
 
 type Props = Omit<AppProps<PageProps>, 'pageProps'> & {
@@ -46,20 +45,7 @@ export default function MyApp({ Component, pageProps }: Props) {
 
   return (
     <div id="app" className="app">
-      <NextIntlProvider
-        formats={{
-          dateTime: {
-            short: {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric',
-            },
-          },
-        }}
-        messages={pageProps.messages}
-        now={new Date(pageProps.now)}
-        timeZone="Europe/London"
-      >
+      <NextIntlProvider messages={pageProps.messages}>
         <ThemeProvider>
           <UserProvider>
             <CartProvider>
