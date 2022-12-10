@@ -19,7 +19,9 @@
   --neutral-800: #171717;
   --neutral-900: #121212;
 
-  --error: #ad2216;
+  --error: #b00020;
+  --remove: #c62828;
+  --valid: #1c7a40;
   --rating: #ffaa00;
   --stroke-title-color: #dc9458;
 
@@ -46,6 +48,8 @@ html[color-scheme='dark'] {
   --neutral-200: #262626;
   --neutral-100: #171717;
   --neutral-50: #121212;
+
+  --valid: #60c689;
 }
 
 *:focus-visible {

@@ -6,6 +6,11 @@
 .main section {
   text-align: center;
 }
+
+.section {
+  margin-bottom: 3rem;
+}
+
 .title {
   margin: 2rem 0 1rem 0;
   font-weight: 700;
@@ -17,6 +22,7 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 1rem;
+  font-size: 1.125rem;
 }
 
 .checkoutButton {

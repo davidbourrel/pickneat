@@ -103,6 +103,9 @@
     "emptyCartText": "Your cart is currently empty",
     "backToProducts": "See our products",
     "cartCountInformation": "You have {cartCount} item in your cart!",
-    "proceedToCheckout": "Proceed to Checkout"
+    "proceedToCheckout": "Proceed to Checkout",
+    "inStock": "Available",
+    "outOfStock": "Unavailable",
+    "remove": "Remove"
   }
 }

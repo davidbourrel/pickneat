@@ -6,6 +6,7 @@ import { pick } from 'lodash';
 import styles from './Cart.module.css';
 import useTotalCart from 'contexts/cartContext/useCartTotal';
 import PageLayout from 'components/modules/PageLayout';
+import CartProduct from 'components/elements/CartProduct';
 import CartTitle from './CartTitle';
 import CartDescription from './CartDescription';
 import CartProductList from './CartProductList';
@@ -25,7 +26,7 @@ export default function Cart() {
       <Head>
         <title>{`PickN\`Eat | ${t('cart')}`}</title>
       </Head>
-      <section>
+      <section className={styles.section}>
         <CartTitle cartCount={cartTotalItems} />
         <CartDescription cartCount={cartTotalItems} />
         <CartProductList />
@@ -34,7 +35,7 @@ export default function Cart() {
   );
 }
 
-Cart.messages = ['Cart', ...PageLayout.messages];
+Cart.messages = ['Cart', ...PageLayout.messages, ...CartProduct.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
