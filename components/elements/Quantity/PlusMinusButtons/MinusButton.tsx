@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
-import Button from '../Button';
+import Button from '../../buttons/Button';
 import styles from './PlusMinusButtons.module.css';
 
 interface MinusButtonProps {

@@ -6,8 +6,8 @@ import useCart from 'contexts/cartContext/useCart';
 import { ClassNameComponentProps } from '_types/components';
 import { Product } from '_types/products';
 import Button from '../buttons/Button';
-import MinusButton from '../buttons/PlusMinusButtons/MinusButton';
-import PlusButton from '../buttons/PlusMinusButtons/PlusButton';
+import MinusButton from './PlusMinusButtons/MinusButton';
+import PlusButton from './PlusMinusButtons/PlusButton';
 import styles from './Quantity.module.css';
 import { pick } from 'lodash';
 

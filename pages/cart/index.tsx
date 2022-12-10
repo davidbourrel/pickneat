@@ -10,6 +10,7 @@ import CartProduct from 'components/elements/CartProduct';
 import CartTitle from './CartTitle';
 import CartDescription from './CartDescription';
 import CartProductList from './CartProductList';
+import CartCheckout from './CartCheckout';
 
 export default function Cart() {
   const t = useTranslations('Cart');
@@ -30,6 +31,7 @@ export default function Cart() {
         <CartTitle cartCount={cartTotalItems} />
         <CartDescription cartCount={cartTotalItems} />
         <CartProductList />
+        <CartCheckout />
       </section>
     </main>
   );

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
-import Button from '../Button';
+import Button from '../../buttons/Button';
 import styles from './PlusMinusButtons.module.css';
 import { Product } from '_types/products';
 

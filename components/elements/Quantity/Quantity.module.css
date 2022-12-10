@@ -9,8 +9,7 @@
 
 .quantity {
   width: 100%;
-  min-width: 2rem;
-  padding: 0.25rem;
+  padding: 0.5rem;
   background-color: var(--primary);
   text-align: center;
   user-select: none;

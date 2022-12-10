@@ -5,7 +5,7 @@
   border: 1px solid var(--neutral-300);
   box-sizing: border-box;
   background-color: var(--neutral-50);
-  height: 9rem;
+  height: 10rem;
 }
 
 .imageContainer {
@@ -26,6 +26,8 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  padding: 1rem 0.5rem;
 }
 
 .about {
@@ -33,7 +35,6 @@
   flex-direction: column;
   align-items: flex-start;
   flex: 3;
-  padding: 0.5rem;
   box-sizing: border-box;
   height: 100%;
 }
@@ -41,7 +42,7 @@
 .title {
   margin: 0;
   font-size: 1.125rem;
-  line-height: 1.125rem;
+  line-height: 1.25rem;
 }
 .about span {
   font-size: 0.9rem;
@@ -59,14 +60,13 @@
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.5rem;
   box-sizing: border-box;
   line-height: 1.125rem;
 }
 
 .price {
   font-size: 1.25rem;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .quantity {
@@ -88,11 +88,15 @@
   .imageContainer {
     width: 8rem;
   }
+  .cartProductContent {
+    padding: 1rem;
+  }
 
   .title {
     font-size: 1.25rem;
     line-height: 2rem;
   }
+
   .about span {
     font-size: 1rem;
     line-height: unset;
