@@ -26,7 +26,6 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     children,
     className = '',
     type,
-    border,
     disabled,
     headless,
     busy,
@@ -63,7 +62,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     () =>
       headless
         ? className
-        : `${styles.button} ${border ? styles.border : styles.filled} ${
+        : `${styles.button} ${
             busy || disabled
               ? `${busy ? busyClassName : disabledClassName} ${
                   definitelyDisabled ? styles.definitelyDisabled : ''
@@ -72,7 +71,6 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
           } ${className}`,
     [
       headless,
-      border,
       className,
       busy,
       disabled,

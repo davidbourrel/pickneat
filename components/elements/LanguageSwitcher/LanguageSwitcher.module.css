@@ -61,10 +61,11 @@
   padding: 1rem;
 }
 .langButton:hover {
-  color: var(--primary);
+  color: var(--neutral-900);
 }
 .activeCountry {
-  color: var(--primary);
+  color: var(--neutral-900);
+  font-weight: 600;
 }
 .langButton span {
   pointer-events: none;

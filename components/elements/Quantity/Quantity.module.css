@@ -3,17 +3,16 @@
   align-items: flex-end;
   justify-content: center;
   flex-grow: 1;
-  color: var(--neutral-900);
+  color: var(--white);
+  font-weight: 600;
 }
 
 .quantity {
   width: 100%;
   min-width: 2rem;
-  text-align: center;
-  margin: 0 0.5rem;
   padding: 0.25rem;
-  background-color: var(--neutral-200);
-  border-radius: 0.25rem;
+  background-color: var(--primary);
+  text-align: center;
   user-select: none;
 }
 

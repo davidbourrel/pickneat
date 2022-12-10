@@ -16,7 +16,7 @@
   font-weight: 600;
   font-size: 1.25rem;
   padding: 1.5rem 0;
-  color: var(--primary);
+  color: var(--neutral-600);
 }
 .block li {
   font-size: 0.875rem;

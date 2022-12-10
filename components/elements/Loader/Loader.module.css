@@ -24,10 +24,10 @@
 
 @keyframes colors {
   0% {
-    stroke: var(--primary);
+    stroke: var(--neutral-900);
   }
   100% {
-    stroke: var(--primary);
+    stroke: var(--neutral-900);
   }
 }
 @keyframes dash {

@@ -7,15 +7,22 @@
   font-size: 1.5rem;
   padding: 0.25rem;
   width: 2rem;
-  background-color: var(--neutral-200);
-  border-radius: 0.25rem;
+  background-color: var(--primary);
   transition: background-color 100ms var(--transition-easeInOut),
     color 100ms var(--transition-easeInOut);
 }
 .minus:active,
 .plus:active {
   background-color: var(--primary);
-  color: var(--neutral-50);
+  color: var(--neutral-900);
+}
+
+.minus {
+  border-radius: 1rem 0 0 1rem;
+}
+
+.plus {
+  border-radius: 0 1rem 1rem 0;
 }
 
 /**************************/

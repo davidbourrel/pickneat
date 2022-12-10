@@ -20,7 +20,7 @@
 
 .title {
   font-size: 1.25rem;
-  color: var(--persistBlack);
+  color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }

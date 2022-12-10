@@ -28,8 +28,8 @@
   color: var(--neutral-600);
 }
 .currentDay {
-  background-color: var(--neutral-200);
-  color: var(--primary);
+  background-color: var(--primary);
+  color: var(--white);
   font-weight: 700;
 }
 

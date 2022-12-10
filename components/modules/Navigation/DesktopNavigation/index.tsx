@@ -29,7 +29,7 @@ export default function DesktopNavigation() {
       ) : (
         <li title={t('login')}>
           <ActiveLink href="/api/auth/login" path={asPath} tabIndex={-1}>
-            <Button border>{t('login')}</Button>
+            <Button>{t('login')}</Button>
           </ActiveLink>
         </li>
       ),

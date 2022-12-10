@@ -1,7 +1,6 @@
 .logo {
   font-size: 1.75rem;
   font-weight: 900;
-  color: var(--primary);
   cursor: pointer;
   user-select: none;
   margin-right: 2rem;
@@ -9,4 +8,12 @@
   padding: 0.5rem 0;
   border-top: 3px solid var(--primary);
   border-bottom: 3px solid var(--primary);
+}
+
+.light {
+  color: var(--primary);
+}
+
+.dark {
+  color: var(--neutral-900);
 }

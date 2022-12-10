@@ -26,52 +26,45 @@ export default function CartProduct({ product }: CartProductProps) {
   const totalPriceOfProduct = useMemo(() => price * amount, [price, amount]);
 
   const imageBox = useMemo(
-    () =>
-      image && (
-        <Link href={`product/${product_id}`} className={styles.imageContainer}>
-          <Image
-            src={image}
-            alt={name}
-            width={400}
-            height={140}
-            className={styles.image}
-          />
-        </Link>
-      ),
+    () => (
+      <Link href={`product/${product_id}`} className={styles.imageContainer}>
+        <Image
+          src={image}
+          alt={name}
+          width={400}
+          height={140}
+          className={styles.image}
+        />
+      </Link>
+    ),
     [image, product_id, name]
   );
 
   const about = useMemo(
-    () =>
-      name && (
-        <div className={styles.about}>
-          <Heading level={2} className={styles.title}>
-            {name}
-          </Heading>
-          <span>{category}</span>
-          <span>
-            {in_stock ? (
-              <span className={styles.inStock}>{t('inStock')}</span>
-            ) : (
-              <span className={styles.outOfStock}>{t('outOfStock')}</span>
-            )}
-          </span>
-        </div>
-      ),
+    () => (
+      <div className={styles.about}>
+        <Heading level={2} className={styles.title}>
+          {name}
+        </Heading>
+        <span>{category}</span>
+        <span>
+          {in_stock ? (
+            <span className={styles.inStock}>{t('inStock')}</span>
+          ) : (
+            <span className={styles.outOfStock}>{t('outOfStock')}</span>
+          )}
+        </span>
+      </div>
+    ),
     [name, category, in_stock, t]
   );
 
-  const quantity = useMemo(
-    () => product && <Quantity product={product} className={styles.quantity} />,
-    [product]
-  );
-
-  const prices = useMemo(
-    () =>
-      totalPriceOfProduct &&
-      product_id && (
-        <div className={styles.pricesContainer}>
-          <PriceTag price={totalPriceOfProduct} className={styles.price} />
+  const priceAndQuantity = useMemo(
+    () => (
+      <div className={styles.priceAndQuantityContainer}>
+        <PriceTag price={totalPriceOfProduct} className={styles.price} />
+        <>
+          <Quantity product={product} className={styles.quantity} />
           <Button
             onClick={() => removeItemsFromCart(product_id)}
             headless
@@ -79,17 +72,19 @@ export default function CartProduct({ product }: CartProductProps) {
           >
             {t('remove')}
           </Button>
-        </div>
-      ),
-    [totalPriceOfProduct, removeItemsFromCart, product_id, t]
+        </>
+      </div>
+    ),
+    [totalPriceOfProduct, removeItemsFromCart, product_id, t, product]
   );
 
   return (
     <div className={styles.cartProduct}>
       {imageBox}
-      {about}
-      {quantity}
-      {prices}
+      <div className={styles.cartProductContent}>
+        {about}
+        {priceAndQuantity}
+      </div>
     </div>
   );
 }
