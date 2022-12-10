@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main section {
+  text-align: center;
+}
+.title {
+  margin: 2rem 0 1rem 0;
+  font-weight: 700;
+}
+
+.cartDescription {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.checkoutButton {
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+.cartProductList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

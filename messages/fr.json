@@ -101,6 +101,10 @@
   },
 
   "Cart": {
-    "cart": "Panier"
+    "cart": "Panier",
+    "emptyCartText": "Votre panier est actuellement vide",
+    "backToProducts": "Voir nos produits",
+    "cartCountInformation": "Il y a {cartCount} articles dans votre panier!",
+    "proceedToCheckout": "Procéder à l'achat"
   }
 }

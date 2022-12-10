@@ -23,6 +23,7 @@
   right: 0;
   width: 1.4rem;
   font-size: 0.938rem;
+  font-weight: 600;
   color: var(--neutral-50);
   background-color: var(--primary);
   border-radius: 50%;

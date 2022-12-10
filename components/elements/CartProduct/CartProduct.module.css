@@ -1,0 +1,10 @@
+.cartProduct {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--neutral-600);
+  border: 1px solid var(--neutral-300);
+  border-radius: 1rem;
+  background-color: var(--neutral-50);
+  height: 10rem;
+}
