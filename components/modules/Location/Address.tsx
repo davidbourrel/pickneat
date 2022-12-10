@@ -24,7 +24,9 @@ export default function Address() {
         </span>
         <span>31000 Toulouse, France</span>
       </Link>
-      <Link href="tel:+33772348639">07 72 34 86 39</Link>
+      <Link href="tel:+33772348639" className={styles.phone}>
+        Phone: 07 72 34 86 39
+      </Link>
     </address>
   );
 }

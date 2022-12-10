@@ -20,7 +20,7 @@
 
 .title {
   font-size: 1.25rem;
-  color: var(--primary);
+  color: var(--persistBlack);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
@@ -31,10 +31,18 @@
   margin-bottom: 0.5rem;
 }
 
+.link:hover {
+  text-decoration: underline;
+}
+
 .itineraryIcon {
   stroke: currentColor;
   width: 0.8rem;
   margin-right: 0.3rem;
+}
+
+.phone:hover {
+  text-decoration: underline;
 }
 
 /**************************/

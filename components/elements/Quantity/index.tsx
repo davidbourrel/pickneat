@@ -56,6 +56,7 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
           onClick={handleAddProductClick}
           className={styles.addToCartButton}
         >
+          <span>&#43;</span>
           {t('addToCartTextButton')}
         </Button>
       ) : (
