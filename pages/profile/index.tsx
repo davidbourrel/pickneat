@@ -43,8 +43,8 @@ export default function Profile({ user }: ProfileProps) {
       {userPicture}
       <p>nickname: {user.nickname}</p>
       <p>name: {user.name}</p>
-      <Link title={t('logoutTitle')} href="/api/auth/logout">
-        <Button> {t('logout')}</Button>
+      <Link title={t('logout')} href="/api/auth/logout">
+        <Button>{t('logout')}</Button>
       </Link>
     </main>
   );

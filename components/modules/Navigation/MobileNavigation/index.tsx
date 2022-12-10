@@ -5,11 +5,7 @@ import { useTranslations } from 'next-intl';
 import ActiveLink from 'components/elements/ActiveLink';
 import styles from './MobileNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
-import { useUser } from '@auth0/nextjs-auth0';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
-import CartCount from 'components/elements/CartCount';
-import ProfileIcon from 'components/elements/ProfileIcon';
-import Button from 'components/elements/buttons/Button';
 import useOutsideClick from 'hooks/useOutsideClick';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import { pick } from 'lodash';
@@ -23,8 +19,6 @@ export default function MobileNavigation({
   isMobileNavOpened,
   closeMenu,
 }: MobileNavigationProps) {
-  const { user } = useUser();
-
   const { asPath } = useRouter();
 
   const t = useTranslations('Navigation');
@@ -58,29 +52,6 @@ export default function MobileNavigation({
         isMobileNavOpened ? styles.mobileNavContainerOpened : ''
       }`,
     [isMobileNavOpened]
-  );
-
-  const userTab = useMemo(
-    () =>
-      user && user.picture ? (
-        <li title={t('profile')}>
-          <ActiveLink href="/profile" path={asPath} closeMenu={closeMenu}>
-            <ProfileIcon />
-          </ActiveLink>
-        </li>
-      ) : (
-        <li title={t('loginTitle')}>
-          <ActiveLink
-            href="/api/auth/login"
-            path={asPath}
-            closeMenu={closeMenu}
-            tabIndex={-1}
-          >
-            <Button border>{t('login')}</Button>
-          </ActiveLink>
-        </li>
-      ),
-    [user, asPath, closeMenu, t]
   );
 
   return (
@@ -138,12 +109,6 @@ export default function MobileNavigation({
                 dataTestButton="themeSwitcherMobileButton"
               />
             </li>
-            <li>
-              <ActiveLink href="/cart" path={asPath} closeMenu={closeMenu}>
-                <CartCount title={t('cartTitle')} />
-              </ActiveLink>
-            </li>
-            {userTab}
           </ul>
         </nav>
       </aside>

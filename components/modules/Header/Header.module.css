@@ -19,11 +19,20 @@
   justify-content: space-between;
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/
 @media screen and (min-width: 1024px) {
   .header {
     min-height: var(--top-desktop-header-height);
+  }
+  .headerActions {
+    display: none;
   }
 }

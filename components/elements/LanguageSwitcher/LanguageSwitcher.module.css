@@ -1,10 +1,9 @@
 .languageSwitcherButton {
   display: inline-flex;
   align-items: center;
+  vertical-align: sub;
   transition: border 150ms ease-out;
   border: 1px solid transparent;
-  padding: 0.25rem;
-  transform: translateX(-0.3rem);
 }
 .languageSwitcherButton:hover {
   border: 1px solid var(--neutral-300);
@@ -18,7 +17,7 @@
   background-size: contain;
   display: inline-block;
   pointer-events: none;
-  margin-right: 0.6rem;
+  margin-right: 0.5rem;
 }
 .enFlag {
   background-image: url('../../../public/images/flags/us.webp');
@@ -27,7 +26,7 @@
   background-image: url('../../../public/images/flags/fr.webp');
 }
 .plainCountryName {
-  margin: 0 0.3rem 0 0.1rem;
+  padding-right: 0.3rem;
 }
 
 .langList {
@@ -37,7 +36,7 @@
   border-radius: 0.5rem;
   position: absolute;
   bottom: 3rem;
-  left: -0.3rem;
+  left: 0;
   min-width: 6rem;
   padding: 0.5rem;
 }
@@ -79,7 +78,7 @@
     transform: translateX(0);
   }
   .langList {
-    top: 2.6rem;
+    top: 2rem;
     bottom: unset;
     right: 0;
     left: unset;

@@ -62,12 +62,3 @@
   transform: scale(1.1, 1.1) rotate(-45deg);
   transform-origin: 5%;
 }
-
-/**************************/
-/****** MEDIA QUERIES *****/
-/**************************/
-@media screen and (min-width: 1024px) {
-  .button {
-    display: none;
-  }
-}

@@ -4,7 +4,7 @@
   color: var(--primary);
   cursor: pointer;
   user-select: none;
-  margin-right: 1rem;
+  margin-right: 2rem;
   box-sizing: border-box;
   padding: 0.5rem 0;
   border-top: 3px solid var(--primary);

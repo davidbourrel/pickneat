@@ -27,7 +27,7 @@ export default function DesktopNavigation() {
           </ActiveLink>
         </li>
       ) : (
-        <li title={t('loginTitle')}>
+        <li title={t('login')}>
           <ActiveLink href="/api/auth/login" path={asPath} tabIndex={-1}>
             <Button border>{t('login')}</Button>
           </ActiveLink>
@@ -42,48 +42,47 @@ export default function DesktopNavigation() {
       aria-label="desktop navigation"
       data-test="desktopNavigation"
     >
-      <div className={styles.navListContainer}>
-        <ul className={styles.navList}>
-          <li title={t('menuTitle')}>
-            <ActiveLink href="/" path={asPath}>
-              {t('menu')}
-            </ActiveLink>
-          </li>
-          <li title={t('restaurantsTitle')}>
-            <ActiveLink href="/restaurants" path={asPath}>
-              {t('restaurants')}
-            </ActiveLink>
-          </li>
-          <li title={t('deliveryTitle')}>
-            <ActiveLink href="/delivery" path={asPath}>
-              {t('delivery')}
-            </ActiveLink>
-          </li>
-        </ul>
-        <ul className={styles.navList}>
-          <li>
-            <LanguageSwitcher
-              title={t('switchLangTitle')}
-              ariaControlsId="lang-switcher-desktop"
-              dataTestButton="langSwitcherDesktopButton"
-              dataTestLangList="langSwitcherDesktopLangList"
-              dataTestLangButton="langSwitcherDesktopLangButton"
-            />
-          </li>
-          <li>
-            <ThemeSwitcher
-              title={t('switchThemeTitle')}
-              dataTestButton="themeSwitcherDesktopButton"
-            />
-          </li>
-          <li>
-            <ActiveLink href="/cart" path={asPath}>
-              <CartCount title={t('cartTitle')} />
-            </ActiveLink>
-          </li>
-          {userTab}
-        </ul>
-      </div>
+      <ul className={styles.navLinkList}>
+        <li title={t('menuTitle')}>
+          <ActiveLink href="/" path={asPath}>
+            {t('menu')}
+          </ActiveLink>
+        </li>
+        <li title={t('restaurantsTitle')}>
+          <ActiveLink href="/restaurants" path={asPath}>
+            {t('restaurants')}
+          </ActiveLink>
+        </li>
+        <li title={t('deliveryTitle')}>
+          <ActiveLink href="/delivery" path={asPath}>
+            {t('delivery')}
+          </ActiveLink>
+        </li>
+      </ul>
+
+      <ul className={styles.navLinkList}>
+        <li>
+          <LanguageSwitcher
+            title={t('switchLangTitle')}
+            ariaControlsId="lang-switcher-desktop"
+            dataTestButton="langSwitcherDesktopButton"
+            dataTestLangList="langSwitcherDesktopLangList"
+            dataTestLangButton="langSwitcherDesktopLangButton"
+          />
+        </li>
+        <li>
+          <ThemeSwitcher
+            title={t('switchThemeTitle')}
+            dataTestButton="themeSwitcherDesktopButton"
+          />
+        </li>
+        <li>
+          <ActiveLink href="/cart" path={asPath}>
+            <CartCount title={t('cartTitle')} />
+          </ActiveLink>
+        </li>
+        {userTab}
+      </ul>
     </nav>
   );
 }

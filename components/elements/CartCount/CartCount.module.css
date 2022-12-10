@@ -1,8 +1,8 @@
 .cartCountContainer {
-  display: flex;
+  display: inline-flex;
   position: relative;
-  width: max-content;
-  padding-right: 1rem;
+  margin-right: 0.5rem;
+  vertical-align: sub;
 }
 .cartCountContainer:hover .cartSvg {
   fill: var(--primary);
@@ -12,6 +12,7 @@
   fill: var(--neutral-600);
   width: 2rem;
   height: 2rem;
+  flex-shrink: 0;
 }
 
 .notEmptyCart {
@@ -19,8 +20,9 @@
   align-items: center;
   justify-content: center;
   position: absolute;
-  transform: translateY(-0.7rem);
+  top: 0;
   right: 0;
+  transform: translate(0.85rem, -0.6rem);
   width: 1.4rem;
   font-size: 0.938rem;
   font-weight: 600;
