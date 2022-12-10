@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from './Product.module.css';
 import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
@@ -37,16 +36,16 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
         />
 
         <div className={styles.productInfo}>
-          <Heading level={HeadingLevelEnum.One}>{name}</Heading>
+          <Heading level={1}>{name}</Heading>
           <PriceTag price={price} className={styles.productPrice} />
           <section>
-            <Heading level={HeadingLevelEnum.Two} className={styles.productH2}>
+            <Heading level={2} className={styles.productH2}>
               {t('description')}
             </Heading>
             <div className={styles.productDescription}> {description}</div>
           </section>
           <section>
-            <Heading level={HeadingLevelEnum.Two} className={styles.productH2}>
+            <Heading level={2} className={styles.productH2}>
               {t('allergens')}
             </Heading>
             <p>

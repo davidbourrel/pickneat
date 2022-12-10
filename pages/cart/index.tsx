@@ -1,19 +1,19 @@
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
-import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
+import Heading from 'components/elements/Heading';
 import PageLayout from 'components/modules/PageLayout';
 
 export default function Cart() {
   const t = useTranslations('Cart');
+
   return (
     <main className="sidePadding">
       <Head>
         <title>{`PickN\`Eat | ${t('cart')}`}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One}>CART PAGE</Heading>
+      <Heading level={1}>CART PAGE</Heading>
     </main>
   );
 }

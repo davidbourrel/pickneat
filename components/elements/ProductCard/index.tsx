@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import { Product } from '_types/products';
 import Heading from '../Heading';
-import { HeadingLevelEnum } from '../Heading/types';
 import styles from './ProductCard.module.css';
 import Link from '../Link';
 import PriceTag from '../PriceTag';
@@ -50,7 +49,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const cardTitle = useMemo(
     () =>
       name && (
-        <Heading className={styles.title} level={HeadingLevelEnum.Three}>
+        <Heading className={styles.title} level={3}>
           {name}
         </Heading>
       ),

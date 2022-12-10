@@ -2,7 +2,6 @@ import Head from 'next/head';
 import Location from 'components/modules/Location';
 import OpeningTimes from 'components/modules/OpeningTimes';
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import styles from './Restaurants.module.css';
 import { useTranslations } from 'next-intl';
 import { GetStaticPropsContext } from 'next';
@@ -18,16 +17,16 @@ export default function Restaurants() {
       <Head>
         <title>{`PickN\`Eat | ${t('restaurants')}`}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One} className={styles.restaurantsTitle}>
+      <Heading level={1} className={styles.restaurantsTitle}>
         {r('restaurantsMainTitle')}
       </Heading>
       <div className={styles.restaurantsContent}>
         <section>
-          <Heading level={HeadingLevelEnum.Two}>{r('location')}</Heading>
+          <Heading level={2}>{r('location')}</Heading>
           <Location />
         </section>
         <section>
-          <Heading level={HeadingLevelEnum.Two}>{r('openingTimes')}</Heading>
+          <Heading level={2}>{r('openingTimes')}</Heading>
           <OpeningTimes />
         </section>
       </div>

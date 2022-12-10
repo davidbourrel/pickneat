@@ -4,7 +4,6 @@ import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 import styles from './Delivery.module.css';
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import PageLayout from 'components/modules/PageLayout';
@@ -17,12 +16,12 @@ export default function Delivery() {
       <Head>
         <title>{`PickN\`Eat | ${t('delivery')}`}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One} className={styles.mainTitle}>
+      <Heading level={1} className={styles.mainTitle}>
         {t('deliveryMainTitle')}
       </Heading>
       <div className={styles.mainContent}>
         <section className={styles.deliverySection}>
-          <Heading level={HeadingLevelEnum.Two}>{t('delivery')}</Heading>
+          <Heading level={2}>{t('delivery')}</Heading>
           <p className={styles.description}>{t('deliveryContent')}</p>
           <Link
             href="https://deliveroo.fr/fr/"
@@ -39,7 +38,7 @@ export default function Delivery() {
           <span></span>
         </div>
         <section className={styles.takeAwaySection}>
-          <Heading level={HeadingLevelEnum.Two}>{t('takeAway')}</Heading>
+          <Heading level={2}>{t('takeAway')}</Heading>
           <p className={styles.description}>{t('takeAwayContent')}</p>
           <Link href="/" tabIndex={-1}>
             <Button>{t('takeAwayButton')}</Button>

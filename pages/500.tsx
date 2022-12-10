@@ -1,11 +1,10 @@
 import { GetStaticPropsContext } from 'next/types';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
-import Button from 'components/elements/buttons/Button';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
+import Heading from 'components/elements/Heading';
+import Button from 'components/elements/buttons/Button';
 import PageLayout from 'components/modules/PageLayout';
 
 export default function NotFound() {
@@ -18,7 +17,7 @@ export default function NotFound() {
       <Head>
         <title>{`PickN\`Eat | ${t('shortError500')}`}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One}>{t('longError500')}</Heading>
+      <Heading level={1}>{t('longError500')}</Heading>
       <Button onClick={back}>{t('backButtonMessage')}</Button>
     </main>
   );

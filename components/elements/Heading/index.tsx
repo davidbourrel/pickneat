@@ -1,10 +1,9 @@
 import { HTMLProps, ReactNode, useMemo } from 'react';
-import { HeadingLevelEnum } from './types';
 import styles from './Heading.module.css';
 
 interface HeadingProps extends HTMLProps<HTMLHeadingElement> {
   children: ReactNode;
-  level: string;
+  level: number;
 }
 
 export default function Heading({
@@ -15,37 +14,37 @@ export default function Heading({
 }: HeadingProps) {
   const heading = useMemo(() => {
     switch (level) {
-      case HeadingLevelEnum.One:
+      case 1:
         return (
           <h1 className={`${styles.one} ${className}`} {...rest}>
             {children}
           </h1>
         );
-      case HeadingLevelEnum.Two:
+      case 2:
         return (
           <h2 className={`${styles.two} ${className}`} {...rest}>
             {children}
           </h2>
         );
-      case HeadingLevelEnum.Three:
+      case 3:
         return (
           <h3 className={`${styles.three} ${className}`} {...rest}>
             {children}
           </h3>
         );
-      case HeadingLevelEnum.Four:
+      case 4:
         return (
           <h4 className={`${styles.four} ${className}`} {...rest}>
             {children}
           </h4>
         );
-      case HeadingLevelEnum.Five:
+      case 5:
         return (
           <h5 className={`${styles.five} ${className}`} {...rest}>
             {children}
           </h5>
         );
-      case HeadingLevelEnum.Six:
+      case 6:
       default:
         return (
           <h6 className={`${styles.six} ${className}`} {...rest}>
@@ -54,5 +53,6 @@ export default function Heading({
         );
     }
   }, [children, level, className, rest]);
+
   return heading;
 }

@@ -14,7 +14,6 @@ import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli
 import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
@@ -78,7 +77,7 @@ export default function Home({ ssrProducts }: HomeProps) {
             />
           </SwiperSlide>
         </Slider>
-        <Heading level={HeadingLevelEnum.One}>{t('homeMainTitle')}</Heading>
+        <Heading level={1}>{t('homeMainTitle')}</Heading>
       </header>
       <CategoryList ssrProducts={ssrProducts} />
       <ScrollToTopButton />

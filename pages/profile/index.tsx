@@ -7,7 +7,6 @@ import Link from 'components/elements/Link';
 import styles from './Profile.module.css';
 import Button from 'components/elements/buttons/Button';
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Image from 'next/image';
 import { pick } from 'lodash';
 import PageLayout from 'components/modules/PageLayout';
@@ -38,7 +37,7 @@ export default function Profile({ user }: ProfileProps) {
       <Head>
         <title>{`PickN\`Eat | ${t('login')}`}</title>
       </Head>
-      <Heading level={HeadingLevelEnum.One} className={styles.profileTitle}>
+      <Heading level={1} className={styles.profileTitle}>
         [Profile]
       </Heading>
       {userPicture}

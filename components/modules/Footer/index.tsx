@@ -1,10 +1,9 @@
 import { GetStaticPropsContext } from 'next/types';
 import { useTranslations } from 'next-intl';
+import { pick } from 'lodash';
 import styles from './Footer.module.css';
 import Link from 'components/elements/Link';
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
-import { pick } from 'lodash';
 
 export default function Footer() {
   const t = useTranslations('Footer');
@@ -13,7 +12,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`${styles.blockContainer} container`}>
         <nav className={styles.block}>
-          <Heading level={HeadingLevelEnum.Three}>{t('aboutUs')}</Heading>
+          <Heading level={3}>{t('aboutUs')}</Heading>
           <ul>
             <li>
               <Link href="/">{t('leadershipTeam')}</Link>
@@ -27,7 +26,7 @@ export default function Footer() {
           </ul>
         </nav>
         <nav className={styles.block}>
-          <Heading level={HeadingLevelEnum.Three}>{t('careers')}</Heading>
+          <Heading level={3}>{t('careers')}</Heading>
           <ul>
             <li>
               <Link href="/">{t('employeePerks')}</Link>
@@ -41,7 +40,7 @@ export default function Footer() {
           </ul>
         </nav>
         <nav className={styles.block}>
-          <Heading level={HeadingLevelEnum.Three}>{t('contactUs')}</Heading>
+          <Heading level={3}>{t('contactUs')}</Heading>
           <ul>
             <li>
               <Link href="/">{t('restaurantFeedback')}</Link>

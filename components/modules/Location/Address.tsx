@@ -1,7 +1,6 @@
 import styles from './Location.module.css';
 import ItineraryIcon from 'components/images/icons/ItineraryIcon';
 import Heading from 'components/elements/Heading';
-import { HeadingLevelEnum } from 'components/elements/Heading/types';
 import Link from 'components/elements/Link';
 
 const itineraryUrl = 'https://www.google.com';
@@ -9,7 +8,7 @@ const itineraryUrl = 'https://www.google.com';
 export default function Address() {
   return (
     <address className={styles.address}>
-      <Heading level={HeadingLevelEnum.Three} className={styles.title}>
+      <Heading level={3} className={styles.title}>
         PickN`Eat - Toulouse
       </Heading>
       <Link
