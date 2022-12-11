@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-import { pick } from 'lodash';
 import styles from './MobileNavigation.module.css';
 import useOutsideClick from 'hooks/useOutsideClick';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
@@ -118,17 +116,4 @@ export default function MobileNavigation({
       </aside>
     </div>
   );
-}
-
-MobileNavigation.messages = ['Navigation'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../../messages/${locale}.json`),
-        MobileNavigation.messages
-      ),
-    },
-  };
 }

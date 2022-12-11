@@ -35,8 +35,4 @@ export default function PageLayout({ children }: PageLayoutProps) {
   );
 }
 
-PageLayout.messages = [
-  ...Header.messages,
-  ...MobileNavigation.messages,
-  ...Footer.messages,
-];
+PageLayout.messages = ['Footer', 'Navigation'];

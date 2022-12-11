@@ -1,6 +1,4 @@
-import { GetStaticPropsContext } from 'next/types';
 import { useTranslations } from 'next-intl';
-import { pick } from 'lodash';
 import styles from './Footer.module.css';
 import Link from 'components/elements/Link';
 import Heading from 'components/elements/Heading';
@@ -56,17 +54,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
-
-Footer.messages = ['Footer'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        Footer.messages
-      ),
-    },
-  };
 }

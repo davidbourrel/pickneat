@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Product } from '_types/products';
 import Heading from '../Heading';
@@ -6,9 +7,6 @@ import styles from './ProductCard.module.css';
 import Link from '../Link';
 import PriceTag from '../PriceTag';
 import Quantity from '../Quantity';
-import { useTranslations } from 'next-intl';
-import { GetStaticPropsContext } from 'next/types';
-import { pick } from 'lodash';
 
 interface ProductCardProps {
   product: Product;
@@ -17,7 +15,6 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
-  const t2 = useTranslations('Cart');
 
   const cardImage = useMemo(
     () =>
@@ -61,10 +58,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     () =>
       in_stock ? null : (
         <div className={styles.outOfStock}>
-          <span className={styles.outOfStockText}>{t2('outOfStock')}</span>
+          <span className={styles.outOfStockText}>{t('outOfStock')}</span>
         </div>
       ),
-    [in_stock, t2]
+    [in_stock, t]
   );
 
   return (
@@ -83,17 +80,4 @@ export default function ProductCard({ product }: ProductCardProps) {
       {outOfStock}
     </li>
   );
-}
-
-ProductCard.messages = ['Product', 'Cart', ...Quantity.messages];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        ProductCard.messages
-      ),
-    },
-  };
 }

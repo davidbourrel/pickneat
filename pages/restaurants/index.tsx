@@ -11,7 +11,7 @@ import MainContentLayout from 'components/modules/MainContentLayout';
 
 export default function Restaurants() {
   const t = useTranslations('Navigation');
-  const r = useTranslations('Restaurants');
+  const t2 = useTranslations('Restaurants');
 
   return (
     <MainContentLayout>
@@ -19,15 +19,15 @@ export default function Restaurants() {
         <title>{`PickN\`Eat | ${t('restaurants')}`}</title>
       </Head>
       <Heading level={1} className={styles.restaurantsTitle}>
-        {r('restaurantsMainTitle')}
+        {t2('restaurantsMainTitle')}
       </Heading>
       <div className={styles.restaurantsContent}>
         <section>
-          <Heading level={2}>{r('location')}</Heading>
+          <Heading level={2}>{t2('location')}</Heading>
           <Location />
         </section>
         <section>
-          <Heading level={2}>{r('openingTimes')}</Heading>
+          <Heading level={2}>{t2('openingTimes')}</Heading>
           <OpeningTimes />
         </section>
       </div>
@@ -35,11 +35,7 @@ export default function Restaurants() {
   );
 }
 
-Restaurants.messages = [
-  'Navigation',
-  ...OpeningTimes.messages,
-  ...PageLayout.messages,
-];
+Restaurants.messages = ['Navigation', 'Restaurants', ...PageLayout.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

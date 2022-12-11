@@ -6,7 +6,6 @@ import { pick } from 'lodash';
 import styles from './Cart.module.css';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
 import PageLayout from 'components/modules/PageLayout';
-import CartProduct from 'components/elements/CartProduct';
 import CartTitle from './CartTitle';
 import CartDescription from './CartDescription';
 import CartProductList from './CartProductList';
@@ -41,7 +40,7 @@ export default function Cart() {
   );
 }
 
-Cart.messages = ['Cart', ...PageLayout.messages, ...CartProduct.messages];
+Cart.messages = ['Cart', 'Product', ...PageLayout.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

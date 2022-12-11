@@ -18,7 +18,6 @@ import Slider from 'components/modules/Slider';
 import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
 import PageLayout from 'components/modules/PageLayout';
-import ProductCard from 'components/elements/ProductCard';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
 interface HomeProps {
@@ -86,7 +85,7 @@ export default function Home({ ssrProducts }: HomeProps) {
   );
 }
 
-Home.messages = ['Home', ...PageLayout.messages, ...ProductCard.messages];
+Home.messages = ['Home', 'Product', ...PageLayout.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const ssrProducts = getProducts();

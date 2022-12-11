@@ -1,9 +1,7 @@
 import { useMemo } from 'react';
-import { GetStaticPropsContext } from 'next/types';
 import { useTranslations } from 'next-intl';
 import DesktopNavigation from '../Navigation/DesktopNavigation';
 import styles from './Header.module.css';
-import { pick } from 'lodash';
 import { useUser } from '@auth0/nextjs-auth0';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
@@ -61,21 +59,4 @@ export default function Header({
       </div>
     </header>
   );
-}
-
-Header.messages = [
-  'Navigation',
-  ...DesktopNavigation.messages,
-  ...BurgerMenuButton.messages,
-];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        Header.messages
-      ),
-    },
-  };
 }

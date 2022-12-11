@@ -1,9 +1,7 @@
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import styles from './CategoryList.module.css';
 import Category from './Category';
 import { CategoryEnum, Product } from '_types/products';
-import { pick } from 'lodash';
 
 interface CategoryListProps {
   ssrProducts: Product[];
@@ -41,17 +39,4 @@ export default function CategoryList({ ssrProducts }: CategoryListProps) {
       />
     </ul>
   );
-}
-
-CategoryList.messages = ['Home'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        CategoryList.messages
-      ),
-    },
-  };
 }

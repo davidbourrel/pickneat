@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-import { GetStaticPropsContext } from 'next/types';
 import ActiveLink from 'components/elements/ActiveLink';
 import styles from './DesktopNavigation.module.css';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
@@ -10,7 +9,6 @@ import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
-import { pick } from 'lodash';
 
 export default function DesktopNavigation() {
   const { asPath } = useRouter();
@@ -85,17 +83,4 @@ export default function DesktopNavigation() {
       </ul>
     </nav>
   );
-}
-
-DesktopNavigation.messages = ['Navigation'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../../messages/${locale}.json`),
-        DesktopNavigation.messages
-      ),
-    },
-  };
 }

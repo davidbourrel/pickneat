@@ -61,7 +61,7 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
   );
 }
 
-ProductId.messages = ['Product', ...PageLayout.messages, ...Quantity.messages];
+ProductId.messages = ['Product', ...PageLayout.messages];
 
 export async function getStaticProps({
   locale,

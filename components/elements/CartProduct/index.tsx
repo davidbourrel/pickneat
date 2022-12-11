@@ -1,8 +1,6 @@
 import { useMemo } from 'react';
-import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { pick } from 'lodash';
 import styles from './CartProduct.module.css';
 import { Product } from '_types/products';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
@@ -22,6 +20,7 @@ export default function CartProduct({ product }: CartProductProps) {
 
   const { removeItemsFromCart } = useRemoveCart();
   const t = useTranslations('Cart');
+  const t2 = useTranslations('Product');
 
   const totalPriceOfProduct = useMemo(() => price * amount, [price, amount]);
 
@@ -50,9 +49,9 @@ export default function CartProduct({ product }: CartProductProps) {
           <span>{category}</span>
           <span>
             {in_stock ? (
-              <span className={styles.inStock}>{t('inStock')}</span>
+              <span className={styles.inStock}>{t2('inStock')}</span>
             ) : (
-              <span className={styles.outOfStock}>{t('outOfStock')}</span>
+              <span className={styles.outOfStock}>{t2('outOfStock')}</span>
             )}
           </span>
         </div>
@@ -66,7 +65,7 @@ export default function CartProduct({ product }: CartProductProps) {
         </Button>
       </div>
     ),
-    [name, category, in_stock, removeItemsFromCart, product_id, t]
+    [name, category, in_stock, removeItemsFromCart, product_id, t, t2]
   );
 
   const priceAndQuantity = useMemo(
@@ -88,17 +87,4 @@ export default function CartProduct({ product }: CartProductProps) {
       </div>
     </div>
   );
-}
-
-CartProduct.messages = ['Cart', 'Product'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        CartProduct.messages
-      ),
-    },
-  };
 }

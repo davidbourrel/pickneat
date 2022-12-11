@@ -95,7 +95,9 @@
     "addToCartTextButton": "Ajouter",
     "description": "Description",
     "allergens": "Allergènes",
-    "noAllergens": "Ce produit ne contient pas des allergènes."
+    "noAllergens": "Ce produit ne contient pas des allergènes.",
+    "inStock": "Disponible",
+    "outOfStock": "Indisponible"
   },
 
   "Cart": {
@@ -104,8 +106,6 @@
     "backToProducts": "Voir nos produits",
     "cartCountInformation": "Il y a {cartCount} articles dans votre panier!",
     "proceedToCheckout": "Procéder à l'achat",
-    "inStock": "Disponible",
-    "outOfStock": "Indisponible",
     "remove": "Supprimer",
     "subTotalPrice": "Sous-total",
     "totalPrice": "Total",

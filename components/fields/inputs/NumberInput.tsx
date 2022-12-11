@@ -1,11 +1,9 @@
 import { HTMLProps, useEffect, useMemo } from 'react';
-import { GetStaticPropsContext } from 'next/types';
 import { useTranslations } from 'next-intl';
 import { ClassNameComponentProps } from '_types/components';
 import { InputCommonProps } from './types';
 import useInputClassNames from './useInputClassNames';
 import styles from './Inputs.module.css';
-import { pick } from 'lodash';
 
 export interface NumberInputProps
   extends ClassNameComponentProps,
@@ -123,17 +121,4 @@ export default function NumberInput({
       {errorComponent}
     </div>
   );
-}
-
-NumberInput.messages = ['Errors'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../messages/${locale}.json`),
-        NumberInput.messages
-      ),
-    },
-  };
 }

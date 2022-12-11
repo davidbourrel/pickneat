@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { GetStaticPropsContext } from 'next/types';
-import { pick } from 'lodash';
 import { ClassNameComponentProps } from '_types/components';
 import Button from '../Button';
 import styles from './BurgerMenuButton.module.css';
@@ -85,17 +83,4 @@ export default function BurgerMenuButton({
       </div>
     </Button>
   );
-}
-
-BurgerMenuButton.messages = ['Navigation'];
-
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
-  return {
-    props: {
-      messages: pick(
-        await import(`../../../../messages/${locale}.json`),
-        BurgerMenuButton.messages
-      ),
-    },
-  };
 }
