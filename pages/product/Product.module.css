@@ -76,7 +76,7 @@
   }
 
   .productQuantity {
-    flex-grow: 1;
+    flex: 1;
     margin-bottom: 0;
     align-self: flex-start;
     align-items: flex-end;

@@ -91,15 +91,16 @@
   .cartProductContent {
     padding: 1rem;
   }
-
   .title {
     font-size: 1.25rem;
     line-height: 2rem;
   }
-
   .about span {
     font-size: 1rem;
     line-height: unset;
+  }
+  .removeProductButton {
+    margin-left: 1rem;
   }
 }
 @media screen and (min-width: 768px) {

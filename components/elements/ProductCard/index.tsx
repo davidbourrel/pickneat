@@ -78,7 +78,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <PriceTag price={price} className={styles.price} />
           </div>
         </div>
-        <Quantity product={product} />
+        <Quantity product={product} className={styles.quantity} />
       </div>
       {outOfStock}
     </li>
