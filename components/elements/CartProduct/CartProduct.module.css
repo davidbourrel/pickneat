@@ -61,7 +61,6 @@
   justify-content: space-between;
   gap: 0.5rem;
   box-sizing: border-box;
-  line-height: 1.125rem;
 }
 
 .price {
@@ -76,6 +75,7 @@
 
 .removeProductButton {
   color: var(--error);
+  font-size: 0.8rem;
 }
 .removeProductButton:hover {
   text-decoration: underline;
@@ -99,10 +99,6 @@
 
   .about span {
     font-size: 1rem;
-    line-height: unset;
-  }
-
-  .priceAndQuantityContainer {
     line-height: unset;
   }
 }
