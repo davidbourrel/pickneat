@@ -19,6 +19,9 @@
   --neutral-800: #171717;
   --neutral-900: #121212;
 
+  --red: #b00020;
+  --red-light: #cf6676;
+
   --error: #b00020;
   --valid: #1c7a40;
   --rating: #ffaa00;
@@ -48,6 +51,8 @@ html[color-scheme='dark'] {
   --neutral-200: #262626;
   --neutral-100: #171717;
   --neutral-50: #121212;
+
+  --red: #cf6676;
 
   --error: #cf6676;
   --valid: #60c689;
