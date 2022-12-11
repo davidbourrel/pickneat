@@ -6,6 +6,7 @@
   height: 18rem;
   color: var(--neutral-600);
   border: 1px solid var(--neutral-300);
+  border-radius: var(--app-radius);
   background-color: var(--neutral-50);
   transition: border 150ms ease-out;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
@@ -24,6 +25,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-top-left-radius: var(--app-radius);
+  border-top-right-radius: var(--app-radius);
 }
 
 .badge {
@@ -34,6 +37,7 @@
   padding: 0.2rem 0.5rem;
   box-sizing: border-box;
   background-color: var(--primary);
+  border-top-left-radius: var(--app-radius);
   color: var(--white);
   user-select: none;
 }

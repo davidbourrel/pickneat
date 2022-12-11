@@ -31,6 +31,9 @@
 
   --top-mobile-header-height: 4.5rem;
   --top-desktop-header-height: 6rem;
+
+  --app-padding: 1.5rem;
+  --app-radius: 0.3rem;
 }
 
 html[color-scheme='dark'] {

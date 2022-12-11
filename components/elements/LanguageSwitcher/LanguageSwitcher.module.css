@@ -33,7 +33,7 @@
   display: block;
   background-color: var(--neutral-50);
   border: 1px solid var(--neutral-300);
-  border-radius: 0.5rem;
+  border-radius: var(--app-radius);
   position: absolute;
   bottom: 3rem;
   left: 0;
