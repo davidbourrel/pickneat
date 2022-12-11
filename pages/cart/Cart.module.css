@@ -38,17 +38,11 @@
   gap: 1rem;
 }
 
-.cartCheckoutContainer {
-  box-sizing: border-box;
-  border-top: 1px solid var(--neutral-300);
-  margin-top: 3rem;
-}
-
 .cartCheckout {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 0;
+  padding: 2rem 0;
   color: var(--neutral-900);
 }
 

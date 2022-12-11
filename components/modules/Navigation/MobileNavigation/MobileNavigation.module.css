@@ -37,7 +37,7 @@
 
 .mobileNavigation {
   min-width: 18rem;
-  padding: 1.5rem 1.5rem 4.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 5rem 1.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -68,8 +68,11 @@
   padding: 0.3rem 0;
   position: relative;
 }
-.secondNavigation > li:not(:last-child) {
+.secondNavigation > li:nth-child(1) {
   margin-bottom: 1rem;
+}
+.secondNavigation > li:nth-child(2) {
+  margin-bottom: 2rem;
 }
 
 .logo {

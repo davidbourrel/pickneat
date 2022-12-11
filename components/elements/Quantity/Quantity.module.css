@@ -6,14 +6,6 @@
   font-weight: 600;
 }
 
-.quantity {
-  width: 100%;
-  padding: 0.5rem;
-  background-color: var(--primary);
-  text-align: center;
-  user-select: none;
-}
-
 .addToCartButton {
   width: 100%;
   justify-content: center;
@@ -26,11 +18,68 @@
   font-size: 1.5rem;
 }
 
+.quantity {
+  width: 100%;
+  min-width: 1.3rem;
+  padding: 0.5rem;
+  background-color: var(--primary);
+  text-align: center;
+  user-select: none;
+}
+
+.minus,
+.plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 2.5rem;
+  background-color: var(--primary);
+  transition: background-color 100ms var(--transition-easeInOut),
+    color 100ms var(--transition-easeInOut);
+}
+.minus:active,
+.plus:active {
+  background-color: var(--primary);
+  color: var(--neutral-900);
+}
+
+.minus {
+  border-radius: 1.3rem 0 0 1.3rem;
+}
+
+.plus {
+  border-radius: 0 1.3rem 1.3rem 0;
+}
+
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/
 @media screen and (min-width: 1024px) {
   .quantity {
     font-size: 1.25rem;
+  }
+
+  .minus,
+  .plus {
+    font-size: 1.85rem;
+  }
+
+  .minus:hover,
+  .plus:hover {
+    background-color: var(--primary);
+    color: var(--neutral-50);
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .minus,
+  .plus {
+    transition: unset;
   }
 }

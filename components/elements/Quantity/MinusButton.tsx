@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
-import Button from '../../buttons/Button';
-import styles from './PlusMinusButtons.module.css';
+import Button from '../buttons/Button';
+import styles from './Quantity.module.css';
 
 interface MinusButtonProps {
   productId: string;

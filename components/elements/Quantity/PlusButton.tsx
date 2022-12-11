@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
-import Button from '../../buttons/Button';
-import styles from './PlusMinusButtons.module.css';
+import Button from '../buttons/Button';
+import styles from './Quantity.module.css';
 import { Product } from '_types/products';
 
 interface PlusButtonProps {

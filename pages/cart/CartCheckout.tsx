@@ -52,12 +52,10 @@ export default function CartCheckout({
   const cartCheckout = useMemo(
     () =>
       cartTotalItems > 0 ? (
-        <div className={styles.cartCheckoutContainer}>
-          <div className={styles.cartCheckout}>
-            {subTotalPrice}
-            {totalPrice}
-            {buttonsAction}
-          </div>
+        <div className={styles.cartCheckout}>
+          {subTotalPrice}
+          {totalPrice}
+          {buttonsAction}
         </div>
       ) : null,
     [cartTotalItems, subTotalPrice, totalPrice, buttonsAction]

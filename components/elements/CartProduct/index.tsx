@@ -42,40 +42,41 @@ export default function CartProduct({ product }: CartProductProps) {
 
   const about = useMemo(
     () => (
-      <div className={styles.about}>
-        <Heading level={2} className={styles.title}>
-          {name}
-        </Heading>
-        <span>{category}</span>
-        <span>
-          {in_stock ? (
-            <span className={styles.inStock}>{t('inStock')}</span>
-          ) : (
-            <span className={styles.outOfStock}>{t('outOfStock')}</span>
-          )}
-        </span>
+      <div className={styles.aboutContainer}>
+        <div className={styles.about}>
+          <Heading level={2} className={styles.title}>
+            {name}
+          </Heading>
+          <span>{category}</span>
+          <span>
+            {in_stock ? (
+              <span className={styles.inStock}>{t('inStock')}</span>
+            ) : (
+              <span className={styles.outOfStock}>{t('outOfStock')}</span>
+            )}
+          </span>
+        </div>
+
+        <Button
+          onClick={() => removeItemsFromCart(product_id)}
+          headless
+          className={styles.removeProductButton}
+        >
+          {t('remove')}
+        </Button>
       </div>
     ),
-    [name, category, in_stock, t]
+    [name, category, in_stock, removeItemsFromCart, product_id, t]
   );
 
   const priceAndQuantity = useMemo(
     () => (
       <div className={styles.priceAndQuantityContainer}>
         <PriceTag price={totalPriceOfProduct} className={styles.price} />
-        <>
-          <Quantity product={product} className={styles.quantity} />
-          <Button
-            onClick={() => removeItemsFromCart(product_id)}
-            headless
-            className={styles.removeProductButton}
-          >
-            {t('remove')}
-          </Button>
-        </>
+        <Quantity product={product} className={styles.quantity} />
       </div>
     ),
-    [totalPriceOfProduct, removeItemsFromCart, product_id, t, product]
+    [totalPriceOfProduct, product]
   );
 
   return (
