@@ -6,10 +6,10 @@ import Button from 'components/elements/buttons/Button';
 import Heading from 'components/elements/Heading';
 
 interface CartTitleProps {
-  cartCount: number;
+  cartTotalItems: number;
 }
 
-export default function CartTitle({ cartCount }: CartTitleProps) {
+export default function CartTitle({ cartTotalItems }: CartTitleProps) {
   const t = useTranslations('Cart');
 
   const emptyCartTitle = useMemo(
@@ -36,8 +36,8 @@ export default function CartTitle({ cartCount }: CartTitleProps) {
   );
 
   const cartTitle = useMemo(
-    () => (cartCount === 0 ? emptyCartTitle : notEmptyCartTitle),
-    [cartCount, emptyCartTitle, notEmptyCartTitle]
+    () => (cartTotalItems === 0 ? emptyCartTitle : notEmptyCartTitle),
+    [cartTotalItems, emptyCartTitle, notEmptyCartTitle]
   );
 
   return cartTitle;

@@ -101,6 +101,7 @@
   }
   .removeProductButton {
     margin-left: 1rem;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 768px) {
@@ -111,9 +112,6 @@
 @media screen and (min-width: 1024px) {
   .imageContainer {
     width: 20rem;
-  }
-  .title {
-    font-size: 1.5rem;
   }
   .price {
     font-size: 1.5rem;

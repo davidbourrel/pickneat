@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import styles from './PriceTag.module.css';
 import { ClassNameComponentProps } from '_types/components';
+import { formatNumberToPrice } from 'utils/formatNumberToPrice';
 
 interface PriceTagProps extends ClassNameComponentProps {
   price: number;
@@ -14,12 +15,7 @@ export default function PriceTag({ price, className = '' }: PriceTagProps) {
 
   const priceTag = useMemo(
     () => (
-      <span className={computedClassName}>
-        {new Intl.NumberFormat('fr', {
-          style: 'currency',
-          currency: 'EUR',
-        }).format(price)}
-      </span>
+      <span className={computedClassName}>{formatNumberToPrice(price)}</span>
     ),
     [computedClassName, price]
   );

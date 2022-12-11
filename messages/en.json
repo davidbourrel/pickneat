@@ -106,6 +106,9 @@
     "proceedToCheckout": "Proceed to Checkout",
     "inStock": "Available",
     "outOfStock": "Unavailable",
-    "remove": "Remove"
+    "remove": "Remove",
+    "subTotalPrice": "Sub-total",
+    "totalPrice": "Total",
+    "continueShopping": "Continue Shopping"
   }
 }

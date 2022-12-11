@@ -106,6 +106,9 @@
     "proceedToCheckout": "Procéder à l'achat",
     "inStock": "Disponible",
     "outOfStock": "Indisponible",
-    "remove": "Supprimer"
+    "remove": "Supprimer",
+    "subTotalPrice": "Sous-total",
+    "totalPrice": "Total",
+    "continueShopping": "Continuer ma commande"
   }
 }

@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import styles from './Cart.module.css';
-import useTotalCart from 'contexts/cartContext/useCartTotal';
+import useCartTotal from 'contexts/cartContext/useCartTotal';
 import PageLayout from 'components/modules/PageLayout';
 import CartProduct from 'components/elements/CartProduct';
 import CartTitle from './CartTitle';
@@ -16,7 +16,7 @@ import MainContentLayout from 'components/modules/MainContentLayout';
 export default function Cart() {
   const t = useTranslations('Cart');
 
-  const { cartTotalItems } = useTotalCart();
+  const { cartTotalItems, cartTotalPrice } = useCartTotal();
 
   const layoutClassName = useMemo(
     () => (cartTotalItems === 0 ? `${styles.main}` : ''),
@@ -29,10 +29,13 @@ export default function Cart() {
         <title>{`PickN\`Eat | ${t('cart')}`}</title>
       </Head>
       <section className={styles.section}>
-        <CartTitle cartCount={cartTotalItems} />
-        <CartDescription cartCount={cartTotalItems} />
+        <CartTitle cartTotalItems={cartTotalItems} />
+        <CartDescription cartTotalItems={cartTotalItems} />
         <CartProductList />
-        <CartCheckout />
+        <CartCheckout
+          cartTotalItems={cartTotalItems}
+          cartTotalPrice={cartTotalPrice}
+        />
       </section>
     </MainContentLayout>
   );

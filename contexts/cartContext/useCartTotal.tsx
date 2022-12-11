@@ -2,12 +2,12 @@ import { useContext, useMemo } from 'react';
 import cartContext from '.';
 import { CartContextInterface } from './cart.types';
 
-type UseTotalCartResult = Pick<
+type UseCartTotalResult = Pick<
   CartContextInterface,
   'cartTotalPrice' | 'cartTotalItems'
 >;
 
-const useTotalCart = (): UseTotalCartResult => {
+const useCartTotal = (): UseCartTotalResult => {
   const { cartTotalPrice, cartTotalItems } = useContext(cartContext);
   return useMemo(
     () => ({ cartTotalPrice, cartTotalItems }),
@@ -15,4 +15,4 @@ const useTotalCart = (): UseTotalCartResult => {
   );
 };
 
-export default useTotalCart;
+export default useCartTotal;
