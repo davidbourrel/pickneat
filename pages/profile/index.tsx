@@ -10,6 +10,7 @@ import Heading from 'components/elements/Heading';
 import Image from 'next/image';
 import { pick } from 'lodash';
 import PageLayout from 'components/modules/PageLayout';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 interface ProfileProps {
   user: UserProfile;
@@ -33,7 +34,7 @@ export default function Profile({ user }: ProfileProps) {
   );
 
   return (
-    <main className="sidePadding">
+    <MainContentLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('login')}`}</title>
       </Head>
@@ -46,7 +47,7 @@ export default function Profile({ user }: ProfileProps) {
       <Link title={t('logout')} href="/api/auth/logout">
         <Button>{t('logout')}</Button>
       </Link>
-    </main>
+    </MainContentLayout>
   );
 }
 

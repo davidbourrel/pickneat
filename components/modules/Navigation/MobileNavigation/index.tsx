@@ -2,13 +2,14 @@ import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { GetStaticPropsContext } from 'next';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-import ActiveLink from 'components/elements/ActiveLink';
+import { pick } from 'lodash';
 import styles from './MobileNavigation.module.css';
+import useOutsideClick from 'hooks/useOutsideClick';
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
-import useOutsideClick from 'hooks/useOutsideClick';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
-import { pick } from 'lodash';
+import Logo from 'components/elements/Logo';
+import ActiveLink from 'components/elements/ActiveLink';
 
 interface MobileNavigationProps {
   isMobileNavOpened: boolean;
@@ -108,6 +109,9 @@ export default function MobileNavigation({
                 title={t('switchThemeTitle')}
                 dataTestButton="themeSwitcherMobileButton"
               />
+            </li>
+            <li>
+              <Logo className={styles.logo} />
             </li>
           </ul>
         </nav>

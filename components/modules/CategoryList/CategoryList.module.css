@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  margin: 1rem 0;
 }
 .categoryList > li {
   width: 100%;

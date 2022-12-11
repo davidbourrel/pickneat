@@ -7,16 +7,17 @@ import Heading from 'components/elements/Heading';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import PageLayout from 'components/modules/PageLayout';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 export default function Delivery() {
   const t = useTranslations('Delivery');
 
   return (
-    <main className="sidePadding">
+    <MainContentLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('delivery')}`}</title>
       </Head>
-      <Heading level={1} className={styles.mainTitle}>
+      <Heading level={1} className={styles.title}>
         {t('deliveryMainTitle')}
       </Heading>
       <div className={styles.mainContent}>
@@ -45,7 +46,7 @@ export default function Delivery() {
           </Link>
         </section>
       </div>
-    </main>
+    </MainContentLayout>
   );
 }
 

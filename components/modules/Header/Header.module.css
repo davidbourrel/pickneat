@@ -7,7 +7,7 @@
   display: flex;
   width: 100%;
   height: var(--top-mobile-header-height);
-  padding: 0 1.5rem;
+  padding: 0 var(--app-mobile-padding);
   box-sizing: border-box;
   border-bottom: 1px solid var(--neutral-300);
   z-index: 80;
@@ -28,6 +28,11 @@
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0 var(--app-desktop-padding);
+  }
+}
 @media screen and (min-width: 1024px) {
   .header {
     min-height: var(--top-desktop-header-height);

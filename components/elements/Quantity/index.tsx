@@ -16,7 +16,7 @@ interface QuantityProps extends ClassNameComponentProps {
 }
 
 export default function Quantity({ product, className = '' }: QuantityProps) {
-  const { product_id } = product;
+  const { product_id, in_stock } = product;
 
   const t = useTranslations('Product');
 
@@ -45,29 +45,32 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
   );
 
   const minusButton = useMemo(
-    () => (amount > 0 ? <MinusButton productId={product_id} /> : null),
-    [amount, product_id]
+    () =>
+      amount > 0 && in_stock ? <MinusButton productId={product_id} /> : null,
+    [amount, in_stock, product_id]
   );
 
   const quantity = useMemo(
     () =>
-      amount === 0 ? (
-        <Button
-          onClick={handleAddProductClick}
-          className={styles.addToCartButton}
-        >
-          <span>&#43;</span>
-          {t('addToCartTextButton')}
-        </Button>
-      ) : (
-        <span className={styles.quantity}>{amount}</span>
-      ),
-    [amount, handleAddProductClick, t]
+      in_stock ? (
+        amount === 0 ? (
+          <Button
+            onClick={handleAddProductClick}
+            className={styles.addToCartButton}
+          >
+            <span>&#43;</span>
+            {t('addToCartTextButton')}
+          </Button>
+        ) : (
+          <span className={styles.quantity}>{amount}</span>
+        )
+      ) : null,
+    [in_stock, amount, handleAddProductClick, t]
   );
 
   const plusButton = useMemo(
-    () => (amount > 0 ? <PlusButton product={product} /> : null),
-    [amount, product]
+    () => (amount > 0 && in_stock ? <PlusButton product={product} /> : null),
+    [amount, in_stock, product]
   );
 
   return (

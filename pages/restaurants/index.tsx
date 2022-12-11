@@ -1,19 +1,20 @@
+import { GetStaticPropsContext } from 'next';
+import { useTranslations } from 'next-intl';
 import Head from 'next/head';
+import { pick } from 'lodash';
+import styles from './Restaurants.module.css';
 import Location from 'components/modules/Location';
 import OpeningTimes from 'components/modules/OpeningTimes';
 import Heading from 'components/elements/Heading';
-import styles from './Restaurants.module.css';
-import { useTranslations } from 'next-intl';
-import { GetStaticPropsContext } from 'next';
-import { pick } from 'lodash';
 import PageLayout from 'components/modules/PageLayout';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 export default function Restaurants() {
   const t = useTranslations('Navigation');
   const r = useTranslations('Restaurants');
 
   return (
-    <main className="sidePadding">
+    <MainContentLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('restaurants')}`}</title>
       </Head>
@@ -30,7 +31,7 @@ export default function Restaurants() {
           <OpeningTimes />
         </section>
       </div>
-    </main>
+    </MainContentLayout>
   );
 }
 

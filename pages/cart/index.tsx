@@ -11,19 +11,20 @@ import CartTitle from './CartTitle';
 import CartDescription from './CartDescription';
 import CartProductList from './CartProductList';
 import CartCheckout from './CartCheckout';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 export default function Cart() {
   const t = useTranslations('Cart');
 
   const { cartTotalItems } = useTotalCart();
 
-  const mainClassName = useMemo(
-    () => (cartTotalItems === 0 ? `sidePadding ${styles.main}` : 'sidePadding'),
+  const layoutClassName = useMemo(
+    () => (cartTotalItems === 0 ? `${styles.main}` : ''),
     [cartTotalItems]
   );
 
   return (
-    <main className={mainClassName}>
+    <MainContentLayout className={layoutClassName}>
       <Head>
         <title>{`PickN\`Eat | ${t('cart')}`}</title>
       </Head>
@@ -33,7 +34,7 @@ export default function Cart() {
         <CartProductList />
         <CartCheckout />
       </section>
-    </main>
+    </MainContentLayout>
   );
 }
 

@@ -21,6 +21,7 @@
   bottom: 0;
   user-select: none;
 }
+
 .mobileNavContainerOpened {
   display: flex;
   animation: appear-mobile-navigation-effect 300ms var(--transition-easeInOut);
@@ -36,7 +37,7 @@
 
 .mobileNavigation {
   min-width: 18rem;
-  padding: 1.5rem 1.5rem 3.5rem 1.5rem;
+  padding: 1.5rem 1.5rem 3rem 1.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -69,6 +70,11 @@
 }
 .secondNavigation > li:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.logo {
+  padding: 0;
+  margin: 0;
 }
 
 /**************************/

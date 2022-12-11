@@ -1,17 +1,26 @@
-import useDarkMode from 'contexts/themeContext/useDarkMode';
-import Link from '../Link';
+import { useMemo } from 'react';
 import styles from './Logo.module.css';
+import useDarkMode from 'contexts/themeContext/useDarkMode';
+import { ClassNameComponentProps } from '_types/components';
+import Link from '../Link';
 
-interface LogoProps {
-  closeMenu: () => void;
+interface LogoProps extends ClassNameComponentProps {
+  closeMenu?: () => void;
 }
 
-export default function Logo({ closeMenu }: LogoProps) {
+export default function Logo({ closeMenu, className = '' }: LogoProps) {
   const { isDarkMode } = useDarkMode();
+
+  const computedClassName = useMemo(
+    () =>
+      `${styles.logo} ${isDarkMode ? styles.dark : styles.light} ${className}`,
+    [isDarkMode, className]
+  );
+
   return (
     <Link
       href="/"
-      className={`${styles.logo} ${isDarkMode ? styles.dark : styles.light}`}
+      className={computedClassName}
       onClick={closeMenu}
       aria-label="PickN`Eat Logo"
       data-test="mainLogo"

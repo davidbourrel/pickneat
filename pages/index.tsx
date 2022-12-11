@@ -19,6 +19,7 @@ import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
 import PageLayout from 'components/modules/PageLayout';
 import ProductCard from 'components/elements/ProductCard';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 interface HomeProps {
   ssrProducts: Product[];
@@ -28,7 +29,7 @@ export default function Home({ ssrProducts }: HomeProps) {
   const t = useTranslations('Home');
 
   return (
-    <main>
+    <MainContentLayout>
       <header className={styles.homeHeader}>
         <Slider>
           <SwiperSlide>
@@ -81,7 +82,7 @@ export default function Home({ ssrProducts }: HomeProps) {
       </header>
       <CategoryList ssrProducts={ssrProducts} />
       <ScrollToTopButton />
-    </main>
+    </MainContentLayout>
   );
 }
 

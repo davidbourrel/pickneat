@@ -6,19 +6,20 @@ import { pick } from 'lodash';
 import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';
 import PageLayout from 'components/modules/PageLayout';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 export default function NotFound() {
   const { back } = useRouter();
   const t = useTranslations('Errors');
 
   return (
-    <main className="notFound sidePadding">
+    <MainContentLayout center>
       <Head>
         <title>{`PickN\`Eat | ${t('shortError404')}`}</title>
       </Head>
       <Heading level={1}>{t('longError404')}</Heading>
       <Button onClick={back}>{t('backButtonMessage')}</Button>
-    </main>
+    </MainContentLayout>
   );
 }
 

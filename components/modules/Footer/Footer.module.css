@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--neutral-50);
   width: 100%;
-  padding: 1.5rem;
+  padding: var(--app-mobile-padding);
   box-sizing: border-box;
   border-top: 1px solid var(--neutral-300);
 }
@@ -37,6 +37,12 @@
   }
   .block li:hover {
     text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: var(--app-desktop-padding);
   }
 }
 

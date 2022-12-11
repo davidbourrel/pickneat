@@ -15,16 +15,9 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const { image, name, price, new_release, product_id } = product;
+  const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
-
-  const badgeNewRelease = useMemo(
-    () =>
-      new_release && (
-        <div className={styles.badge}>{t('badgeNewReleaseText')}</div>
-      ),
-    [new_release, t]
-  );
+  const t2 = useTranslations('Cart');
 
   const cardImage = useMemo(
     () =>
@@ -46,6 +39,14 @@ export default function ProductCard({ product }: ProductCardProps) {
     [image, name, t, product_id]
   );
 
+  const badgeNewRelease = useMemo(
+    () =>
+      new_release && (
+        <div className={styles.badge}>{t('badgeNewReleaseText')}</div>
+      ),
+    [new_release, t]
+  );
+
   const cardTitle = useMemo(
     () =>
       name && (
@@ -54,6 +55,16 @@ export default function ProductCard({ product }: ProductCardProps) {
         </Heading>
       ),
     [name]
+  );
+
+  const outOfStock = useMemo(
+    () =>
+      in_stock ? null : (
+        <div className={styles.outOfStock}>
+          <span className={styles.outOfStockText}>{t2('outOfStock')}</span>
+        </div>
+      ),
+    [in_stock, t2]
   );
 
   return (
@@ -69,11 +80,12 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
         <Quantity product={product} />
       </div>
+      {outOfStock}
     </li>
   );
 }
 
-ProductCard.messages = ['Product', ...Quantity.messages];
+ProductCard.messages = ['Product', 'Cart', ...Quantity.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {

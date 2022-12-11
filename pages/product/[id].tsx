@@ -11,6 +11,7 @@ import { Product } from '_types/products';
 import { getProduct, getProducts } from 'database/products';
 import PageLayout from 'components/modules/PageLayout';
 import { LangEnum } from '_types/lang';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 interface ProductIdProps {
   ssrProduct: Product;
@@ -22,7 +23,7 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
   const { name, description, price, image, allergens } = ssrProduct;
 
   return (
-    <main className="sidePadding">
+    <MainContentLayout>
       <Head>
         <title>{`PickN\`Eat | ${name}`}</title>
       </Head>
@@ -56,7 +57,7 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
           <Quantity product={ssrProduct} className={styles.productQuantity} />
         </div>
       </div>
-    </main>
+    </MainContentLayout>
   );
 }
 
