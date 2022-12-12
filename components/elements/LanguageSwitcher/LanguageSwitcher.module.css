@@ -1,7 +1,7 @@
 .languageSwitcherButton {
   display: inline-flex;
   align-items: center;
-  vertical-align: sub;
+  vertical-align: middle;
   transition: border 150ms ease-out;
   border: 1px solid transparent;
 }

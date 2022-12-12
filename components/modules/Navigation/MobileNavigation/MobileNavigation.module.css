@@ -5,16 +5,16 @@
   min-height: 100vh;
   z-index: 90;
   background-color: transparent;
-  transform: scale(0, 0);
+  transform: scale(0);
   transition: background-color 350ms var(--transition-easeInOut);
 }
 .activeBlackFilter {
-  transform: scale(1, 1);
+  transform: scale(1);
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .mobileNavContainer {
-  display: none;
+  transform: scale(0);
   position: absolute;
   top: 0;
   right: 0;
@@ -23,7 +23,7 @@
 }
 
 .mobileNavContainerOpened {
-  display: flex;
+  transform: unset;
   animation: appear-mobile-navigation-effect 300ms var(--transition-easeInOut);
 }
 @keyframes appear-mobile-navigation-effect {
@@ -31,7 +31,7 @@
     transform: translate(200%, 0);
   }
   100% {
-    transform: translate(0, 0);
+    transform: translate(0);
   }
 }
 

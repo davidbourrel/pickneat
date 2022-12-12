@@ -18,9 +18,9 @@ export default function CartTitle({ cartTotalItems }: CartTitleProps) {
         <Heading level={1} className={styles.title}>
           {t('emptyCartText')}
         </Heading>
-        <Button>
-          <Link href="/">{t('backToProducts')}</Link>
-        </Button>
+        <Link href="/" tabIndex={-1}>
+          <Button>{t('backToProducts')}</Button>
+        </Link>
       </>
     ),
     [t]

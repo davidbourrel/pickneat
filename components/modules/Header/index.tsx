@@ -44,7 +44,7 @@ export default function Header({
         <Logo closeMenu={closeMenu} />
         <DesktopNavigation />
 
-        <div className={styles.headerActions}>
+        <div className={styles.headerMobileActions}>
           {userTab}
           <Link href="/cart" onClick={closeMenu}>
             <CartCount title={t('cartTitle')} />

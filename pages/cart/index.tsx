@@ -18,7 +18,7 @@ export default function Cart() {
   const { cartTotalItems, cartTotalPrice } = useCartTotal();
 
   const layoutClassName = useMemo(
-    () => (cartTotalItems === 0 ? `${styles.main}` : ''),
+    () => (cartTotalItems === 0 ? styles.main : ''),
     [cartTotalItems]
   );
 
