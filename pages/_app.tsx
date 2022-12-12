@@ -51,14 +51,12 @@ export default function MyApp({ Component, pageProps }: Props) {
             <CartProvider>
               <Head>
                 <link rel="icon" href="/favicon.ico" />
-                // Primary Meta Tags
                 <title>{`PickN\`Eat`}</title>
                 <meta name="title" content="PickN`Eat" />
                 <meta
                   name="description"
                   content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
                 />
-                // Open Graph / Facebook
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://pickneat.vercel.app" />
                 <meta property="og:title" content="PickN`Eat" />
@@ -70,7 +68,6 @@ export default function MyApp({ Component, pageProps }: Props) {
                   property="og:image"
                   content="https://pickneat.vercel.app/pickneat.png"
                 />
-                // Twitter
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta
                   property="twitter:url"
