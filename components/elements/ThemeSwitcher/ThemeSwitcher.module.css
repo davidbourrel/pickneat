@@ -9,7 +9,7 @@
   width: 6rem;
   transform: translateX(-0.5rem);
 }
-.switcherButton:hover {
+.switcherButton:active {
   border: 1px solid var(--neutral-300);
 }
 
@@ -17,7 +17,7 @@
   padding: 0.4rem;
   border-radius: 50%;
 }
-.switcherButton:hover svg {
+.switcherButton:active svg {
   background-color: var(--neutral-300);
 }
 
@@ -41,5 +41,22 @@
 @media screen and (min-width: 1024px) {
   .switcherButton {
     transform: translateX(0);
+  }
+
+  .switcherButton:hover {
+    border: 1px solid var(--neutral-300);
+  }
+
+  .switcherButton:hover svg {
+    background-color: var(--neutral-300);
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .switcherButton {
+    transition: unset;
   }
 }

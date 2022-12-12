@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.button:hover {
+.button:active {
   background-color: var(--primary-hover);
 }
 
@@ -27,4 +27,22 @@
 
 .cursorPointer {
   cursor: pointer;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .button:hover {
+    background-color: var(--primary-hover);
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: unset;
+  }
 }

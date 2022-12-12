@@ -43,7 +43,7 @@
 .minus:active,
 .plus:active {
   background-color: var(--primary);
-  color: var(--neutral-900);
+  color: var(--neutral-50);
 }
 
 .minus {

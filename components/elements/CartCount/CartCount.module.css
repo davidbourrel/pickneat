@@ -4,7 +4,7 @@
   margin-right: 0.5rem;
   vertical-align: sub;
 }
-.cartCountContainer:hover .cartSvg {
+.cartCountContainer:active .cartSvg {
   fill: var(--primary);
 }
 
@@ -22,8 +22,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(0.85rem, -0.6rem);
-  width: 1.4rem;
+  transform: translate(1.2rem, -0.6rem);
+  width: 1.7rem;
+  height: 1.7rem;
   font-size: 0.938rem;
   font-weight: 600;
   color: var(--white);
@@ -33,4 +34,13 @@
 }
 .emptyCart {
   display: none;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .cartCountContainer:hover .cartSvg {
+    fill: var(--primary);
+  }
 }

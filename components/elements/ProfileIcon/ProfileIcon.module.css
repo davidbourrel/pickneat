@@ -5,6 +5,15 @@
   height: 2rem;
 }
 
-.userIcon:hover {
+.userIcon:active {
   color: var(--primary);
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .userIcon:hover {
+    color: var(--primary);
+  }
 }

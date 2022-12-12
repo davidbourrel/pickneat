@@ -88,3 +88,16 @@
     display: none;
   }
 }
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .blackFilter {
+    transition: unset;
+  }
+
+  .mobileNavContainerOpened {
+    animation: unset;
+  }
+}

@@ -18,9 +18,30 @@
   transform: translateX(-101%);
   background: var(--primary) none repeat scroll 0% 0%;
 }
-.activeLink:hover::after {
+.activeLink:active::after {
   transform: translateX(0);
 }
 .active.activeLink::after {
   transform: translateX(0);
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .activeLink:hover::after {
+    transform: translateX(0);
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .activeLink {
+    transition: unset;
+  }
+  .activeLink::after {
+    transition: unset;
+  }
 }

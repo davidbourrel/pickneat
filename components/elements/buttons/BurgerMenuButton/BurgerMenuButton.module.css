@@ -31,10 +31,10 @@
     transform-origin 300ms var(--transition-easeInOut),
     background-color 150ms var(--transition-easeInOut);
 }
-.button:hover .bar {
+.button:active .bar {
   background-color: var(--primary);
 }
-.button:hover .menuTitle {
+.button:active .menuTitle {
   color: var(--primary);
 }
 
@@ -61,4 +61,28 @@
 .bar3Active {
   transform: scale(1.1, 1.1) rotate(-45deg);
   transform-origin: 5%;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .button:hover .bar {
+    background-color: var(--primary);
+  }
+  .button:hover .menuTitle {
+    color: var(--primary);
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .menuTitle {
+    transition: unset;
+  }
+  .bar {
+    transition: unset;
+  }
 }

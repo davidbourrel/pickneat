@@ -18,10 +18,14 @@
   padding: 1.5rem 0;
   color: var(--neutral-600);
 }
+
 .block li {
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
   color: var(--neutral-600);
+}
+.block li:active {
+  text-decoration: underline;
 }
 
 /**************************/
@@ -32,11 +36,9 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
   .block {
     text-align: center;
-  }
-  .block li:hover {
-    text-decoration: underline;
   }
 }
 
@@ -49,5 +51,9 @@
 @media screen and (min-width: 1024px) {
   .blockContainer {
     justify-content: space-around;
+  }
+
+  .block li:hover {
+    text-decoration: underline;
   }
 }

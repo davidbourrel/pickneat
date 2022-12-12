@@ -147,3 +147,12 @@ p {
     padding: 0 var(--app-desktop-padding);
   }
 }
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  svg {
+    transition: unset;
+  }
+}

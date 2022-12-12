@@ -21,3 +21,12 @@
 .svgContainer {
   transform: translateY(0.1rem);
 }
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: unset;
+  }
+}

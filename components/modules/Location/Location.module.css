@@ -31,7 +31,7 @@
   margin-bottom: 0.5rem;
 }
 
-.link:hover {
+.link:active {
   text-decoration: underline;
 }
 
@@ -41,7 +41,7 @@
   margin-right: 0.3rem;
 }
 
-.phone:hover {
+.phone:active {
   text-decoration: underline;
 }
 
@@ -51,5 +51,13 @@
 @media screen and (min-width: 1024px) {
   .locationContainer {
     height: 35.2rem;
+  }
+
+  .link:hover {
+    text-decoration: underline;
+  }
+
+  .phone:hover {
+    text-decoration: underline;
   }
 }
