@@ -61,7 +61,7 @@
 }
 
 .removeProductButton {
-  display: flex;
+  height: max-content;
   color: var(--red);
   font-size: 0.8rem;
   margin-left: 1rem;
