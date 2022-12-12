@@ -139,6 +139,29 @@ p {
   overflow-y: hidden;
 }
 
+/****************************/
+/* TEMPORARY SNOW ANIMATION */
+/****************************/
+.snowAnimation {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+.snowflake {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateZ(0);
+  user-select: none;
+  background: radial-gradient(
+    farthest-corner,
+    rgba(255, 255, 255, 1) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 10000000;
+}
+
 /**************************/
 /****** MEDIA QUERIES *****/
 /**************************/

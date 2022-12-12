@@ -1,15 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import isEqual from 'utils/isEqual';
 import useInputKeyCode from './useInputKeyCode';
+import { Snowflake } from '../animation/snowAnimation';
 
-const konamiCode = [
-  'arrowup',
-  'arrowdown',
-  'arrowleft',
-  'arrowright',
-  'a',
-  'b',
-];
+const konamiCode = ['c', 'h', 'i', 'b', 'r', 'e'];
 
 const useKonami = (): void => {
   const key = useInputKeyCode();
@@ -39,9 +33,21 @@ const useKonami = (): void => {
   }, [key]);
 
   useEffect(() => {
-    if (isKonami) {
-      /** TODO : Make the animation when konami code is trigger */
-      // console.log('*** KONAMIIIIII ***');
+    const snowAnimationId = document.getElementById('snowAnimation');
+    if (isKonami && !snowAnimationId) {
+      /** Make the animation when konami code is trigger */
+      const app = document.getElementById('app') as HTMLDivElement;
+      const snowAnimation = `<div id="snowAnimation" class="snowAnimation"></div>`;
+      app.insertAdjacentHTML('beforeend', snowAnimation);
+
+      const snowAnimationId = document.getElementById('snowAnimation');
+      Snowflake.init(snowAnimationId);
+
+      if (snowAnimationId) {
+        setTimeout(() => {
+          snowAnimationId.remove();
+        }, 15000);
+      }
     }
   }, [isKonami]);
 };
