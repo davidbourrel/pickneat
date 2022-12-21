@@ -27,8 +27,8 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Image
             src={image}
             alt={name}
-            width={400}
-            height={140}
+            fill
+            sizes="100vw"
             className={styles.image}
           />
         </Link>

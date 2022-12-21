@@ -28,7 +28,7 @@ export default function Home({ ssrProducts }: HomeProps) {
   const t = useTranslations('Home');
 
   return (
-    <MainContentLayout>
+    <MainContentLayout padding={false}>
       <header className={styles.homeHeader}>
         <Slider>
           <SwiperSlide>
@@ -54,7 +54,6 @@ export default function Home({ ssrProducts }: HomeProps) {
               src={sodaImage}
               alt="soda"
               className={styles.sliderImage}
-              priority
               data-test="sodaImage"
             />
           </SwiperSlide>
@@ -63,7 +62,6 @@ export default function Home({ ssrProducts }: HomeProps) {
               src={dessertImage}
               alt="dessert"
               className={styles.sliderImage}
-              priority
               data-test="dessertImage"
             />
           </SwiperSlide>
@@ -72,14 +70,13 @@ export default function Home({ ssrProducts }: HomeProps) {
               src={saladImage}
               alt="salad"
               className={styles.sliderImage}
-              priority
               data-test="saladImage"
             />
           </SwiperSlide>
         </Slider>
         <Heading level={1}>{t('homeMainTitle')}</Heading>
       </header>
-      <CategoryList ssrProducts={ssrProducts} />
+      <CategoryList ssrProducts={ssrProducts} className="sidePadding" />
       <ScrollToTopButton />
     </MainContentLayout>
   );

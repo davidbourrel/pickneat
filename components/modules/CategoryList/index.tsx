@@ -1,17 +1,27 @@
+import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './CategoryList.module.css';
 import Category from './Category';
 import { CategoryEnum, Product } from '_types/products';
+import { ClassNameComponentProps } from '_types/components';
 
-interface CategoryListProps {
+interface CategoryListProps extends ClassNameComponentProps {
   ssrProducts: Product[];
 }
 
-export default function CategoryList({ ssrProducts }: CategoryListProps) {
+export default function CategoryList({
+  ssrProducts,
+  className,
+}: CategoryListProps) {
   const t = useTranslations('Home');
 
+  const computedClassName = useMemo(
+    () => `${className} ${styles.categoryList}`,
+    [className]
+  );
+
   return (
-    <ul className={styles.categoryList} data-test="categoryList">
+    <ul className={computedClassName} data-test="categoryList">
       <Category
         title={t('burgerTitle')}
         products={ssrProducts}
