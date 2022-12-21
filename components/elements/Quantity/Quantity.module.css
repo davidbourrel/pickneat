@@ -3,6 +3,8 @@
   align-items: flex-end;
   justify-content: center;
   color: var(--white);
+  background-color: var(--primary);
+  border-radius: 1.3rem;
   font-weight: 600;
 }
 
@@ -22,7 +24,6 @@
   width: 100%;
   min-width: 1.3rem;
   padding: 0.5rem;
-  background-color: var(--primary);
   text-align: center;
   user-select: none;
 }
@@ -36,13 +37,11 @@
   font-size: 1.5rem;
   padding: 0.5rem;
   width: 2.5rem;
-  background-color: var(--primary);
-  transition: background-color 100ms var(--transition-easeInOut),
-    color 100ms var(--transition-easeInOut);
+
+  transition: color 150ms var(--transition-easeInOut);
 }
 .minus:active,
 .plus:active {
-  background-color: var(--primary);
   color: var(--neutral-50);
 }
 
@@ -69,7 +68,6 @@
 
   .minus:hover,
   .plus:hover {
-    background-color: var(--primary);
     color: var(--neutral-50);
   }
 }
