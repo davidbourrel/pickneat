@@ -16,6 +16,14 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
 
+  const badgeNewRelease = useMemo(
+    () =>
+      new_release && (
+        <div className={styles.badge}>{t('badgeNewReleaseText')}</div>
+      ),
+    [new_release, t]
+  );
+
   const cardImage = useMemo(
     () =>
       image && (
@@ -31,17 +39,10 @@ export default function ProductCard({ product }: ProductCardProps) {
             sizes="100vw"
             className={styles.image}
           />
+          {badgeNewRelease}
         </Link>
       ),
-    [image, name, t, product_id]
-  );
-
-  const badgeNewRelease = useMemo(
-    () =>
-      new_release && (
-        <div className={styles.badge}>{t('badgeNewReleaseText')}</div>
-      ),
-    [new_release, t]
+    [image, name, t, product_id, badgeNewRelease]
   );
 
   const cardTitle = useMemo(
@@ -67,7 +68,6 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <li className={styles.card}>
       {cardImage}
-      {badgeNewRelease}
       <div className={styles.cardContent}>
         <div className={styles.titleContainer}>
           {cardTitle}
@@ -75,7 +75,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <PriceTag price={price} className={styles.price} />
           </div>
         </div>
-        <Quantity product={product} className={styles.quantity} />
+        <Quantity product={product} />
       </div>
       {outOfStock}
     </li>

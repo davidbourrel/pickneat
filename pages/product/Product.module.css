@@ -76,10 +76,9 @@
   }
 
   .productQuantity {
-    flex: 1;
+    display: flex;
     margin-bottom: 0;
     align-self: flex-start;
-    align-items: flex-end;
-    justify-content: start;
+    margin-top: auto;
   }
 }

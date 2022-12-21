@@ -52,6 +52,7 @@
 
 .titleContainer {
   display: flex;
+  flex: 1;
   gap: 0.5rem;
 }
 
@@ -60,6 +61,7 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  max-height: 3.3rem;
 }
 
 .priceContainer {
@@ -69,16 +71,12 @@
 
 .price {
   margin-left: auto;
-  align-self: center;
+  align-self: flex-start;
   font-size: 1.25rem;
   box-sizing: border-box;
   padding-left: 0.5rem;
   border-left: 1px solid var(--neutral-300);
   max-width: max-content;
-}
-
-.quantity {
-  flex: 1;
 }
 
 .outOfStock {
