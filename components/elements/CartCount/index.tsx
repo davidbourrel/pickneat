@@ -16,7 +16,11 @@ export default function CartCount({ title }: CartCountInterface) {
   );
 
   return (
-    <div title={title} className={styles.cartCountContainer}>
+    <div
+      title={title}
+      className={styles.cartCountContainer}
+      data-test="cartCount"
+    >
       <CartIcon className={styles.cartSvg} />
       <span className={computedCartCountClassName}>{cartTotalItems}</span>
     </div>

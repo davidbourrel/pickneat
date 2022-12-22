@@ -19,13 +19,13 @@ export default function DesktopNavigation() {
   const userTab = useMemo(
     () =>
       user && user.picture ? (
-        <li title={t('profile')}>
+        <li title={t('profile')} data-test="profileIcon">
           <ActiveLink href="/profile" path={asPath}>
             <ProfileIcon />
           </ActiveLink>
         </li>
       ) : (
-        <li title={t('login')}>
+        <li title={t('login')} data-test="profileIcon">
           <ActiveLink href="/api/auth/login" path={asPath} tabIndex={-1}>
             <Button>{t('login')}</Button>
           </ActiveLink>

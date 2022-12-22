@@ -27,11 +27,11 @@ export default function Header({
   const userTab = useMemo(
     () =>
       user && user.picture ? (
-        <Link href="/profile" title={t('profile')}>
+        <Link href="/profile" title={t('profile')} data-test="profileIcon">
           <ProfileIcon />
         </Link>
       ) : (
-        <Link href="/api/auth/login" title={t('login')}>
+        <Link href="/api/auth/login" title={t('login')} data-test="profileIcon">
           <ProfileIcon />
         </Link>
       ),
