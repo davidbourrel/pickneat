@@ -1,0 +1,38 @@
+.viewCartContainer {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: scale(0);
+  will-change: transform;
+  transition: transform 150ms ease-out, background-color 150ms ease-out;
+  z-index: 70;
+}
+
+.viewCart {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+}
+
+.active {
+  transform: scale(1);
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .viewCartContainer {
+    display: none;
+  }
+}
+
+/**************************/
+/* PREFERS REDUCED MOTION */
+/**************************/
+@media (prefers-reduced-motion: reduce) {
+  .viewCartContainer {
+    transition: unset;
+  }
+}

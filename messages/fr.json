@@ -109,6 +109,7 @@
     "remove": "Supprimer",
     "subTotalPrice": "Sous-total",
     "totalPrice": "Total",
-    "continueShopping": "Continuer ma commande"
+    "continueShopping": "Continuer ma commande",
+    "viewCart": "Voir le panier ({cartCount})"
   }
 }

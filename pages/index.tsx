@@ -14,8 +14,9 @@ import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli
 import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 
 import Heading from 'components/elements/Heading';
+import ScrollToTopButton from 'components/elements/buttons/ScrollToTopButton';
+import ViewCartButton from 'components/elements/buttons/ViewCartButton';
 import Slider from 'components/modules/Slider';
-import ScrollToTopButton from 'components/elements/ScrollToTopButton';
 import CategoryList from 'components/modules/CategoryList';
 import PageLayout from 'components/modules/PageLayout';
 import MainContentLayout from 'components/modules/MainContentLayout';
@@ -77,12 +78,13 @@ export default function Home({ ssrProducts }: HomeProps) {
         <Heading level={1}>{t('homeMainTitle')}</Heading>
       </header>
       <CategoryList ssrProducts={ssrProducts} className="sidePadding" />
+      <ViewCartButton />
       <ScrollToTopButton />
     </MainContentLayout>
   );
 }
 
-Home.messages = ['Home', 'Product', ...PageLayout.messages];
+Home.messages = ['Home', 'Product', 'Cart', ...PageLayout.messages];
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   const ssrProducts = getProducts();

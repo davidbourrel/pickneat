@@ -109,6 +109,7 @@
     "remove": "Remove",
     "subTotalPrice": "Sub-total",
     "totalPrice": "Total",
-    "continueShopping": "Continue Shopping"
+    "continueShopping": "Continue Shopping",
+    "viewCart": "View Cart ({cartCount})"
   }
 }

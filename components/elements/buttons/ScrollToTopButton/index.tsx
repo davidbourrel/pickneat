@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import Arrow from '../Arrow';
-import { ArrowDirectionEnum } from '../Arrow/types';
-import Button from '../buttons/Button';
+import Arrow from '../../Arrow';
+import { ArrowDirectionEnum } from '../../Arrow/types';
+import Button from '../Button';
 import styles from './ScrollToTopButton.module.css';
 
 export default function ScrollToTopButton() {
@@ -23,7 +23,7 @@ export default function ScrollToTopButton() {
 
   useEffect(() => {
     const toggleVisibility = (): void =>
-      window.pageYOffset > 10 ? setIsVisible(true) : setIsVisible(false);
+      window.pageYOffset > 200 ? setIsVisible(true) : setIsVisible(false);
 
     window.addEventListener('scroll', toggleVisibility);
 
