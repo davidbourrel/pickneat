@@ -148,10 +148,12 @@ p {
 /* TEMPORARY SNOW ANIMATION */
 /****************************/
 .snowAnimation {
-  position: absolute;
+  position: fixed;
   width: 100%;
   min-height: 100%;
+  height: 100%;
   overflow: hidden;
+  z-index: 1;
 }
 .snowflake {
   display: block;
