@@ -92,7 +92,7 @@ a {
 }
 svg {
   transition: stroke 150ms ease-out, fill 150ms ease-out, color 150ms ease-out,
-    background-color 150ms ease-out, transform 300ms var(--transition-easeInOut);
+    background-color 150ms ease-out, transform 400ms ease-out;
   max-width: 1.7rem;
   max-height: 1.7rem;
   flex-shrink: 0;
