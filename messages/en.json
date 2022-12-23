@@ -104,7 +104,7 @@
     "cart": "Cart",
     "emptyCartText": "Your cart is currently empty",
     "backToProducts": "See our products",
-    "cartCountInformation": "You have {cartCount} item in your cart!",
+    "cartCountInformation": "You have {cartCount} items in your cart!",
     "proceedToCheckout": "Proceed to Checkout",
     "remove": "Remove",
     "subTotalPrice": "Sub-total",

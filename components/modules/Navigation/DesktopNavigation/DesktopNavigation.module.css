@@ -9,7 +9,6 @@
   .nav {
     display: flex;
     flex: 1;
-    user-select: none;
   }
 
   .navLinkList {

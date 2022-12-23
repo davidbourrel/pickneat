@@ -30,7 +30,6 @@
   color: var(--white);
   background-color: var(--primary);
   border-radius: 50%;
-  user-select: none;
 }
 .emptyCart {
   position: absolute;

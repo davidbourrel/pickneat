@@ -20,7 +20,6 @@
   position: relative;
   width: 100%;
   height: 50%;
-  user-select: none;
 }
 .image {
   width: 100%;
@@ -40,7 +39,6 @@
   background-color: var(--primary);
   border-top-left-radius: var(--app-radius);
   color: var(--white);
-  user-select: none;
 }
 
 .cardContent {
@@ -91,7 +89,6 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.87);
   cursor: not-allowed;
-  user-select: none;
 }
 
 .outOfStockText {

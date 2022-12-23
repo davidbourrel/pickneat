@@ -13,7 +13,6 @@
 .imageContainer {
   width: 8rem;
   height: 100%;
-  user-select: none;
   flex-shrink: 0;
 }
 
