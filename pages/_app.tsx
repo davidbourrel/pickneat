@@ -3,13 +3,19 @@ import { AppProps } from 'next/app';
 import { NextIntlProvider } from 'next-intl';
 import Head from 'next/head';
 import Router from 'next/router';
-import nProgress from 'nprogress';
-import PageLayout from '../components/modules/PageLayout';
 import '../styles/globals.css';
-import useKonami from 'hooks/useKonami';
-import { UserProvider } from '@auth0/nextjs-auth0';
+import nProgress from 'nprogress';
 import { ThemeProvider } from 'contexts/themeContext';
 import { CartProvider } from 'contexts/cartContext';
+import { UserProvider } from '@auth0/nextjs-auth0';
+import useKonami from 'hooks/useKonami';
+import PageLayout from '../components/modules/PageLayout';
+import { Baloo_2 } from '@next/font/google';
+
+const fontFamily = Baloo_2({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+});
 
 type PageProps = {
   messages: IntlMessages;
@@ -44,7 +50,7 @@ export default function MyApp({ Component, pageProps }: Props) {
   }, []);
 
   return (
-    <div id="app" className="app">
+    <div id="app" className={`app ${fontFamily.className}`}>
       <NextIntlProvider messages={pageProps.messages}>
         <ThemeProvider>
           <UserProvider>
