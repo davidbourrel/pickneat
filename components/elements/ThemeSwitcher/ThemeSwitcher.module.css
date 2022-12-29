@@ -1,28 +1,27 @@
 .switcherButton {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-shrink: 0;
-  border-radius: 1.3rem;
-  border: 1px solid transparent;
-  transition: border-color 150ms ease-out;
-  width: 6rem;
-  transform: translateX(-0.5rem);
-}
-.switcherButton:active {
+  border-radius: 1.5rem;
   border: 1px solid var(--neutral-300);
+  box-sizing: border-box;
+  height: 2.5rem;
 }
 
 .switcherButton svg {
-  padding: 0.4rem;
+  height: 100%;
   border-radius: 50%;
+  box-sizing: border-box;
+  padding: 0.3rem;
+  margin: 0 0.3rem 0 0.3rem;
 }
 .switcherButton:active svg {
   background-color: var(--neutral-300);
 }
 
 .switcherButton span {
-  padding-right: 0.5rem;
+  font-weight: 500;
+  padding-right: 0.6rem;
 }
 
 .light {
@@ -39,24 +38,7 @@
 /****** MEDIA QUERIES *****/
 /**************************/
 @media screen and (min-width: 1024px) {
-  .switcherButton {
-    transform: translateX(0);
-  }
-
-  .switcherButton:hover {
-    border: 1px solid var(--neutral-300);
-  }
-
   .switcherButton:hover svg {
     background-color: var(--neutral-300);
-  }
-}
-
-/**************************/
-/* PREFERS REDUCED MOTION */
-/**************************/
-@media (prefers-reduced-motion: reduce) {
-  .switcherButton {
-    transition: unset;
   }
 }

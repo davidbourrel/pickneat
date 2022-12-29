@@ -26,6 +26,11 @@ export default function ThemeSwitcher({
     [isDarkMode]
   );
 
+  const textSwitcher = useMemo(
+    () => (isDarkMode ? 'DAYMODE' : 'NIGHTMODE'),
+    [isDarkMode]
+  );
+
   return (
     <Button
       onClick={handleThemeClick}
@@ -36,7 +41,7 @@ export default function ThemeSwitcher({
       data-test={dataTestButton}
     >
       <MoonIcon className={svgClassName} />
-      <span>Theme</span>
+      <span>{textSwitcher}</span>
     </Button>
   );
 }
