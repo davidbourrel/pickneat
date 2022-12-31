@@ -146,7 +146,7 @@ p {
 /**************************/
 @media screen and (min-width: 768px) {
   .appPadding {
-    padding: 0 var(--app-desktop-padding);
+    padding: var(--app-desktop-padding);
   }
 }
 
