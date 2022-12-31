@@ -70,7 +70,7 @@ export default function DesktopNavigation() {
         </li>
         <li>
           <ThemeSwitcher
-            title={t('switchThemeTitle')}
+            title={t('themeSwitcherTitle')}
             dataTestButton="themeSwitcherDesktopButton"
           />
         </li>

@@ -30,6 +30,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
    /**************/
   useEffect(() => {
     const refetchTheme = () => {
+      // Keep theme preference from local storage
       if (localStorage.getItem(PICKNEAT_THEME)) {
         if (localStorage.getItem(PICKNEAT_THEME) === ThemeEnum.Dark) {
           handleSetTheme(ThemeEnum.Dark);
@@ -40,8 +41,15 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
           setIsDarkMode(false);
         }
       } else {
-        handleSetTheme(ThemeEnum.Light);
-        setIsDarkMode(false);
+        // Keep theme preference from browser
+        // Light mode by default
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          handleSetTheme(ThemeEnum.Dark);
+          setIsDarkMode(true);
+        } else {
+          handleSetTheme(ThemeEnum.Light);
+          setIsDarkMode(false);
+        }
       }
     };
     refetchTheme();

@@ -104,7 +104,7 @@ export default function MobileNavigation({
             </li>
             <li>
               <ThemeSwitcher
-                title={t('switchThemeTitle')}
+                title={t('themeSwitcherTitle')}
                 dataTestButton="themeSwitcherMobileButton"
               />
             </li>

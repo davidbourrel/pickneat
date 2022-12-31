@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
+import { ThemeEnum } from '_types/theme';
+import useDarkMode from 'contexts/themeContext/useDarkMode';
 import styles from './ThemeSwitcher.module.css';
 import Button from '../buttons/Button';
 import MoonIcon from 'components/images/icons/MoonIcon';
-import useDarkMode from 'contexts/themeContext/useDarkMode';
-import { ThemeEnum } from '_types/theme';
 
 interface ThemeSwitcherProps {
   title: string;
@@ -16,6 +17,8 @@ export default function ThemeSwitcher({
 }: ThemeSwitcherProps) {
   const { isDarkMode, handleThemeClick } = useDarkMode();
 
+  const t = useTranslations('Navigation');
+
   const svgClassName = useMemo(
     () => (isDarkMode ? styles.dark : styles.light),
     [isDarkMode]
@@ -27,8 +30,8 @@ export default function ThemeSwitcher({
   );
 
   const textSwitcher = useMemo(
-    () => (isDarkMode ? 'DAYMODE' : 'NIGHTMODE'),
-    [isDarkMode]
+    () => (isDarkMode ? t('darkModeTheme') : t('lightModeTheme')),
+    [isDarkMode, t]
   );
 
   return (

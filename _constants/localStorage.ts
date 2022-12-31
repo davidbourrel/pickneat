@@ -1,1 +1,1 @@
-export const PICKNEAT_THEME = 'theme';
+export const PICKNEAT_THEME = 'theme-preference';
