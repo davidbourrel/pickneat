@@ -1,4 +1,5 @@
-import { useState, useCallback, useMemo, ReactNode } from 'react';
+import { useState, useCallback, useMemo, ReactNode, useEffect } from 'react';
+import { PICKNEAT_CART } from '_constants/localStorage';
 import { Product } from '_types/products';
 import cartContext from './cart.context';
 import { CartContextInterface } from './cart.types';
@@ -74,6 +75,26 @@ export default function CartProvider({ children }: CartProviderProps) {
   }, []);
 
   const removeAllFromCart = useCallback(() => setCart([] as Product[]), []);
+
+  /***************
+   * Refetch cart from the local storage on reload
+   /**************/
+  useEffect(() => {
+    const cartFromLocalStorage = JSON.parse(
+      localStorage.getItem(PICKNEAT_CART) as string
+    ) as Product[];
+
+    if (cartFromLocalStorage?.length > 0) {
+      setCart(cartFromLocalStorage);
+    }
+  }, []);
+
+  /***************
+   * Set cart to the local storage
+   /**************/
+  useEffect(() => {
+    localStorage.setItem(PICKNEAT_CART, JSON.stringify(cart));
+  }, [cart]);
 
   const contextValue: CartContextInterface = useMemo(
     () => ({

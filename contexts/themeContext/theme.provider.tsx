@@ -26,7 +26,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
   }, [handleSetTheme]);
 
   /***************
-   * Refetch the theme in local storage
+   * Refetch the preference theme from the local storage
    /**************/
   useEffect(() => {
     const refetchTheme = () => {
