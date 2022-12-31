@@ -69,13 +69,6 @@
   text-decoration: underline;
 }
 
-.inStock {
-  color: var(--valid);
-}
-.outOfStock {
-  color: var(--red);
-}
-
 .priceAndQuantityContainer {
   display: flex;
   justify-content: space-between;

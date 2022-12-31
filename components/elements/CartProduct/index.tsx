@@ -15,12 +15,10 @@ interface CartProductProps {
 }
 
 export default function CartProduct({ product }: CartProductProps) {
-  const { product_id, name, price, in_stock, image, category, amount } =
-    product;
+  const { product_id, name, price, image, category, amount } = product;
 
   const { removeItemsFromCart } = useRemoveCart();
   const t = useTranslations('Cart');
-  const t2 = useTranslations('Product');
 
   const totalPriceOfProduct = useMemo(() => price * amount, [price, amount]);
 
@@ -47,13 +45,6 @@ export default function CartProduct({ product }: CartProductProps) {
             {name}
           </Heading>
           <span>{category}</span>
-          <span>
-            {in_stock ? (
-              <span className={styles.inStock}>{t2('inStock')}</span>
-            ) : (
-              <span className={styles.outOfStock}>{t2('outOfStock')}</span>
-            )}
-          </span>
         </div>
 
         <Button
@@ -65,7 +56,7 @@ export default function CartProduct({ product }: CartProductProps) {
         </Button>
       </div>
     ),
-    [name, category, in_stock, removeItemsFromCart, product_id, t, t2]
+    [name, category, removeItemsFromCart, product_id, t]
   );
 
   const priceAndQuantity = useMemo(

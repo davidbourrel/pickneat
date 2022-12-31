@@ -106,12 +106,12 @@
     "cart": "Panier",
     "emptyCartText": "Votre panier est actuellement vide",
     "backToProducts": "Voir nos produits",
-    "cartCountInformation": "Il y a {cartCount} articles dans votre panier!",
-    "proceedToCheckout": "Procéder à l'achat",
+    "cartCountInformation": "Il y a {cartCount} articles dans votre panier !",
+    "proceedToCheckout": "Valider mon panier",
     "remove": "Supprimer",
     "subTotalPrice": "Sous-total",
     "totalPrice": "Total",
-    "continueShopping": "Continuer ma commande",
+    "continueShopping": "Continuer à faire mon choix",
     "viewCart": "Voir le panier ({cartCount})"
   }
 }
