@@ -7,3 +7,10 @@ Cypress.Commands.add('swipeOnceWithFingers', (sliderContainer, direction) => {
     .trigger('pointermove', direction)
     .trigger('pointerup', { force: true });
 });
+
+/*************
+ * Burger Menu
+ *************/
+Cypress.Commands.add('openBurgerMenu', () => {
+  cy.get('[data-test="openBurgerMenuButton"]').click();
+});

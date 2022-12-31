@@ -44,7 +44,7 @@ describe('Navigation menu', () => {
       cy.get('@mobileNavigation').contains('Locate');
       cy.get('@mobileNavigation').contains('Delivery');
       cy.get('@mobileNavigation').contains('English');
-      cy.get('@mobileNavigation').contains('Theme');
+      cy.get('@mobileNavigation').contains('Day Mode');
       cy.get('@mobileNavigation').contains('PickN`Eat');
     });
   });
@@ -53,7 +53,7 @@ describe('Navigation menu', () => {
    * Desktop
    ***********/
   describe('Desktop navigation', { viewportWidth: 1500 }, () => {
-    it('should not have a visible burger toggle button', () => {
+    it('should not have a visible burger menu button', () => {
       cy.get('[data-test="openBurgerMenuButton"]').should('not.be.visible');
     });
 
@@ -64,7 +64,7 @@ describe('Navigation menu', () => {
       cy.get('@desktopNavigation').contains('Locate');
       cy.get('@desktopNavigation').contains('Delivery');
       cy.get('@desktopNavigation').contains('English');
-      cy.get('@desktopNavigation').contains('Theme');
+      cy.get('@desktopNavigation').contains('Day Mode');
       cy.get('@desktopNavigation').contains('Login');
     });
   });

@@ -6,13 +6,12 @@ describe('Theme Switcher', () => {
     cy.clearLocalStorage();
   });
 
-  /**
+  /************
    * Mobile
-   */
+   ***********/
   describe('Mobile', { viewportWidth: 320 }, () => {
     beforeEach(() => {
-      /** Open the mobile navigation before each tests */
-      cy.get('[data-test="openBurgerMenuButton"]').click();
+      cy.openBurgerMenu();
     });
 
     it('should be visible', () => {
@@ -47,9 +46,9 @@ describe('Theme Switcher', () => {
     });
   });
 
-  /**
+  /************
    * Desktop
-   */
+   ***********/
   describe('Desktop', { viewportWidth: 1500 }, () => {
     it('should be visible', () => {
       cy.get('[data-test="desktopNavigation"]').should('be.visible');

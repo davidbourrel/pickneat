@@ -10,8 +10,7 @@ describe('Language Switcher', () => {
    ***********/
   describe('Mobile language switcher', { viewportWidth: 320 }, () => {
     beforeEach(() => {
-      /** Open the burger menu */
-      cy.get('[data-test="openBurgerMenuButton"]').click();
+      cy.openBurgerMenu();
     });
 
     it('should be visible', () => {
@@ -28,7 +27,7 @@ describe('Language Switcher', () => {
       );
     });
 
-    it('should toggle between English and French language', () => {
+    it('should toggle between English and French', () => {
       /** Switch from EN to FR */
       cy.get('[data-test="langSwitcherMobileButton"]').click();
       cy.get('[data-test="langSwitcherMobileLangButtonFrench"]').click();
@@ -59,7 +58,7 @@ describe('Language Switcher', () => {
       );
     });
 
-    it('should toggle between English and French language', () => {
+    it('should toggle between English and French', () => {
       /** Switch from EN to FR */
       cy.get('[data-test="langSwitcherDesktopButton"]').click();
       cy.get('[data-test="langSwitcherDesktopLangButtonFrench"]').click();
