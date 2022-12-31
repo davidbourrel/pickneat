@@ -17,20 +17,20 @@ describe('Home slider', () => {
       cy.get('@firstImage').should('exist').should('be.visible');
 
       /* Swipe twice to the left to not be able to see the first image */
-      cy.swipeOnceWithFingers('@sliderContainer', 'left');
-      cy.swipeOnceWithFingers('@sliderContainer', 'left');
+      cy.get('@sliderContainer').dragElement(-200, 0);
+      cy.get('@sliderContainer').dragElement(-200, 0);
       cy.get('@firstImage').should('not.be.visible');
     });
 
     it('should comeback to the first image', () => {
       cy.get('@firstImage').should('be.visible');
-      cy.swipeOnceWithFingers('@sliderContainer', 'left');
-      cy.swipeOnceWithFingers('@sliderContainer', 'left');
+      cy.get('@sliderContainer').dragElement(-200, 0);
+      cy.get('@sliderContainer').dragElement(-200, 0);
       cy.get('@firstImage').should('not.be.visible');
 
       /* Swipe twice to the right to be able to see the first image again */
-      cy.swipeOnceWithFingers('@sliderContainer', 'right');
-      cy.swipeOnceWithFingers('@sliderContainer', 'right');
+      cy.get('@sliderContainer').dragElement(800, 0);
+      cy.get('@sliderContainer').dragElement(800, 0);
       cy.get('@firstImage').should('be.visible');
     });
   });
@@ -41,11 +41,15 @@ describe('Home slider', () => {
       cy.get('.swiper-button-next').as('nextButton');
     });
 
+    it('should have a next and previous buttons', () => {
+      cy.get('@prevButton').should('exist').should('be.visible');
+      cy.get('@nextButton').should('exist').should('be.visible');
+    });
+
     it('should swipe to the third image', () => {
       cy.get('@firstImage').should('be.visible');
-      cy.get('@nextButton').should('exist').should('be.visible');
 
-      /* Click twice to the next button to not be able to see the first image */
+      /* Click twice on the next button to not see the first image */
       cy.get('@nextButton').click().click();
       cy.get('@firstImage').should('not.be.visible');
     });
@@ -53,7 +57,7 @@ describe('Home slider', () => {
     it('should comeback to the first image', () => {
       cy.get('@firstImage').should('be.visible');
       cy.get('@nextButton').click().click();
-      cy.get('@prevButton').should('exist').should('be.visible');
+      cy.get('@firstImage').should('not.be.visible');
 
       /* Click twice to the prev button to be able to see the first image again */
       cy.get('@prevButton').click().click();

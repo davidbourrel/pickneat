@@ -1,12 +1,21 @@
 /*************
  * Slider
  *************/
-Cypress.Commands.add('swipeOnceWithFingers', (sliderContainer, direction) => {
-  cy.get(sliderContainer)
-    .trigger('pointerdown', { which: 1, force: true })
-    .trigger('pointermove', direction)
-    .trigger('pointerup', { force: true });
-});
+Cypress.Commands.add(
+  'dragElement',
+  {
+    prevSubject: 'true',
+  },
+  (subject, x, y) => {
+    Cypress.log({
+      name: 'dragElement',
+    });
+    cy.wrap(subject)
+      .trigger('pointerdown', { button: 0 }, { force: true })
+      .trigger('pointermove', x, y, { force: true });
+    cy.wrap(subject).trigger('pointerup', { force: true });
+  }
+);
 
 /*************
  * Burger Menu
