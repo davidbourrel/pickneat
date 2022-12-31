@@ -77,7 +77,7 @@ export default function Home({ ssrProducts }: HomeProps) {
         </Slider>
         <Heading level={1}>{t('homeMainTitle')}</Heading>
       </header>
-      <CategoryList ssrProducts={ssrProducts} className="sidePadding" />
+      <CategoryList ssrProducts={ssrProducts} className="appPadding" />
       <ViewCartButton />
       <ScrollToTopButton />
     </MainContentLayout>

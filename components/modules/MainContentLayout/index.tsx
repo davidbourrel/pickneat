@@ -16,8 +16,8 @@ export default function MainContentLayout({
 }: MainContentLayoutProps) {
   const computedClassName = useMemo(
     () =>
-      `${styles.main} ${className} ${padding ? 'sidePadding' : ''} ${
-        center ? 'center' : ''
+      `${styles.main} ${className} ${padding ? 'appPadding' : ''} ${
+        center ? styles.center : ''
       }`,
     [className, padding, center]
   );

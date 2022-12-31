@@ -17,7 +17,9 @@ export default function NotFound() {
       <Head>
         <title>{`PickN\`Eat | ${t('shortError404')}`}</title>
       </Head>
-      <Heading level={1}>{t('longError404')}</Heading>
+      <Heading level={1} error className="errorTitle">
+        {t('longError404')}
+      </Heading>
       <Button onClick={back}>{t('backButtonMessage')}</Button>
     </MainContentLayout>
   );

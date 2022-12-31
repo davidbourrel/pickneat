@@ -27,3 +27,7 @@
   font-size: 1rem;
   line-height: 1.5rem;
 }
+
+.error {
+  color: var(--error);
+}
