@@ -18,7 +18,7 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
 
   const t = useTranslations('Product');
 
-  const { cart } = useCart();
+  const cart = useCart();
   const addToCart = useAddToCart();
 
   const handleAddProductClick = useCallback(

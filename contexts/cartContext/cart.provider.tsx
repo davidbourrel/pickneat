@@ -99,7 +99,6 @@ export default function CartProvider({ children }: CartProviderProps) {
   const contextValue: CartContextInterface = useMemo(
     () => ({
       cart,
-      setCart,
       cartTotalPrice,
       cartTotalItems,
       addToCart,
@@ -109,7 +108,6 @@ export default function CartProvider({ children }: CartProviderProps) {
     }),
     [
       cart,
-      setCart,
       cartTotalPrice,
       cartTotalItems,
       addToCart,
