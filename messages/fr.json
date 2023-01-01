@@ -113,5 +113,11 @@
     "totalPrice": "Total",
     "continueShopping": "Continuer ma selection",
     "viewCart": "Voir le panier ({cartCount})"
+  },
+
+  "Profile": {
+    "profile": "Mon profil",
+    "nickname": "Surnom",
+    "email": "E-mail"
   }
 }

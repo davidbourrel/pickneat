@@ -1,7 +1,6 @@
 .profileTitle {
-  font-size: 1.75rem;
   font-weight: 700;
-  margin: 1rem 0;
+  margin-bottom: 2rem;
 }
 
 .profilePicture {
@@ -9,4 +8,17 @@
   height: 6rem;
   border-radius: 50%;
   margin-bottom: 2rem;
+}
+
+.userInformation {
+  margin-bottom: 2rem;
+}
+
+.userInformation span {
+  font-weight: 600;
+}
+
+.logout {
+  width: max-content;
+  border-radius: var(--app-radius);
 }
