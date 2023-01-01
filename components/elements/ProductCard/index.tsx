@@ -36,7 +36,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             src={image}
             alt={name}
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw,
+            (max-width: 1200px) 50vw,
+            33vw"
             className={styles.image}
           />
           {badgeNewRelease}
