@@ -119,5 +119,9 @@
     "profile": "Mon profil",
     "nickname": "Surnom",
     "email": "E-mail"
+  },
+
+  "Checkout": {
+    "checkout": "Checkout en FR"
   }
 }

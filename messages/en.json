@@ -119,5 +119,9 @@
     "profile": "Profile",
     "nickname": "Nickname",
     "email": "Email"
+  },
+
+  "Checkout": {
+    "checkout": "Checkout"
   }
 }
