@@ -13,6 +13,19 @@ interface CartProviderProps {
 export default function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState([] as Product[]);
 
+  /***************
+   * Get cart from the local storage on load
+   /**************/
+  useEffect(() => {
+    const cartFromLocalStorage = JSON.parse(
+      localStorage.getItem(PICKNEAT_CART) as string
+    ) as Product[];
+
+    if (cartFromLocalStorage?.length > 0) {
+      setCart(cartFromLocalStorage);
+    }
+  }, []);
+
   const cartTotalPrice = useMemo(
     () =>
       cart.reduce((total: number, item) => total + item.amount * item.price, 0),
@@ -75,19 +88,6 @@ export default function CartProvider({ children }: CartProviderProps) {
   }, []);
 
   const removeAllFromCart = useCallback(() => setCart([] as Product[]), []);
-
-  /***************
-   * Refetch cart from the local storage on reload
-   /**************/
-  useEffect(() => {
-    const cartFromLocalStorage = JSON.parse(
-      localStorage.getItem(PICKNEAT_CART) as string
-    ) as Product[];
-
-    if (cartFromLocalStorage?.length > 0) {
-      setCart(cartFromLocalStorage);
-    }
-  }, []);
 
   /***************
    * Set cart to the local storage

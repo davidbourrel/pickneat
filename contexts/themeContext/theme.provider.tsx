@@ -13,51 +13,38 @@ interface ThemeProviderProps {
 export default function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const handleSetTheme = useCallback((theme: string) => {
+  const getThemePreference = () => {
+    if (localStorage.getItem(PICKNEAT_THEME))
+      return localStorage.getItem(PICKNEAT_THEME);
+    else
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? ThemeEnum.Dark
+        : ThemeEnum.Light;
+  };
+
+  useEffect(() => {
+    const theme = getThemePreference();
+
+    if (theme === ThemeEnum.Dark) {
+      setIsDarkMode(true);
+      document.documentElement.setAttribute('color-scheme', ThemeEnum.Dark);
+    } else {
+      setIsDarkMode(false);
+      document.documentElement.setAttribute('color-scheme', ThemeEnum.Light);
+    }
+  }, []);
+
+  const setThemePreference = useCallback((theme: string) => {
     localStorage.setItem(PICKNEAT_THEME, theme);
     document.documentElement.setAttribute('color-scheme', theme);
   }, []);
 
   const handleThemeClick = useCallback(() => {
     setIsDarkMode((c) => {
-      handleSetTheme(!c ? ThemeEnum.Dark : ThemeEnum.Light);
+      setThemePreference(!c ? ThemeEnum.Dark : ThemeEnum.Light);
       return !c;
     });
-  }, [handleSetTheme]);
-
-  /***************
-   * Refetch the preference theme from the local storage
-   /**************/
-  useEffect(() => {
-    const refetchTheme = () => {
-      // Keep theme preference from local storage
-      if (localStorage.getItem(PICKNEAT_THEME)) {
-        if (localStorage.getItem(PICKNEAT_THEME) === ThemeEnum.Dark) {
-          handleSetTheme(ThemeEnum.Dark);
-          setIsDarkMode(true);
-        }
-        if (localStorage.getItem(PICKNEAT_THEME) === ThemeEnum.Light) {
-          handleSetTheme(ThemeEnum.Light);
-          setIsDarkMode(false);
-        }
-      } else {
-        // Keep theme preference from browser
-        // Light mode by default
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          handleSetTheme(ThemeEnum.Dark);
-          setIsDarkMode(true);
-        } else {
-          handleSetTheme(ThemeEnum.Light);
-          setIsDarkMode(false);
-        }
-      }
-    };
-    refetchTheme();
-
-    window.addEventListener('storage', refetchTheme);
-
-    return () => window.removeEventListener('storage', refetchTheme);
-  }, [handleSetTheme]);
+  }, [setThemePreference]);
 
   const contextValue: ThemeContextInterface = useMemo(
     () => ({
