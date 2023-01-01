@@ -2,15 +2,15 @@ import { GetStaticPathsContext, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import Heading from 'components/elements/Heading';
 import styles from './Product.module.css';
-import PriceTag from 'components/elements/PriceTag';
-import Quantity from 'components/elements/Quantity';
+import { getProduct, getProducts } from 'database/products';
 import { pick } from 'lodash';
 import { Product } from '_types/products';
-import { getProduct, getProducts } from 'database/products';
-import PageLayout from 'components/modules/PageLayout';
 import { LangEnum } from '_types/lang';
+import Heading from 'components/elements/Heading';
+import PriceTag from 'components/elements/PriceTag';
+import Quantity from 'components/elements/Quantity';
+import PageLayout from 'components/modules/PageLayout';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
 interface ProductIdProps {
