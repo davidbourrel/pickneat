@@ -3,7 +3,7 @@
   align-items: center;
   padding: 0.8rem 1rem;
   border-radius: var(--app-radius);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   box-sizing: border-box;
   font-weight: 600;
   font-size: 1rem;
@@ -20,7 +20,7 @@
 
 .border {
   background-color: transparent;
-  border: 1px solid var(--primary);
+  border: 2px solid var(--primary);
   color: var(--neutral-900);
 }
 
