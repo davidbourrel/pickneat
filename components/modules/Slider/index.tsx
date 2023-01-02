@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from 'react';
+import { ReactNode } from 'react';
 import { Swiper } from 'swiper/react';
 import { A11y, Keyboard, Navigation, SwiperOptions } from 'swiper';
 import styles from './Slider.module.css';
@@ -10,16 +10,12 @@ interface SliderProps extends SwiperOptions {
 }
 
 export default function Slider({ children, loading, ...props }: SliderProps) {
-  const computedClassName = useMemo(
-    () => (loading ? styles.swiperLoading : styles.swiperContainer),
-    [loading]
-  );
   return (
     <Swiper
       modules={[Navigation, A11y, Keyboard]}
       slidesPerView={1}
       navigation
-      className={computedClassName}
+      className={styles.swiperContainer}
       data-test="sliderContainer"
       {...props}
     >
