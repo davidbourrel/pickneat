@@ -68,8 +68,9 @@ export default function Profile({ user }: ProfileProps) {
         title={t2('logout')}
         href="/api/auth/logout"
         className={styles.logout}
+        tabIndex={-1}
       >
-        <Button tabIndex={-1}>{t2('logout')}</Button>
+        <Button>{t2('logout')}</Button>
       </Link>
     </MainContentLayout>
   );

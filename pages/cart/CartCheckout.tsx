@@ -40,8 +40,8 @@ export default function CartCheckout({
   const buttonsAction = useMemo(
     () => (
       <div className={styles.cartCheckoutWrapper}>
-        <Link href="/">
-          <Button tabIndex={-1}>{t('continueShopping')}</Button>
+        <Link href="/" tabIndex={-1}>
+          <Button border>{t('continueShopping')}</Button>
         </Link>
         <CheckoutButton />
       </div>

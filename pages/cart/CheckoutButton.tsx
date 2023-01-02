@@ -9,7 +9,7 @@ export default function CheckoutButton() {
 
   const checkoutButton = useMemo(
     () => (
-      <Link href="/checkout">
+      <Link href="/checkout" tabIndex={-1}>
         <Button className={styles.checkoutButton}>
           {t('proceedToCheckout')}
         </Button>

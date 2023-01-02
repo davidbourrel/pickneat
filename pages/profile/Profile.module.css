@@ -17,8 +17,3 @@
 .userInformation span {
   font-weight: 600;
 }
-
-.logout {
-  width: max-content;
-  border-radius: var(--app-radius);
-}
