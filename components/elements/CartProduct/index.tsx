@@ -70,12 +70,12 @@ export default function CartProduct({ product }: CartProductProps) {
   );
 
   return (
-    <div className={styles.cartProduct}>
+    <li className={styles.cartProduct}>
       {imageBox}
       <div className={styles.cartProductContent}>
         {about}
         {priceAndQuantity}
       </div>
-    </div>
+    </li>
   );
 }

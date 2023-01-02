@@ -3,7 +3,7 @@ import isEqual from 'utils/isEqual';
 import useInputKeyCode from './useInputKeyCode';
 import { Snowflake } from '../animation/snowAnimation';
 
-const konamiCode = ['c', 'h', 'i', 'b', 'r', 'e'];
+const konamiCode = ['c', 'n', 'o', 'e', 'l'];
 
 const useKonami = (): void => {
   const key = useInputKeyCode();
@@ -46,7 +46,7 @@ const useKonami = (): void => {
       if (snowAnimationId) {
         setTimeout(() => {
           snowAnimationId.remove();
-        }, 15000);
+        }, 10000);
       }
     }
   }, [isKonami]);
