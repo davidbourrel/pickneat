@@ -82,7 +82,7 @@ export const getServerSideProps = async ({
   res,
   locale,
 }: GetServerSidePropsContext) => {
-  const session = await getSession(req, res);
+  const session = getSession(req, res);
 
   if (!session || !session.user) {
     res.writeHead(302, {

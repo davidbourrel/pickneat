@@ -1,16 +1,15 @@
 import type { GetStaticPropsContext } from 'next';
-import PageLayout from 'components/modules/PageLayout';
-import { pick } from 'lodash';
-import MainContentLayout from 'components/modules/MainContentLayout';
 import Head from 'next/head';
-import Heading from 'components/elements/Heading';
 import { useTranslations } from 'next-intl';
-import { useUser } from '@auth0/nextjs-auth0';
+import { pick } from 'lodash';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import MainContentLayout from 'components/modules/MainContentLayout';
+import Heading from 'components/elements/Heading';
+import PageLayout from 'components/modules/PageLayout';
+import Loader from 'components/elements/Loader';
 
-export default function Checkout() {
+function Checkout() {
   const t = useTranslations('Checkout');
-
-  const { user } = useUser();
 
   return (
     <MainContentLayout>
@@ -18,9 +17,6 @@ export default function Checkout() {
         <title>{`PickN\`Eat | ${t('checkout')}`}</title>
       </Head>
       <Heading level={1}>{t('checkout')}</Heading>
-      {user
-        ? '[You are connected]'
-        : '[You are not connected, so you cant checkout]'}
     </MainContentLayout>
   );
 }
@@ -37,3 +33,16 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     },
   };
 }
+
+export default withPageAuthRequired(Checkout, {
+  onRedirecting: () => (
+    <MainContentLayout>
+      <Loader />
+    </MainContentLayout>
+  ),
+  onError: (error) => (
+    <MainContentLayout>
+      <p>{error.message}</p>
+    </MainContentLayout>
+  ),
+});
