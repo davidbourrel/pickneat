@@ -42,40 +42,38 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
     [className]
   );
 
-  const minusButton = useMemo(
-    () =>
-      amount > 0 && in_stock ? <MinusButton productId={product_id} /> : null,
-    [amount, in_stock, product_id]
+  const quantityButtons = useMemo(
+    () => (
+      <>
+        <MinusButton productId={product_id} />
+        <span className={styles.quantity}>{amount}</span>
+        <PlusButton product={product} />
+      </>
+    ),
+    [product_id, amount, product]
+  );
+
+  const addToCartButton = useMemo(
+    () => (
+      <Button
+        onClick={handleAddProductClick}
+        className={styles.addToCartButton}
+      >
+        <span>&#43;</span>
+        {t('addToCartTextButton')}
+      </Button>
+    ),
+    [handleAddProductClick, t]
   );
 
   const quantity = useMemo(
-    () =>
-      in_stock ? (
-        amount === 0 ? (
-          <Button
-            onClick={handleAddProductClick}
-            className={styles.addToCartButton}
-          >
-            <span>&#43;</span>
-            {t('addToCartTextButton')}
-          </Button>
-        ) : (
-          <span className={styles.quantity}>{amount}</span>
-        )
-      ) : null,
-    [in_stock, amount, handleAddProductClick, t]
+    () => (
+      <div className={computedClassName}>
+        {in_stock ? (amount === 0 ? addToCartButton : quantityButtons) : null}
+      </div>
+    ),
+    [computedClassName, in_stock, amount, addToCartButton, quantityButtons]
   );
 
-  const plusButton = useMemo(
-    () => (amount > 0 && in_stock ? <PlusButton product={product} /> : null),
-    [amount, in_stock, product]
-  );
-
-  return (
-    <div className={computedClassName}>
-      {minusButton}
-      {quantity}
-      {plusButton}
-    </div>
-  );
+  return quantity;
 }

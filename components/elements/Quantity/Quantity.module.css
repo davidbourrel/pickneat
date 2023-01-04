@@ -1,11 +1,17 @@
 .quantityContainer {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
   color: var(--white);
   background-color: var(--primary);
   border-radius: 1.3rem;
   font-weight: 600;
+}
+
+.quantity {
+  font-size: 1.25rem;
+  width: 100%;
+  min-width: 2.5rem;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .addToCartButton {
@@ -18,13 +24,6 @@
 .addToCartButton span {
   margin-right: 0.5rem;
   font-size: 1.5rem;
-}
-
-.quantity {
-  width: 100%;
-  min-width: 2rem;
-  padding: 0.5rem;
-  text-align: center;
 }
 
 .minus,
@@ -46,7 +45,6 @@
 .minus {
   border-radius: 1.3rem 0 0 1.3rem;
 }
-
 .plus {
   border-radius: 0 1.3rem 1.3rem 0;
 }
@@ -55,11 +53,6 @@
 /****** MEDIA QUERIES *****/
 /**************************/
 @media screen and (min-width: 1024px) {
-  .quantity {
-    font-size: 1.25rem;
-    min-width: 2.5rem;
-  }
-
   .minus,
   .plus {
     font-size: 1.85rem;

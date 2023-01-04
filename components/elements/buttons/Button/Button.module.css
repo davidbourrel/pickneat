@@ -20,7 +20,7 @@
 
 .border {
   background-color: transparent;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--neutral-600);
   color: var(--neutral-900);
 }
 
@@ -43,6 +43,7 @@
 @media screen and (min-width: 1024px) {
   .button:hover {
     background-color: var(--primary-hover);
+    color: var(--white);
   }
 }
 
