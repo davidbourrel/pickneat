@@ -20,6 +20,7 @@ import Slider from 'components/modules/Slider';
 import CategoryList from 'components/modules/CategoryList';
 import PageLayout from 'components/modules/PageLayout';
 import MainContentLayout from 'components/modules/MainContentLayout';
+import CategoryNavigation from 'components/modules/Navigation/CategoryNavigation';
 
 interface HomeProps {
   ssrProducts: Product[];
@@ -30,6 +31,7 @@ export default function Home({ ssrProducts }: HomeProps) {
 
   return (
     <MainContentLayout padding={false}>
+      <CategoryNavigation />
       <header className={styles.homeHeader}>
         <Slider>
           <SwiperSlide>

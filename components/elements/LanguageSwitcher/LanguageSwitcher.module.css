@@ -29,13 +29,14 @@
 }
 
 .langList {
-  display: block;
-  background-color: var(--neutral-50);
-  border: 1px solid var(--neutral-300);
-  border-radius: var(--app-radius);
   position: absolute;
   bottom: 3.5rem;
   left: 0;
+  display: block;
+  color: var(--neutral-600);
+  background-color: var(--neutral-50);
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--app-radius);
   min-width: 6rem;
   padding: 0.5rem;
 }
@@ -64,7 +65,6 @@
 }
 .activeCountry {
   color: var(--neutral-900);
-  font-weight: 600;
 }
 .langButton span {
   pointer-events: none;

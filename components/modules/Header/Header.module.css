@@ -1,12 +1,11 @@
 .header {
   position: sticky;
-  top: 0;
-  left: 0;
+  inset: 0;
   background-color: var(--neutral-50);
   align-items: center;
   display: flex;
   width: 100%;
-  height: var(--top-mobile-header-height);
+  height: var(--mobile-top-header-height);
   padding: 0 var(--app-mobile-padding);
   box-sizing: border-box;
   border-bottom: 1px solid var(--neutral-300);
@@ -35,7 +34,7 @@
 }
 @media screen and (min-width: 1024px) {
   .header {
-    min-height: var(--top-desktop-header-height);
+    min-height: var(--desktop-top-header-height);
   }
   .headerMobileActions {
     display: none;

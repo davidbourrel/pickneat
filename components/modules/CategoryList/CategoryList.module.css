@@ -14,12 +14,17 @@
   width: max-content;
 }
 
-.headingContainer h2 {
+.heading {
   position: relative;
-  z-index: 60;
+  z-index: 1;
   margin-left: 1rem;
+  scroll-margin-top: calc(
+    var(--mobile-top-header-height) + var(--mobile-top-nav-category-height) +
+      2rem
+  );
   font-size: 1.875rem;
 }
+
 .stroke {
   position: absolute;
   top: 0;
