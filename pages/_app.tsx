@@ -12,10 +12,7 @@ import useKonami from 'hooks/useKonami';
 import PageLayout from '../components/modules/PageLayout';
 import { Baloo_2 } from '@next/font/google';
 
-const fontFamily = Baloo_2({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-});
+const fontFamily = Baloo_2({ display: 'swap' });
 
 type PageProps = {
   messages: IntlMessages;
