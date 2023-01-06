@@ -33,7 +33,6 @@
 
 .navigation button {
   white-space: nowrap;
-  font-weight: 400;
   transition: color 150ms var(--transition-easeInOut);
 }
 
