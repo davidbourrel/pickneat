@@ -17,7 +17,7 @@ export default function ViewCartButton() {
   );
 
   return (
-    <div className={viewCartContainerClassName}>
+    <div className={viewCartContainerClassName} data-test="viewCartButton">
       <Link href="/cart" className={styles.viewCart} tabIndex={-1}>
         <Button>{t('viewCart', { cartCount: cartTotalItems })}</Button>
       </Link>

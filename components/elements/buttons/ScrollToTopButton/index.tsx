@@ -35,6 +35,7 @@ export default function ScrollToTopButton() {
       className={buttonClassName}
       onClick={handleScrollToTopButton}
       aria-label="scroll to top"
+      data-test="scrollToTopButton"
     >
       <div className={styles.svgContainer}>
         <Arrow direction={ArrowDirectionEnum.Top} />

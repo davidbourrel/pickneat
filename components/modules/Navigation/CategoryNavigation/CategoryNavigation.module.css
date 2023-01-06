@@ -4,14 +4,17 @@
   left: 0;
   right: 0;
   bottom: 0;
+  border-left: 1px solid var(--neutral-300);
+  border-right: 1px solid var(--neutral-300);
   border-bottom: 1px solid var(--neutral-300);
-  background-color: var(--neutral-200);
+  border-bottom-left-radius: var(--app-radius);
+  border-bottom-right-radius: var(--app-radius);
+  background-color: var(--neutral-100);
   color: var(--neutral-900);
   z-index: 10;
   width: 100%;
   height: var(--mobile-top-nav-category-height);
   overflow: auto;
-  scrollbar-width: thin;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }

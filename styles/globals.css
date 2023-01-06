@@ -109,13 +109,30 @@ p {
 }
 
 .app {
-  width: 100%;
-  min-height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--neutral-100);
-  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/** Scrollbars style **/
+.app * {
+  scrollbar-width: thin;
+}
+.app ::-webkit-scrollbar {
+  width: 1rem;
+  height: 0.5rem;
+}
+.app ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.app ::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 1rem;
+  border: transparent;
 }
 
 .container {
