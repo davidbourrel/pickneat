@@ -23,7 +23,7 @@ export default function LanguageSwitcher({
   dataTestLangList,
   dataTestLangButton,
 }: LanguageSwitcherProps) {
-  const { locale, asPath } = useRouter();
+  const { locale, pathname } = useRouter();
   const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
 
   const handleClosePopupClick = useCallback(() => {
@@ -88,7 +88,7 @@ export default function LanguageSwitcher({
       >
         <li className="capitalize" aria-labelledby="lang-item-English">
           <Link
-            href={asPath}
+            href={pathname}
             passHref
             locale={LangEnum.En}
             lang={LangEnum.En}
@@ -103,7 +103,7 @@ export default function LanguageSwitcher({
         </li>
         <li className="capitalize" aria-labelledby="lang-item-French">
           <Link
-            href={asPath}
+            href={pathname}
             passHref
             locale={LangEnum.Fr}
             lang={LangEnum.Fr}

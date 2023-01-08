@@ -18,7 +18,7 @@ export default function MobileNavigation({
   isMobileNavOpened,
   closeMenu,
 }: MobileNavigationProps) {
-  const { asPath } = useRouter();
+  const { pathname } = useRouter();
 
   const t = useTranslations('Navigation');
 
@@ -72,21 +72,25 @@ export default function MobileNavigation({
           />
           <ul className={styles.firstNavigation}>
             <li title={t('menuTitle')}>
-              <ActiveLink href="/" path={asPath} closeMenu={closeMenu}>
+              <ActiveLink href="/" path={pathname} closeMenu={closeMenu}>
                 {t('menu')}
               </ActiveLink>
             </li>
             <li title={t('restaurantsTitle')}>
               <ActiveLink
                 href="/restaurants"
-                path={asPath}
+                path={pathname}
                 closeMenu={closeMenu}
               >
                 {t('restaurants')}
               </ActiveLink>
             </li>
             <li title={t('deliveryTitle')}>
-              <ActiveLink href="/delivery" path={asPath} closeMenu={closeMenu}>
+              <ActiveLink
+                href="/delivery"
+                path={pathname}
+                closeMenu={closeMenu}
+              >
                 {t('delivery')}
               </ActiveLink>
             </li>

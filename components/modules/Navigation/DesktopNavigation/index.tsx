@@ -11,7 +11,7 @@ import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 
 export default function DesktopNavigation() {
-  const { asPath } = useRouter();
+  const { pathname } = useRouter();
   const { user } = useUser();
 
   const t = useTranslations('Navigation');
@@ -20,18 +20,18 @@ export default function DesktopNavigation() {
     () =>
       user && user.picture ? (
         <li title={t('profile')} data-test="profileIcon">
-          <ActiveLink href="/profile" path={asPath}>
+          <ActiveLink href="/profile" path={pathname}>
             <ProfileIcon />
           </ActiveLink>
         </li>
       ) : (
         <li title={t('login')} data-test="profileIcon">
-          <ActiveLink href="/api/auth/login" path={asPath} tabIndex={-1}>
+          <ActiveLink href="/api/auth/login" path={pathname} tabIndex={-1}>
             <Button>{t('login')}</Button>
           </ActiveLink>
         </li>
       ),
-    [user, asPath, t]
+    [user, pathname, t]
   );
 
   return (
@@ -42,17 +42,17 @@ export default function DesktopNavigation() {
     >
       <ul className={styles.navLinkList}>
         <li title={t('menuTitle')}>
-          <ActiveLink href="/" path={asPath}>
+          <ActiveLink href="/" path={pathname}>
             {t('menu')}
           </ActiveLink>
         </li>
         <li title={t('restaurantsTitle')}>
-          <ActiveLink href="/restaurants" path={asPath}>
+          <ActiveLink href="/restaurants" path={pathname}>
             {t('restaurants')}
           </ActiveLink>
         </li>
         <li title={t('deliveryTitle')}>
-          <ActiveLink href="/delivery" path={asPath}>
+          <ActiveLink href="/delivery" path={pathname}>
             {t('delivery')}
           </ActiveLink>
         </li>
@@ -75,7 +75,7 @@ export default function DesktopNavigation() {
           />
         </li>
         <li>
-          <ActiveLink href="/cart" path={asPath}>
+          <ActiveLink href="/cart" path={pathname}>
             <CartCount title={t('cartTitle')} />
           </ActiveLink>
         </li>
