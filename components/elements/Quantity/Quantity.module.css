@@ -36,6 +36,7 @@
   padding: 0.5rem;
   width: 2.5rem;
   transition: color 150ms var(--transition-easeInOut);
+  position: relative;
 }
 .minus:active,
 .plus:active {

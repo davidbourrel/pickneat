@@ -12,29 +12,31 @@ import Loader from '../../Loader';
 
 export interface ButtonProps extends Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
   children: ReactNode;
-  busy?: boolean;
+  absoluteLoader?: boolean;
   border?: boolean;
+  busy?: boolean;
+  busyClassName?: string;
+  disabledClassName?: string;
   headless?: boolean;
   hideBusyWheel?: boolean;
   onDisabledClick?: React.HTMLProps<HTMLButtonElement>['onClick'];
-  busyClassName?: string;
-  disabledClassName?: string;
 }
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   {
     children,
     className = '',
-    type,
-    disabled,
+    absoluteLoader = false,
     border,
-    headless,
     busy,
+    busyClassName = styles.disable,
+    disabled,
+    disabledClassName = styles.disable,
+    headless,
     hideBusyWheel,
     onClick,
     onDisabledClick,
-    busyClassName = styles.disable,
-    disabledClassName = styles.disable,
+    type,
     ...rest
   },
   ref
@@ -82,6 +84,11 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     ]
   );
 
+  const computedLoader = useMemo(
+    () => (absoluteLoader ? <Loader absoluteLoader /> : <Loader />),
+    [absoluteLoader]
+  );
+
   return (
     <button
       className={buttonClassName}
@@ -92,7 +99,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       {...rest}
     >
       {children}
-      {busy && !hideBusyWheel && <Loader />}
+      {busy && !hideBusyWheel && computedLoader}
     </button>
   );
 };

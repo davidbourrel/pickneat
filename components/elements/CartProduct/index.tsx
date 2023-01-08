@@ -51,6 +51,7 @@ export default function CartProduct({ product }: CartProductProps) {
           onClick={() => removeItemsFromCart(product_id)}
           headless
           className={styles.removeProductButton}
+          absoluteLoader
         >
           {t('remove')}
         </Button>

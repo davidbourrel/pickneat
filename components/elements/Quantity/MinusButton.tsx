@@ -19,6 +19,7 @@ export default function MinusButton({ productId }: MinusButtonProps) {
       className={styles.minus}
       headless
       onClick={handleRemoveProductClick}
+      absoluteLoader
     >
       <span>&#8722;</span>
     </Button>

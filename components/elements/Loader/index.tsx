@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import styles from './Loader.module.css';
 
 interface LoaderProps {
+  absoluteLoader?: boolean;
   loaderContainerClassName?: string;
   loaderClassName?: string;
   circleClassName?: string;
@@ -10,6 +11,7 @@ interface LoaderProps {
 }
 
 export default function Loader({
+  absoluteLoader = false,
   loaderContainerClassName,
   loaderClassName,
   circleClassName,
@@ -20,8 +22,8 @@ export default function Loader({
     () =>
       `${styles.loaderContainer} ${
         loaderContainerClassName ? loaderContainerClassName : ''
-      }`,
-    [loaderContainerClassName]
+      } ${absoluteLoader ? styles.absoluteLoaderContainer : ''}`,
+    [loaderContainerClassName, absoluteLoader]
   );
 
   const computedLoaderClassName = useMemo(

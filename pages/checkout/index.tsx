@@ -37,7 +37,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 export default withPageAuthRequired(Checkout, {
   onRedirecting: () => (
     <MainContentLayout>
-      <Loader />
+      <Loader absoluteLoader />
     </MainContentLayout>
   ),
   onError: (error) => (

@@ -34,6 +34,7 @@ export default function ScrollToTopButton() {
     <Button
       className={buttonClassName}
       onClick={handleScrollToTopButton}
+      absoluteLoader
       aria-label="scroll to top"
       data-test="scrollToTopButton"
     >

@@ -16,7 +16,12 @@ export default function PlusButton({ product }: PlusButtonProps) {
     [addToCart, product]
   );
   return (
-    <Button className={styles.plus} headless onClick={handleAddProductClick}>
+    <Button
+      className={styles.plus}
+      headless
+      onClick={handleAddProductClick}
+      absoluteLoader
+    >
       <span>&#43;</span>
     </Button>
   );

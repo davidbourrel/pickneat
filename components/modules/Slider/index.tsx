@@ -19,7 +19,7 @@ export default function Slider({ children, loading, ...props }: SliderProps) {
       data-test="sliderContainer"
       {...props}
     >
-      {loading ? <Loader /> : children}
+      {loading ? <Loader absoluteLoader /> : children}
     </Swiper>
   );
 }

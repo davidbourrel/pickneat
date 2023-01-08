@@ -4,11 +4,11 @@ import Loader from 'components/elements/Loader';
 import styles from './Location.module.css';
 
 const MapWithoutSSR = dynamic(() => import('./MapWithoutSSR'), {
-  loading: () => <Loader />,
+  loading: () => <Loader absoluteLoader />,
   ssr: false,
 });
 const MapWithSSR = dynamic(() => import('./MapWithSSR'), {
-  // ssr: true,
+  // ssr is true by default
 });
 
 export default function Location() {
