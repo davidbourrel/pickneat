@@ -19,12 +19,10 @@ export default function Category({
 }: CategoryProps) {
   return (
     <section id={id} className={styles.category}>
-      <div className={styles.headingContainer}>
-        <Heading level={2} className={styles.heading}>
-          {title}
-        </Heading>
-        <span className={styles.stroke} />
-      </div>
+      <Heading level={2} className={styles.heading}>
+        <span>{title}</span>
+      </Heading>
+
       <ProductList products={products} category={category} />
     </section>
   );
