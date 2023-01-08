@@ -1,27 +1,27 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import styles from './CategoryList.module.css';
+import styles from './MenuCategories.module.css';
 import Category from './Category';
 import { CategoryEnum, Product } from '_types/products';
 import { ClassNameComponentProps } from '_types/components';
 
-interface CategoryListProps extends ClassNameComponentProps {
+interface MenuCategoriesProps extends ClassNameComponentProps {
   ssrProducts: Product[];
 }
 
-export default function CategoryList({
+export default function MenuCategories({
   ssrProducts,
   className,
-}: CategoryListProps) {
+}: MenuCategoriesProps) {
   const t = useTranslations('Home');
 
   const computedClassName = useMemo(
-    () => `${className} ${styles.categoryList}`,
+    () => `${className} ${styles.menuCategories}`,
     [className]
   );
 
   return (
-    <ul className={computedClassName} data-test="categoryList">
+    <div className={computedClassName} data-test="menuCategories">
       <Category
         id="burgerTitle"
         title={t('burgerTitle')}
@@ -52,6 +52,6 @@ export default function CategoryList({
         products={ssrProducts}
         category={CategoryEnum.Salad}
       />
-    </ul>
+    </div>
   );
 }

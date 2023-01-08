@@ -6,7 +6,7 @@ describe('Category List', () => {
   });
 
   it('should have 5 (all) categories', () => {
-    cy.get('[data-test="categoryList"]')
+    cy.get('[data-test="menuCategories"]')
       .children()
       .its('length')
       .should('eq', 5);

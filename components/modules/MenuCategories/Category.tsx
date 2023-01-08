@@ -1,5 +1,5 @@
 import Heading from 'components/elements/Heading';
-import styles from './CategoryList.module.css';
+import styles from './MenuCategories.module.css';
 import ProductList from '../ProductList';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
@@ -18,14 +18,14 @@ export default function Category({
   category,
 }: CategoryProps) {
   return (
-    <li>
+    <section id={id} className={styles.category}>
       <div className={styles.headingContainer}>
-        <Heading id={id} level={2} className={styles.heading}>
+        <Heading level={2} className={styles.heading}>
           {title}
         </Heading>
         <span className={styles.stroke} />
       </div>
       <ProductList products={products} category={category} />
-    </li>
+    </section>
   );
 }

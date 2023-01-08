@@ -17,10 +17,10 @@ import Heading from 'components/elements/Heading';
 import ScrollToTopButton from 'components/elements/buttons/ScrollToTopButton';
 import ViewCartButton from 'components/elements/buttons/ViewCartButton';
 import Slider from 'components/modules/Slider';
-import CategoryList from 'components/modules/CategoryList';
 import PageLayout from 'components/modules/PageLayout';
 import MainContentLayout from 'components/modules/MainContentLayout';
 import CategoryNavigation from 'components/modules/Navigation/CategoryNavigation';
+import MenuCategories from 'components/modules/MenuCategories';
 
 interface HomeProps {
   ssrProducts: Product[];
@@ -79,7 +79,7 @@ export default function Home({ ssrProducts }: HomeProps) {
         </Slider>
         <Heading level={1}>{t('homeMainTitle')}</Heading>
       </header>
-      <CategoryList ssrProducts={ssrProducts} className="appPadding" />
+      <MenuCategories ssrProducts={ssrProducts} className="appPadding" />
       <ViewCartButton />
       <ScrollToTopButton />
     </MainContentLayout>
