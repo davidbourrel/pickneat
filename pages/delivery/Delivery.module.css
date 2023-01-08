@@ -1,7 +1,6 @@
 .title {
   color: var(--neutral-900);
   font-weight: 700;
-  font-size: 1.75rem;
   margin: 2rem 0;
   text-align: center;
 }
@@ -11,9 +10,6 @@
   flex-direction: column;
   flex-grow: 1;
   margin-bottom: 2rem;
-}
-.mainContent h2 {
-  font-size: 1.75rem;
 }
 
 .mainContent section {

@@ -1,16 +1,14 @@
 .table {
-  flex-grow: 1;
-  margin-bottom: 2rem;
+  color: var(--neutral-600);
   background-color: var(--neutral-50);
+  flex-grow: 1;
 }
 
 /* Header */
 .table thead th {
-  padding: 0.75rem 0.5rem;
-  border: 2px solid var(--neutral-600);
-  color: var(--neutral-900);
   font-weight: 700;
   font-size: 1.25rem;
+  padding: 0.75rem 0.5rem;
   vertical-align: middle;
 }
 
@@ -18,26 +16,16 @@
 .table tbody {
   text-align: center;
 }
+
 .table td,
 .table th {
+  border: 2px solid var(--neutral-400);
   padding: 0.5rem 1rem;
-  border: 2px solid var(--neutral-600);
   vertical-align: middle;
 }
-.day {
-  color: var(--neutral-600);
-}
-.currentDay {
-  background-color: var(--primary);
-  color: var(--white);
-  font-weight: 700;
-}
 
-/**************************/
-/****** MEDIA QUERIES *****/
-/**************************/
-@media screen and (min-width: 1024px) {
-  .table {
-    margin-bottom: 0;
-  }
+.currentDay {
+  color: var(--white);
+  background-color: var(--primary);
+  font-weight: 700;
 }

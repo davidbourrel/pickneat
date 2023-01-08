@@ -9,7 +9,7 @@
   border-bottom: 1px solid var(--neutral-300);
   border-bottom-left-radius: var(--app-radius);
   border-bottom-right-radius: var(--app-radius);
-  background-color: var(--neutral-100);
+  background-color: var(--neutral-50);
   color: var(--neutral-900);
   z-index: 10;
   width: 100%;
