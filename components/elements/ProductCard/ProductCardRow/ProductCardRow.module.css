@@ -1,4 +1,4 @@
-.cartProduct {
+.card {
   display: flex;
   align-items: center;
   color: var(--neutral-600);
@@ -22,7 +22,7 @@
   object-fit: cover;
 }
 
-.cartProductContent {
+.cardContent {
   display: flex;
   flex-direction: column;
   width: 100%;

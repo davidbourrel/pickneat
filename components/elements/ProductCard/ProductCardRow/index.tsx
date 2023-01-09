@@ -1,20 +1,21 @@
 import { useMemo } from 'react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import styles from './CartProduct.module.css';
+import { useTranslations } from 'next-intl';
+import styles from './ProductCardRow.module.css';
 import { Product } from '_types/products';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
-import Link from '../Link';
-import Heading from '../Heading';
-import Quantity from '../Quantity';
-import PriceTag from '../PriceTag';
-import Button from '../buttons/Button';
 
-interface CartProductProps {
+import Link from 'components/elements/Link';
+import Heading from 'components/elements/Heading';
+import Quantity from 'components/elements/Quantity';
+import PriceTag from 'components/elements/PriceTag';
+import Button from 'components/elements/buttons/Button';
+
+interface ProductCardRowProps {
   product: Product;
 }
 
-export default function CartProduct({ product }: CartProductProps) {
+export default function ProductCardRow({ product }: ProductCardRowProps) {
   const { product_id, name, price, image, category, amount } = product;
 
   const { removeItemsFromCart } = useRemoveCart();
@@ -71,9 +72,9 @@ export default function CartProduct({ product }: CartProductProps) {
   );
 
   return (
-    <li className={styles.cartProduct}>
+    <li className={styles.card}>
       {imageBox}
-      <div className={styles.cartProductContent}>
+      <div className={styles.cardContent}>
         {about}
         {priceAndQuantity}
       </div>

@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import styles from './Cart.module.css';
 import useCart from 'contexts/cartContext/useCart';
-import CartProduct from 'components/elements/CartProduct';
+import ProductCardRow from 'components/elements/ProductCard/ProductCardRow';
 
 export default function CartProductList() {
   const cart = useCart();
@@ -11,7 +11,7 @@ export default function CartProductList() {
       cart?.length > 0 ? (
         <ul className={styles.cartProductList}>
           {cart.map((product, i) => (
-            <CartProduct key={`cart-product-${i}`} product={product} />
+            <ProductCardRow key={`cart-product-${i}`} product={product} />
           ))}
         </ul>
       ) : null,

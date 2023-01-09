@@ -1,18 +1,19 @@
 import { useMemo } from 'react';
-import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { Product } from '_types/products';
-import Heading from '../Heading';
-import styles from './ProductCard.module.css';
-import Link from '../Link';
-import PriceTag from '../PriceTag';
-import Quantity from '../Quantity';
+import styles from './ProductCardCol.module.css';
 
-interface ProductCardProps {
+import Heading from 'components/elements/Heading';
+import PriceTag from 'components/elements/PriceTag';
+import Quantity from 'components/elements/Quantity';
+
+interface ProductCardColProps {
   product: Product;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCardCol({ product }: ProductCardColProps) {
   const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
 

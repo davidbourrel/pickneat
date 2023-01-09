@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { Maybe } from '_types/maybe';
-import ProductCard from 'components/elements/ProductCard';
 import { CategoryEnum, Product } from '_types/products';
 import styles from './ProductList.module.css';
+import ProductCardCol from 'components/elements/ProductCard/ProductCardCol';
 
 interface ProductListProps {
   products: Maybe<Product[]>;
@@ -20,7 +20,7 @@ export default function ProductList({ products, category }: ProductListProps) {
       filteredProductsByCategory?.length ? (
         <ul className={styles.productList}>
           {filteredProductsByCategory.map((product, i) => (
-            <ProductCard key={`burger-key-${i}`} product={product} />
+            <ProductCardCol key={`burger-key-${i}`} product={product} />
           ))}
         </ul>
       ) : null,
