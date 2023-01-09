@@ -39,7 +39,7 @@
 
   --app-mobile-padding: 1rem;
   --app-desktop-padding: 1.5rem;
-  --app-radius: 0.3rem;
+  --app-radius: 0.25rem;
 }
 
 html[color-scheme='dark'] {
