@@ -53,7 +53,7 @@
 }
 
 .firstNavigation {
-  border-top: 1px solid var(--primary);
+  border-top: 1px solid var(--neutral-300);
   margin-top: 2.9rem;
   padding-top: 1rem;
 }
