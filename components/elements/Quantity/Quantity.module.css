@@ -40,7 +40,7 @@
 }
 .minus:active,
 .plus:active {
-  color: var(--neutral-50);
+  color: var(--primary-hover);
 }
 
 .minus {
@@ -61,7 +61,7 @@
 
   .minus:hover,
   .plus:hover {
-    color: var(--neutral-50);
+    color: var(--primary-hover);
   }
 }
 
