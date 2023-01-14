@@ -17,7 +17,7 @@ export default function MapWithoutSSR() {
       zoom={15}
       className={styles.mapContainer}
     >
-      <TileLayer url={mapUrl} />
+      <TileLayer url={mapUrl} detectRetina={true} />
       <CustomMarker position={position} open>
         <Address />
       </CustomMarker>
