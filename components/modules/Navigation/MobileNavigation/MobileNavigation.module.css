@@ -8,6 +8,11 @@
   transform: scale(0);
   transition: background-color 350ms var(--transition-easeInOut);
 }
+
+.mobileNavClosed {
+  display: none;
+}
+
 .activeBlackFilter {
   transform: scale(1);
   background-color: rgba(0, 0, 0, 0.5);

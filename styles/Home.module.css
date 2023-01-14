@@ -1,11 +1,11 @@
-.homeHeader h1 {
+.sliderImage {
+  width: 100%;
+  height: auto;
+}
+
+.mainTitle {
   text-align: center;
   font-weight: 700;
   padding: 1rem;
   margin-bottom: 1rem;
-}
-
-.sliderImage {
-  width: 100%;
-  height: auto;
 }

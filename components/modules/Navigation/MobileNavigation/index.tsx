@@ -40,7 +40,7 @@ export default function MobileNavigation({
   const blackFilterClassName = useMemo(
     () =>
       `${styles.blackFilter} ${
-        isMobileNavOpened ? styles.activeBlackFilter : ''
+        isMobileNavOpened ? styles.activeBlackFilter : styles.mobileNavClosed
       }`,
     [isMobileNavOpened]
   );

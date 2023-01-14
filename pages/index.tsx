@@ -53,7 +53,7 @@ export default function Home({ ssrProducts }: HomeProps) {
   return (
     <MainContentLayout padding={false}>
       <CategoryNavigation />
-      <header className={styles.homeHeader}>
+      <header>
         <Slider>
           <SwiperSlide>
             <Image
@@ -98,7 +98,9 @@ export default function Home({ ssrProducts }: HomeProps) {
             />
           </SwiperSlide>
         </Slider>
-        <Heading level={1}>{t('homeMainTitle')}</Heading>
+        <Heading level={1} className={styles.mainTitle}>
+          {t('homeMainTitle')}
+        </Heading>
       </header>
       <MenuCategories ssrProducts={ssrProducts} className="appPadding" />
       <ViewCartButton />

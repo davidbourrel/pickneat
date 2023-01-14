@@ -29,8 +29,8 @@ export default function ProductCardRow({ product }: ProductCardRowProps) {
         <Image
           src={image}
           alt={name}
-          width={500}
-          height={500}
+          width={280}
+          height={280}
           className={styles.image}
         />
       </Link>
