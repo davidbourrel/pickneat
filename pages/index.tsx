@@ -1,4 +1,5 @@
 import { GetStaticPropsContext } from 'next';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
@@ -14,13 +15,24 @@ import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli
 import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 
 import Heading from 'components/elements/Heading';
-import ScrollToTopButton from 'components/elements/buttons/ScrollToTopButton';
-import ViewCartButton from 'components/elements/buttons/ViewCartButton';
 import Slider from 'components/modules/Slider';
 import PageLayout from 'components/modules/PageLayout';
 import MainContentLayout from 'components/modules/MainContentLayout';
 import CategoryNavigation from 'components/modules/Navigation/CategoryNavigation';
 import MenuCategories from 'components/modules/MenuCategories';
+
+const ScrollToTopButton = dynamic(
+  () => import('components/elements/buttons/ScrollToTopButton'),
+  {
+    ssr: false,
+  }
+);
+const ViewCartButton = dynamic(
+  () => import('components/elements/buttons/ViewCartButton'),
+  {
+    ssr: false,
+  }
+);
 
 interface HomeProps {
   ssrProducts: Product[];

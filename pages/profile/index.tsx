@@ -28,8 +28,8 @@ export default function Profile({ user }: ProfileProps) {
         <Image
           src={picture}
           alt="User profile"
-          width={400}
-          height={400}
+          width={500}
+          height={500}
           className={styles.profilePicture}
         />
       ) : null,
