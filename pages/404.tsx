@@ -1,19 +1,14 @@
-import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { GetStaticPropsContext } from 'next/types';
 import { pick } from 'lodash';
 
-// PageLayout static import to use with next-intl
+// Components
 import PageLayout from 'components/modules/PageLayout';
-
-// Dynamic imports
-const Heading = dynamic(() => import('components/elements/Heading'));
-const Button = dynamic(() => import('components/elements/buttons/Button'));
-const MainContentLayout = dynamic(
-  () => import('components/modules/MainContentLayout')
-);
+import Heading from 'components/elements/Heading';
+import Button from 'components/elements/buttons/Button';
+import MainContentLayout from 'components/modules/MainContentLayout';
 
 export default function NotFound() {
   const { back } = useRouter();

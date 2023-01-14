@@ -1,14 +1,9 @@
 import { ReactNode, useCallback, useState } from 'react';
-import dynamic from 'next/dynamic';
-import Loader from 'components/elements/Loader';
 
-const Header = dynamic(() => import('../Header'), {
-  loading: () => <Loader />,
-});
-const Footer = dynamic(() => import('../Footer'));
-const MobileNavigation = dynamic(
-  () => import('../Navigation/MobileNavigation')
-);
+// Components
+import Footer from '../Footer';
+import Header from '../Header';
+import MobileNavigation from '../Navigation/MobileNavigation';
 
 interface PageLayoutProps {
   children: ReactNode;
