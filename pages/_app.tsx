@@ -9,8 +9,8 @@ import { ThemeProvider } from 'contexts/themeContext';
 import { CartProvider } from 'contexts/cartContext';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import useKonami from 'hooks/useKonami';
-import PageLayout from '../components/modules/PageLayout';
 import { Baloo_2 } from '@next/font/google';
+import PageLayout from '../components/modules/PageLayout';
 
 const fontFamily = Baloo_2({ display: 'swap' });
 

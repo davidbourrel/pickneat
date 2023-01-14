@@ -1,16 +1,23 @@
 import { useMemo } from 'react';
 import type { GetServerSidePropsContext } from 'next';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Head from 'next/head';
 import styles from './Profile.module.css';
 import { getSession, UserProfile } from '@auth0/nextjs-auth0';
 import { pick } from 'lodash';
-import Link from 'components/elements/Link';
-import Button from 'components/elements/buttons/Button';
-import Heading from 'components/elements/Heading';
+
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import MainContentLayout from 'components/modules/MainContentLayout';
+
+// Dynamic imports
+const Heading = dynamic(() => import('components/elements/Heading'));
+const Button = dynamic(() => import('components/elements/buttons/Button'));
+const Link = dynamic(() => import('components/elements/Link'));
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
 
 interface ProfileProps {
   user: UserProfile;

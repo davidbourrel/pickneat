@@ -1,13 +1,20 @@
+import dynamic from 'next/dynamic';
 import { GetStaticPropsContext } from 'next/types';
-import Head from 'next/head';
-import Button from 'components/elements/buttons/Button';
-import Link from 'components/elements/Link';
-import styles from './Delivery.module.css';
-import Heading from 'components/elements/Heading';
 import { useTranslations } from 'next-intl';
+import Head from 'next/head';
+import styles from './Delivery.module.css';
 import { pick } from 'lodash';
+
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import MainContentLayout from 'components/modules/MainContentLayout';
+
+// Dynamic imports
+const Heading = dynamic(() => import('components/elements/Heading'));
+const Link = dynamic(() => import('components/elements/Link'));
+const Button = dynamic(() => import('components/elements/buttons/Button'));
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
 
 export default function Delivery() {
   const t = useTranslations('Delivery');

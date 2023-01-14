@@ -1,16 +1,23 @@
 import { useMemo } from 'react';
 import { GetStaticPropsContext } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import styles from './Cart.module.css';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
+
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import CartTitle from './CartTitle';
-import CartDescription from './CartDescription';
-import CartProductList from './CartProductList';
-import CartCheckout from './CartCheckout';
-import MainContentLayout from 'components/modules/MainContentLayout';
+
+// Dynamic imports
+const CartTitle = dynamic(() => import('./CartTitle'));
+const CartDescription = dynamic(() => import('./CartDescription'));
+const CartProductList = dynamic(() => import('./CartProductList'));
+const CartCheckout = dynamic(() => import('./CartCheckout'));
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
 
 export default function Cart() {
   const t = useTranslations('Cart');

@@ -8,19 +8,21 @@ import { pick } from 'lodash';
 import { getProducts } from 'database/products';
 import styles from '../styles/Home.module.css';
 
-import burgerImage from '../public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';
-import friesImage from '../public/images/home carousel/Photo_by_Louis_Hansel_on_Unsplash.jpg';
-import sodaImage from '../public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Unsplash.jpg';
-import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
-import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
-
-import Heading from 'components/elements/Heading';
-import Slider from 'components/modules/Slider';
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import MainContentLayout from 'components/modules/MainContentLayout';
-import CategoryNavigation from 'components/modules/Navigation/CategoryNavigation';
-import MenuCategories from 'components/modules/MenuCategories';
 
+// Dynamic imports
+const Slider = dynamic(() => import('components/modules/Slider'));
+const Heading = dynamic(() => import('components/elements/Heading'));
+const MenuCategories = dynamic(
+  () => import('components/modules/MenuCategories')
+);
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
+const CategoryNavigation = dynamic(
+  () => import('components/modules/Navigation/CategoryNavigation')
+);
 const ScrollToTopButton = dynamic(
   () => import('components/elements/buttons/ScrollToTopButton'),
   {
@@ -33,6 +35,13 @@ const ViewCartButton = dynamic(
     ssr: false,
   }
 );
+
+// Static images
+import burgerImage from '../public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';
+import friesImage from '../public/images/home carousel/Photo_by_Louis_Hansel_on_Unsplash.jpg';
+import sodaImage from '../public/images/home carousel/Photo_by_Mahbod_Akhzami_on_Unsplash.jpg';
+import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
+import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 
 interface HomeProps {
   ssrProducts: Product[];

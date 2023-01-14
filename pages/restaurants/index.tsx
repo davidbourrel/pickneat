@@ -1,13 +1,20 @@
 import { GetStaticPropsContext } from 'next';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import Head from 'next/head';
 import { pick } from 'lodash';
 import styles from './Restaurants.module.css';
-import Location from 'components/modules/Location';
-import OpeningTimes from 'components/modules/OpeningTimes';
-import Heading from 'components/elements/Heading';
+
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import MainContentLayout from 'components/modules/MainContentLayout';
+
+// Dynamic imports
+const Heading = dynamic(() => import('components/elements/Heading'));
+const Location = dynamic(() => import('components/modules/Location'));
+const OpeningTimes = dynamic(() => import('components/modules/OpeningTimes'));
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
 
 export default function Restaurants() {
   const t = useTranslations('Navigation');

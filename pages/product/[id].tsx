@@ -1,4 +1,5 @@
 import { GetStaticPathsContext, GetStaticPropsContext } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
@@ -7,11 +8,17 @@ import { getProduct, getProducts } from 'database/products';
 import { pick } from 'lodash';
 import { Product } from '_types/products';
 import { LangEnum } from '_types/lang';
-import Heading from 'components/elements/Heading';
-import PriceTag from 'components/elements/PriceTag';
-import Quantity from 'components/elements/Quantity';
+
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import MainContentLayout from 'components/modules/MainContentLayout';
+
+// Dynamic imports
+const Heading = dynamic(() => import('components/elements/Heading'));
+const PriceTag = dynamic(() => import('components/elements/PriceTag'));
+const Quantity = dynamic(() => import('components/elements/Quantity'));
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
 
 interface ProductIdProps {
   ssrProduct: Product;

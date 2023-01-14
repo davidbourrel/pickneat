@@ -1,12 +1,19 @@
 import type { GetStaticPropsContext } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
-import MainContentLayout from 'components/modules/MainContentLayout';
-import Heading from 'components/elements/Heading';
+
+// PageLayout static import to use with next-intl
 import PageLayout from 'components/modules/PageLayout';
-import Loader from 'components/elements/Loader';
+
+// Dynamic imports
+const Heading = dynamic(() => import('components/elements/Heading'));
+const Loader = dynamic(() => import('components/elements/Loader'));
+const MainContentLayout = dynamic(
+  () => import('components/modules/MainContentLayout')
+);
 
 function Checkout() {
   const t = useTranslations('Checkout');
