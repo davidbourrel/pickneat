@@ -66,6 +66,7 @@
   margin-bottom: 1rem;
   position: relative;
   text-transform: capitalize;
+  font-size: 1.25rem;
 }
 
 .secondNavigation > li {

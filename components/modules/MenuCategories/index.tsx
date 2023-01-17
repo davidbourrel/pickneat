@@ -23,31 +23,31 @@ export default function MenuCategories({
   return (
     <div className={computedClassName} data-test="menuCategories">
       <Category
-        id="burgerTitle"
+        id="burgers"
         title={t('burgerTitle')}
         products={ssrProducts}
         category={CategoryEnum.Burger}
       />
       <Category
-        id="sideTitle"
+        id="sides"
         title={t('sideTitle')}
         products={ssrProducts}
         category={CategoryEnum.Side}
       />
       <Category
-        id="drinkTitle"
+        id="drinks"
         title={t('drinkTitle')}
         products={ssrProducts}
         category={CategoryEnum.Drink}
       />
       <Category
-        id="dessertTitle"
+        id="desserts"
         title={t('dessertTitle')}
         products={ssrProducts}
         category={CategoryEnum.Dessert}
       />
       <Category
-        id="saladTitle"
+        id="salads"
         title={t('saladTitle')}
         products={ssrProducts}
         category={CategoryEnum.Salad}

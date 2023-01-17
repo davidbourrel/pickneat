@@ -15,7 +15,7 @@ import sodaImage from '../public/images/home carousel/Photo_by_Mahbod_Akhzami_on
 import dessertImage from '../public/images/home carousel/Photo_by_Zahra_Tavakoli_fard_on_Unsplash.jpg';
 import saladImage from '../public/images/home carousel/Photo_by_Ive_Erhard_on_Unsplash.jpg';
 
-// Components
+// Static Components
 import PageLayout from 'components/modules/PageLayout';
 import Slider from 'components/modules/Slider';
 import Heading from 'components/elements/Heading';
@@ -23,7 +23,7 @@ import MainContentLayout from 'components/modules/MainContentLayout';
 import CategoryNavigation from 'components/modules/Navigation/CategoryNavigation';
 import MenuCategories from 'components/modules/MenuCategories';
 
-// Dynamic import
+// Dynamic Components
 const ViewCartButton = dynamic(
   () => import('components/elements/buttons/ViewCartButton')
 );

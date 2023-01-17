@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import '../styles/globals.css';
 import nProgress from 'nprogress';
+import { AppProvider } from 'contexts/appContext';
 import { ThemeProvider } from 'contexts/themeContext';
 import { CartProvider } from 'contexts/cartContext';
 import { UserProvider } from '@auth0/nextjs-auth0';
@@ -49,49 +50,54 @@ export default function MyApp({ Component, pageProps }: Props) {
   return (
     <div id="app" className={`app ${fontFamily.className}`}>
       <NextIntlProvider messages={pageProps.messages}>
-        <ThemeProvider>
-          <UserProvider>
-            <CartProvider>
-              <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <title>{`PickN\`Eat`}</title>
-                <meta name="title" content="PickN`Eat" />
-                <meta
-                  name="description"
-                  content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
-                />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://pickneat.vercel.app" />
-                <meta property="og:title" content="PickN`Eat" />
-                <meta
-                  property="og:description"
-                  content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
-                />
-                <meta
-                  property="og:image"
-                  content="https://pickneat.vercel.app/pickneat.png"
-                />
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta
-                  property="twitter:url"
-                  content="https://pickneat.vercel.app"
-                />
-                <meta property="twitter:title" content="PickN`Eat" />
-                <meta
-                  property="twitter:description"
-                  content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
-                />
-                <meta
-                  property="twitter:image"
-                  content="https://pickneat.vercel.app/pickneat.png"
-                />
-              </Head>
-              <PageLayout>
-                <Component {...pageProps} />
-              </PageLayout>
-            </CartProvider>
-          </UserProvider>
-        </ThemeProvider>
+        <AppProvider>
+          <ThemeProvider>
+            <UserProvider>
+              <CartProvider>
+                <Head>
+                  <link rel="icon" href="/favicon.ico" />
+                  <title>{`PickN\`Eat`}</title>
+                  <meta name="title" content="PickN`Eat" />
+                  <meta
+                    name="description"
+                    content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
+                  />
+                  <meta property="og:type" content="website" />
+                  <meta
+                    property="og:url"
+                    content="https://pickneat.vercel.app"
+                  />
+                  <meta property="og:title" content="PickN`Eat" />
+                  <meta
+                    property="og:description"
+                    content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
+                  />
+                  <meta
+                    property="og:image"
+                    content="https://pickneat.vercel.app/pickneat.png"
+                  />
+                  <meta property="twitter:card" content="summary_large_image" />
+                  <meta
+                    property="twitter:url"
+                    content="https://pickneat.vercel.app"
+                  />
+                  <meta property="twitter:title" content="PickN`Eat" />
+                  <meta
+                    property="twitter:description"
+                    content="Bienvenue sur PickN`Eat, le premier site de commande de burger en ligne qui se démarque par sa simplicité d'utilisation et de sa multitude de choix"
+                  />
+                  <meta
+                    property="twitter:image"
+                    content="https://pickneat.vercel.app/pickneat.png"
+                  />
+                </Head>
+                <PageLayout>
+                  <Component {...pageProps} />
+                </PageLayout>
+              </CartProvider>
+            </UserProvider>
+          </ThemeProvider>
+        </AppProvider>
       </NextIntlProvider>
     </div>
   );

@@ -3,11 +3,13 @@ import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import styles from './MobileNavigation.module.css';
 import useOutsideClick from 'hooks/useOutsideClick';
+
+// Static Components
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
-import ActiveLink from 'components/elements/ActiveLink';
+import NavLink from 'components/elements/NavLink';
 
 interface MobileNavigationProps {
   isMobileNavOpened: boolean;
@@ -72,27 +74,31 @@ export default function MobileNavigation({
           />
           <ul className={styles.firstNavigation}>
             <li title={t('menuTitle')}>
-              <ActiveLink href="/" path={pathname} closeMenu={closeMenu}>
+              <NavLink
+                href="/"
+                isActive={pathname === '/'}
+                closeMenu={closeMenu}
+              >
                 {t('menu')}
-              </ActiveLink>
+              </NavLink>
             </li>
             <li title={t('restaurantsTitle')}>
-              <ActiveLink
+              <NavLink
                 href="/restaurants"
-                path={pathname}
+                isActive={pathname === '/restaurants'}
                 closeMenu={closeMenu}
               >
                 {t('restaurants')}
-              </ActiveLink>
+              </NavLink>
             </li>
             <li title={t('deliveryTitle')}>
-              <ActiveLink
+              <NavLink
                 href="/delivery"
-                path={pathname}
+                isActive={pathname === '/delivery'}
                 closeMenu={closeMenu}
               >
                 {t('delivery')}
-              </ActiveLink>
+              </NavLink>
             </li>
           </ul>
 

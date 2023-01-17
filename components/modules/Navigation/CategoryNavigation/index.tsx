@@ -1,38 +1,63 @@
-import Button from 'components/elements/buttons/Button';
-import Link from 'components/elements/Link';
 import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
+import useMenuCategories from 'contexts/appContext/useMenuCategories';
+
+// Static Components
+import Button from 'components/elements/buttons/Button';
+import NavLink from 'components/elements/NavLink';
 
 export default function CategoryNavigation() {
   const t = useTranslations('Home');
+
+  const { activeMenuCategory } = useMenuCategories();
 
   return (
     <nav className={styles.navigation}>
       <ul tabIndex={-1}>
         <li>
-          <Link href="#burgerTitle" tabIndex={-1}>
+          <NavLink
+            href="#burgers"
+            tabIndex={-1}
+            isActive={activeMenuCategory?.includes('burgers')}
+          >
             <Button headless>{t('burgerTitle')}</Button>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="#sideTitle" tabIndex={-1}>
+          <NavLink
+            href="#sides"
+            tabIndex={-1}
+            isActive={activeMenuCategory?.includes('sides')}
+          >
             <Button headless>{t('sideTitle')}</Button>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="#drinkTitle" tabIndex={-1}>
+          <NavLink
+            href="#drinks"
+            tabIndex={-1}
+            isActive={activeMenuCategory?.includes('drinks')}
+          >
             <Button headless>{t('drinkTitle')}</Button>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="#dessertTitle" tabIndex={-1}>
+          <NavLink
+            href="#desserts"
+            tabIndex={-1}
+            isActive={activeMenuCategory?.includes('desserts')}
+          >
             <Button headless>{t('dessertTitle')}</Button>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link href="#saladTitle" tabIndex={-1}>
+          <NavLink
+            href="#salads"
+            tabIndex={-1}
+            isActive={activeMenuCategory?.includes('salads')}
+          >
             <Button headless>{t('saladTitle')}</Button>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

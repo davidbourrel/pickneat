@@ -1,8 +1,13 @@
-import Heading from 'components/elements/Heading';
+import { useEffect, useMemo, useRef } from 'react';
 import styles from './MenuCategories.module.css';
-import ProductList from '../ProductList';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import useMenuCategories from 'contexts/appContext/useMenuCategories';
+
+// Static Components
+import ProductList from 'components/modules/ProductList';
+import Heading from 'components/elements/Heading';
 
 interface CategoryProps {
   id: string;
@@ -17,8 +22,25 @@ export default function Category({
   title,
   category,
 }: CategoryProps) {
+  const { setActiveMenuCategory } = useMenuCategories();
+
+  const ref = useRef<HTMLDivElement | null>(null);
+  const entry = useIntersectionObserver(ref, {
+    threshold: 1,
+    rootMargin: `50px`,
+  });
+
+  const isVisible = useMemo(
+    () => !!entry?.isIntersecting,
+    [entry?.isIntersecting]
+  );
+
+  useEffect(() => {
+    isVisible && setActiveMenuCategory(id);
+  }, [isVisible, setActiveMenuCategory, id]);
+
   return (
-    <section id={id} className={styles.category}>
+    <section ref={ref} id={id} className={styles.category}>
       <Heading level={2} className={styles.heading}>
         <span>{title}</span>
       </Heading>

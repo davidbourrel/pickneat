@@ -1,12 +1,10 @@
-.activeLink {
-  padding: 0.5rem 0;
-  display: inline-flex;
+.navLink {
   position: relative;
   overflow: hidden;
-  font-size: 1.25rem;
-  transition: color 150ms ease-out;
+  display: inline-flex;
+  padding: 0.5rem 0;
 }
-.activeLink::after {
+.navLink::after {
   content: '';
   position: absolute;
   left: 0;
@@ -18,10 +16,10 @@
   transform: translateX(-101%);
   background: var(--primary) none repeat scroll 0% 0%;
 }
-.activeLink:active::after {
+.navLink:active::after {
   transform: translateX(0);
 }
-.active.activeLink::after {
+.active.navLink::after {
   transform: translateX(0);
 }
 
@@ -29,7 +27,7 @@
 /****** MEDIA QUERIES *****/
 /**************************/
 @media screen and (min-width: 1024px) {
-  .activeLink:hover::after {
+  .navLink:hover::after {
     transform: translateX(0);
   }
 }
@@ -38,10 +36,10 @@
 /* PREFERS REDUCED MOTION */
 /**************************/
 @media (prefers-reduced-motion: reduce) {
-  .activeLink {
+  .navLink {
     transition: unset;
   }
-  .activeLink::after {
+  .navLink::after {
     transition: unset;
   }
 }

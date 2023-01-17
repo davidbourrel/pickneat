@@ -1,14 +1,17 @@
 import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
-import ActiveLink from 'components/elements/ActiveLink';
 import styles from './DesktopNavigation.module.css';
-import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import { useUser } from '@auth0/nextjs-auth0';
+
+// Static Components
+import NavLink from 'components/elements/NavLink';
+import LanguageSwitcher from 'components/elements/LanguageSwitcher';
 import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
+import Link from 'components/elements/Link';
 
 export default function DesktopNavigation() {
   const { pathname } = useRouter();
@@ -20,18 +23,18 @@ export default function DesktopNavigation() {
     () =>
       user && user.picture ? (
         <li title={t('profile')} data-test="profileIcon">
-          <ActiveLink href="/profile" path={pathname}>
+          <Link href="/profile">
             <ProfileIcon />
-          </ActiveLink>
+          </Link>
         </li>
       ) : (
         <li title={t('login')} data-test="profileIcon">
-          <ActiveLink href="/api/auth/login" path={pathname} tabIndex={-1}>
+          <Link href="/api/auth/login" tabIndex={-1}>
             <Button>{t('login')}</Button>
-          </ActiveLink>
+          </Link>
         </li>
       ),
-    [user, pathname, t]
+    [user, t]
   );
 
   return (
@@ -41,20 +44,20 @@ export default function DesktopNavigation() {
       data-test="desktopNavigation"
     >
       <ul className={styles.navLinkList}>
-        <li title={t('menuTitle')}>
-          <ActiveLink href="/" path={pathname}>
+        <li title={t('menuTitle')} className={styles.navItem}>
+          <NavLink href="/" isActive={pathname === '/'}>
             {t('menu')}
-          </ActiveLink>
+          </NavLink>
         </li>
-        <li title={t('restaurantsTitle')}>
-          <ActiveLink href="/restaurants" path={pathname}>
+        <li title={t('restaurantsTitle')} className={styles.navItem}>
+          <NavLink href="/restaurants" isActive={pathname === '/restaurants'}>
             {t('restaurants')}
-          </ActiveLink>
+          </NavLink>
         </li>
-        <li title={t('deliveryTitle')}>
-          <ActiveLink href="/delivery" path={pathname}>
+        <li title={t('deliveryTitle')} className={styles.navItem}>
+          <NavLink href="/delivery" isActive={pathname === '/delivery'}>
             {t('delivery')}
-          </ActiveLink>
+          </NavLink>
         </li>
       </ul>
 
@@ -75,9 +78,9 @@ export default function DesktopNavigation() {
           />
         </li>
         <li>
-          <ActiveLink href="/cart" path={pathname}>
+          <Link href="/cart">
             <CartCount title={t('cartTitle')} />
-          </ActiveLink>
+          </Link>
         </li>
         {userTab}
       </ul>

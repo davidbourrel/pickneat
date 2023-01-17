@@ -1,12 +1,14 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
-import Button from '../buttons/Button';
+import { LangEnum } from '_types/lang';
+import { ArrowDirectionEnum } from '../Arrow/types';
+
+// Static Components
 import Link from '../Link';
 import Arrow from '../Arrow';
-import { ArrowDirectionEnum } from '../Arrow/types';
 import LangItem from './LangItem';
-import { LangEnum } from '_types/lang';
+import Button from '../buttons/Button';
 
 interface LanguageSwitcherProps {
   title: string;
