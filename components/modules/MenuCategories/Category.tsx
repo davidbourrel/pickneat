@@ -26,8 +26,8 @@ export default function Category({
 
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    threshold: 1,
-    rootMargin: `50px`,
+    threshold: 0.5,
+    rootMargin: `-50px 0px -150px 0px`,
   });
 
   const isVisible = useMemo(
