@@ -14,12 +14,17 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const getThemePreference = () => {
-    if (localStorage.getItem(PICKNEAT_THEME))
-      return localStorage.getItem(PICKNEAT_THEME);
-    else
+    const themeInLocalStorage = localStorage
+      .getItem(PICKNEAT_THEME)
+      ?.toString();
+
+    if (themeInLocalStorage) {
+      return themeInLocalStorage;
+    } else {
       return window.matchMedia('(prefers-color-scheme: dark)').matches
         ? ThemeEnum.Dark
         : ThemeEnum.Light;
+    }
   };
 
   useEffect(() => {

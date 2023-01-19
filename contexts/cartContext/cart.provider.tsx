@@ -17,12 +17,12 @@ export default function CartProvider({ children }: CartProviderProps) {
    * Get cart from the local storage on load
    /**************/
   useEffect(() => {
-    const cartFromLocalStorage = JSON.parse(
+    const cartInLocalStorage = JSON.parse(
       localStorage.getItem(PICKNEAT_CART) as string
     ) as Product[];
 
-    if (cartFromLocalStorage?.length > 0) {
-      setCart(cartFromLocalStorage);
+    if (cartInLocalStorage?.length > 0) {
+      setCart(cartInLocalStorage);
     }
   }, []);
 
@@ -43,8 +43,8 @@ export default function CartProvider({ children }: CartProviderProps) {
       const indexOfClickedItem = currentCart.findIndex(
         (item) => item.product_id === clickedItem.product_id
       );
-      const itemAlreadyExists = indexOfClickedItem !== -1;
 
+      const itemAlreadyExists = indexOfClickedItem !== -1;
       if (itemAlreadyExists) {
         return currentCart.map((item) =>
           item.product_id === clickedItem.product_id
@@ -80,10 +80,7 @@ export default function CartProvider({ children }: CartProviderProps) {
         return currentCart;
       }
 
-      return [
-        ...currentCart.slice(0, indexOfItemToRemove),
-        ...currentCart.slice(indexOfItemToRemove + 1),
-      ];
+      return currentCart.filter((cart) => cart.product_id !== product_id);
     });
   }, []);
 

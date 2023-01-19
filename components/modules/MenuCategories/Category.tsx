@@ -3,7 +3,8 @@ import styles from './MenuCategories.module.css';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
-import useMenuCategories from 'contexts/appContext/useMenuCategories';
+import { MOBILE_HEADER_AND_NAV_CATEGORY_HEIGHT } from '_constants/app';
+import useIntersectionObserverEntries from 'contexts/appContext/useIntersectionObserverEntries';
 
 // Static Components
 import ProductList from 'components/modules/ProductList';
@@ -22,12 +23,12 @@ export default function Category({
   title,
   category,
 }: CategoryProps) {
-  const { setActiveMenuCategory } = useMenuCategories();
+  const setIntersectionObserverEntries = useIntersectionObserverEntries();
 
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    threshold: 0.5,
-    rootMargin: `-111px 0px 0px 0px`,
+    rootMargin: `${MOBILE_HEADER_AND_NAV_CATEGORY_HEIGHT * -1}px 0px 0px 0px`,
+    threshold: 0,
   });
 
   const isVisible = useMemo(
@@ -36,8 +37,19 @@ export default function Category({
   );
 
   useEffect(() => {
-    isVisible && setActiveMenuCategory(id);
-  }, [isVisible, setActiveMenuCategory, id]);
+    if (isVisible && entry) {
+      setIntersectionObserverEntries((c) => [...(c ?? []), entry]);
+    } else {
+      setIntersectionObserverEntries((c) => [
+        ...(c
+          ? c.filter(
+              (currentEntry: IntersectionObserverEntry) =>
+                currentEntry.target.id !== id
+            )
+          : []),
+      ]);
+    }
+  }, [isVisible, setIntersectionObserverEntries, id, entry]);
 
   return (
     <section ref={ref} id={id} className={styles.category}>
