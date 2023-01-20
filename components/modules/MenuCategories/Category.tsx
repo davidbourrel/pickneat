@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './MenuCategories.module.css';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
@@ -27,29 +27,42 @@ export default function Category({
 
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    rootMargin: `${MOBILE_HEADER_AND_NAV_CATEGORY_HEIGHT * -1}px 0px 0px 0px`,
-    threshold: 0,
+    rootMargin: `${
+      MOBILE_HEADER_AND_NAV_CATEGORY_HEIGHT * -1
+    }px 0px -150px 0px`,
+    threshold: 0.5,
   });
 
-  const isVisible = useMemo(
-    () => !!entry?.isIntersecting,
-    [entry?.isIntersecting]
-  );
-
   useEffect(() => {
+    const isVisible = !!entry?.isIntersecting;
+
     if (isVisible && entry) {
-      setIntersectionObserverEntries((c) => [...(c ?? []), entry]);
+      setIntersectionObserverEntries((entries) => {
+        const indexOfEntry = entries?.findIndex(
+          (currentEntry: IntersectionObserverEntry) =>
+            currentEntry?.target?.id === entry?.target?.id
+        );
+
+        const entryNotExist = indexOfEntry === -1;
+
+        if (entryNotExist) {
+          return [...entries, entry];
+        }
+
+        return [];
+      });
     } else {
-      setIntersectionObserverEntries((c) => [
-        ...(c
-          ? c.filter(
-              (currentEntry: IntersectionObserverEntry) =>
-                currentEntry.target.id !== id
-            )
-          : []),
-      ]);
+      setIntersectionObserverEntries((entries) => {
+        if (entries?.length > 0) {
+          return entries.filter(
+            (currentEntry) => currentEntry.target.id !== id
+          );
+        }
+
+        return [];
+      });
     }
-  }, [isVisible, setIntersectionObserverEntries, id, entry]);
+  }, [setIntersectionObserverEntries, id, entry]);
 
   return (
     <section ref={ref} id={id} className={styles.category}>

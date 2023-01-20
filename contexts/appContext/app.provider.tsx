@@ -23,13 +23,15 @@ export default function AppProvider({ children }: AppProviderProps) {
         return entry?.intersectionRatio;
       }
     );
+
     const mostHighRatioValue = intersectionRatios.sort(compareNumbers).at(-1);
 
     const entryWithMostHighRatio = intersectionObserverEntries.find((entry) => {
       return entry?.intersectionRatio === mostHighRatioValue;
     });
 
-    setActiveMenuCategory(entryWithMostHighRatio?.target?.id as string);
+    const activeCategory = entryWithMostHighRatio?.target?.id as string;
+    setActiveMenuCategory(activeCategory);
   }, [intersectionObserverEntries]);
 
   const contextValue: AppContextInterface = useMemo(
