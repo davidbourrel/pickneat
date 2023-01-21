@@ -3,7 +3,6 @@ import styles from './MenuCategories.module.css';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
-import { MOBILE_HEADER_AND_NAV_CATEGORY_HEIGHT } from '_constants/app';
 import useIntersectionObserverEntries from 'contexts/appContext/useIntersectionObserverEntries';
 
 // Static Components
@@ -15,6 +14,7 @@ interface CategoryProps {
   products: Maybe<Product[]>;
   title: string;
   category: CategoryEnum;
+  threshold: number;
 }
 
 export default function Category({
@@ -22,15 +22,13 @@ export default function Category({
   products,
   title,
   category,
+  threshold,
 }: CategoryProps) {
   const setIntersectionObserverEntries = useIntersectionObserverEntries();
 
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    rootMargin: `${
-      MOBILE_HEADER_AND_NAV_CATEGORY_HEIGHT * -1
-    }px 0px -150px 0px`,
-    threshold: 0.5,
+    threshold: threshold,
   });
 
   useEffect(() => {
