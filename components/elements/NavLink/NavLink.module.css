@@ -16,9 +16,6 @@
   transform: translateX(-101%);
   background: var(--primary) none repeat scroll 0% 0%;
 }
-.navLink:active::after {
-  transform: translateX(0);
-}
 .active.navLink::after {
   transform: translateX(0);
 }

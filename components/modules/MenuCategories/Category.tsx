@@ -24,12 +24,12 @@ export default function Category({
   category,
   threshold,
 }: CategoryProps) {
-  const setIntersectionObserverEntries = useIntersectionObserverEntries();
-
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
     threshold: threshold,
   });
+
+  const setIntersectionObserverEntries = useIntersectionObserverEntries();
 
   useEffect(() => {
     const isVisible = !!entry?.isIntersecting;

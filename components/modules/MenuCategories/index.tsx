@@ -4,7 +4,7 @@ import styles from './MenuCategories.module.css';
 import Category from './Category';
 import { CategoryEnum, Product } from '_types/products';
 import { ClassNameComponentProps } from '_types/components';
-import useWindowSize from 'hooks/useWindowSize';
+import useWindowInnerWidth from 'hooks/useWindowInnerWidth';
 
 interface MenuCategoriesProps extends ClassNameComponentProps {
   ssrProducts: Product[];
@@ -21,8 +21,8 @@ export default function MenuCategories({
     [className]
   );
 
-  const { width } = useWindowSize();
-  const rightThreshold = useMemo(() => (width > 1024 ? 1 : 0.33), [width]);
+  const width = useWindowInnerWidth();
+  const rightThreshold = useMemo(() => (width > 1024 ? 1 : 0.25), [width]);
 
   return (
     <div className={computedClassName} data-test="menuCategories">
