@@ -8,6 +8,7 @@ import useIntersectionObserverEntries from 'contexts/appContext/useIntersectionO
 // Static Components
 import ProductList from 'components/modules/ProductList';
 import Heading from 'components/elements/Heading';
+import { useRouter } from 'next/router';
 
 interface CategoryProps {
   id: string;
@@ -30,6 +31,8 @@ export default function Category({
   });
 
   const setIntersectionObserverEntries = useIntersectionObserverEntries();
+
+  const { asPath } = useRouter();
 
   useEffect(() => {
     const isVisible = !!entry?.isIntersecting;
@@ -60,7 +63,7 @@ export default function Category({
         return [];
       });
     }
-  }, [setIntersectionObserverEntries, id, entry]);
+  }, [setIntersectionObserverEntries, id, entry, asPath]);
 
   return (
     <section ref={ref} id={id} className={styles.category}>
