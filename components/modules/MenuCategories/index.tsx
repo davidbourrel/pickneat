@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './MenuCategories.module.css';
-import Category from './Category';
 import { CategoryEnum, Product } from '_types/products';
 import { ClassNameComponentProps } from '_types/components';
 import useWindowInnerWidth from 'hooks/useWindowInnerWidth';
+
+// Static Components
+import Category from './Category';
 
 interface MenuCategoriesProps extends ClassNameComponentProps {
   ssrProducts: Product[];

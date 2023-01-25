@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import styles from './MenuCategories.module.css';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
@@ -8,7 +9,6 @@ import useIntersectionObserverEntries from 'contexts/appContext/useIntersectionO
 // Static Components
 import ProductList from 'components/modules/ProductList';
 import Heading from 'components/elements/Heading';
-import { useRouter } from 'next/router';
 
 interface CategoryProps {
   id: string;
