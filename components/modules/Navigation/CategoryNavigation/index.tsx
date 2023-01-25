@@ -18,7 +18,7 @@ export default function CategoryNavigation() {
           <NavLink
             href="#burgers"
             tabIndex={-1}
-            isActive={activeMenuCategory?.includes('burgers')}
+            isActive={activeMenuCategory === 'burgers'}
           >
             <Button headless>{t('burgerTitle')}</Button>
           </NavLink>
@@ -27,7 +27,7 @@ export default function CategoryNavigation() {
           <NavLink
             href="#sides"
             tabIndex={-1}
-            isActive={activeMenuCategory?.includes('sides')}
+            isActive={activeMenuCategory === 'sides'}
           >
             <Button headless>{t('sideTitle')}</Button>
           </NavLink>
@@ -36,7 +36,7 @@ export default function CategoryNavigation() {
           <NavLink
             href="#drinks"
             tabIndex={-1}
-            isActive={activeMenuCategory?.includes('drinks')}
+            isActive={activeMenuCategory === 'drinks'}
           >
             <Button headless>{t('drinkTitle')}</Button>
           </NavLink>
@@ -45,7 +45,7 @@ export default function CategoryNavigation() {
           <NavLink
             href="#desserts"
             tabIndex={-1}
-            isActive={activeMenuCategory?.includes('desserts')}
+            isActive={activeMenuCategory === 'desserts'}
           >
             <Button headless>{t('dessertTitle')}</Button>
           </NavLink>
@@ -54,7 +54,7 @@ export default function CategoryNavigation() {
           <NavLink
             href="#salads"
             tabIndex={-1}
-            isActive={activeMenuCategory?.includes('salads')}
+            isActive={activeMenuCategory === 'salads'}
           >
             <Button headless>{t('saladTitle')}</Button>
           </NavLink>

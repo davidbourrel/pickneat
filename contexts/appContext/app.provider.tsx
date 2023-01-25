@@ -1,5 +1,4 @@
 import { useMemo, ReactNode, useState, useEffect } from 'react';
-import { compareNumbers } from 'utils/compareNumbers';
 import appContext from './app.context';
 import { AppContextInterface } from './app.types';
 
@@ -18,19 +17,25 @@ export default function AppProvider({ children }: AppProviderProps) {
   );
 
   useEffect(() => {
-    const intersectionRatios = intersectionObserverEntries.map(
-      (entry: IntersectionObserverEntry) => {
-        return entry?.intersectionRatio;
-      }
+    const activeCategoryEntry = intersectionObserverEntries?.reduce(
+      (
+        mostHigherRatioEntry: IntersectionObserverEntry,
+        entry: IntersectionObserverEntry
+      ) => {
+        const entryIntersectionRatio = entry?.intersectionRatio;
+        const higherIntersectionRatio =
+          mostHigherRatioEntry?.intersectionRatio ?? 0;
+
+        if (entryIntersectionRatio >= higherIntersectionRatio) {
+          return (mostHigherRatioEntry = entry);
+        }
+
+        return mostHigherRatioEntry;
+      },
+      {} as IntersectionObserverEntry
     );
 
-    const mostHighRatioValue = intersectionRatios.sort(compareNumbers).at(-1);
-
-    const entryWithMostHighRatio = intersectionObserverEntries.find((entry) => {
-      return entry?.intersectionRatio === mostHighRatioValue;
-    });
-
-    const activeCategory = entryWithMostHighRatio?.target?.id as string;
+    const activeCategory = activeCategoryEntry?.target?.id;
     setActiveMenuCategory(activeCategory);
   }, [intersectionObserverEntries]);
 
