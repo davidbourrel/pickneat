@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
 import styles from './MenuCategories.module.css';
 import { CategoryEnum, Product } from '_types/products';
 import { Maybe } from '_types/maybe';
@@ -15,7 +14,6 @@ interface CategoryProps {
   products: Maybe<Product[]>;
   title: string;
   category: CategoryEnum;
-  threshold: number;
 }
 
 export default function Category({
@@ -23,16 +21,14 @@ export default function Category({
   products,
   title,
   category,
-  threshold,
 }: CategoryProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    threshold: threshold,
+    threshold: 0,
+    rootMargin: '-50% 0%',
   });
 
   const setIntersectionObserverEntries = useIntersectionObserverEntries();
-
-  const { asPath } = useRouter();
 
   useEffect(() => {
     const isVisible = !!entry?.isIntersecting;
@@ -63,7 +59,7 @@ export default function Category({
         return [];
       });
     }
-  }, [setIntersectionObserverEntries, id, entry, asPath]);
+  }, [setIntersectionObserverEntries, id, entry]);
 
   return (
     <section ref={ref} id={id} className={styles.category}>
