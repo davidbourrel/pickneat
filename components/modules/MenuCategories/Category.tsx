@@ -25,7 +25,7 @@ export default function Category({
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
     threshold: 0,
-    rootMargin: '-50% 0%',
+    rootMargin: '-50% 0% -50% 0%',
   });
 
   const setIntersectionObserverEntries = useIntersectionObserverEntries();
