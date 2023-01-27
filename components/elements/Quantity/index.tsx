@@ -69,7 +69,7 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
   const quantity = useMemo(
     () => (
       <div className={computedClassName}>
-        {in_stock ? (amount === 0 ? addToCartButton : quantityButtons) : null}
+        {in_stock && amount === 0 ? addToCartButton : quantityButtons}
       </div>
     ),
     [computedClassName, in_stock, amount, addToCartButton, quantityButtons]

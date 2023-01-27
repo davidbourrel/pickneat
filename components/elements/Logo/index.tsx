@@ -13,7 +13,7 @@ export default function Logo({ closeMenu, className = '' }: LogoProps) {
 
   const computedClassName = useMemo(
     () =>
-      `${styles.logo} ${isDarkMode ? styles.dark : styles.light} ${className}`,
+      `${className} ${styles.logo} ${isDarkMode ? styles.dark : styles.light}`,
     [isDarkMode, className]
   );
 

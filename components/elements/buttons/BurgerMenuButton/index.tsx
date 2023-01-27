@@ -50,12 +50,12 @@ export default function BurgerMenuButton({
 
   const bar1ClassName = useMemo(
     () => `${styles.bar} ${styles.bar1}
-      ${isMobileNavOpened && styles.bar1Active}`,
+      ${isMobileNavOpened ? styles.bar1Active : ''}`,
     [isMobileNavOpened]
   );
   const bar2ClassName = useMemo(
     () => `${styles.bar} ${styles.bar2}
-      ${isMobileNavOpened && styles.bar2Active}`,
+      ${isMobileNavOpened ? styles.bar2Active : ''}`,
     [isMobileNavOpened]
   );
   const bar3ClassName = useMemo(

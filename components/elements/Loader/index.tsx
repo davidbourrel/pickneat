@@ -12,27 +12,27 @@ interface LoaderProps {
 
 export default function Loader({
   absoluteLoader = false,
-  loaderContainerClassName,
-  loaderClassName,
-  circleClassName,
+  loaderContainerClassName = '',
+  loaderClassName = '',
+  circleClassName = '',
   width = '30px',
   height = '30px',
 }: LoaderProps) {
   const computedLoaderContainerClassName = useMemo(
     () =>
-      `${styles.loaderContainer} ${
-        loaderContainerClassName ? loaderContainerClassName : ''
-      } ${absoluteLoader ? styles.absoluteLoaderContainer : ''}`,
+      `${styles.loaderContainer} ${loaderContainerClassName} ${
+        absoluteLoader ? styles.absoluteLoaderContainer : ''
+      }`,
     [loaderContainerClassName, absoluteLoader]
   );
 
   const computedLoaderClassName = useMemo(
-    () => `${styles.loader} ${loaderClassName ? loaderClassName : ''}`,
+    () => `${styles.loader} ${loaderClassName}`,
     [loaderClassName]
   );
 
   const computedCircleClassName = useMemo(
-    () => `${styles.circle} ${circleClassName ? circleClassName : ''}`,
+    () => `${styles.circle} ${circleClassName}`,
     [circleClassName]
   );
   return (

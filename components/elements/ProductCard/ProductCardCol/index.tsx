@@ -27,7 +27,7 @@ export default function ProductCardCol({ product }: ProductCardColProps) {
 
   const cardImage = useMemo(
     () =>
-      image && (
+      !!image && (
         <Link
           href={`product/${product_id}`}
           className={styles.imageContainer}
@@ -50,7 +50,7 @@ export default function ProductCardCol({ product }: ProductCardColProps) {
 
   const cardTitle = useMemo(
     () =>
-      name && (
+      !!name && (
         <Heading className={styles.title} level={3}>
           {name}
         </Heading>
@@ -60,7 +60,7 @@ export default function ProductCardCol({ product }: ProductCardColProps) {
 
   const outOfStock = useMemo(
     () =>
-      in_stock ? null : (
+      !in_stock && (
         <div className={styles.outOfStock}>
           <span className={styles.outOfStockText}>{t('outOfStock')}</span>
         </div>
