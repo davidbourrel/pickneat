@@ -52,7 +52,9 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
               {t('allergens')}
             </Heading>
             <p>
-              {allergens && allergens.length > 0 ? allergens : t('noAllergens')}
+              {!!allergens && allergens.length > 0
+                ? allergens
+                : t('noAllergens')}
             </p>
           </section>
 

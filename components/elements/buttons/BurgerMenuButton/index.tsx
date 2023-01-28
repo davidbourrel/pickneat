@@ -27,8 +27,24 @@ export default function BurgerMenuButton({
     [className]
   );
 
+  const bar1ClassName = useMemo(
+    () => `${styles.bar} ${styles.bar1}
+      ${isMobileNavOpened ? styles.bar1Active : ''}`,
+    [isMobileNavOpened]
+  );
+  const bar2ClassName = useMemo(
+    () => `${styles.bar} ${styles.bar2}
+      ${isMobileNavOpened ? styles.bar2Active : ''}`,
+    [isMobileNavOpened]
+  );
+  const bar3ClassName = useMemo(
+    () => `${styles.bar} ${styles.bar3}
+      ${isMobileNavOpened ? styles.bar3Active : ''}`,
+    [isMobileNavOpened]
+  );
+
   const computedTitle = useMemo(
-    () => (title ? <span className={styles.menuTitle}>{title}</span> : null),
+    () => !!title && <span className={styles.menuTitle}>{title}</span>,
     [title]
   );
 
@@ -45,22 +61,6 @@ export default function BurgerMenuButton({
 
   const ariaExpanded = useMemo(
     () => (isMobileNavOpened ? 'true' : 'false'),
-    [isMobileNavOpened]
-  );
-
-  const bar1ClassName = useMemo(
-    () => `${styles.bar} ${styles.bar1}
-      ${isMobileNavOpened ? styles.bar1Active : ''}`,
-    [isMobileNavOpened]
-  );
-  const bar2ClassName = useMemo(
-    () => `${styles.bar} ${styles.bar2}
-      ${isMobileNavOpened ? styles.bar2Active : ''}`,
-    [isMobileNavOpened]
-  );
-  const bar3ClassName = useMemo(
-    () => `${styles.bar} ${styles.bar3}
-      ${isMobileNavOpened && styles.bar3Active}`,
     [isMobileNavOpened]
   );
 

@@ -26,7 +26,7 @@ export default function Profile({ user }: ProfileProps) {
 
   const userPicture = useMemo(
     () =>
-      picture ? (
+      !!picture && (
         <Image
           src={picture}
           alt="User profile"
@@ -34,13 +34,14 @@ export default function Profile({ user }: ProfileProps) {
           height={400}
           className={styles.profilePicture}
         />
-      ) : null,
+      ),
     [picture]
   );
 
   const userInformation = useMemo(
     () =>
-      nickname && email ? (
+      !!nickname &&
+      !!email && (
         <div className={styles.userInformation}>
           <p>
             <span>{t('nickname')} :</span> {nickname}
@@ -49,7 +50,7 @@ export default function Profile({ user }: ProfileProps) {
             <span>{t('email')} :</span> {email}
           </p>
         </div>
-      ) : null,
+      ),
     [nickname, email, t]
   );
 

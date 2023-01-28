@@ -4,7 +4,7 @@ import styles from './CheckMark.module.css';
 
 export default function CheckMark({ className = '' }: ClassNameComponentProps) {
   const computedClassName = useMemo(
-    () => `${styles.checkMark}${className}`,
+    () => `${styles.checkMark} ${className}`,
     [className]
   );
 

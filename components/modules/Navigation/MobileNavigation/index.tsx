@@ -34,9 +34,7 @@ export default function MobileNavigation({
   useOutsideClick(mobileNavigationRef, handleOutsideClick);
 
   useEffect(() => {
-    isMobileNavOpened
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'unset');
+    document.body.style.overflow = isMobileNavOpened ? 'hidden' : 'unset';
   }, [isMobileNavOpened]);
 
   const blackFilterClassName = useMemo(

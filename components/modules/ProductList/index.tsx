@@ -17,7 +17,7 @@ export default function ProductList({ products, category }: ProductListProps) {
 
   const productList = useMemo(
     () =>
-      filteredProductsByCategory?.length ? (
+      filteredProductsByCategory && filteredProductsByCategory?.length > 0 ? (
         <ul className={styles.productList}>
           {filteredProductsByCategory.map((product, i) => (
             <ProductCardCol key={`burger-key-${i}`} product={product} />

@@ -8,8 +8,8 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.blockContainer} container`}>
-        <nav className={styles.block}>
+      <div className={`${styles.columnsContainer} container`}>
+        <nav className={styles.column}>
           <Heading level={3}>{t('aboutUs')}</Heading>
           <ul>
             <li>
@@ -23,7 +23,7 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
-        <nav className={styles.block}>
+        <nav className={styles.column}>
           <Heading level={3}>{t('careers')}</Heading>
           <ul>
             <li>
@@ -37,7 +37,7 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
-        <nav className={styles.block}>
+        <nav className={styles.column}>
           <Heading level={3}>{t('contactUs')}</Heading>
           <ul>
             <li>

@@ -24,16 +24,15 @@ export default function Category({
 }: CategoryProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
-    threshold: 0,
     rootMargin: '-50% 0% -50% 0%',
   });
 
   const setIntersectionObserverEntries = useIntersectionObserverEntries();
 
   useEffect(() => {
-    const isVisible = !!entry?.isIntersecting;
+    const isCategoryVisible = !!entry?.isIntersecting;
 
-    if (isVisible && entry) {
+    if (isCategoryVisible && entry) {
       setIntersectionObserverEntries((entries) => {
         const indexOfEntry = entries?.findIndex(
           (currentEntry: IntersectionObserverEntry) =>
