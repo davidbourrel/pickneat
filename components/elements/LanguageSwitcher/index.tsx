@@ -25,8 +25,15 @@ export default function LanguageSwitcher({
   dataTestLangList,
   dataTestLangButton,
 }: LanguageSwitcherProps) {
-  const { locale, pathname } = useRouter();
+  const { locale, pathname, query } = useRouter();
   const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
+
+  const href = useMemo(() => {
+    return {
+      pathname,
+      query,
+    };
+  }, [pathname, query]);
 
   const handleClosePopupClick = useCallback(() => {
     setIsLangSwitcherOpened(false);
@@ -90,7 +97,7 @@ export default function LanguageSwitcher({
       >
         <li className="capitalize" aria-labelledby="lang-item-English">
           <Link
-            href={pathname}
+            href={href}
             passHref
             locale={LangEnum.En}
             lang={LangEnum.En}
@@ -105,7 +112,7 @@ export default function LanguageSwitcher({
         </li>
         <li className="capitalize" aria-labelledby="lang-item-French">
           <Link
-            href={pathname}
+            href={href}
             passHref
             locale={LangEnum.Fr}
             lang={LangEnum.Fr}
