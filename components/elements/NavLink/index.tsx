@@ -29,13 +29,8 @@ export default function NavLink({
   );
 
   return (
-    <Link
-      href={href}
-      onClick={closeMenu}
-      className={computedClassName}
-      {...rest}
-    >
-      {children}
+    <Link href={href} onClick={closeMenu} {...rest}>
+      <div className={computedClassName}>{children}</div>
     </Link>
   );
 }

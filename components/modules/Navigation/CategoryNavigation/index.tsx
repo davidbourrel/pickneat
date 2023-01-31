@@ -15,48 +15,41 @@ export default function CategoryNavigation() {
     <nav className={styles.navigation}>
       <ul tabIndex={-1}>
         <li>
-          <NavLink
-            href="#burgers"
-            tabIndex={-1}
-            isActive={activeMenuCategory === 'burgers'}
-          >
-            <Button headless>{t('burgerTitle')}</Button>
+          <NavLink href="#burgers" isActive={activeMenuCategory === 'burgers'}>
+            <Button headless tabIndex={-1}>
+              {t('burgerTitle')}
+            </Button>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            href="#sides"
-            tabIndex={-1}
-            isActive={activeMenuCategory === 'sides'}
-          >
-            <Button headless>{t('sideTitle')}</Button>
+          <NavLink href="#sides" isActive={activeMenuCategory === 'sides'}>
+            <Button headless tabIndex={-1}>
+              {t('sideTitle')}
+            </Button>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            href="#drinks"
-            tabIndex={-1}
-            isActive={activeMenuCategory === 'drinks'}
-          >
-            <Button headless>{t('drinkTitle')}</Button>
+          <NavLink href="#drinks" isActive={activeMenuCategory === 'drinks'}>
+            <Button headless tabIndex={-1}>
+              {t('drinkTitle')}
+            </Button>
           </NavLink>
         </li>
         <li>
           <NavLink
             href="#desserts"
-            tabIndex={-1}
             isActive={activeMenuCategory === 'desserts'}
           >
-            <Button headless>{t('dessertTitle')}</Button>
+            <Button headless tabIndex={-1}>
+              {t('dessertTitle')}
+            </Button>
           </NavLink>
         </li>
         <li>
-          <NavLink
-            href="#salads"
-            tabIndex={-1}
-            isActive={activeMenuCategory === 'salads'}
-          >
-            <Button headless>{t('saladTitle')}</Button>
+          <NavLink href="#salads" isActive={activeMenuCategory === 'salads'}>
+            <Button headless tabIndex={-1}>
+              {t('saladTitle')}
+            </Button>
           </NavLink>
         </li>
       </ul>

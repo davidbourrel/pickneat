@@ -11,14 +11,13 @@ describe('Navigation menu', () => {
   describe('Mobile navigation', { viewportWidth: 320 }, () => {
     beforeEach(() => {
       cy.get('[data-test="openBurgerMenuButton"]').as('openBurgerMenuButton');
-      cy.get('[data-test="closeBurgerMenuButton"]').as('closeBurgerMenuButton');
     });
 
-    it('should have a visible profile icon, cart count and a burger menu button', () => {
+    it('should have a visible profile icon, cart count icon and a burger menu button', () => {
       /** Profile Icon */
       cy.get('[data-test="profileIcon"]').should('exist').should('be.visible');
 
-      /** Cart Count */
+      /** Cart Count Icon */
       cy.get('[data-test="cartCount"]').should('exist').should('be.visible');
 
       /** Burger Menu */
@@ -32,7 +31,7 @@ describe('Navigation menu', () => {
       cy.get('[data-test="mobileNavigation"]').should('be.visible');
 
       /** Close the menu */
-      cy.get('@closeBurgerMenuButton').click();
+      cy.get('[data-test="closeBurgerMenuButton"]').click();
       cy.get('[data-test="mobileNavigation"]').should('not.be.visible');
     });
 
