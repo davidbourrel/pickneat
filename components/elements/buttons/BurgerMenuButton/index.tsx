@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { ClassNameComponentProps } from '_types/components';
-import Button from '../Button';
 import styles from './BurgerMenuButton.module.css';
+import Button from '../Button';
+import BurgerMenuIcon from './BurgerMenuIcon';
 
 interface BurgerMenuButtonProps extends ClassNameComponentProps {
   handleToggleMenu?: () => void;
@@ -27,27 +28,6 @@ export default function BurgerMenuButton({
     [className]
   );
 
-  const bar1ClassName = useMemo(
-    () => `${styles.bar} ${styles.bar1}
-      ${isMobileNavOpened ? styles.bar1Active : ''}`,
-    [isMobileNavOpened]
-  );
-  const bar2ClassName = useMemo(
-    () => `${styles.bar} ${styles.bar2}
-      ${isMobileNavOpened ? styles.bar2Active : ''}`,
-    [isMobileNavOpened]
-  );
-  const bar3ClassName = useMemo(
-    () => `${styles.bar} ${styles.bar3}
-      ${isMobileNavOpened ? styles.bar3Active : ''}`,
-    [isMobileNavOpened]
-  );
-
-  const computedTitle = useMemo(
-    () => !!title && <span className={styles.menuTitle}>{title}</span>,
-    [title]
-  );
-
   const computedClickEvent = useMemo(
     () => (closeMenu ? closeMenu : handleToggleMenu),
     [closeMenu, handleToggleMenu]
@@ -64,6 +44,11 @@ export default function BurgerMenuButton({
     [isMobileNavOpened]
   );
 
+  const computedTitle = useMemo(
+    () => !!title && <span className={styles.menuTitle}>{title}</span>,
+    [title]
+  );
+
   return (
     <Button
       headless
@@ -76,11 +61,7 @@ export default function BurgerMenuButton({
       data-test={dataTest}
     >
       {computedTitle}
-      <div className={styles.barsContainer}>
-        <span className={bar1ClassName} aria-hidden="true" />
-        <span className={bar2ClassName} aria-hidden="true" />
-        <span className={bar3ClassName} aria-hidden="true" />
-      </div>
+      <BurgerMenuIcon isMobileNavOpened={isMobileNavOpened} />
     </Button>
   );
 }
