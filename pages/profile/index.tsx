@@ -6,7 +6,7 @@ import Head from 'next/head';
 import styles from './Profile.module.css';
 import { getSession } from '@auth0/nextjs-auth0';
 import { pick } from 'lodash';
-import ProfileProps from './types';
+import { ProfileProps } from '_types/profile';
 
 // Static components
 import PageLayout from 'components/modules/PageLayout';

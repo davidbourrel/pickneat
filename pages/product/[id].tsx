@@ -5,9 +5,8 @@ import { useTranslations } from 'next-intl';
 import styles from './Product.module.css';
 import { getProduct, getProducts } from 'database/products';
 import { pick } from 'lodash';
-import { Product } from '_types/products';
+import { Product, ProductIdProps } from '_types/products';
 import { LangEnum } from '_types/lang';
-import ProductIdProps from './types';
 
 // Static components
 import PageLayout from 'components/modules/PageLayout';

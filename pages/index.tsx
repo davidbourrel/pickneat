@@ -6,7 +6,7 @@ import { SwiperSlide } from 'swiper/react';
 import { pick } from 'lodash';
 import { getProducts } from 'database/products';
 import styles from '../styles/Home.module.css';
-import HomeProps from './types';
+import HomeProps from '_types/app';
 
 // Static images
 import burgerImage from '../public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';

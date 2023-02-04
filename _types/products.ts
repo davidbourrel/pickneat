@@ -11,6 +11,10 @@ export interface Product {
   amount: number;
 }
 
+export interface ProductIdProps {
+  ssrProduct: Product;
+}
+
 export enum CategoryEnum {
   Burger = 'BURGER',
   Side = 'SIDE',

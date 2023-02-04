@@ -9,7 +9,7 @@ import { ThemeProvider } from 'contexts/themeContext';
 import { CartProvider } from 'contexts/cartContext';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import useKonami from 'hooks/useKonami';
-import { MyAppProps } from './types';
+import { MyAppProps } from '_types/app';
 import PageLayout from '../components/modules/PageLayout';
 import { Baloo_2 } from '@next/font/google';
 

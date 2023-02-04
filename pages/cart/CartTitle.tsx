@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import styles from './Cart.module.css';
-import CartTitleProps from './types';
+import { CartTitleProps } from '_types/cart';
 
 // Static components
 import Button from 'components/elements/buttons/Button';

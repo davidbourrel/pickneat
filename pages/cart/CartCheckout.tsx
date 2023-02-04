@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Cart.module.css';
-import { CartCheckoutProps } from './types';
+import { CartCheckoutProps } from '_types/cart';
 import { formatNumberToPrice } from 'utils/formatNumberToPrice';
 
 // Static components
