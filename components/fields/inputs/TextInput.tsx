@@ -1,12 +1,12 @@
 import { HTMLProps, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import { InputCommonProps } from './types';
 import useInputClassNames from './useInputClassNames';
 import styles from './Inputs.module.css';
 
 export interface TextInputProps
-  extends ClassNameComponentProps,
+  extends ClassNameProps,
     InputCommonProps,
     Omit<
       HTMLProps<HTMLInputElement>,

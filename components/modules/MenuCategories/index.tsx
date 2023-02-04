@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './MenuCategories.module.css';
 import { CategoryEnum, Product } from '_types/products';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 
 // Static Components
 import Category from './Category';
 
-interface MenuCategoriesProps extends ClassNameComponentProps {
+interface MenuCategoriesProps extends ClassNameProps {
   ssrProducts: Product[];
 }
 

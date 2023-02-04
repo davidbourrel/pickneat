@@ -29,11 +29,6 @@
 
 .navigation button {
   white-space: nowrap;
-  transition: color 150ms var(--transition-easeInOut);
-}
-
-.navigation button:active {
-  color: var(--primary);
 }
 
 /**************************/
@@ -55,8 +50,8 @@
     gap: 0;
   }
 
-  .navigation button:hover {
-    color: var(--primary);
+  .navigation a:hover {
+    color: var(--neutral-900);
   }
 }
 

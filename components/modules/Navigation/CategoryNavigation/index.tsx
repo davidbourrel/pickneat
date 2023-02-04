@@ -3,8 +3,7 @@ import styles from './CategoryNavigation.module.css';
 import useActiveMenuCategories from 'contexts/appContext/useActiveMenuCategories';
 
 // Static Components
-import Button from 'components/elements/buttons/Button';
-import NavLink from 'components/elements/NavLink';
+import CategoryNavigationItem from './CategoryNavigationItem';
 
 export default function CategoryNavigation() {
   const t = useTranslations('Home');
@@ -14,44 +13,36 @@ export default function CategoryNavigation() {
   return (
     <nav className={styles.navigation}>
       <ul tabIndex={-1}>
-        <li>
-          <NavLink href="#burgers" isActive={activeMenuCategory === 'burgers'}>
-            <Button headless tabIndex={-1}>
-              {t('burgerTitle')}
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink href="#sides" isActive={activeMenuCategory === 'sides'}>
-            <Button headless tabIndex={-1}>
-              {t('sideTitle')}
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink href="#drinks" isActive={activeMenuCategory === 'drinks'}>
-            <Button headless tabIndex={-1}>
-              {t('drinkTitle')}
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            href="#desserts"
-            isActive={activeMenuCategory === 'desserts'}
-          >
-            <Button headless tabIndex={-1}>
-              {t('dessertTitle')}
-            </Button>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink href="#salads" isActive={activeMenuCategory === 'salads'}>
-            <Button headless tabIndex={-1}>
-              {t('saladTitle')}
-            </Button>
-          </NavLink>
-        </li>
+        <CategoryNavigationItem
+          id="#burgers"
+          isActive={activeMenuCategory === 'burgers'}
+        >
+          {t('burgerTitle')}
+        </CategoryNavigationItem>
+        <CategoryNavigationItem
+          id="#sides"
+          isActive={activeMenuCategory === 'sides'}
+        >
+          {t('sideTitle')}
+        </CategoryNavigationItem>
+        <CategoryNavigationItem
+          id="#drinks"
+          isActive={activeMenuCategory === 'drinks'}
+        >
+          {t('drinkTitle')}
+        </CategoryNavigationItem>
+        <CategoryNavigationItem
+          id="#desserts"
+          isActive={activeMenuCategory === 'desserts'}
+        >
+          {t('dessertTitle')}
+        </CategoryNavigationItem>
+        <CategoryNavigationItem
+          id="#salads"
+          isActive={activeMenuCategory === 'salads'}
+        >
+          {t('saladTitle')}
+        </CategoryNavigationItem>
       </ul>
     </nav>
   );

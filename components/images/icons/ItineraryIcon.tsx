@@ -1,8 +1,6 @@
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 
-export default function ItineraryIcon({
-  className = '',
-}: ClassNameComponentProps) {
+export default function ItineraryIcon({ className = '' }: ClassNameProps) {
   return (
     <svg className={className} viewBox="0 0 14 14">
       <g

@@ -12,7 +12,7 @@ export default function ScrollToTopButton() {
     [isVisible]
   );
 
-  const handleScrollToTopButton = useCallback(
+  const handleScrollToTopClick = useCallback(
     () =>
       window.scrollTo({
         top: 0,
@@ -32,7 +32,7 @@ export default function ScrollToTopButton() {
   return (
     <Button
       className={buttonClassName}
-      onClick={handleScrollToTopButton}
+      onClick={handleScrollToTopClick}
       absoluteLoader
       aria-label="scroll to top"
       data-test="scrollToTopButton"

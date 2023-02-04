@@ -1,6 +1,6 @@
-import { ClassNameComponentProps } from '../../../_types/components';
+import { ClassNameProps } from '_types/components';
 
-export default function UserIcon({ className = '' }: ClassNameComponentProps) {
+export default function UserIcon({ className = '' }: ClassNameProps) {
   return (
     <svg
       className={className}

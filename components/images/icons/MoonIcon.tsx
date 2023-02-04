@@ -1,6 +1,6 @@
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 
-export default function MoonIcon({ className = '' }: ClassNameComponentProps) {
+export default function MoonIcon({ className = '' }: ClassNameProps) {
   return (
     <svg
       className={className}

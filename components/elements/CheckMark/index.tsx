@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import styles from './CheckMark.module.css';
 
-export default function CheckMark({ className = '' }: ClassNameComponentProps) {
+export default function CheckMark({ className = '' }: ClassNameProps) {
   const computedClassName = useMemo(
     () => `${styles.checkMark} ${className}`,
     [className]

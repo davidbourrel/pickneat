@@ -1,6 +1,6 @@
-import { ClassNameComponentProps } from '../../../_types/components';
+import { ClassNameProps } from '../../../_types/components';
 
-export default function CartIcon({ className = '' }: ClassNameComponentProps) {
+export default function CartIcon({ className = '' }: ClassNameProps) {
   return (
     <svg className={className} viewBox="0 0 118.67 122.88">
       <g>

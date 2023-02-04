@@ -13,13 +13,13 @@ import ProfileIcon from 'components/elements/ProfileIcon';
 
 interface HeaderProps {
   isMobileNavOpened: boolean;
-  closeMenu: () => void;
+  handleCloseMenu: () => void;
   handleToggleMenu: () => void;
 }
 
 export default function Header({
   isMobileNavOpened,
-  closeMenu,
+  handleCloseMenu,
   handleToggleMenu,
 }: HeaderProps) {
   const { user } = useUser();
@@ -43,17 +43,17 @@ export default function Header({
   return (
     <header className={styles.header}>
       <div className={`${styles.headerContent} container`}>
-        <Logo closeMenu={closeMenu} />
+        <Logo onCloseMenu={handleCloseMenu} />
         <DesktopNavigation />
 
         <div className={styles.headerMobileActions}>
           {userTab}
-          <Link href="/cart" onClick={closeMenu}>
+          <Link href="/cart" onClick={handleCloseMenu}>
             <CartCount title={t('cartTitle')} />
           </Link>
           <BurgerMenuButton
             isMobileNavOpened={isMobileNavOpened}
-            handleToggleMenu={handleToggleMenu}
+            onToggleMenu={handleToggleMenu}
             title={t('openBurgerMenu')}
             dataTest="openBurgerMenuButton"
           />

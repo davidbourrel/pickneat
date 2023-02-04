@@ -16,7 +16,7 @@ export default function PageLayout({ children }: PageLayoutProps) {
     setIsMobileNavOpened((c) => !c);
   }, []);
 
-  const closeMenu = useCallback(() => {
+  const handleCloseMenu = useCallback(() => {
     setIsMobileNavOpened(false);
   }, []);
 
@@ -24,12 +24,12 @@ export default function PageLayout({ children }: PageLayoutProps) {
     <>
       <Header
         isMobileNavOpened={isMobileNavOpened}
-        closeMenu={closeMenu}
+        handleCloseMenu={handleCloseMenu}
         handleToggleMenu={handleToggleMenu}
       />
       <MobileNavigation
         isMobileNavOpened={isMobileNavOpened}
-        closeMenu={closeMenu}
+        handleCloseMenu={handleCloseMenu}
       />
       {children}
       <Footer />

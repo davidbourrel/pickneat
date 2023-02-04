@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import styles from './PriceTag.module.css';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import { formatNumberToPrice } from 'utils/formatNumberToPrice';
 
-interface PriceTagProps extends ClassNameComponentProps {
+interface PriceTagProps extends ClassNameProps {
   price: number;
 }
 

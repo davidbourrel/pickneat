@@ -1,21 +1,21 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import styles from './BurgerMenuButton.module.css';
 import Button from '../Button';
 import BurgerMenuIcon from './BurgerMenuIcon';
 
-interface BurgerMenuButtonProps extends ClassNameComponentProps {
-  handleToggleMenu?: () => void;
-  closeMenu?: () => void;
+interface BurgerMenuButtonProps extends ClassNameProps {
+  onToggleMenu?: () => void;
+  onCloseMenu?: () => void;
   isMobileNavOpened: boolean;
   title?: string;
   dataTest: string;
 }
 
 export default function BurgerMenuButton({
-  handleToggleMenu,
-  closeMenu,
+  onToggleMenu,
+  onCloseMenu,
   isMobileNavOpened,
   title,
   className,
@@ -28,9 +28,9 @@ export default function BurgerMenuButton({
     [className]
   );
 
-  const computedClickEvent = useMemo(
-    () => (closeMenu ? closeMenu : handleToggleMenu),
-    [closeMenu, handleToggleMenu]
+  const handleClick = useMemo(
+    () => (onCloseMenu ? onCloseMenu : onToggleMenu),
+    [onCloseMenu, onToggleMenu]
   );
 
   const ariaLabel = useMemo(
@@ -53,7 +53,7 @@ export default function BurgerMenuButton({
     <Button
       headless
       className={computedButtonClassName}
-      onClick={computedClickEvent}
+      onClick={handleClick}
       title={ariaLabel}
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}

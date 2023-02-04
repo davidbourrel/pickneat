@@ -1,22 +1,20 @@
 import { HTMLProps, ReactNode, useMemo } from 'react';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import Link from '../Link';
 import styles from './NavLink.module.css';
 
-interface NavLinkProps
-  extends HTMLProps<HTMLAnchorElement>,
-    ClassNameComponentProps {
+interface NavLinkProps extends HTMLProps<HTMLAnchorElement>, ClassNameProps {
   children: ReactNode;
   href: string;
   isActive: boolean;
-  closeMenu?: () => void;
+  onCloseMenu?: () => void;
 }
 
 export default function NavLink({
   children,
   href,
   isActive,
-  closeMenu,
+  onCloseMenu,
   className = '',
   ...rest
 }: NavLinkProps) {
@@ -29,7 +27,7 @@ export default function NavLink({
   );
 
   return (
-    <Link href={href} onClick={closeMenu} {...rest}>
+    <Link href={href} onClick={onCloseMenu} {...rest}>
       <div className={computedClassName}>{children}</div>
     </Link>
   );

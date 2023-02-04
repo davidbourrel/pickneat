@@ -1,8 +1,8 @@
 import { ReactNode, useMemo } from 'react';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import styles from './MainContentLayout.module.css';
 
-interface MainContentLayoutProps extends ClassNameComponentProps {
+interface MainContentLayoutProps extends ClassNameProps {
   padding?: boolean;
   center?: boolean;
   children: ReactNode;

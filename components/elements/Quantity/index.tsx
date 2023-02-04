@@ -2,14 +2,16 @@ import { useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useCart from 'contexts/cartContext/useCart';
-import { ClassNameComponentProps } from '_types/components';
+import styles from './Quantity.module.css';
+import { ClassNameProps } from '_types/components';
 import { Product } from '_types/products';
+
+// Static Components
 import Button from '../buttons/Button';
 import MinusButton from './MinusButton';
 import PlusButton from './PlusButton';
-import styles from './Quantity.module.css';
 
-interface QuantityProps extends ClassNameComponentProps {
+interface QuantityProps extends ClassNameProps {
   product: Product;
 }
 

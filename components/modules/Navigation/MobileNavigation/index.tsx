@@ -13,12 +13,12 @@ import NavLink from 'components/elements/NavLink';
 
 interface MobileNavigationProps {
   isMobileNavOpened: boolean;
-  closeMenu: () => void;
+  handleCloseMenu: () => void;
 }
 
 export default function MobileNavigation({
   isMobileNavOpened,
-  closeMenu,
+  handleCloseMenu,
 }: MobileNavigationProps) {
   const { pathname } = useRouter();
 
@@ -28,9 +28,9 @@ export default function MobileNavigation({
   const mobileNavigationRef = useRef(null as unknown as HTMLHeadingElement);
   const handleOutsideClick = useCallback(() => {
     if (isMobileNavOpened) {
-      closeMenu();
+      handleCloseMenu();
     }
-  }, [isMobileNavOpened, closeMenu]);
+  }, [isMobileNavOpened, handleCloseMenu]);
   useOutsideClick(mobileNavigationRef, handleOutsideClick);
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function MobileNavigation({
         <nav className={styles.mobileNavigation}>
           <BurgerMenuButton
             isMobileNavOpened={isMobileNavOpened}
-            closeMenu={closeMenu}
+            onCloseMenu={handleCloseMenu}
             title={t('closeBurgerMenu')}
             className={styles.topRightCloseButton}
             dataTest="closeBurgerMenuButton"
@@ -75,7 +75,7 @@ export default function MobileNavigation({
               <NavLink
                 href="/"
                 isActive={pathname === '/'}
-                closeMenu={closeMenu}
+                onCloseMenu={handleCloseMenu}
               >
                 {t('menu')}
               </NavLink>
@@ -84,7 +84,7 @@ export default function MobileNavigation({
               <NavLink
                 href="/restaurants"
                 isActive={pathname === '/restaurants'}
-                closeMenu={closeMenu}
+                onCloseMenu={handleCloseMenu}
               >
                 {t('restaurants')}
               </NavLink>
@@ -93,7 +93,7 @@ export default function MobileNavigation({
               <NavLink
                 href="/delivery"
                 isActive={pathname === '/delivery'}
-                closeMenu={closeMenu}
+                onCloseMenu={handleCloseMenu}
               >
                 {t('delivery')}
               </NavLink>

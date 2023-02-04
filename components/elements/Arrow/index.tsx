@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import ArrowIcon from 'components/images/icons/ArrowIcon';
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 import styles from './Arrow.module.css';
 import { ArrowDirectionEnum } from './types';
 
-interface ArrowProps extends ClassNameComponentProps {
+interface ArrowProps extends ClassNameProps {
   direction: ArrowDirectionEnum;
   caret?: boolean;
 }

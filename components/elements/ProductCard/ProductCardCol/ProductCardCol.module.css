@@ -12,11 +12,6 @@
   box-shadow: var(--shadow-1);
 }
 
-.card:hover,
-.card:active {
-  border-color: var(--neutral-300);
-}
-
 .card::before {
   content: '';
   position: absolute;
@@ -32,9 +27,6 @@
   border-radius: var(--app-radius);
   pointer-events: none;
   transition: border-color 200ms;
-}
-.card:active::before {
-  border-color: var(--primary);
 }
 
 .imageContainer {

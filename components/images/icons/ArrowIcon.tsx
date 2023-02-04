@@ -1,6 +1,6 @@
-import { ClassNameComponentProps } from '_types/components';
+import { ClassNameProps } from '_types/components';
 
-export default function ArrowIcon({ className = '' }: ClassNameComponentProps) {
+export default function ArrowIcon({ className = '' }: ClassNameProps) {
   return (
     <svg className={className} viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
