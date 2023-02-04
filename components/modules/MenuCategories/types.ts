@@ -1,5 +1,5 @@
+import { Maybe } from '_types/app';
 import { ClassNameProps } from '_types/components';
-import { Maybe } from '_types/maybe';
 import { CategoryEnum, Product } from '_types/products';
 
 export interface CategoryProps {

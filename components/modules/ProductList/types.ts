@@ -1,4 +1,4 @@
-import { Maybe } from '_types/maybe';
+import { Maybe } from '_types/app';
 import { Product, CategoryEnum } from '_types/products';
 
 export interface ProductListProps {

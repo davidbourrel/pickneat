@@ -12,3 +12,5 @@ export type MyAppProps = Omit<AppProps<PageProps>, 'pageProps'> & {
 export default interface HomeProps {
   ssrProducts: Product[];
 }
+
+export type Maybe<T> = T | null;
