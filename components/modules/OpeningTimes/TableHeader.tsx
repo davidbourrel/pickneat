@@ -1,8 +1,4 @@
-interface TableHeaderProps {
-  day: string;
-  lunch: string;
-  dinner: string;
-}
+import { TableHeaderProps } from './types';
 
 export default function TableHeader({ day, lunch, dinner }: TableHeaderProps) {
   return (

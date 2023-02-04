@@ -1,22 +1,12 @@
-import { HTMLProps, PropsWithChildren, useMemo } from 'react';
-import NextLink, { LinkProps } from 'next/link';
+import { useMemo } from 'react';
+import NextLink from 'next/link';
 import useIsClient from 'hooks/useIsClient';
 import styles from './Link.module.css';
+import { FLinkProps } from './types';
 
 /**
  * use this component rather than next/link
  */
-interface FLinkProps
-  extends PropsWithChildren,
-    Omit<
-      HTMLProps<HTMLAnchorElement>,
-      'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart' | 'ref'
-    >,
-    LinkProps {
-  obfuscate?: boolean;
-  isLoading?: boolean;
-}
-
 export default function Link({
   obfuscate,
   isLoading = false,

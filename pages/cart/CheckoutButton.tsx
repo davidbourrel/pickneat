@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Cart.module.css';
+
+// Static components
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 

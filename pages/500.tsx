@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';

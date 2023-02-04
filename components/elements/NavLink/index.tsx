@@ -1,16 +1,7 @@
-import { HTMLProps, PropsWithChildren, useMemo } from 'react';
-import { ClassNameProps } from '_types/components';
+import { useMemo } from 'react';
 import Link from '../Link';
 import styles from './NavLink.module.css';
-
-interface NavLinkProps
-  extends PropsWithChildren,
-    HTMLProps<HTMLAnchorElement>,
-    ClassNameProps {
-  href: string;
-  isActive: boolean;
-  onCloseMenu?: () => void;
-}
+import { NavLinkProps } from './types';
 
 export default function NavLink({
   children,

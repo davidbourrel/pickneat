@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { GetStaticPropsContext } from 'next/types';
 import { pick } from 'lodash';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';

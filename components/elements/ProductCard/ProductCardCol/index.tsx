@@ -2,18 +2,15 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { Product } from '_types/products';
 import styles from './ProductCardCol.module.css';
+import { ProductCardProps } from '../types';
 
+// Static components
 import Heading from 'components/elements/Heading';
 import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
 
-interface ProductCardColProps {
-  product: Product;
-}
-
-export default function ProductCardCol({ product }: ProductCardColProps) {
+export default function ProductCardCol({ product }: ProductCardProps) {
   const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
 

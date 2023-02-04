@@ -2,20 +2,17 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import styles from './ProductCardRow.module.css';
-import { Product } from '_types/products';
+import { ProductCardProps } from '../types';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
 
+// Static components
 import Link from 'components/elements/Link';
 import Heading from 'components/elements/Heading';
 import Quantity from 'components/elements/Quantity';
 import PriceTag from 'components/elements/PriceTag';
 import Button from 'components/elements/buttons/Button';
 
-interface ProductCardRowProps {
-  product: Product;
-}
-
-export default function ProductCardRow({ product }: ProductCardRowProps) {
+export default function ProductCardRow({ product }: ProductCardProps) {
   const { product_id, name, price, image, category, amount } = product;
 
   const { removeItemsFromCart } = useRemoveCart();

@@ -1,10 +1,6 @@
 import { useMemo } from 'react';
 import styles from './Inputs.module.css';
-
-interface UseInputClassNamesResult {
-  labelClassName: string;
-  inputClassName: string;
-}
+import { UseInputClassNamesResult } from './types';
 
 const useInputClassNames = (inError: boolean): UseInputClassNamesResult => {
   const labelClassName = useMemo(

@@ -1,4 +1,4 @@
-import { ClassNameProps } from '../../../_types/components';
+import { ClassNameProps } from '_types/components';
 
 export default function CartIcon({ className = '' }: ClassNameProps) {
   return (

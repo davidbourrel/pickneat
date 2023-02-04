@@ -3,20 +3,13 @@ import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
 import { LangEnum } from '_types/lang';
 import { ArrowDirectionEnum } from '../Arrow/types';
+import { LanguageSwitcherProps } from './types';
 
 // Static Components
 import Link from '../Link';
 import Arrow from '../Arrow';
 import LangItem from './LangItem';
 import Button from '../buttons/Button';
-
-interface LanguageSwitcherProps {
-  title: string;
-  ariaControlsId: string;
-  dataTestButton: string;
-  dataTestLangList: string;
-  dataTestLangButton: string;
-}
 
 export default function LanguageSwitcher({
   title,

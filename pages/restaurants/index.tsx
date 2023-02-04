@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { pick } from 'lodash';
 import styles from './Restaurants.module.css';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Location from 'components/modules/Location';

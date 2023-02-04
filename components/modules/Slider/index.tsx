@@ -1,12 +1,10 @@
-import { PropsWithChildren } from 'react';
 import { Swiper } from 'swiper/react';
-import { A11y, Keyboard, Navigation, SwiperOptions } from 'swiper';
+import { A11y, Keyboard, Navigation } from 'swiper';
 import styles from './Slider.module.css';
-import Loader from 'components/elements/Loader';
+import { SliderProps } from './types';
 
-interface SliderProps extends SwiperOptions, PropsWithChildren {
-  loading?: boolean;
-}
+// Static components
+import Loader from 'components/elements/Loader';
 
 export default function Slider({ children, loading, ...props }: SliderProps) {
   return (

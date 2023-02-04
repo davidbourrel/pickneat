@@ -1,11 +1,6 @@
-import { PropsWithChildren, useMemo } from 'react';
-import { ClassNameProps } from '_types/components';
+import { useMemo } from 'react';
 import styles from './MainContentLayout.module.css';
-
-interface MainContentLayoutProps extends ClassNameProps, PropsWithChildren {
-  padding?: boolean;
-  center?: boolean;
-}
+import { MainContentLayoutProps } from './types';
 
 export default function MainContentLayout({
   padding = true,

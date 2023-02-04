@@ -1,15 +1,11 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './MenuCategories.module.css';
-import { CategoryEnum, Product } from '_types/products';
-import { ClassNameProps } from '_types/components';
+import { CategoryEnum } from '_types/products';
+import { MenuCategoriesProps } from './types';
 
 // Static Components
 import Category from './Category';
-
-interface MenuCategoriesProps extends ClassNameProps {
-  ssrProducts: Product[];
-}
 
 export default function MenuCategories({
   ssrProducts,

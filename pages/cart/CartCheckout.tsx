@@ -1,15 +1,13 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Cart.module.css';
+import { CartCheckoutProps } from './types';
+import { formatNumberToPrice } from 'utils/formatNumberToPrice';
+
+// Static components
 import CheckoutButton from './CheckoutButton';
 import Link from 'components/elements/Link';
 import Button from 'components/elements/buttons/Button';
-import { formatNumberToPrice } from 'utils/formatNumberToPrice';
-
-interface CartCheckoutProps {
-  cartTotalItems: number;
-  cartTotalPrice: number;
-}
 
 export default function CartCheckout({
   cartTotalItems,

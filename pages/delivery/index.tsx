@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styles from './Delivery.module.css';
 import { pick } from 'lodash';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Link from 'components/elements/Link';

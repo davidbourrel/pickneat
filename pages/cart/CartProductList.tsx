@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import styles from './Cart.module.css';
 import useCart from 'contexts/cartContext/useCart';
+
+// Static components
 import ProductCardRow from 'components/elements/ProductCard/ProductCardRow';
 
 export default function CartProductList() {

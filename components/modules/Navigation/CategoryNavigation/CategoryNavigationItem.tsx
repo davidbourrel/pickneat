@@ -1,13 +1,8 @@
-import { PropsWithChildren } from 'react';
+import { CategoryNavigationItemProps } from './types';
 
 // Static Components
 import Button from 'components/elements/buttons/Button';
 import NavLink from 'components/elements/NavLink';
-
-interface CategoryNavigationItemProps extends PropsWithChildren {
-  id: string;
-  isActive: boolean;
-}
 
 export default function CategoryNavigationItem({
   id,

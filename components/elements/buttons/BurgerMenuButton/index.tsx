@@ -1,17 +1,11 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { ClassNameProps } from '_types/components';
 import styles from './BurgerMenuButton.module.css';
+import { BurgerMenuButtonProps } from './types';
+
+// Static components
 import Button from '../Button';
 import BurgerMenuIcon from './BurgerMenuIcon';
-
-interface BurgerMenuButtonProps extends ClassNameProps {
-  onToggleMenu?: () => void;
-  onCloseMenu?: () => void;
-  isMobileNavOpened: boolean;
-  title?: string;
-  dataTest: string;
-}
 
 export default function BurgerMenuButton({
   onToggleMenu,

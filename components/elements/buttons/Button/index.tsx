@@ -1,27 +1,15 @@
 import {
   forwardRef,
   ForwardRefRenderFunction,
-  HTMLProps,
   useCallback,
   useMemo,
   MouseEvent,
-  PropsWithChildren,
 } from 'react';
 import styles from './Button.module.css';
-import Loader from '../../Loader';
+import { ButtonProps } from './types';
 
-export interface ButtonProps
-  extends PropsWithChildren,
-    Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
-  absoluteLoader?: boolean;
-  border?: boolean;
-  busy?: boolean;
-  busyClassName?: string;
-  disabledClassName?: string;
-  headless?: boolean;
-  hideBusyWheel?: boolean;
-  onDisabledClick?: React.HTMLProps<HTMLButtonElement>['onClick'];
-}
+// Static components
+import Loader from 'components/elements/Loader';
 
 const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   {

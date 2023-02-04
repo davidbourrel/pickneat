@@ -1,22 +1,8 @@
-import { HTMLProps, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { ClassNameProps } from '_types/components';
-import { InputCommonProps } from './types';
+import { NumberInputProps } from './types';
 import useInputClassNames from './useInputClassNames';
 import styles from './Inputs.module.css';
-
-export interface NumberInputProps
-  extends ClassNameProps,
-    InputCommonProps,
-    Omit<
-      HTMLProps<HTMLInputElement>,
-      'onChange' | 'multiple' | 'id' | 'type' | 'label'
-    >,
-    Required<Pick<HTMLProps<HTMLInputElement>, 'onChange'>> {
-  max?: number;
-  value: number;
-  className?: string;
-}
 
 export default function NumberInput({
   id,

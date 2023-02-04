@@ -3,17 +3,12 @@ import { useTranslations } from 'next-intl';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
 import useCart from 'contexts/cartContext/useCart';
 import styles from './Quantity.module.css';
-import { ClassNameProps } from '_types/components';
-import { Product } from '_types/products';
+import { QuantityProps } from './types';
 
 // Static Components
 import Button from '../buttons/Button';
 import MinusButton from './MinusButton';
 import PlusButton from './PlusButton';
-
-interface QuantityProps extends ClassNameProps {
-  product: Product;
-}
 
 export default function Quantity({ product, className = '' }: QuantityProps) {
   const { product_id, in_stock } = product;
@@ -47,7 +42,7 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
   const quantityButtons = useMemo(
     () => (
       <>
-        <MinusButton productId={product_id} />
+        <MinusButton product_id={product_id} />
         <span className={styles.quantity}>{amount}</span>
         <PlusButton product={product} />
       </>

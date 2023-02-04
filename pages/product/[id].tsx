@@ -7,17 +7,14 @@ import { getProduct, getProducts } from 'database/products';
 import { pick } from 'lodash';
 import { Product } from '_types/products';
 import { LangEnum } from '_types/lang';
+import { ProductIdProps } from './types';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
 import MainContentLayout from 'components/modules/MainContentLayout';
-
-interface ProductIdProps {
-  ssrProduct: Product;
-}
 
 export default function ProductId({ ssrProduct }: ProductIdProps) {
   const t = useTranslations('Product');

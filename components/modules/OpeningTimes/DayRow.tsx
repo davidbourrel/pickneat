@@ -2,13 +2,7 @@ import { useMemo } from 'react';
 import { format } from 'date-fns';
 import styles from './OpeningTimes.module.css';
 import { enUS } from 'date-fns/locale';
-
-interface DayRowProps {
-  day: string;
-  dayTranslation: string;
-  lunchTranslation: string;
-  dinnerTranslation: string;
-}
+import { DayRowProps } from './types';
 
 export default function DayRow({
   day,

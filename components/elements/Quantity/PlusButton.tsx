@@ -1,12 +1,10 @@
 import { useCallback } from 'react';
 import useAddToCart from 'contexts/cartContext/useAddToCart ';
-import Button from '../buttons/Button';
 import styles from './Quantity.module.css';
-import { Product } from '_types/products';
+import { PlusButtonProps } from './types';
 
-interface PlusButtonProps {
-  product: Product;
-}
+// Static components
+import Button from '../buttons/Button';
 
 export default function PlusButton({ product }: PlusButtonProps) {
   const addToCart = useAddToCart();

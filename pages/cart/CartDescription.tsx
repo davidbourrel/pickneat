@@ -1,11 +1,10 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Cart.module.css';
-import CheckoutButton from './CheckoutButton';
+import { CartDescriptionProps } from './types';
 
-interface CartDescriptionProps {
-  cartTotalItems: number;
-}
+// Static components
+import CheckoutButton from './CheckoutButton';
 
 export default function CartDescription({
   cartTotalItems,

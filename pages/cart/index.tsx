@@ -6,7 +6,7 @@ import { pick } from 'lodash';
 import styles from './Cart.module.css';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import CartTitle from './CartTitle';
 import CartDescription from './CartDescription';

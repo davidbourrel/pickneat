@@ -4,19 +4,16 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Head from 'next/head';
 import styles from './Profile.module.css';
-import { getSession, UserProfile } from '@auth0/nextjs-auth0';
+import { getSession } from '@auth0/nextjs-auth0';
 import { pick } from 'lodash';
+import { ProfileProps } from './types';
 
-// Components
+// Static components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 import MainContentLayout from 'components/modules/MainContentLayout';
-
-interface ProfileProps {
-  user: UserProfile;
-}
 
 export default function Profile({ user }: ProfileProps) {
   const { nickname, email, picture } = user;

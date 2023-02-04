@@ -1,13 +1,9 @@
 import { useMemo } from 'react';
-import { Maybe } from '_types/maybe';
-import { CategoryEnum, Product } from '_types/products';
 import styles from './ProductList.module.css';
-import ProductCardCol from 'components/elements/ProductCard/ProductCardCol';
+import { ProductListProps } from './types';
 
-interface ProductListProps {
-  products: Maybe<Product[]>;
-  category: CategoryEnum;
-}
+// Static components
+import ProductCardCol from 'components/elements/ProductCard/ProductCardCol';
 
 export default function ProductList({ products, category }: ProductListProps) {
   const filteredProductsByCategory = useMemo(

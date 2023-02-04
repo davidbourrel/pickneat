@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import styles from './MobileNavigation.module.css';
 import useOutsideClick from 'hooks/useOutsideClick';
+import { MobileNavigationProps } from './types';
 
 // Static Components
 import LanguageSwitcher from 'components/elements/LanguageSwitcher';
@@ -10,11 +11,6 @@ import ThemeSwitcher from 'components/elements/ThemeSwitcher';
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
 import NavLink from 'components/elements/NavLink';
-
-interface MobileNavigationProps {
-  isMobileNavOpened: boolean;
-  handleCloseMenu: () => void;
-}
 
 export default function MobileNavigation({
   isMobileNavOpened,

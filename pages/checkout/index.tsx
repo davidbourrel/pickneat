@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
-// Components
+// Static components
 import MainContentLayout from 'components/modules/MainContentLayout';
 import Heading from 'components/elements/Heading';
 import Loader from 'components/elements/Loader';

@@ -1,20 +1,12 @@
 import { useEffect, useRef } from 'react';
 import styles from './MenuCategories.module.css';
-import { CategoryEnum, Product } from '_types/products';
-import { Maybe } from '_types/maybe';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import useIntersectionObserverEntries from 'contexts/appContext/useIntersectionObserverEntries';
+import { CategoryProps } from './types';
 
 // Static Components
 import ProductList from 'components/modules/ProductList';
 import Heading from 'components/elements/Heading';
-
-interface CategoryProps {
-  id: string;
-  products: Maybe<Product[]>;
-  title: string;
-  category: CategoryEnum;
-}
 
 export default function Category({
   id,
@@ -32,7 +24,7 @@ export default function Category({
   useEffect(() => {
     const isCategoryVisible = !!entry?.isIntersecting;
 
-    if (isCategoryVisible && entry) {
+    if (isCategoryVisible && !!entry) {
       setIntersectionObserverEntries((entries) => {
         const indexOfEntry = entries?.findIndex(
           (currentEntry: IntersectionObserverEntry) =>

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { AppProps } from 'next/app';
 import { NextIntlProvider } from 'next-intl';
 import Head from 'next/head';
 import Router from 'next/router';
@@ -10,20 +9,13 @@ import { ThemeProvider } from 'contexts/themeContext';
 import { CartProvider } from 'contexts/cartContext';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import useKonami from 'hooks/useKonami';
-import { Baloo_2 } from '@next/font/google';
+import { MyAppProps } from './types';
 import PageLayout from '../components/modules/PageLayout';
+import { Baloo_2 } from '@next/font/google';
 
 const fontFamily = Baloo_2({ display: 'swap' });
 
-type PageProps = {
-  messages: IntlMessages;
-};
-
-type Props = Omit<AppProps<PageProps>, 'pageProps'> & {
-  pageProps: PageProps;
-};
-
-export default function MyApp({ Component, pageProps }: Props) {
+export default function MyApp({ Component, pageProps }: MyAppProps) {
   useKonami();
 
   useEffect(() => {

@@ -1,13 +1,9 @@
 import { useMemo } from 'react';
-import ArrowIcon from 'components/images/icons/ArrowIcon';
-import { ClassNameProps } from '_types/components';
 import styles from './Arrow.module.css';
-import { ArrowDirectionEnum } from './types';
+import { ArrowDirectionEnum, ArrowProps } from './types';
 
-interface ArrowProps extends ClassNameProps {
-  direction: ArrowDirectionEnum;
-  caret?: boolean;
-}
+// Static components
+import ArrowIcon from 'components/images/icons/ArrowIcon';
 
 export default function Arrow({
   direction,

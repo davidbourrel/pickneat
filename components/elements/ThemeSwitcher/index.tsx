@@ -1,15 +1,13 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { ThemeEnum } from '_types/theme';
+import { ThemeSwitcherProps } from './types';
 import useDarkMode from 'contexts/themeContext/useDarkMode';
 import styles from './ThemeSwitcher.module.css';
+
+// Static components
 import Button from '../buttons/Button';
 import MoonIcon from 'components/images/icons/MoonIcon';
-
-interface ThemeSwitcherProps {
-  title: string;
-  dataTestButton: string;
-}
 
 export default function ThemeSwitcher({
   title,

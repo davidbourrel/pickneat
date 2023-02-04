@@ -1,9 +1,10 @@
 import styles from './Location.module.css';
+import { itineraryUrl } from './const';
+
+// Static components
 import ItineraryIcon from 'components/images/icons/ItineraryIcon';
 import Heading from 'components/elements/Heading';
 import Link from 'components/elements/Link';
-
-const itineraryUrl = 'https://www.google.com';
 
 export default function Address() {
   return (

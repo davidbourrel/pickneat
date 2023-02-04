@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
 import styles from './BurgerMenuButton.module.css';
-
-interface BurgerMenuIconProps {
-  isMobileNavOpened: boolean;
-}
+import { BurgerMenuIconProps } from './types';
 
 export default function BurgerMenuIcon({
   isMobileNavOpened,

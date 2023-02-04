@@ -1,13 +1,12 @@
 import { useMemo } from 'react';
-import CartIcon from 'components/images/icons/CartIcon';
+import { CartCountProps } from './types';
 import styles from './CartCount.module.css';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
 
-interface CartCountInterface {
-  title: string;
-}
+// Static components
+import CartIcon from 'components/images/icons/CartIcon';
 
-export default function CartCount({ title }: CartCountInterface) {
+export default function CartCount({ title }: CartCountProps) {
   const { cartTotalItems } = useCartTotal();
 
   const computedCartCountClassName = useMemo(

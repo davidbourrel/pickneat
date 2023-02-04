@@ -1,14 +1,6 @@
 import { useMemo } from 'react';
 import styles from './Loader.module.css';
-
-interface LoaderProps {
-  absoluteLoader?: boolean;
-  loaderContainerClassName?: string;
-  loaderClassName?: string;
-  circleClassName?: string;
-  width?: string;
-  height?: string;
-}
+import { LoaderProps } from './types';
 
 export default function Loader({
   absoluteLoader = false,

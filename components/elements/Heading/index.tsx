@@ -1,12 +1,6 @@
-import { HTMLProps, PropsWithChildren, useMemo } from 'react';
+import { useMemo } from 'react';
 import styles from './Heading.module.css';
-
-interface HeadingProps
-  extends PropsWithChildren,
-    HTMLProps<HTMLHeadingElement> {
-  level: number;
-  error?: boolean;
-}
+import { HeadingProps } from './types';
 
 export default function Heading({
   children,

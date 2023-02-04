@@ -1,12 +1,10 @@
 import { useMemo } from 'react';
 import styles from './Logo.module.css';
 import useDarkMode from 'contexts/themeContext/useDarkMode';
-import { ClassNameProps } from '_types/components';
-import Link from '../Link';
+import { LogoProps } from './types';
 
-interface LogoProps extends ClassNameProps {
-  onCloseMenu?: () => void;
-}
+// Static components
+import Link from '../Link';
 
 export default function Logo({ onCloseMenu, className = '' }: LogoProps) {
   const { isDarkMode } = useDarkMode();

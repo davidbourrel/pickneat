@@ -3,10 +3,10 @@ import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { SwiperSlide } from 'swiper/react';
-import { Product } from '_types/products';
 import { pick } from 'lodash';
 import { getProducts } from 'database/products';
 import styles from '../styles/Home.module.css';
+import { HomeProps } from './types';
 
 // Static images
 import burgerImage from '../public/images/home carousel/Photo_by_Douglas_Lopez_on_Unsplash.jpg';
@@ -30,10 +30,6 @@ const ViewCartButton = dynamic(
 const ScrollToTopButton = dynamic(
   () => import('components/elements/buttons/ScrollToTopButton')
 );
-
-interface HomeProps {
-  ssrProducts: Product[];
-}
 
 export default function Home({ ssrProducts }: HomeProps) {
   const t = useTranslations('Home');

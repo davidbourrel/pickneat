@@ -1,14 +1,17 @@
 import dynamic from 'next/dynamic';
 import useIsClient from 'hooks/useIsClient';
-import Loader from 'components/elements/Loader';
 import styles from './Location.module.css';
 
+// Static components
+import Loader from 'components/elements/Loader';
+
+// Dynamic components
 const MapWithoutSSR = dynamic(() => import('./MapWithoutSSR'), {
   loading: () => <Loader absoluteLoader />,
   ssr: false,
 });
 const MapWithSSR = dynamic(() => import('./MapWithSSR'), {
-  // ssr is true by default
+  // ssr: true by default
 });
 
 export default function Location() {

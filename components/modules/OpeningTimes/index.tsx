@@ -1,8 +1,10 @@
 import { useTranslations } from 'next-intl';
 import styles from './OpeningTimes.module.css';
+import { DaysOfTheWeekEnum } from './types';
+
+// Static components
 import DayRow from './DayRow';
 import TableHeader from './TableHeader';
-import { DaysOfTheWeekEnum } from './types';
 
 export default function OpeningTimes() {
   const t = useTranslations('Restaurants');

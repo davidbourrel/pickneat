@@ -1,11 +1,7 @@
 import { useMemo } from 'react';
 import styles from './PriceTag.module.css';
-import { ClassNameProps } from '_types/components';
 import { formatNumberToPrice } from 'utils/formatNumberToPrice';
-
-interface PriceTagProps extends ClassNameProps {
-  price: number;
-}
+import { PriceTagProps } from './types';
 
 export default function PriceTag({ price, className = '' }: PriceTagProps) {
   const computedClassName = useMemo(

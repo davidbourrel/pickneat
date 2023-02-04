@@ -1,18 +1,17 @@
 import { useCallback } from 'react';
 import useRemoveCart from 'contexts/cartContext/useRemoveCart';
-import Button from '../buttons/Button';
 import styles from './Quantity.module.css';
+import { MinusButtonProps } from './types';
 
-interface MinusButtonProps {
-  productId: string;
-}
+// Static components
+import Button from '../buttons/Button';
 
-export default function MinusButton({ productId }: MinusButtonProps) {
+export default function MinusButton({ product_id }: MinusButtonProps) {
   const { removeFromCart } = useRemoveCart();
 
   const handleRemoveProductClick = useCallback(
-    () => removeFromCart(productId),
-    [removeFromCart, productId]
+    () => removeFromCart(product_id),
+    [removeFromCart, product_id]
   );
   return (
     <Button

@@ -10,12 +10,7 @@ import Logo from 'components/elements/Logo';
 import Link from 'components/elements/Link';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
-
-interface HeaderProps {
-  isMobileNavOpened: boolean;
-  handleCloseMenu: () => void;
-  handleToggleMenu: () => void;
-}
+import { HeaderProps } from './types';
 
 export default function Header({
   isMobileNavOpened,
