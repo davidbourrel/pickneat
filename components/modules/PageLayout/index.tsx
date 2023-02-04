@@ -1,13 +1,11 @@
-import { ReactNode, useCallback, useState } from 'react';
+import { PropsWithChildren, useCallback, useState } from 'react';
 
 // Components
 import Footer from '../Footer';
 import Header from '../Header';
 import MobileNavigation from '../Navigation/MobileNavigation';
 
-interface PageLayoutProps {
-  children: ReactNode;
-}
+type PageLayoutProps = PropsWithChildren;
 
 export default function PageLayout({ children }: PageLayoutProps) {
   const [isMobileNavOpened, setIsMobileNavOpened] = useState(false);

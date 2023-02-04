@@ -1,4 +1,10 @@
-import { useState, useCallback, useMemo, ReactNode, useEffect } from 'react';
+import {
+  useState,
+  useCallback,
+  useMemo,
+  useEffect,
+  PropsWithChildren,
+} from 'react';
 import { PICKNEAT_CART } from '_constants/localStorage';
 import { Product } from '_types/products';
 import cartContext from './cart.context';
@@ -6,9 +12,7 @@ import { CartContextInterface } from './cart.types';
 
 const { Provider } = cartContext;
 
-interface CartProviderProps {
-  children: ReactNode;
-}
+type CartProviderProps = PropsWithChildren;
 
 export default function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState([] as Product[]);

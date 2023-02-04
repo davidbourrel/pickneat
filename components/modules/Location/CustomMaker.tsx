@@ -1,10 +1,9 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import React, { PropsWithChildren, useEffect, useRef } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 
-interface CustomMarkerProps {
+interface CustomMarkerProps extends PropsWithChildren {
   position: [number, number];
   open: boolean;
-  children: ReactNode;
 }
 
 export default function CustomMarker({

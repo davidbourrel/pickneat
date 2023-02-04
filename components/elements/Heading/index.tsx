@@ -1,8 +1,9 @@
-import { HTMLProps, ReactNode, useMemo } from 'react';
+import { HTMLProps, PropsWithChildren, useMemo } from 'react';
 import styles from './Heading.module.css';
 
-interface HeadingProps extends HTMLProps<HTMLHeadingElement> {
-  children: ReactNode;
+interface HeadingProps
+  extends PropsWithChildren,
+    HTMLProps<HTMLHeadingElement> {
   level: number;
   error?: boolean;
 }

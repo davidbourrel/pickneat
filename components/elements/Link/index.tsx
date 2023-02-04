@@ -1,4 +1,4 @@
-import { HTMLProps, ReactNode, useMemo } from 'react';
+import { HTMLProps, PropsWithChildren, useMemo } from 'react';
 import NextLink, { LinkProps } from 'next/link';
 import useIsClient from 'hooks/useIsClient';
 import styles from './Link.module.css';
@@ -7,12 +7,12 @@ import styles from './Link.module.css';
  * use this component rather than next/link
  */
 interface FLinkProps
-  extends Omit<
+  extends PropsWithChildren,
+    Omit<
       HTMLProps<HTMLAnchorElement>,
       'href' | 'as' | 'onClick' | 'onMouseEnter' | 'onTouchStart' | 'ref'
     >,
     LinkProps {
-  children: ReactNode;
   obfuscate?: boolean;
   isLoading?: boolean;
 }

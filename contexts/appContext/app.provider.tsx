@@ -1,12 +1,10 @@
-import { useMemo, ReactNode, useState, useEffect } from 'react';
+import { useMemo, useState, useEffect, PropsWithChildren } from 'react';
 import appContext from './app.context';
 import { AppContextInterface } from './app.types';
 
 const { Provider } = appContext;
 
-interface AppProviderProps {
-  children: ReactNode;
-}
+type AppProviderProps = PropsWithChildren;
 
 export default function AppProvider({ children }: AppProviderProps) {
   const [intersectionObserverEntries, setIntersectionObserverEntries] =

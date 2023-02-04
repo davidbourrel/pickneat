@@ -1,10 +1,12 @@
-import { HTMLProps, ReactNode, useMemo } from 'react';
+import { HTMLProps, PropsWithChildren, useMemo } from 'react';
 import { ClassNameProps } from '_types/components';
 import Link from '../Link';
 import styles from './NavLink.module.css';
 
-interface NavLinkProps extends HTMLProps<HTMLAnchorElement>, ClassNameProps {
-  children: ReactNode;
+interface NavLinkProps
+  extends PropsWithChildren,
+    HTMLProps<HTMLAnchorElement>,
+    ClassNameProps {
   href: string;
   isActive: boolean;
   onCloseMenu?: () => void;

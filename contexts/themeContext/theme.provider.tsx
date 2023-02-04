@@ -1,4 +1,10 @@
-import { useEffect, useMemo, useCallback, useState, ReactNode } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useCallback,
+  useState,
+  PropsWithChildren,
+} from 'react';
 import themeContext from './theme.context';
 import { ThemeContextInterface } from './theme.types';
 import { PICKNEAT_THEME } from '../../_constants/localStorage';
@@ -6,9 +12,7 @@ import { ThemeEnum } from '_types/theme';
 
 const { Provider } = themeContext;
 
-interface ThemeProviderProps {
-  children: ReactNode;
-}
+type ThemeProviderProps = PropsWithChildren;
 
 export default function ThemeProvider({ children }: ThemeProviderProps) {
   const [isDarkMode, setIsDarkMode] = useState(true);
