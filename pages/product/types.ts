@@ -1,5 +1,5 @@
 import { Product } from '_types/products';
 
-export interface ProductIdProps {
+export default interface ProductIdProps {
   ssrProduct: Product;
 }

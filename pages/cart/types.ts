@@ -7,6 +7,6 @@ export interface CartDescriptionProps {
   cartTotalItems: number;
 }
 
-export interface CartTitleProps {
+export default interface CartTitleProps {
   cartTotalItems: number;
 }

@@ -9,6 +9,6 @@ export type MyAppProps = Omit<AppProps<PageProps>, 'pageProps'> & {
   pageProps: PageProps;
 };
 
-export interface HomeProps {
+export default interface HomeProps {
   ssrProducts: Product[];
 }
