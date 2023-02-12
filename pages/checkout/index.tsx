@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
-import { withPageAuthRequired } from '@auth0/nextjs-auth0';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
 import useSubmit from 'contexts/checkoutContext/useSubmit';
 import styles from './Checkout.module.css';

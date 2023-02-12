@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import styles from './DesktopNavigation.module.css';
-import { useUser } from '@auth0/nextjs-auth0';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 // Static Components
 import NavLink from 'components/elements/NavLink';

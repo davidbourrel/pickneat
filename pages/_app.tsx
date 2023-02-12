@@ -8,13 +8,13 @@ import { AppProvider } from 'contexts/appContext';
 import { ThemeProvider } from 'contexts/themeContext';
 import { CartProvider } from 'contexts/cartContext';
 import { CheckoutProvider } from 'contexts/checkoutContext';
-import { UserProvider } from '@auth0/nextjs-auth0';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 import useKonami from 'hooks/useKonami';
 import { MyAppProps } from '_types/app';
 import PageLayout from '../components/modules/PageLayout';
 import { Baloo_2 } from '@next/font/google';
 
-const fontFamily = Baloo_2({ display: 'swap' });
+const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] });
 
 const MyApp = ({ Component, pageProps }: MyAppProps) => {
   useKonami();

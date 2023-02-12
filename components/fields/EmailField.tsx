@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { useUser } from '@auth0/nextjs-auth0';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 // Static components
 import TextInput from './inputs/TextInput';
