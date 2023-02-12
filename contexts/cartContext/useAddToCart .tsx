@@ -1,8 +1,8 @@
 import { useContext, useMemo } from 'react';
 import cartContext from '.';
-import { CartContextInterface } from './cart.types';
+import { CartContext } from './cart.types';
 
-type UseAddToCartResult = CartContextInterface['addToCart'];
+type UseAddToCartResult = CartContext['addToCart'];
 
 const useAddToCart = (): UseAddToCartResult => {
   const { addToCart } = useContext(cartContext);

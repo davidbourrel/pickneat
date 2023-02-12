@@ -6,7 +6,7 @@ import {
   PropsWithChildren,
 } from 'react';
 import themeContext from './theme.context';
-import { ThemeContextInterface } from './theme.types';
+import { ThemeContext } from './theme.types';
 import { PICKNEAT_THEME } from '../../_constants/localStorage';
 import { ThemeEnum } from '_types/theme';
 
@@ -55,7 +55,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     });
   }, [setThemePreference]);
 
-  const contextValue: ThemeContextInterface = useMemo(
+  const contextValue: ThemeContext = useMemo(
     () => ({
       isDarkMode,
       handleThemeClick,

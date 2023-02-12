@@ -118,10 +118,19 @@
   "Profile": {
     "profile": "Profile",
     "nickname": "Nickname",
-    "email": "Email"
+    "email": "Email",
+    "phone": "Phone",
+    "fullName": "Full Name"
   },
 
   "Checkout": {
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "userInfo": "My information",
+    "payment": "Payment",
+    "nameOnCard": "Name on Card",
+    "cardNumber": "Card number",
+    "expirationDate": "Expiration Date",
+    "cvv": "CVV / CVC",
+    "confirmAndPay": "Confirm and Pay"
   }
 }

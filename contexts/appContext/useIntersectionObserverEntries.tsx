@@ -1,9 +1,8 @@
 import { useContext, useMemo } from 'react';
 import appContext from '.';
-import { AppContextInterface } from './app.types';
+import { AppContext } from './app.types';
 
-type UseHandleSetAppResult =
-  AppContextInterface['setIntersectionObserverEntries'];
+type UseHandleSetAppResult = AppContext['setIntersectionObserverEntries'];
 
 const useIntersectionObserverEntries = (): UseHandleSetAppResult => {
   const { setIntersectionObserverEntries } = useContext(appContext);

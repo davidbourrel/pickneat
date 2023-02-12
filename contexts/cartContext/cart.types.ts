@@ -1,6 +1,6 @@
 import { Product } from '_types/products';
 
-export interface CartContextInterface {
+export interface CartContext {
   cart: Product[];
   cartTotalPrice: number;
   cartTotalItems: number;

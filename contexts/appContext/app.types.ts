@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export interface AppContextInterface {
+export interface AppContext {
   setIntersectionObserverEntries: Dispatch<
     SetStateAction<IntersectionObserverEntry[]>
   >;

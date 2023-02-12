@@ -1,5 +1,6 @@
 .one {
   color: var(--neutral-900);
+  font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.25rem;
 }

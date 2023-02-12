@@ -18,7 +18,7 @@ import MainContentLayout from 'components/modules/MainContentLayout';
 export default function ProductId({ ssrProduct }: ProductIdProps) {
   const t = useTranslations('Product');
 
-  const { name, description, price, image, allergens } = ssrProduct;
+  const { name, description, price, image, allergens, in_stock } = ssrProduct;
 
   return (
     <MainContentLayout>
@@ -48,13 +48,15 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
               {t('allergens')}
             </Heading>
             <p>
-              {!!allergens && allergens.length > 0
+              {!!allergens && allergens?.length > 0
                 ? allergens
                 : t('noAllergens')}
             </p>
           </section>
 
-          <Quantity product={ssrProduct} className={styles.productQuantity} />
+          {in_stock && (
+            <Quantity product={ssrProduct} className={styles.productQuantity} />
+          )}
         </div>
       </div>
     </MainContentLayout>

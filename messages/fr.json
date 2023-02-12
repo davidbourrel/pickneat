@@ -118,10 +118,19 @@
   "Profile": {
     "profile": "Mon profil",
     "nickname": "Surnom",
-    "email": "E-mail"
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "fullName": "Nom et prénom"
   },
 
   "Checkout": {
-    "checkout": "Checkout en FR"
+    "checkout": "Valider ma commande",
+    "userInfo": "Mes informations",
+    "payment": "Paiement",
+    "nameOnCard": "Nom de la carte",
+    "cardNumber": "Numéro de carte",
+    "expirationDate": "Date d'expiration",
+    "cvv": "CVV / CVC",
+    "confirmAndPay": "Confirmer et payer"
   }
 }

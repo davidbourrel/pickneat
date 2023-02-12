@@ -1,4 +1,4 @@
-export interface ThemeContextInterface {
+export interface ThemeContext {
   isDarkMode: boolean;
   handleThemeClick: () => void;
 }

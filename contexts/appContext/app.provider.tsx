@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect, PropsWithChildren } from 'react';
 import appContext from './app.context';
-import { AppContextInterface } from './app.types';
+import { AppContext } from './app.types';
 
 const { Provider } = appContext;
 
@@ -37,7 +37,7 @@ export default function AppProvider({ children }: AppProviderProps) {
     setActiveMenuCategory(activeCategory);
   }, [intersectionObserverEntries]);
 
-  const contextValue: AppContextInterface = useMemo(
+  const contextValue: AppContext = useMemo(
     () => ({
       setIntersectionObserverEntries,
       activeMenuCategory,

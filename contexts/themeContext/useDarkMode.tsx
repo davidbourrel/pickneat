@@ -1,9 +1,9 @@
 import { useContext, useMemo } from 'react';
 import themeContext from '.';
-import { ThemeContextInterface } from './theme.types';
+import { ThemeContext } from './theme.types';
 
 type UseHandleSetThemeResult = Pick<
-  ThemeContextInterface,
+  ThemeContext,
   'isDarkMode' | 'handleThemeClick'
 >;
 

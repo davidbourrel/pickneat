@@ -4,61 +4,62 @@ import { TextInputProps } from './types';
 import useInputClassNames from './useInputClassNames';
 import styles from './Inputs.module.css';
 
+// Static components
+import RequiredStarLabel from 'components/elements/RequiredStarLabel';
+
 export default function TextInput({
   id,
   label,
   error: incomingError,
-  showError,
+  showError = true,
   className = '',
   inputClassName: incomingInputClassName = '',
   onChange,
   setErrorStatus,
   ...props
 }: TextInputProps) {
+  const { value, required, maxLength } = props;
   const t = useTranslations('Errors');
 
   /***********
    * Validation
-   */
-  const isRequiredEmpty = useMemo(
-    () => props.required && !props.value,
-    [props.required, props.value]
-  );
+   ***********/
+  const isRequiredEmpty = useMemo(() => required && !value, [required, value]);
   const isTooLong = useMemo(
-    () => props.maxLength && props.value.length > props.maxLength,
-    [props.maxLength, props.value]
+    () => maxLength && value?.length > maxLength,
+    [maxLength, value]
   );
   const localError = useMemo(() => {
     if (isRequiredEmpty) {
       return t('requiredMessage');
     }
     if (isTooLong) {
-      return `${t('maxLengthMessage')} ${props.maxLength}`;
+      return `${t('maxLengthMessage')} ${maxLength}`;
     }
     return null as unknown as string;
-  }, [isRequiredEmpty, isTooLong, props.maxLength, t]);
+  }, [isRequiredEmpty, isTooLong, maxLength, t]);
 
   useEffect(() => {
     if (setErrorStatus) {
       setErrorStatus(!!localError);
     }
-  }, [props.value, setErrorStatus, localError]);
+  }, [value, setErrorStatus, localError]);
 
-  const error = useMemo(
+  const errorMessage = useMemo(
     () => incomingError ?? localError,
     [localError, incomingError]
   );
 
   /***********
    * Style
-   */
+   ***********/
   const computedContainerClassName = useMemo(
     () => `${styles.inputContainer} ${className}`,
     [className]
   );
 
   const { labelClassName, inputClassName } = useInputClassNames(
-    !!(showError && error)
+    showError && !!errorMessage
   );
 
   const computedInputClassName = useMemo(
@@ -68,23 +69,23 @@ export default function TextInput({
 
   /***********
    * Component
-   */
+   ***********/
   const labelComponent = useMemo(
     () =>
-      label ? (
+      !!label && (
         <label htmlFor={id} className={labelClassName}>
           {label}
+          {!!required && <RequiredStarLabel />}
         </label>
-      ) : null,
-    [label, id, labelClassName]
+      ),
+    [label, id, labelClassName, required]
   );
 
   const errorComponent = useMemo(
     () =>
-      showError && error ? (
-        <p className={styles.errorMessage}>{error}</p>
-      ) : null,
-    [showError, error]
+      showError &&
+      !!errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>,
+    [showError, errorMessage]
   );
 
   return (

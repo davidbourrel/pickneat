@@ -8,7 +8,7 @@ import {
 import { PICKNEAT_CART } from '_constants/localStorage';
 import { Product } from '_types/products';
 import cartContext from './cart.context';
-import { CartContextInterface } from './cart.types';
+import { CartContext } from './cart.types';
 
 const { Provider } = cartContext;
 
@@ -97,7 +97,7 @@ export default function CartProvider({ children }: CartProviderProps) {
     localStorage.setItem(PICKNEAT_CART, JSON.stringify(cart));
   }, [cart]);
 
-  const contextValue: CartContextInterface = useMemo(
+  const contextValue: CartContext = useMemo(
     () => ({
       cart,
       cartTotalPrice,

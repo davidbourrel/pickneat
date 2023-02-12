@@ -1,8 +1,8 @@
 import { useContext, useMemo } from 'react';
 import appContext from '.';
-import { AppContextInterface } from './app.types';
+import { AppContext } from './app.types';
 
-type UseHandleSetAppResult = AppContextInterface['activeMenuCategory'];
+type UseHandleSetAppResult = AppContext['activeMenuCategory'];
 
 const useActiveMenuCategories = (): UseHandleSetAppResult => {
   const { activeMenuCategory } = useContext(appContext);

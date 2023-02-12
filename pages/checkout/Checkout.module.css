@@ -1,0 +1,42 @@
+.title {
+  margin: 2rem 0;
+}
+
+.fieldsetContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.fieldset {
+  flex: 1;
+}
+
+.legend {
+  margin: 1rem 0;
+  color: var(--neutral-900);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.dateAndCvvContainer {
+  display: flex;
+  gap: 2rem;
+}
+.dateAndCvvContainer div {
+  flex: 1;
+}
+
+.submiButton {
+  margin: 2rem 0;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+@media screen and (min-width: 1024px) {
+  .fieldsetContainer {
+    flex-direction: row;
+  }
+}

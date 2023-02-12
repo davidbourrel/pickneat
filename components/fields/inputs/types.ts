@@ -11,6 +11,11 @@ export interface InputCommonProps {
   setErrorStatus?: (inError: boolean) => void;
 }
 
+export interface UseInputClassNamesResult {
+  labelClassName: string;
+  inputClassName: string;
+}
+
 export interface NumberInputProps
   extends ClassNameProps,
     InputCommonProps,
@@ -30,12 +35,7 @@ export interface TextInputProps
       HTMLProps<HTMLInputElement>,
       'onChange' | 'multiple' | 'id' | 'type' | 'label'
     >,
-    Required<Pick<HTMLProps<HTMLInputElement>, 'onChange'>> {
+    Pick<HTMLProps<HTMLInputElement>, 'onChange'> {
   max?: number;
   value: string;
-}
-
-export interface UseInputClassNamesResult {
-  labelClassName: string;
-  inputClassName: string;
 }

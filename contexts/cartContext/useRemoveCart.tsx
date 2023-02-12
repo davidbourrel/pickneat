@@ -1,9 +1,9 @@
 import { useContext, useMemo } from 'react';
 import cartContext from '.';
-import { CartContextInterface } from './cart.types';
+import { CartContext } from './cart.types';
 
 type UseRemoveCartResult = Pick<
-  CartContextInterface,
+  CartContext,
   'removeFromCart' | 'removeItemsFromCart' | 'removeAllFromCart'
 >;
 

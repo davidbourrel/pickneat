@@ -1,8 +1,7 @@
-import { AppContextInterface } from './app.types';
+import { AppContext } from './app.types';
 
-export const INITIAL_APP_CONTEXT: AppContextInterface = {
+export const INITIAL_APP_CONTEXT: AppContext = {
   setIntersectionObserverEntries:
-    null as unknown as AppContextInterface['setIntersectionObserverEntries'],
-  activeMenuCategory:
-    null as unknown as AppContextInterface['activeMenuCategory'],
+    null as unknown as AppContext['setIntersectionObserverEntries'],
+  activeMenuCategory: null as unknown as AppContext['activeMenuCategory'],
 };

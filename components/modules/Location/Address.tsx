@@ -1,5 +1,10 @@
 import styles from './Location.module.css';
 import { itineraryUrl } from './const';
+import {
+  PNE_ADDRESS,
+  PNE_CITY,
+  PNE_PHONE_NUMBER,
+} from '_constants/restaurantInformation';
 
 // Static components
 import ItineraryIcon from 'components/images/icons/ItineraryIcon';
@@ -10,7 +15,7 @@ export default function Address() {
   return (
     <address className={styles.address}>
       <Heading level={3} className={styles.title}>
-        PickN`Eat - Toulouse
+        PickN`Eat
       </Heading>
       <Link
         href={itineraryUrl}
@@ -20,12 +25,12 @@ export default function Address() {
       >
         <span>
           <ItineraryIcon className={styles.itineraryIcon} />
-          18 rue de Metz
+          {PNE_ADDRESS}
         </span>
-        <span>31000 Toulouse, France</span>
+        <span>{PNE_CITY}</span>
       </Link>
       <Link href="tel:+33772348639" className={styles.phone}>
-        Phone: 07 72 34 86 39
+        <span>&#9742; {PNE_PHONE_NUMBER}</span>
       </Link>
     </address>
   );

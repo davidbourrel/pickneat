@@ -55,6 +55,11 @@ export default function ProductCardCol({ product }: ProductCardProps) {
     [name]
   );
 
+  const quantiy = useMemo(
+    () => in_stock && <Quantity product={product} />,
+    [in_stock, product]
+  );
+
   const outOfStock = useMemo(
     () =>
       !in_stock && (
@@ -75,7 +80,7 @@ export default function ProductCardCol({ product }: ProductCardProps) {
             <PriceTag price={price} className={styles.price} />
           </div>
         </div>
-        <Quantity product={product} />
+        {quantiy}
       </div>
       {outOfStock}
     </li>
