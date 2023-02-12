@@ -6,9 +6,7 @@ import { CartDescriptionProps } from '_types/cart';
 // Static components
 import CheckoutButton from './CheckoutButton';
 
-export default function CartDescription({
-  cartTotalItems,
-}: CartDescriptionProps) {
+const CartDescription = ({ cartTotalItems }: CartDescriptionProps) => {
   const t = useTranslations('Cart');
 
   const cartDescription = useMemo(
@@ -23,4 +21,5 @@ export default function CartDescription({
   );
 
   return cartDescription;
-}
+};
+export default CartDescription;

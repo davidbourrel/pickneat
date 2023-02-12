@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import { CustomMarkerProps } from './types';
 
-export default function CustomMarker({
+const CustomMarker = ({
   position,
   open = false,
   children,
-}: CustomMarkerProps) {
+}: CustomMarkerProps) => {
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const markerRef = useRef(null as any);
 
@@ -25,4 +25,5 @@ export default function CustomMarker({
       <Popup>{children}</Popup>
     </Marker>
   );
-}
+};
+export default CustomMarker;

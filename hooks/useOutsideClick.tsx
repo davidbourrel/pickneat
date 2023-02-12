@@ -24,5 +24,4 @@ const useOutsideClick: (ref: RefObject<any>, cb: () => void) => void = (
     };
   }, [ref, cb]);
 };
-
 export default useOutsideClick;

@@ -15,7 +15,7 @@ import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
-export default function ProductId({ ssrProduct }: ProductIdProps) {
+const ProductId = ({ ssrProduct }: ProductIdProps) => {
   const t = useTranslations('Product');
 
   const { name, description, price, image, allergens, in_stock } = ssrProduct;
@@ -61,7 +61,8 @@ export default function ProductId({ ssrProduct }: ProductIdProps) {
       </div>
     </MainContentLayout>
   );
-}
+};
+export default ProductId;
 
 ProductId.messages = ['Product', ...PageLayout.messages];
 

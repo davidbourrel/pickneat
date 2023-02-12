@@ -13,7 +13,7 @@ import ProfileIcon from 'components/elements/ProfileIcon';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 
-export default function DesktopNavigation() {
+const DesktopNavigation = () => {
   const { pathname } = useRouter();
   const { user } = useUser();
 
@@ -86,4 +86,5 @@ export default function DesktopNavigation() {
       </ul>
     </nav>
   );
-}
+};
+export default DesktopNavigation;

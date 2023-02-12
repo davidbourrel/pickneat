@@ -7,7 +7,7 @@ import { FLinkProps } from './types';
 /**
  * use this component rather than next/link
  */
-export default function Link({
+const Link = ({
   obfuscate,
   isLoading = false,
   children,
@@ -22,7 +22,7 @@ export default function Link({
   target,
   className = '',
   ...props
-}: FLinkProps) {
+}: FLinkProps) => {
   const isClient = useIsClient();
 
   const computedClassName = useMemo(
@@ -53,4 +53,5 @@ export default function Link({
       {children}
     </span>
   );
-}
+};
+export default Link;

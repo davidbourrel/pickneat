@@ -6,7 +6,7 @@ import { DaysOfTheWeekEnum } from './types';
 import DayRow from './DayRow';
 import TableHeader from './TableHeader';
 
-export default function OpeningTimes() {
+const OpeningTimes = () => {
   const t = useTranslations('Restaurants');
 
   return (
@@ -58,4 +58,6 @@ export default function OpeningTimes() {
       </tbody>
     </table>
   );
-}
+};
+
+export default OpeningTimes;

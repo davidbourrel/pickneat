@@ -14,7 +14,7 @@ const MapWithSSR = dynamic(() => import('./MapWithSSR'), {
   // ssr: true by default
 });
 
-export default function Location() {
+const Location = () => {
   const isClient = useIsClient();
 
   return (
@@ -22,4 +22,5 @@ export default function Location() {
       {isClient ? <MapWithoutSSR /> : <MapWithSSR />}
     </div>
   );
-}
+};
+export default Location;

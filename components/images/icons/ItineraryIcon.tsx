@@ -1,6 +1,6 @@
 import { ClassNameProps } from '_types/components';
 
-export default function ItineraryIcon({ className = '' }: ClassNameProps) {
+const ItineraryIcon = ({ className = '' }: ClassNameProps) => {
   return (
     <svg className={className} viewBox="0 0 14 14">
       <g
@@ -19,4 +19,5 @@ export default function ItineraryIcon({ className = '' }: ClassNameProps) {
       </g>
     </svg>
   );
-}
+};
+export default ItineraryIcon;

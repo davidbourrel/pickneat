@@ -6,7 +6,7 @@ import useCvv from 'contexts/checkoutContext/useCvv';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function CvvField() {
+const CvvField = () => {
   const { cvv, setCvv, setIsCvvInError } = useCvv();
   const { isSubmitted } = useSubmit();
 
@@ -37,4 +37,5 @@ export function CvvField() {
       required
     />
   );
-}
+};
+export default CvvField;

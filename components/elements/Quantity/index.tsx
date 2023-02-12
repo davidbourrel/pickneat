@@ -10,7 +10,7 @@ import Button from '../buttons/Button';
 import MinusButton from './MinusButton';
 import PlusButton from './PlusButton';
 
-export default function Quantity({ product, className = '' }: QuantityProps) {
+const Quantity = ({ product, className = '' }: QuantityProps) => {
   const { product_id, in_stock } = product;
 
   const t = useTranslations('Product');
@@ -73,4 +73,5 @@ export default function Quantity({ product, className = '' }: QuantityProps) {
   );
 
   return quantity;
-}
+};
+export default Quantity;

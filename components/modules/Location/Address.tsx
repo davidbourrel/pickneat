@@ -11,7 +11,7 @@ import ItineraryIcon from 'components/images/icons/ItineraryIcon';
 import Heading from 'components/elements/Heading';
 import Link from 'components/elements/Link';
 
-export default function Address() {
+const Address = () => {
   return (
     <address className={styles.address}>
       <Heading level={3} className={styles.title}>
@@ -34,4 +34,5 @@ export default function Address() {
       </Link>
     </address>
   );
-}
+};
+export default Address;

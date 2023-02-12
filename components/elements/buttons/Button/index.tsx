@@ -92,5 +92,4 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     </button>
   );
 };
-
 export default forwardRef(Button);

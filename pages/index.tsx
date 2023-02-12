@@ -31,7 +31,7 @@ const ScrollToTopButton = dynamic(
   () => import('components/elements/buttons/ScrollToTopButton')
 );
 
-export default function Home({ ssrProducts }: HomeProps) {
+const Home = ({ ssrProducts }: HomeProps) => {
   const t = useTranslations('Home');
 
   return (
@@ -91,7 +91,8 @@ export default function Home({ ssrProducts }: HomeProps) {
       <ScrollToTopButton />
     </MainContentLayout>
   );
-}
+};
+export default Home;
 
 Home.messages = ['Home', 'Product', 'Cart', ...PageLayout.messages];
 

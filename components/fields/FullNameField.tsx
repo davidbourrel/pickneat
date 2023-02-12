@@ -6,7 +6,7 @@ import useSubmit from 'contexts/checkoutContext/useSubmit';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function FullNameField() {
+const FullNameField = () => {
   const { fullName, setFullName, setIsFullNameInError } = useFullName();
   const { isSubmitted } = useSubmit();
 
@@ -36,4 +36,5 @@ export function FullNameField() {
       required
     />
   );
-}
+};
+export default FullNameField;

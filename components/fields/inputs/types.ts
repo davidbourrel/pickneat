@@ -16,18 +16,6 @@ export interface UseInputClassNamesResult {
   inputClassName: string;
 }
 
-export interface NumberInputProps
-  extends ClassNameProps,
-    InputCommonProps,
-    Omit<
-      HTMLProps<HTMLInputElement>,
-      'onChange' | 'multiple' | 'id' | 'type' | 'label'
-    >,
-    Required<Pick<HTMLProps<HTMLInputElement>, 'onChange'>> {
-  max?: number;
-  value: number;
-}
-
 export interface TextInputProps
   extends ClassNameProps,
     InputCommonProps,

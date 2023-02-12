@@ -3,7 +3,7 @@ import styles from './Footer.module.css';
 import Link from 'components/elements/Link';
 import Heading from 'components/elements/Heading';
 
-export default function Footer() {
+const Footer = () => {
   const t = useTranslations('Footer');
 
   return (
@@ -54,4 +54,5 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+};
+export default Footer;

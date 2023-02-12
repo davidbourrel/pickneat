@@ -6,7 +6,7 @@ import useCartTotal from 'contexts/cartContext/useCartTotal';
 // Static components
 import CartIcon from 'components/images/icons/CartIcon';
 
-export default function CartCount({ title }: CartCountProps) {
+const CartCount = ({ title }: CartCountProps) => {
   const { cartTotalItems } = useCartTotal();
 
   const computedCartCountClassName = useMemo(
@@ -24,4 +24,5 @@ export default function CartCount({ title }: CartCountProps) {
       <span className={computedCartCountClassName}>{cartTotalItems}</span>
     </div>
   );
-}
+};
+export default CartCount;

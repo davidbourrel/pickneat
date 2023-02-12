@@ -15,7 +15,7 @@ import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
-export default function Profile({ user }: ProfileProps) {
+const Profile = ({ user }: ProfileProps) => {
   const { nickname, email, picture } = user;
 
   const t = useTranslations('Profile');
@@ -74,7 +74,8 @@ export default function Profile({ user }: ProfileProps) {
       </Link>
     </MainContentLayout>
   );
-}
+};
+export default Profile;
 
 Profile.messages = ['Navigation', 'Profile', ...PageLayout.messages];
 

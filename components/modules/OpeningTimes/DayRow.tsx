@@ -4,12 +4,12 @@ import styles from './OpeningTimes.module.css';
 import { enUS } from 'date-fns/locale';
 import { DayRowProps } from './types';
 
-export default function DayRow({
+const DayRow = ({
   day,
   dayTranslation,
   lunchTranslation,
   dinnerTranslation,
-}: DayRowProps) {
+}: DayRowProps) => {
   const today = format(new Date(), 'eeee', { locale: enUS });
 
   const dayClassName = useMemo(
@@ -24,4 +24,5 @@ export default function DayRow({
       <td>{dinnerTranslation}</td>
     </tr>
   );
-}
+};
+export default DayRow;

@@ -2,9 +2,7 @@ import { useMemo } from 'react';
 import styles from './BurgerMenuButton.module.css';
 import { BurgerMenuIconProps } from './types';
 
-export default function BurgerMenuIcon({
-  isMobileNavOpened,
-}: BurgerMenuIconProps) {
+const BurgerMenuIcon = ({ isMobileNavOpened }: BurgerMenuIconProps) => {
   const bar1ClassName = useMemo(
     () => `${styles.bar} ${styles.bar1}
       ${isMobileNavOpened ? styles.bar1Active : ''}`,
@@ -28,4 +26,5 @@ export default function BurgerMenuIcon({
       <span className={bar3ClassName} aria-hidden="true" />
     </div>
   );
-}
+};
+export default BurgerMenuIcon;

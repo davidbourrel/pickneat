@@ -7,7 +7,7 @@ import styles from './Inputs.module.css';
 // Static components
 import RequiredStarLabel from 'components/elements/RequiredStarLabel';
 
-export default function TextInput({
+const TextInput = ({
   id,
   label,
   error: incomingError,
@@ -17,7 +17,7 @@ export default function TextInput({
   onChange,
   setErrorStatus,
   ...props
-}: TextInputProps) {
+}: TextInputProps) => {
   const { value, required, maxLength } = props;
   const t = useTranslations('Errors');
 
@@ -101,4 +101,5 @@ export default function TextInput({
       {errorComponent}
     </div>
   );
-}
+};
+export default TextInput;

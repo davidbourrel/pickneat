@@ -5,7 +5,7 @@ import { ProductListProps } from './types';
 // Static components
 import ProductCardCol from 'components/elements/ProductCard/ProductCardCol';
 
-export default function ProductList({ products, category }: ProductListProps) {
+const ProductList = ({ products, category }: ProductListProps) => {
   const filteredProductsByCategory = useMemo(
     () => products?.filter((product) => product.category === category),
     [products, category]
@@ -24,4 +24,5 @@ export default function ProductList({ products, category }: ProductListProps) {
   );
 
   return productList;
-}
+};
+export default ProductList;

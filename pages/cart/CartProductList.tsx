@@ -5,7 +5,7 @@ import useCart from 'contexts/cartContext/useCart';
 // Static components
 import ProductCardRow from 'components/elements/ProductCard/ProductCardRow';
 
-export default function CartProductList() {
+const CartProductList = () => {
   const cart = useCart();
 
   const cartProductList = useMemo(
@@ -21,4 +21,5 @@ export default function CartProductList() {
   );
 
   return cartProductList;
-}
+};
+export default CartProductList;

@@ -10,7 +10,7 @@ import Heading from 'components/elements/Heading';
 import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
 
-export default function ProductCardCol({ product }: ProductCardProps) {
+const ProductCardCol = ({ product }: ProductCardProps) => {
   const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
 
@@ -85,4 +85,5 @@ export default function ProductCardCol({ product }: ProductCardProps) {
       {outOfStock}
     </li>
   );
-}
+};
+export default ProductCardCol;

@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Header.module.css';
 import { useUser } from '@auth0/nextjs-auth0';
+import { HeaderProps } from './types';
 
 // Static Components
 import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
@@ -10,13 +11,12 @@ import Logo from 'components/elements/Logo';
 import Link from 'components/elements/Link';
 import CartCount from 'components/elements/CartCount';
 import ProfileIcon from 'components/elements/ProfileIcon';
-import { HeaderProps } from './types';
 
-export default function Header({
+const Header = ({
   isMobileNavOpened,
   handleCloseMenu,
   handleToggleMenu,
-}: HeaderProps) {
+}: HeaderProps) => {
   const { user } = useUser();
 
   const t = useTranslations('Navigation');
@@ -56,4 +56,5 @@ export default function Header({
       </div>
     </header>
   );
-}
+};
+export default Header;

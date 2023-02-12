@@ -10,7 +10,7 @@ import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
-export default function NotFound() {
+const NotFound = () => {
   const { back } = useRouter();
 
   const t = useTranslations('Errors');
@@ -26,7 +26,8 @@ export default function NotFound() {
       <Button onClick={back}>{t('backButtonMessage')}</Button>
     </MainContentLayout>
   );
-}
+};
+export default NotFound;
 
 NotFound.messages = ['Errors', ...PageLayout.messages];
 

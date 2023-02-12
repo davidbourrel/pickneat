@@ -1,6 +1,6 @@
 import { ClassNameProps } from '_types/components';
 
-export default function ArrowIcon({ className = '' }: ClassNameProps) {
+const ArrowIcon = ({ className = '' }: ClassNameProps) => {
   return (
     <svg className={className} viewBox="0 0 24 24">
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -9,4 +9,5 @@ export default function ArrowIcon({ className = '' }: ClassNameProps) {
       <line x1="15" y1="8" x2="19" y2="12" />
     </svg>
   );
-}
+};
+export default ArrowIcon;

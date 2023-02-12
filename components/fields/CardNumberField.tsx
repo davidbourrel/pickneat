@@ -6,7 +6,7 @@ import useCardNumber from 'contexts/checkoutContext/useCardNumber';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function CardNumberField() {
+const CardNumberField = () => {
   const { cardNumber, setCardNumber, setIsCardNumberInError } = useCardNumber();
   const { isSubmitted } = useSubmit();
 
@@ -37,4 +37,5 @@ export function CardNumberField() {
       required
     />
   );
-}
+};
+export default CardNumberField;

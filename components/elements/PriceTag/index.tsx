@@ -3,7 +3,7 @@ import styles from './PriceTag.module.css';
 import { formatNumberToPrice } from 'utils/formatNumberToPrice';
 import { PriceTagProps } from './types';
 
-export default function PriceTag({ price, className = '' }: PriceTagProps) {
+const PriceTag = ({ price, className = '' }: PriceTagProps) => {
   const computedClassName = useMemo(
     () => `${styles.price} ${className}`,
     [className]
@@ -17,4 +17,5 @@ export default function PriceTag({ price, className = '' }: PriceTagProps) {
   );
 
   return priceTag;
-}
+};
+export default PriceTag;

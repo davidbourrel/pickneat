@@ -12,7 +12,7 @@ import Quantity from 'components/elements/Quantity';
 import PriceTag from 'components/elements/PriceTag';
 import Button from 'components/elements/buttons/Button';
 
-export default function ProductCardRow({ product }: ProductCardProps) {
+const ProductCardRow = ({ product }: ProductCardProps) => {
   const { product_id, name, price, image, category, amount } = product;
 
   const { removeItemsFromCart } = useRemoveCart();
@@ -77,4 +77,5 @@ export default function ProductCardRow({ product }: ProductCardProps) {
       </div>
     </li>
   );
-}
+};
+export default ProductCardRow;

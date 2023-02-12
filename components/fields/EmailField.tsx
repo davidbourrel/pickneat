@@ -5,7 +5,7 @@ import { useUser } from '@auth0/nextjs-auth0';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function EmailField() {
+const EmailField = () => {
   const { user } = useUser();
 
   const t = useTranslations('Profile');
@@ -22,4 +22,5 @@ export function EmailField() {
       disabled
     />
   );
-}
+};
+export default EmailField;

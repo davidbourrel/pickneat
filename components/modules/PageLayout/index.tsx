@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import Header from '../Header';
 import MobileNavigation from '../Navigation/MobileNavigation';
 
-export default function PageLayout({ children }: PropsWithChildren) {
+const PageLayout = ({ children }: PropsWithChildren) => {
   const [isMobileNavOpened, setIsMobileNavOpened] = useState(false);
 
   const handleToggleMenu = useCallback(() => {
@@ -31,6 +31,7 @@ export default function PageLayout({ children }: PropsWithChildren) {
       <Footer />
     </>
   );
-}
+};
+export default PageLayout;
 
 PageLayout.messages = ['Footer', 'Navigation'];

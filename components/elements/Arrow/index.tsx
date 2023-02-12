@@ -5,11 +5,7 @@ import { ArrowDirectionEnum, ArrowProps } from './types';
 // Static components
 import ArrowIcon from 'components/images/icons/ArrowIcon';
 
-export default function Arrow({
-  direction,
-  caret = false,
-  className = '',
-}: ArrowProps) {
+const Arrow = ({ direction, caret = false, className = '' }: ArrowProps) => {
   const directionClassName = useMemo(() => {
     switch (direction) {
       case ArrowDirectionEnum.Top:
@@ -41,4 +37,5 @@ export default function Arrow({
       <ArrowIcon className={styles.arrow} />
     </div>
   );
-}
+};
+export default Arrow;

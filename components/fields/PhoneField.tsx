@@ -6,7 +6,7 @@ import useSubmit from 'contexts/checkoutContext/useSubmit';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function PhoneField() {
+const PhoneField = () => {
   const { phone, setPhone, setIsPhoneInError } = usePhone();
   const { isSubmitted } = useSubmit();
 
@@ -37,4 +37,5 @@ export function PhoneField() {
       required
     />
   );
-}
+};
+export default PhoneField;

@@ -2,12 +2,12 @@ import { useMemo } from 'react';
 import styles from './MainContentLayout.module.css';
 import { MainContentLayoutProps } from './types';
 
-export default function MainContentLayout({
+const MainContentLayout = ({
   padding = true,
   center = false,
   className = '',
   children,
-}: MainContentLayoutProps) {
+}: MainContentLayoutProps) => {
   const computedClassName = useMemo(
     () =>
       `${styles.main} ${className} ${padding ? 'appPadding' : ''} ${
@@ -17,4 +17,5 @@ export default function MainContentLayout({
   );
 
   return <main className={computedClassName}>{children}</main>;
-}
+};
+export default MainContentLayout;

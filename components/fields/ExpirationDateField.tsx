@@ -6,7 +6,7 @@ import useExpirationDate from 'contexts/checkoutContext/useExpirationDate';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function ExpirationDateField() {
+const ExpirationDateField = () => {
   const { expirationDate, setExpirationDate, setIsExpirationDateInError } =
     useExpirationDate();
   const { isSubmitted } = useSubmit();
@@ -38,4 +38,5 @@ export function ExpirationDateField() {
       required
     />
   );
-}
+};
+export default ExpirationDateField;

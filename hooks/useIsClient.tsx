@@ -9,5 +9,4 @@ const useIsClient = (): boolean => {
 
   return isClient;
 };
-
 export default useIsClient;

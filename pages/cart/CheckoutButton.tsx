@@ -6,7 +6,7 @@ import styles from './Cart.module.css';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
 
-export default function CheckoutButton() {
+const CheckoutButton = () => {
   const t = useTranslations('Cart');
 
   const checkoutButton = useMemo(
@@ -21,4 +21,5 @@ export default function CheckoutButton() {
   );
 
   return checkoutButton;
-}
+};
+export default CheckoutButton;

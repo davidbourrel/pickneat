@@ -4,11 +4,11 @@ import { CategoryNavigationItemProps } from './types';
 import Button from 'components/elements/buttons/Button';
 import NavLink from 'components/elements/NavLink';
 
-export default function CategoryNavigationItem({
+const CategoryNavigationItem = ({
   id,
   isActive,
   children,
-}: CategoryNavigationItemProps) {
+}: CategoryNavigationItemProps) => {
   return (
     <li>
       <NavLink href={id} isActive={isActive}>
@@ -18,4 +18,5 @@ export default function CategoryNavigationItem({
       </NavLink>
     </li>
   );
-}
+};
+export default CategoryNavigationItem;

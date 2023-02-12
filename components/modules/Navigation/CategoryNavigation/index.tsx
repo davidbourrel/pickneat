@@ -5,7 +5,7 @@ import useActiveMenuCategories from 'contexts/appContext/useActiveMenuCategories
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';
 
-export default function CategoryNavigation() {
+const CategoryNavigation = () => {
   const t = useTranslations('Home');
 
   const activeMenuCategory = useActiveMenuCategories();
@@ -46,4 +46,5 @@ export default function CategoryNavigation() {
       </ul>
     </nav>
   );
-}
+};
+export default CategoryNavigation;

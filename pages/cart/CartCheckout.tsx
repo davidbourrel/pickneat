@@ -9,10 +9,10 @@ import CheckoutButton from './CheckoutButton';
 import Link from 'components/elements/Link';
 import Button from 'components/elements/buttons/Button';
 
-export default function CartCheckout({
+const CartCheckout = ({
   cartTotalItems,
   cartTotalPrice,
-}: CartCheckoutProps) {
+}: CartCheckoutProps) => {
   const t = useTranslations('Cart');
 
   const subTotalPrice = useMemo(
@@ -60,4 +60,5 @@ export default function CartCheckout({
   );
 
   return cartCheckout;
-}
+};
+export default CartCheckout;

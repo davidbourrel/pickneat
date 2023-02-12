@@ -22,5 +22,4 @@ const useInputKeyCode: () => string = () => {
 
   return key;
 };
-
 export default useInputKeyCode;

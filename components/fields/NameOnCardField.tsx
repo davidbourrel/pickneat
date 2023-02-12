@@ -6,7 +6,7 @@ import useNameOnCard from 'contexts/checkoutContext/useNameOnCard';
 // Static components
 import TextInput from './inputs/TextInput';
 
-export function NameOnCardField() {
+const NameOnCardField = () => {
   const { nameOnCard, setNameOnCard, setIsNameOnCardInError } = useNameOnCard();
   const { isSubmitted } = useSubmit();
 
@@ -36,4 +36,5 @@ export function NameOnCardField() {
       required
     />
   );
-}
+};
+export default NameOnCardField;

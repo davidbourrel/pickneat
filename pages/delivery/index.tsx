@@ -11,7 +11,7 @@ import Link from 'components/elements/Link';
 import Button from 'components/elements/buttons/Button';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
-export default function Delivery() {
+const Delivery = () => {
   const t = useTranslations('Delivery');
 
   return (
@@ -50,7 +50,8 @@ export default function Delivery() {
       </div>
     </MainContentLayout>
   );
-}
+};
+export default Delivery;
 
 Delivery.messages = ['Delivery', ...PageLayout.messages];
 

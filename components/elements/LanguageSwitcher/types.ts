@@ -5,3 +5,8 @@ export interface LanguageSwitcherProps {
   dataTestLangList: string;
   dataTestLangButton: string;
 }
+
+export interface LangItemProps {
+  lang: string;
+  incomingLocale: string;
+}

@@ -6,7 +6,7 @@ import { LogoProps } from './types';
 // Static components
 import Link from '../Link';
 
-export default function Logo({ onCloseMenu, className = '' }: LogoProps) {
+const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
   const { isDarkMode } = useDarkMode();
 
   const computedClassName = useMemo(
@@ -26,4 +26,5 @@ export default function Logo({ onCloseMenu, className = '' }: LogoProps) {
       <span>PickN`Eat</span>
     </Link>
   );
-}
+};
+export default Logo;

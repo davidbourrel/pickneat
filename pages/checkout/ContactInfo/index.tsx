@@ -3,11 +3,11 @@ import { useTranslations } from 'next-intl';
 import styles from '../Checkout.module.css';
 
 // Static components
-import { EmailField } from 'components/fields/EmailField';
-import { FullNameField } from 'components/fields/FullNameField';
-import { PhoneField } from 'components/fields/PhoneField';
+import EmailField from 'components/fields/EmailField';
+import FullNameField from 'components/fields/FullNameField';
+import PhoneField from 'components/fields/PhoneField';
 
-export default function ContactInfo() {
+const ContactInfo = () => {
   const t = useTranslations('Checkout');
 
   const legend = useMemo(() => t('userInfo'), [t]);
@@ -20,4 +20,5 @@ export default function ContactInfo() {
       <EmailField />
     </fieldset>
   );
-}
+};
+export default ContactInfo;

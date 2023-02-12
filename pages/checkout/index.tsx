@@ -17,7 +17,7 @@ import ContactInfo from './ContactInfo';
 import PaymentInfo from './PaymentInfo';
 import Button from 'components/elements/buttons/Button';
 
-function Checkout() {
+const Checkout = () => {
   const t = useTranslations('Checkout');
 
   const { handleSubmit, isValidForm } = useSubmit();
@@ -61,7 +61,7 @@ function Checkout() {
       </form>
     </MainContentLayout>
   );
-}
+};
 
 Checkout.messages = ['Checkout', 'Profile', 'Errors', ...PageLayout.messages];
 

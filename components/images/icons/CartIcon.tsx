@@ -1,6 +1,6 @@
 import { ClassNameProps } from '_types/components';
 
-export default function CartIcon({ className = '' }: ClassNameProps) {
+const CartIcon = ({ className = '' }: ClassNameProps) => {
   return (
     <svg className={className} viewBox="0 0 118.67 122.88">
       <g>
@@ -8,4 +8,5 @@ export default function CartIcon({ className = '' }: ClassNameProps) {
       </g>
     </svg>
   );
-}
+};
+export default CartIcon;

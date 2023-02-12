@@ -1,6 +1,6 @@
 import { TableHeaderProps } from './types';
 
-export default function TableHeader({ day, lunch, dinner }: TableHeaderProps) {
+const TableHeader = ({ day, lunch, dinner }: TableHeaderProps) => {
   return (
     <thead>
       <tr>
@@ -10,4 +10,5 @@ export default function TableHeader({ day, lunch, dinner }: TableHeaderProps) {
       </tr>
     </thead>
   );
-}
+};
+export default TableHeader;

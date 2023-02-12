@@ -11,13 +11,13 @@ import Arrow from '../Arrow';
 import LangItem from './LangItem';
 import Button from '../buttons/Button';
 
-export default function LanguageSwitcher({
+const LanguageSwitcher = ({
   title,
   ariaControlsId,
   dataTestButton,
   dataTestLangList,
   dataTestLangButton,
-}: LanguageSwitcherProps) {
+}: LanguageSwitcherProps) => {
   const { locale, pathname, query } = useRouter();
   const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
 
@@ -121,4 +121,5 @@ export default function LanguageSwitcher({
       </ul>
     </>
   );
-}
+};
+export default LanguageSwitcher;

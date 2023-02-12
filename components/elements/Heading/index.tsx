@@ -2,13 +2,13 @@ import { useMemo } from 'react';
 import styles from './Heading.module.css';
 import { HeadingProps } from './types';
 
-export default function Heading({
+const Heading = ({
   children,
   level,
   error = false,
   className = '',
   ...rest
-}: HeadingProps) {
+}: HeadingProps) => {
   const incomingClassName = useMemo(
     () => `${className} ${error ? styles.error : ''}`,
     [className, error]
@@ -57,4 +57,5 @@ export default function Heading({
   }, [children, level, incomingClassName, rest]);
 
   return heading;
-}
+};
+export default Heading;

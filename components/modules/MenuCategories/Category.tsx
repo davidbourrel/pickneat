@@ -8,12 +8,7 @@ import { CategoryProps } from './types';
 import ProductList from 'components/modules/ProductList';
 import Heading from 'components/elements/Heading';
 
-export default function Category({
-  id,
-  products,
-  title,
-  category,
-}: CategoryProps) {
+const Category = ({ id, products, title, category }: CategoryProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
     rootMargin: '-50% 0% -50% 0%',
@@ -61,4 +56,5 @@ export default function Category({
       <ProductList products={products} category={category} />
     </section>
   );
-}
+};
+export default Category;

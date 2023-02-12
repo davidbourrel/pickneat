@@ -9,10 +9,7 @@ import styles from './ThemeSwitcher.module.css';
 import Button from '../buttons/Button';
 import MoonIcon from 'components/images/icons/MoonIcon';
 
-export default function ThemeSwitcher({
-  title,
-  dataTestButton,
-}: ThemeSwitcherProps) {
+const ThemeSwitcher = ({ title, dataTestButton }: ThemeSwitcherProps) => {
   const { isDarkMode, handleThemeClick } = useDarkMode();
 
   const t = useTranslations('Navigation');
@@ -45,4 +42,5 @@ export default function ThemeSwitcher({
       <span>{textSwitcher}</span>
     </Button>
   );
-}
+};
+export default ThemeSwitcher;

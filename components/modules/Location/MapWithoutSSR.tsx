@@ -9,7 +9,7 @@ import { mapUrl, position } from './const';
 import CustomMarker from './CustomMaker';
 import Address from './Address';
 
-export default function MapWithoutSSR() {
+const MapWithoutSSR = () => {
   return (
     <MapContainer
       doubleClickZoom={false}
@@ -23,4 +23,5 @@ export default function MapWithoutSSR() {
       </CustomMarker>
     </MapContainer>
   );
-}
+};
+export default MapWithoutSSR;

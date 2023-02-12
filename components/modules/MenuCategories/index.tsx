@@ -7,10 +7,7 @@ import { MenuCategoriesProps } from './types';
 // Static Components
 import Category from './Category';
 
-export default function MenuCategories({
-  ssrProducts,
-  className,
-}: MenuCategoriesProps) {
+const MenuCategories = ({ ssrProducts, className }: MenuCategoriesProps) => {
   const t = useTranslations('Home');
 
   const computedClassName = useMemo(
@@ -52,4 +49,5 @@ export default function MenuCategories({
       />
     </div>
   );
-}
+};
+export default MenuCategories;

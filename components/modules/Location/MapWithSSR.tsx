@@ -1,5 +1,6 @@
 import Address from './Address';
 
-export default function MapWithSSR() {
+const MapWithSSR = () => {
   return <Address />;
-}
+};
+export default MapWithSSR;

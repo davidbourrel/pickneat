@@ -2,10 +2,12 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
-import Button from '../Button';
 import styles from './ViewCartButton.module.css';
 
-export default function ViewCartButton() {
+// Static components
+import Button from '../Button';
+
+const ViewCartButton = () => {
   const t = useTranslations('Cart');
 
   const { cartTotalItems } = useCartTotal();
@@ -23,4 +25,5 @@ export default function ViewCartButton() {
       </Link>
     </div>
   );
-}
+};
+export default ViewCartButton;

@@ -11,7 +11,7 @@ import Location from 'components/modules/Location';
 import OpeningTimes from 'components/modules/OpeningTimes';
 import MainContentLayout from 'components/modules/MainContentLayout';
 
-export default function Restaurants() {
+const Restaurants = () => {
   const t = useTranslations('Navigation');
   const t2 = useTranslations('Restaurants');
 
@@ -35,7 +35,8 @@ export default function Restaurants() {
       </div>
     </MainContentLayout>
   );
-}
+};
+export default Restaurants;
 
 Restaurants.messages = ['Navigation', 'Restaurants', ...PageLayout.messages];
 

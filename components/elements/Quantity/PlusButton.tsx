@@ -6,7 +6,7 @@ import { PlusButtonProps } from './types';
 // Static components
 import Button from '../buttons/Button';
 
-export default function PlusButton({ product }: PlusButtonProps) {
+const PlusButton = ({ product }: PlusButtonProps) => {
   const addToCart = useAddToCart();
 
   const handleAddProductClick = useCallback(
@@ -23,4 +23,5 @@ export default function PlusButton({ product }: PlusButtonProps) {
       <span>&#43;</span>
     </Button>
   );
-}
+};
+export default PlusButton;

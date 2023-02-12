@@ -6,7 +6,7 @@ import { SliderProps } from './types';
 // Static components
 import Loader from 'components/elements/Loader';
 
-export default function Slider({ children, loading, ...props }: SliderProps) {
+const Slider = ({ children, loading, ...props }: SliderProps) => {
   return (
     <Swiper
       modules={[Navigation, A11y, Keyboard]}
@@ -19,4 +19,5 @@ export default function Slider({ children, loading, ...props }: SliderProps) {
       {loading ? <Loader absoluteLoader /> : children}
     </Swiper>
   );
-}
+};
+export default Slider;

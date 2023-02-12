@@ -14,7 +14,7 @@ import CartCheckout from './CartCheckout';
 import MainContentLayout from 'components/modules/MainContentLayout';
 import CartProductList from './CartProductList';
 
-export default function Cart() {
+const Cart = () => {
   const t = useTranslations('Cart');
 
   const { cartTotalItems, cartTotalPrice } = useCartTotal();
@@ -40,7 +40,8 @@ export default function Cart() {
       </section>
     </MainContentLayout>
   );
-}
+};
+export default Cart;
 
 Cart.messages = ['Cart', 'Product', ...PageLayout.messages];
 

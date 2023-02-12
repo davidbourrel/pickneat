@@ -2,14 +2,14 @@ import { useMemo } from 'react';
 import styles from './Loader.module.css';
 import { LoaderProps } from './types';
 
-export default function Loader({
+const Loader = ({
   absoluteLoader = false,
   loaderContainerClassName = '',
   loaderClassName = '',
   circleClassName = '',
   width = '30px',
   height = '30px',
-}: LoaderProps) {
+}: LoaderProps) => {
   const computedLoaderContainerClassName = useMemo(
     () =>
       `${styles.loaderContainer} ${loaderContainerClassName} ${
@@ -48,4 +48,5 @@ export default function Loader({
       </svg>
     </div>
   );
-}
+};
+export default Loader;

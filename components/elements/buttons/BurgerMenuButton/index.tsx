@@ -7,14 +7,14 @@ import { BurgerMenuButtonProps } from './types';
 import Button from '../Button';
 import BurgerMenuIcon from './BurgerMenuIcon';
 
-export default function BurgerMenuButton({
+const BurgerMenuButton = ({
   onToggleMenu,
   onCloseMenu,
   isMobileNavOpened,
   title,
   className,
   dataTest,
-}: BurgerMenuButtonProps) {
+}: BurgerMenuButtonProps) => {
   const t = useTranslations('Navigation');
 
   const computedButtonClassName = useMemo(
@@ -58,4 +58,5 @@ export default function BurgerMenuButton({
       <BurgerMenuIcon isMobileNavOpened={isMobileNavOpened} />
     </Button>
   );
-}
+};
+export default BurgerMenuButton;

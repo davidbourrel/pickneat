@@ -8,7 +8,7 @@ import { CartTitleProps } from '_types/cart';
 import Button from 'components/elements/buttons/Button';
 import Heading from 'components/elements/Heading';
 
-export default function CartTitle({ cartTotalItems }: CartTitleProps) {
+const CartTitle = ({ cartTotalItems }: CartTitleProps) => {
   const t = useTranslations('Cart');
 
   const emptyCartTitle = useMemo(
@@ -40,4 +40,5 @@ export default function CartTitle({ cartTotalItems }: CartTitleProps) {
   );
 
   return cartTitle;
-}
+};
+export default CartTitle;

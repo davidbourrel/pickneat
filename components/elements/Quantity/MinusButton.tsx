@@ -6,7 +6,7 @@ import { MinusButtonProps } from './types';
 // Static components
 import Button from '../buttons/Button';
 
-export default function MinusButton({ product_id }: MinusButtonProps) {
+const MinusButton = ({ product_id }: MinusButtonProps) => {
   const { removeFromCart } = useRemoveCart();
 
   const handleRemoveProductClick = useCallback(
@@ -23,4 +23,5 @@ export default function MinusButton({ product_id }: MinusButtonProps) {
       <span>&#8722;</span>
     </Button>
   );
-}
+};
+export default MinusButton;

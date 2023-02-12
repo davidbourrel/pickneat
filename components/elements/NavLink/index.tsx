@@ -1,16 +1,18 @@
 import { useMemo } from 'react';
-import Link from '../Link';
 import styles from './NavLink.module.css';
 import { NavLinkProps } from './types';
 
-export default function NavLink({
+// Static components
+import Link from '../Link';
+
+const NavLink = ({
   children,
   href,
   isActive,
   onCloseMenu,
   className = '',
   ...rest
-}: NavLinkProps) {
+}: NavLinkProps) => {
   const computedClassName = useMemo(
     () =>
       `capitalize ${styles.navLink} ${
@@ -24,4 +26,5 @@ export default function NavLink({
       <div className={computedClassName}>{children}</div>
     </Link>
   );
-}
+};
+export default NavLink;

@@ -16,7 +16,7 @@ import { Baloo_2 } from '@next/font/google';
 
 const fontFamily = Baloo_2({ display: 'swap' });
 
-export default function MyApp({ Component, pageProps }: MyAppProps) {
+const MyApp = ({ Component, pageProps }: MyAppProps) => {
   useKonami();
 
   useEffect(() => {
@@ -99,4 +99,5 @@ export default function MyApp({ Component, pageProps }: MyAppProps) {
       </NextIntlProvider>
     </div>
   );
-}
+};
+export default MyApp;

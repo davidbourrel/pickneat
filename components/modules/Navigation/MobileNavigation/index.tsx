@@ -12,10 +12,10 @@ import BurgerMenuButton from 'components/elements/buttons/BurgerMenuButton';
 import Logo from 'components/elements/Logo';
 import NavLink from 'components/elements/NavLink';
 
-export default function MobileNavigation({
+const MobileNavigation = ({
   isMobileNavOpened,
   handleCloseMenu,
-}: MobileNavigationProps) {
+}: MobileNavigationProps) => {
   const { pathname } = useRouter();
 
   const t = useTranslations('Navigation');
@@ -120,4 +120,5 @@ export default function MobileNavigation({
       </aside>
     </div>
   );
-}
+};
+export default MobileNavigation;

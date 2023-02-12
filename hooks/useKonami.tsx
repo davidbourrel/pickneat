@@ -51,5 +51,4 @@ const useKonami = (): void => {
     }
   }, [isKonami]);
 };
-
 export default useKonami;
