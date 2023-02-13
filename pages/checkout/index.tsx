@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import useCartTotal from 'contexts/cartContext/useCartTotal';
-import useSubmit from 'contexts/checkoutContext/useSubmit';
+import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import styles from './Checkout.module.css';
 
 // Static components
@@ -20,7 +20,7 @@ import Button from 'components/elements/buttons/Button';
 const Checkout = () => {
   const t = useTranslations('Checkout');
 
-  const { handleSubmit, isValidForm } = useSubmit();
+  const { handleCheckoutSubmit, isValidForm } = useCheckoutSubmit();
 
   const { push } = useRouter();
 
@@ -50,7 +50,7 @@ const Checkout = () => {
         {t('checkout')}
       </Heading>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleCheckoutSubmit}>
         <div className={styles.fieldsetContainer}>
           <ContactInfo />
           <PaymentInfo />

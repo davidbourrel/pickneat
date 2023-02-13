@@ -1,14 +1,14 @@
 import { FormEvent, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import usePhone from 'contexts/checkoutContext/usePhone';
-import useSubmit from 'contexts/checkoutContext/useSubmit';
+import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 
 // Static components
 import TextInput from './inputs/TextInput';
 
 const PhoneField = () => {
   const { phone, setPhone, setIsPhoneInError } = usePhone();
-  const { isSubmitted } = useSubmit();
+  const { isSubmitted } = useCheckoutSubmit();
 
   const t = useTranslations('Profile');
 

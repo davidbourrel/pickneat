@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext js,jsx,ts,tsx --fix",
-    "test": "cypress open",
-    "test:run": "cypress run"
+    "e2e": "cypress open",
+    "e2e:run": "cypress run"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.2.1",

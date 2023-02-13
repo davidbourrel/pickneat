@@ -49,5 +49,6 @@ export const INITIAL_CHECKOUT_CONTEXT: CheckoutContext = {
 
   // Submit
   isSubmitted: null as unknown as CheckoutContext['isSubmitted'],
-  handleSubmit: null as unknown as CheckoutContext['handleSubmit'],
+  handleCheckoutSubmit:
+    null as unknown as CheckoutContext['handleCheckoutSubmit'],
 };

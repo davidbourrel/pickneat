@@ -1,6 +1,6 @@
 import { FormEvent, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import useSubmit from 'contexts/checkoutContext/useSubmit';
+import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import useExpirationDate from 'contexts/checkoutContext/useExpirationDate';
 
 // Static components
@@ -9,7 +9,7 @@ import TextInput from './inputs/TextInput';
 const ExpirationDateField = () => {
   const { expirationDate, setExpirationDate, setIsExpirationDateInError } =
     useExpirationDate();
-  const { isSubmitted } = useSubmit();
+  const { isSubmitted } = useCheckoutSubmit();
 
   const t = useTranslations('Checkout');
 

@@ -1,6 +1,6 @@
 import { FormEvent, useCallback, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import useSubmit from 'contexts/checkoutContext/useSubmit';
+import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import useCardNumber from 'contexts/checkoutContext/useCardNumber';
 
 // Static components
@@ -8,7 +8,7 @@ import TextInput from './inputs/TextInput';
 
 const CardNumberField = () => {
   const { cardNumber, setCardNumber, setIsCardNumberInError } = useCardNumber();
-  const { isSubmitted } = useSubmit();
+  const { isSubmitted } = useCheckoutSubmit();
 
   const t = useTranslations('Checkout');
 

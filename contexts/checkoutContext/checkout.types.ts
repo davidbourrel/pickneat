@@ -42,5 +42,5 @@ export interface CheckoutContext {
 
   // Submit
   isSubmitted: boolean;
-  handleSubmit: (e: FormEvent) => void;
+  handleCheckoutSubmit: (e: FormEvent) => void;
 }

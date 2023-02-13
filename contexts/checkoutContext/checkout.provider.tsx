@@ -81,7 +81,7 @@ export default function CheckoutProvider({ children }: CheckoutProviderProps) {
 
   // Submit
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const handleSubmit = useCallback(
+  const handleCheckoutSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault();
       if (isValidForm) {
@@ -134,7 +134,7 @@ export default function CheckoutProvider({ children }: CheckoutProviderProps) {
 
       // Submit
       isSubmitted,
-      handleSubmit,
+      handleCheckoutSubmit,
     }),
     [
       fullName,
@@ -151,7 +151,7 @@ export default function CheckoutProvider({ children }: CheckoutProviderProps) {
       isCvvInError,
       isValidForm,
       isSubmitted,
-      handleSubmit,
+      handleCheckoutSubmit,
     ]
   );
 
