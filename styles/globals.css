@@ -181,6 +181,10 @@ p {
 /* PREFERS REDUCED MOTION */
 /**************************/
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
   svg {
     transition: unset;
   }
