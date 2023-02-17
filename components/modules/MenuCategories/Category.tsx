@@ -19,20 +19,19 @@ const Category = ({ id, products, title, category }: CategoryProps) => {
   useEffect(() => {
     const isCategoryVisible = !!entry?.isIntersecting;
 
-    if (isCategoryVisible && !!entry) {
-      setIntersectionObserverEntries([entry]);
-    } else {
-      setIntersectionObserverEntries((entries) => {
-        if (entries?.length > 0) {
-          // Remove category when the category is no more visible
-          return entries.filter(
-            (currentEntry) => currentEntry.target.id !== id
-          );
-        }
+    setIntersectionObserverEntries((entries) => {
+      if (isCategoryVisible && !!entry) {
+        return [...entries, entry];
+      }
 
-        return [];
-      });
-    }
+      if (entries?.length > 0) {
+        // Remove when the category is no more visible
+        return entries.filter((currentEntry) => currentEntry.target.id !== id);
+      }
+
+      // Return empty array if no categories are visible
+      return [];
+    });
   }, [setIntersectionObserverEntries, id, entry]);
 
   return (
