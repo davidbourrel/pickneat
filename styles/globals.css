@@ -5,44 +5,30 @@
 @import url('./snowAnimation.css');
 
 :root {
+  /* Color */
   --primary: #6e4a2c;
   --primary-hover: #422c1a;
-
-  --neutral-50: #fafafa;
-  --neutral-100: #f5f5f5;
-  --neutral-200: #e5e5e5;
-  --neutral-300: #d4d4d4;
-  --neutral-400: #a3a3a3;
-  --neutral-500: #737373;
-  --neutral-600: #404040;
-  --neutral-700: #262626;
-  --neutral-800: #171717;
-  --neutral-900: #121212;
-
-  --red: #b00020;
   --red-light: #cf6676;
-
-  --error: #b00020;
-  --valid: #1c7a40;
   --rating: #ffaa00;
   --stroke-title-color: #dc9458;
-
   --white: #fafafa;
   --black: #121212;
-
   --shadow-1: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  --shadow-2: rgba(43, 42, 51, 0.1) 0px 1px 6px 0px;
 
+  /* Transition */
   --transition-easeInOut: cubic-bezier(0.65, 0, 0.35, 1);
 
+  /* Height */
   --mobile-top-header-height: 4.5rem;
   --desktop-top-header-height: 6rem;
-
   --mobile-top-nav-category-height: 3.5rem;
 
+  /* Padding */
   --app-mobile-padding: 1rem;
   --app-desktop-padding: 1.5rem;
+
+  /* Border radius */
   --app-radius: 0.25rem;
 }
 
@@ -64,6 +50,26 @@ html[color-scheme='dark'] {
   --valid: #60c689;
 
   --shadow-2: rgba(251, 251, 254, 0.2) 0px 1px 6px 0px;
+}
+
+html[color-scheme='light'] {
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e5e5e5;
+  --neutral-300: #d4d4d4;
+  --neutral-400: #a3a3a3;
+  --neutral-500: #737373;
+  --neutral-600: #404040;
+  --neutral-700: #262626;
+  --neutral-800: #171717;
+  --neutral-900: #121212;
+
+  --red: #b00020;
+
+  --error: #b00020;
+  --valid: #1c7a40;
+
+  --shadow-2: rgba(43, 42, 51, 0.1) 0px 1px 6px 0px;
 }
 
 * {

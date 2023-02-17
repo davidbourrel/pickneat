@@ -33,9 +33,6 @@
 /* PREFERS REDUCED MOTION */
 /**************************/
 @media (prefers-reduced-motion: reduce) {
-  .navLink {
-    transition: unset;
-  }
   .navLink::after {
     transition: unset;
   }

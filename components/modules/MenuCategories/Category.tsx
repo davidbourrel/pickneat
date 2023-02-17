@@ -20,23 +20,11 @@ const Category = ({ id, products, title, category }: CategoryProps) => {
     const isCategoryVisible = !!entry?.isIntersecting;
 
     if (isCategoryVisible && !!entry) {
-      setIntersectionObserverEntries((entries) => {
-        const indexOfEntry = entries?.findIndex(
-          (currentEntry: IntersectionObserverEntry) =>
-            currentEntry?.target?.id === entry?.target?.id
-        );
-
-        const entryNotExist = indexOfEntry === -1;
-
-        if (entryNotExist) {
-          return [...entries, entry];
-        }
-
-        return [];
-      });
+      setIntersectionObserverEntries([entry]);
     } else {
       setIntersectionObserverEntries((entries) => {
         if (entries?.length > 0) {
+          // Remove category when the category is no more visible
           return entries.filter(
             (currentEntry) => currentEntry.target.id !== id
           );

@@ -1,6 +1,8 @@
 import { useMemo, useState, useEffect, PropsWithChildren } from 'react';
 import appContext from './app.context';
 import { AppContext } from './app.types';
+import useKonami from 'hooks/useKonami';
+import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
 
 const { Provider } = appContext;
 
@@ -14,23 +16,11 @@ export default function AppProvider({ children }: AppProviderProps) {
     null as unknown as string
   );
 
+  useKonami();
+
   useEffect(() => {
-    const activeCategoryEntry = intersectionObserverEntries?.reduce(
-      (
-        mostHigherRatioEntry: IntersectionObserverEntry,
-        entry: IntersectionObserverEntry
-      ) => {
-        const entryIntersectionRatio = entry?.intersectionRatio;
-        const higherIntersectionRatio =
-          mostHigherRatioEntry?.intersectionRatio ?? 0;
-
-        if (entryIntersectionRatio >= higherIntersectionRatio) {
-          return (mostHigherRatioEntry = entry);
-        }
-
-        return mostHigherRatioEntry;
-      },
-      {} as IntersectionObserverEntry
+    const activeCategoryEntry = getMostVisibleEntry(
+      intersectionObserverEntries
     );
 
     const activeCategory = activeCategoryEntry?.target?.id;

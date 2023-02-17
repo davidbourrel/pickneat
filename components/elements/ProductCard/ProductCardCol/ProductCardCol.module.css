@@ -132,4 +132,7 @@
   .card {
     transition: unset;
   }
+  .card::before {
+    transition: unset;
+  }
 }

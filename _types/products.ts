@@ -15,7 +15,7 @@ export interface ProductIdProps {
   ssrProduct: Product;
 }
 
-export enum CategoryEnum {
+export enum FoodCategoryEnum {
   Burger = 'BURGER',
   Side = 'SIDE',
   Drink = 'DRINK',

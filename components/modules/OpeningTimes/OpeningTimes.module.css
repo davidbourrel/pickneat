@@ -8,8 +8,7 @@
 .table thead th {
   font-weight: 700;
   font-size: 1.25rem;
-  padding: 0.75rem 0.5rem;
-  vertical-align: middle;
+  height: 5rem;
 }
 
 /* Content */

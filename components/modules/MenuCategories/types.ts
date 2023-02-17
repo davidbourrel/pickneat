@@ -1,12 +1,12 @@
 import { Maybe } from '_types/app';
 import { ClassNameProps } from '_types/components';
-import { CategoryEnum, Product } from '_types/products';
+import { FoodCategoryEnum, Product } from '_types/products';
 
 export interface CategoryProps {
   id: string;
   products: Maybe<Product[]>;
   title: string;
-  category: CategoryEnum;
+  category: FoodCategoryEnum;
 }
 
 export interface MenuCategoriesProps extends ClassNameProps {

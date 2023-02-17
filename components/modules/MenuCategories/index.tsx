@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './MenuCategories.module.css';
-import { CategoryEnum } from '_types/products';
+import { FoodCategoryEnum } from '_types/products';
 import { MenuCategoriesProps } from './types';
 
 // Static Components
@@ -21,31 +21,31 @@ const MenuCategories = ({ ssrProducts, className }: MenuCategoriesProps) => {
         id="burgers"
         title={t('burgerTitle')}
         products={ssrProducts}
-        category={CategoryEnum.Burger}
+        category={FoodCategoryEnum.Burger}
       />
       <Category
         id="sides"
         title={t('sideTitle')}
         products={ssrProducts}
-        category={CategoryEnum.Side}
+        category={FoodCategoryEnum.Side}
       />
       <Category
         id="drinks"
         title={t('drinkTitle')}
         products={ssrProducts}
-        category={CategoryEnum.Drink}
+        category={FoodCategoryEnum.Drink}
       />
       <Category
         id="desserts"
         title={t('dessertTitle')}
         products={ssrProducts}
-        category={CategoryEnum.Dessert}
+        category={FoodCategoryEnum.Dessert}
       />
       <Category
         id="salads"
         title={t('saladTitle')}
         products={ssrProducts}
-        category={CategoryEnum.Salad}
+        category={FoodCategoryEnum.Salad}
       />
     </div>
   );

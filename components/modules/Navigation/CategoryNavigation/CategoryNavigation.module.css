@@ -54,12 +54,3 @@
     color: var(--neutral-900);
   }
 }
-
-/**************************/
-/* PREFERS REDUCED MOTION */
-/**************************/
-@media (prefers-reduced-motion: reduce) {
-  .navigation button {
-    transition: unset;
-  }
-}
