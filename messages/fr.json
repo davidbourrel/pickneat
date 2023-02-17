@@ -130,7 +130,7 @@
     "nameOnCard": "Nom de la carte",
     "cardNumber": "Numéro de carte",
     "expirationDate": "Date d'expiration",
-    "cvv": "CVV / CVC",
+    "cvv": "CVV / CVC (Code de sécurité)",
     "confirmAndPay": "Confirmer et payer"
   }
 }

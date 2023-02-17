@@ -32,8 +32,7 @@ const CardNumberField = () => {
       value={cardNumber}
       onChange={handleChange}
       setErrorStatus={setIsCardNumberInError}
-      maxLength={19}
-      placeholder="0000 0000 0000 0000"
+      maxLength={16}
       required
     />
   );

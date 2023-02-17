@@ -11,10 +11,8 @@ const useInputClassNames = (inError: boolean): UseInputClassNamesResult => {
     () => `${styles.input} ${inError ? styles.errorInput : ''}`,
     [inError]
   );
-  return useMemo(
-    () => ({ labelClassName, inputClassName }),
-    [labelClassName, inputClassName]
-  );
+
+  return { labelClassName, inputClassName };
 };
 
 export default useInputClassNames;

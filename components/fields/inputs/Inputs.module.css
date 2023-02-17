@@ -5,7 +5,7 @@
 }
 
 /************** 
-    Generic Labels
+  Label
 **************/
 .label {
   font-weight: 600;
@@ -18,8 +18,8 @@
   color: var(--error);
 }
 
-/************** 
-    Generic Inputs
+/**************
+  Input
 **************/
 .input {
   font-weight: 600;

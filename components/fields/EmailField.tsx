@@ -20,6 +20,7 @@ const EmailField = () => {
       value={user?.email ?? ''}
       readOnly
       disabled
+      required
     />
   );
 };
