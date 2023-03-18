@@ -14,13 +14,13 @@
 
 .column h3 {
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   padding: 1.5rem 0;
   color: var(--neutral-600);
 }
 
 .column li {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   margin-bottom: 0.5rem;
   color: var(--neutral-600);
 }

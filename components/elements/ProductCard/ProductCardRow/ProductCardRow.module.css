@@ -44,7 +44,7 @@
 
 .title {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   line-height: 1.25rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -52,14 +52,14 @@
   overflow: hidden;
 }
 .aboutContainer span {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   line-height: 1.125rem;
 }
 
 .removeProductButton {
   height: max-content;
   color: var(--red);
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   margin-left: 1rem;
   position: relative;
 }
@@ -74,7 +74,7 @@
 }
 
 .price {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   align-items: center;
 }
 
@@ -91,15 +91,15 @@
     width: 8rem;
   }
   .title {
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
     line-height: 2rem;
   }
   .aboutContainer span {
-    font-size: 1rem;
+    font-size: var(--text-base);
     line-height: unset;
   }
   .removeProductButton {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 }
 
@@ -119,6 +119,6 @@
   }
 
   .price {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
   }
 }

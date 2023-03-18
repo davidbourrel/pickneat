@@ -7,7 +7,7 @@
 /* Header */
 .table thead th {
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   height: 5rem;
 }
 

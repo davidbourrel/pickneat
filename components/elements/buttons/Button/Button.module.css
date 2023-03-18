@@ -6,7 +6,7 @@
   border: 2px solid transparent;
   box-sizing: border-box;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--text-base);
   white-space: nowrap;
   text-transform: uppercase;
   background-color: var(--primary);

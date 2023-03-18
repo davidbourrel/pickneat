@@ -21,7 +21,7 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 2rem;
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
 }
 .cartDescription p {
   margin-right: 1rem;
@@ -60,11 +60,11 @@
 }
 
 .subTotalPrice {
-  font-size: 1rem;
+  font-size: var(--text-base);
 }
 
 .totalPrice {
-  font-size: 1.5rem;
+  font-size: var(--text-2xl);
   font-weight: 600;
   margin: 0 0 1.5rem 0;
 }

@@ -1,31 +1,31 @@
 .one {
   color: var(--neutral-900);
   font-weight: 700;
-  font-size: 1.875rem;
+  font-size: var(--text-3xl);
   line-height: 2.25rem;
 }
 .two {
   color: var(--neutral-700);
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: var(--text-2xl);
   line-height: 2rem;
   text-transform: uppercase;
   margin-bottom: 2rem;
 }
 .three {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   line-height: 1.75rem;
 }
 .four {
-  font-size: 1.125rem;
+  font-size: var(--text-lg);
   line-height: 1.75rem;
 }
 .five {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.5rem;
 }
 .six {
-  font-size: 1rem;
+  font-size: var(--text-base);
   line-height: 1.5rem;
 }
 

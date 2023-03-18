@@ -16,11 +16,11 @@
 
 .address {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   color: var(--primary);
   font-weight: 600;
   margin-bottom: 0.5rem;

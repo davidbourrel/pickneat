@@ -47,7 +47,7 @@
   padding: 0.2rem 0.5rem;
   box-sizing: border-box;
   width: max-content;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   background-color: var(--primary);
   color: var(--white);
 }
@@ -62,7 +62,7 @@
 .titleContainer {
   display: flex;
   flex: 1;
-  gap: 0.5rem;
+  gap: 0.2rem;
 }
 
 .title {
@@ -81,7 +81,7 @@
 .price {
   margin-left: auto;
   align-self: flex-start;
-  font-size: 1.25rem;
+  font-size: var(--text-xl);
   box-sizing: border-box;
   padding-left: 0.5rem;
   border-left: 1px solid var(--neutral-300);
@@ -102,7 +102,7 @@
 
 .outOfStockText {
   color: var(--red-light);
-  font-size: 1.5rem;
+  font-size: var(--text-2xl);
   font-weight: 600;
 }
 
@@ -111,7 +111,7 @@
 /**************************/
 @media screen and (min-width: 768px) {
   .outOfStockText {
-    font-size: 1.75rem;
+    font-size: var(--text-3xl);
   }
 }
 
@@ -121,7 +121,7 @@
   }
 
   .price {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
   }
 }
 

@@ -32,7 +32,7 @@
 }
 
 .errorMessage {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--error);
   margin-top: 0.25rem;
 }
