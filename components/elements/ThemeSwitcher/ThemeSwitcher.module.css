@@ -6,6 +6,7 @@
   border: 1px solid var(--neutral-300);
   box-sizing: border-box;
   height: 2.5rem;
+  white-space: nowrap;
 }
 
 .switcherButton svg {

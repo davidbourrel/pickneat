@@ -1,18 +1,20 @@
 import { RefObject, useEffect } from 'react';
 
-// nature of ref is unknown
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const useOutsideClick: (ref: RefObject<any>, cb: () => void) => void = (
-  ref,
-  cb
-) => {
+type Handler = (event: MouseEvent) => void;
+
+const useOutsideClick = <T extends HTMLElement = HTMLElement>(
+  ref: RefObject<T>,
+  cb: Handler
+): void => {
   useEffect(() => {
     /**
      * cb if clicked on outside of element
      */
     const handleClickOutside = (e: MouseEvent): void => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        cb();
+      const element = ref?.current;
+
+      if (element && !element.contains(e.target as Node)) {
+        cb(e);
       }
     };
 

@@ -7,16 +7,15 @@ const CustomMarker = ({
   open = false,
   children,
 }: CustomMarkerProps) => {
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  const markerRef = useRef(null as any);
+  const markerRef = useRef<L.Marker | null>(null);
 
   useEffect(() => {
     if (
       open &&
       markerRef.current !== null &&
-      !markerRef.current.isPopupOpen()
+      !markerRef.current?.isPopupOpen()
     ) {
-      markerRef.current.openPopup();
+      markerRef.current?.openPopup();
     }
   }, [open]);
 
