@@ -2,8 +2,9 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import styles from './ProductCardRow.module.css';
+import { CartStateEnum } from 'contexts/cartContext/types';
+import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
 import { ProductCardProps } from '../types';
-import useRemoveCart from 'contexts/cartContext/useRemoveCart';
 
 // Static components
 import Link from 'components/elements/Link';
@@ -15,7 +16,7 @@ import Button from 'components/elements/buttons/Button';
 const ProductCardRow = ({ product }: ProductCardProps) => {
   const { product_id, name, price, image, category, amount } = product;
 
-  const { removeItemsFromCart } = useRemoveCart();
+  const dispatch = useCartDispatch();
   const t = useTranslations('Cart');
 
   const totalPriceOfProduct = useMemo(() => price * amount, [price, amount]);
@@ -46,7 +47,12 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
         </div>
 
         <Button
-          onClick={() => removeItemsFromCart(product_id)}
+          onClick={() => {
+            dispatch({
+              type: CartStateEnum.DeleteItems,
+              product_id,
+            });
+          }}
           headless
           className={styles.removeProductButton}
           absoluteLoader
@@ -55,7 +61,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
         </Button>
       </div>
     ),
-    [name, category, removeItemsFromCart, product_id, t]
+    [name, category, dispatch, product_id, t]
   );
 
   const priceAndQuantity = useMemo(

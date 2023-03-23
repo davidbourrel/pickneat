@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import useCartTotal from 'contexts/cartContext/useCartTotal';
+import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
 import styles from './ViewCartButton.module.css';
 
 // Static components
@@ -10,7 +10,7 @@ import Button from '../Button';
 const ViewCartButton = () => {
   const t = useTranslations('Cart');
 
-  const { cartTotalItems } = useCartTotal();
+  const cartTotalItems = useCartTotalItems();
 
   const viewCartContainerClassName = useMemo(
     () =>

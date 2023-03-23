@@ -1,2 +1,2 @@
-export const PICKNEAT_THEME = 'theme-preference';
-export const PICKNEAT_CART = 'cart';
+export const PICKNEAT_LS_THEME = 'theme-preference';
+export const PICKNEAT_LS_CART = 'cart';

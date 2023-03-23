@@ -4,7 +4,8 @@ import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import styles from './Cart.module.css';
-import useCartTotal from 'contexts/cartContext/useCartTotal';
+import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
+import { useCartTotalPrice } from 'contexts/cartContext/useCartTotalPrice';
 
 // Static components
 import PageLayout from 'components/modules/PageLayout';
@@ -17,7 +18,8 @@ import CartProductList from './CartProductList';
 const Cart = () => {
   const t = useTranslations('Cart');
 
-  const { cartTotalItems, cartTotalPrice } = useCartTotal();
+  const cartTotalItems = useCartTotalItems();
+  const cartTotalPrice = useCartTotalPrice();
 
   const layoutClassName = useMemo(
     () => (cartTotalItems === 0 ? styles.main : ''),

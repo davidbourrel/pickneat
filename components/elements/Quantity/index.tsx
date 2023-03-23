@@ -1,7 +1,8 @@
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import useAddToCart from 'contexts/cartContext/useAddToCart ';
-import useCart from 'contexts/cartContext/useCart';
+import { CartStateEnum } from 'contexts/cartContext/types';
+import { useCart } from 'contexts/cartContext/useCart';
+import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
 import styles from './Quantity.module.css';
 import { QuantityProps } from './types';
 
@@ -16,12 +17,7 @@ const Quantity = ({ product, className = '' }: QuantityProps) => {
   const t = useTranslations('Product');
 
   const cart = useCart();
-  const addToCart = useAddToCart();
-
-  const handleAddProductClick = useCallback(
-    () => addToCart(product),
-    [addToCart, product]
-  );
+  const dispatch = useCartDispatch();
 
   // Call productFromCart to get amount of this specific item
   const productFromCart = useMemo(
@@ -53,14 +49,19 @@ const Quantity = ({ product, className = '' }: QuantityProps) => {
   const addToCartButton = useMemo(
     () => (
       <Button
-        onClick={handleAddProductClick}
+        onClick={() => {
+          dispatch({
+            type: CartStateEnum.Add,
+            product: product,
+          });
+        }}
         className={styles.addToCartButton}
       >
         <span>&#43;</span>
         {t('addToCartTextButton')}
       </Button>
     ),
-    [handleAddProductClick, t]
+    [dispatch, product, t]
   );
 
   const quantity = useMemo(

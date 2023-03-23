@@ -1,5 +1,5 @@
-import { useCallback } from 'react';
-import useAddToCart from 'contexts/cartContext/useAddToCart ';
+import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
+import { CartStateEnum } from 'contexts/cartContext/types';
 import styles from './Quantity.module.css';
 import { PlusButtonProps } from './types';
 
@@ -7,17 +7,18 @@ import { PlusButtonProps } from './types';
 import Button from '../buttons/Button';
 
 const PlusButton = ({ product }: PlusButtonProps) => {
-  const addToCart = useAddToCart();
+  const dispatch = useCartDispatch();
 
-  const handleAddProductClick = useCallback(
-    () => addToCart(product),
-    [addToCart, product]
-  );
   return (
     <Button
       className={styles.plus}
       headless
-      onClick={handleAddProductClick}
+      onClick={() => {
+        dispatch({
+          type: CartStateEnum.Add,
+          product: product,
+        });
+      }}
       absoluteLoader
     >
       <span>&#43;</span>

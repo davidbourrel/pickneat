@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
 import { CartCountProps } from './types';
 import styles from './CartCount.module.css';
-import useCartTotal from 'contexts/cartContext/useCartTotal';
+import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
 
 // Static components
 import CartIcon from 'components/images/icons/CartIcon';
 
 const CartCount = ({ title }: CartCountProps) => {
-  const { cartTotalItems } = useCartTotal();
+  const cartTotalItems = useCartTotalItems();
 
   const computedCartCountClassName = useMemo(
     () => (cartTotalItems > 0 ? styles.notEmptyCart : styles.emptyCart),

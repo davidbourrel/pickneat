@@ -7,7 +7,7 @@ import {
 } from 'react';
 import themeContext from './theme.context';
 import { ThemeContext } from './theme.types';
-import { PICKNEAT_THEME } from '../../_constants/localStorage';
+import { PICKNEAT_LS_THEME } from '../../_constants/localStorage';
 import { ThemeEnum } from '_types/theme';
 
 const { Provider } = themeContext;
@@ -19,7 +19,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
 
   const getThemePreference = () => {
     const themeInLocalStorage = localStorage
-      .getItem(PICKNEAT_THEME)
+      .getItem(PICKNEAT_LS_THEME)
       ?.toString();
 
     if (themeInLocalStorage) {
@@ -44,7 +44,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
   }, []);
 
   const setThemePreference = useCallback((theme: string) => {
-    localStorage.setItem(PICKNEAT_THEME, theme);
+    localStorage.setItem(PICKNEAT_LS_THEME, theme);
     document.documentElement.setAttribute('color-scheme', theme);
   }, []);
 

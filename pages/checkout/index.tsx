@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-import useCartTotal from 'contexts/cartContext/useCartTotal';
+import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
 import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import styles from './Checkout.module.css';
 
@@ -24,7 +24,7 @@ const Checkout = () => {
 
   const { push } = useRouter();
 
-  const { cartTotalItems } = useCartTotal();
+  const cartTotalItems = useCartTotalItems();
 
   const isValidCart = !!cartTotalItems && cartTotalItems > 0;
 
