@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
@@ -14,60 +13,41 @@ const ProductCardCol = ({ product }: ProductCardProps) => {
   const { image, name, price, new_release, product_id, in_stock } = product;
   const t = useTranslations('Product');
 
-  const badgeNewRelease = useMemo(
-    () =>
-      new_release && (
-        <div className={styles.badge}>{t('badgeNewReleaseText')}</div>
-      ),
-    [new_release, t]
+  const badgeNewRelease = new_release && (
+    <div className={styles.badge}>{t('badgeNewReleaseText')}</div>
   );
 
-  const cardImage = useMemo(
-    () =>
-      !!image && (
-        <Link
-          href={`product/${product_id}`}
-          className={styles.imageContainer}
-          title={t('seeMoreDetails')}
-        >
-          <Image
-            src={image}
-            alt={name}
-            fill
-            sizes="(max-width: 768px) 100vw,
+  const cardImage = !!image && (
+    <Link
+      href={`product/${product_id}`}
+      className={styles.imageContainer}
+      title={t('seeMoreDetails')}
+    >
+      <Image
+        src={image}
+        alt={name}
+        fill
+        sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-            className={styles.image}
-          />
-          {badgeNewRelease}
-        </Link>
-      ),
-    [image, name, t, product_id, badgeNewRelease]
+        className={styles.image}
+      />
+      {badgeNewRelease}
+    </Link>
   );
 
-  const cardTitle = useMemo(
-    () =>
-      !!name && (
-        <Heading className={styles.title} level={3}>
-          {name}
-        </Heading>
-      ),
-    [name]
+  const cardTitle = !!name && (
+    <Heading className={styles.title} level={3}>
+      {name}
+    </Heading>
   );
 
-  const quantiy = useMemo(
-    () => in_stock && <Quantity product={product} />,
-    [in_stock, product]
-  );
+  const quantiy = in_stock && <Quantity product={product} />;
 
-  const outOfStock = useMemo(
-    () =>
-      !in_stock && (
-        <div className={styles.outOfStock}>
-          <span className={styles.outOfStockText}>{t('outOfStock')}</span>
-        </div>
-      ),
-    [in_stock, t]
+  const outOfStock = !in_stock && (
+    <div className={styles.outOfStock}>
+      <span className={styles.outOfStockText}>{t('outOfStock')}</span>
+    </div>
   );
 
   return (

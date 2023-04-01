@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { ThemeEnum } from '_types/theme';
 import { ThemeSwitcherProps } from './types';
@@ -14,20 +13,11 @@ const ThemeSwitcher = ({ title, dataTestButton }: ThemeSwitcherProps) => {
 
   const t = useTranslations('Navigation');
 
-  const svgClassName = useMemo(
-    () => (isDarkMode ? styles.dark : styles.light),
-    [isDarkMode]
-  );
+  const svgClassName = isDarkMode ? styles.dark : styles.light;
 
-  const colorSchemeAttribut = useMemo(
-    () => (isDarkMode ? ThemeEnum.Dark : ThemeEnum.Light),
-    [isDarkMode]
-  );
+  const colorSchemeAttribut = isDarkMode ? ThemeEnum.Dark : ThemeEnum.Light;
 
-  const textSwitcher = useMemo(
-    () => (isDarkMode ? t('darkModeTheme') : t('lightModeTheme')),
-    [isDarkMode, t]
-  );
+  const textTranslated = isDarkMode ? t('darkModeTheme') : t('lightModeTheme');
 
   return (
     <Button
@@ -39,7 +29,7 @@ const ThemeSwitcher = ({ title, dataTestButton }: ThemeSwitcherProps) => {
       data-test={dataTestButton}
     >
       <MoonIcon className={svgClassName} />
-      <span>{textSwitcher}</span>
+      <span>{textTranslated}</span>
     </Button>
   );
 };

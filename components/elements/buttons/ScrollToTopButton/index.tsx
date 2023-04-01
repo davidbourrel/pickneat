@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowDirectionEnum } from '../../Arrow/types';
 import styles from './ScrollToTopButton.module.css';
 
@@ -9,19 +9,13 @@ import Arrow from '../../Arrow';
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const buttonClassName = useMemo(
-    () => `${styles.button} ${isVisible ? styles.active : ''}`,
-    [isVisible]
-  );
+  const buttonClassName = `${styles.button} ${isVisible ? styles.active : ''}`;
 
-  const handleScrollToTopClick = useCallback(
-    () =>
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      }),
-    []
-  );
+  const handleScrollToTopClick = () =>
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
 
   useEffect(() => {
     const toggleVisibility = (): void => setIsVisible(window.scrollY > 200);

@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { format } from 'date-fns';
 import styles from './OpeningTimes.module.css';
 import { enUS } from 'date-fns/locale';
@@ -12,10 +11,7 @@ const DayRow = ({
 }: DayRowProps) => {
   const today = format(new Date(), 'eeee', { locale: enUS });
 
-  const dayClassName = useMemo(
-    () => (day === today ? styles.currentDay : styles.day),
-    [day, today]
-  );
+  const dayClassName = day === today ? styles.currentDay : styles.day;
 
   return (
     <tr className={dayClassName}>

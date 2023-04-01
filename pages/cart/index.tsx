@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
@@ -21,10 +20,7 @@ const Cart = () => {
   const cartTotalItems = useCartTotalItems();
   const cartTotalPrice = useCartTotalPrice();
 
-  const layoutClassName = useMemo(
-    () => (cartTotalItems === 0 ? styles.main : ''),
-    [cartTotalItems]
-  );
+  const layoutClassName = cartTotalItems === 0 ? styles.main : '';
 
   return (
     <MainContentLayout className={layoutClassName}>

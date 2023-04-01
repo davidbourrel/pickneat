@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import NextLink from 'next/link';
 import useIsClient from 'hooks/useIsClient';
 import styles from './Link.module.css';
@@ -25,10 +24,7 @@ const Link = ({
 }: FLinkProps) => {
   const isClient = useIsClient();
 
-  const computedClassName = useMemo(
-    () => `${className} ${isLoading ? styles.isLoading : ''}`,
-    [className, isLoading]
-  );
+  const computedClassName = `${className} ${isLoading ? styles.isLoading : ''}`;
 
   return !obfuscate || isClient ? (
     <NextLink

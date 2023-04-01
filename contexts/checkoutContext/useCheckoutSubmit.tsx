@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import checkoutContext from '.';
 import { CheckoutContext } from './checkout.types';
 
@@ -10,14 +10,12 @@ type UseCheckoutSubmit = Pick<
 const useCheckoutSubmit = (): UseCheckoutSubmit => {
   const { isSubmitted, handleCheckoutSubmit, isValidForm } =
     useContext(checkoutContext);
-  return useMemo(
-    () => ({
-      isSubmitted,
-      handleCheckoutSubmit,
-      isValidForm,
-    }),
-    [isSubmitted, handleCheckoutSubmit, isValidForm]
-  );
+
+  return {
+    isSubmitted,
+    handleCheckoutSubmit,
+    isValidForm,
+  };
 };
 
 export default useCheckoutSubmit;

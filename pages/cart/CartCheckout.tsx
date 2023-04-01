@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Cart.module.css';
 import { CartCheckoutProps } from '_types/cart';
@@ -15,49 +14,37 @@ const CartCheckout = ({
 }: CartCheckoutProps) => {
   const t = useTranslations('Cart');
 
-  const subTotalPrice = useMemo(
-    () => (
-      <div className={`${styles.cartCheckoutWrapper} ${styles.subTotalPrice}`}>
-        <span>{t('subTotalPrice')}</span>
-        <span>{formatNumberToPrice(cartTotalPrice)}</span>
-      </div>
-    ),
-    [t, cartTotalPrice]
+  const subTotalPrice = (
+    <div className={`${styles.cartCheckoutWrapper} ${styles.subTotalPrice}`}>
+      <span>{t('subTotalPrice')}</span>
+      <span>{formatNumberToPrice(cartTotalPrice)}</span>
+    </div>
   );
 
-  const totalPrice = useMemo(
-    () => (
-      <div className={`${styles.cartCheckoutWrapper} ${styles.totalPrice}`}>
-        <span>{t('totalPrice')}</span>
-        <span>{formatNumberToPrice(cartTotalPrice)}</span>
-      </div>
-    ),
-    [t, cartTotalPrice]
+  const totalPrice = (
+    <div className={`${styles.cartCheckoutWrapper} ${styles.totalPrice}`}>
+      <span>{t('totalPrice')}</span>
+      <span>{formatNumberToPrice(cartTotalPrice)}</span>
+    </div>
   );
 
-  const buttonsAction = useMemo(
-    () => (
-      <div className={styles.cartCheckoutWrapper}>
-        <Link href="/" tabIndex={-1}>
-          <Button border>{t('continueShopping')}</Button>
-        </Link>
-        <CheckoutButton />
-      </div>
-    ),
-    [t]
+  const buttonsAction = (
+    <div className={styles.cartCheckoutWrapper}>
+      <Link href="/" tabIndex={-1}>
+        <Button border>{t('continueShopping')}</Button>
+      </Link>
+      <CheckoutButton />
+    </div>
   );
 
-  const cartCheckout = useMemo(
-    () =>
-      cartTotalItems > 0 ? (
-        <div className={styles.cartCheckout}>
-          {subTotalPrice}
-          {totalPrice}
-          {buttonsAction}
-        </div>
-      ) : null,
-    [cartTotalItems, subTotalPrice, totalPrice, buttonsAction]
-  );
+  const cartCheckout =
+    cartTotalItems > 0 ? (
+      <div className={styles.cartCheckout}>
+        {subTotalPrice}
+        {totalPrice}
+        {buttonsAction}
+      </div>
+    ) : null;
 
   return cartCheckout;
 };

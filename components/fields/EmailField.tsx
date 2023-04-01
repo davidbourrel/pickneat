@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
@@ -10,13 +9,10 @@ const EmailField = () => {
 
   const t = useTranslations('Profile');
 
-  const id = 'email_field';
-  const label = useMemo(() => t('email'), [t]);
-
   return (
     <TextInput
-      id={id}
-      label={label}
+      id="email_field"
+      label={t('email')}
       value={user?.email ?? ''}
       readOnly
       disabled

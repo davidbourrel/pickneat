@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import styles from './NavLink.module.css';
 import { NavLinkProps } from './types';
 
@@ -13,13 +12,9 @@ const NavLink = ({
   className = '',
   ...rest
 }: NavLinkProps) => {
-  const computedClassName = useMemo(
-    () =>
-      `capitalize ${styles.navLink} ${
-        isActive ? styles.active : ''
-      } ${className}`,
-    [isActive, className]
-  );
+  const computedClassName = `capitalize ${styles.navLink} ${
+    isActive ? styles.active : ''
+  } ${className}`;
 
   return (
     <Link href={href} onClick={onCloseMenu} {...rest}>

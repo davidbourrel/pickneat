@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import styles from './ProductList.module.css';
 import { ProductListProps } from './types';
 
@@ -6,23 +5,17 @@ import { ProductListProps } from './types';
 import ProductCardCol from 'components/elements/ProductCard/ProductCardCol';
 
 const ProductList = ({ products, category }: ProductListProps) => {
-  const filteredProductsByCategory = useMemo(
-    () => products?.filter((product) => product.category === category),
-    [products, category]
+  const filteredProductsByCategory = products?.filter(
+    (product) => product.category === category
   );
 
-  const productList = useMemo(
-    () =>
-      filteredProductsByCategory && filteredProductsByCategory?.length > 0 ? (
-        <ul className={styles.productList}>
-          {filteredProductsByCategory.map((product, i) => (
-            <ProductCardCol key={`burger-key-${i}`} product={product} />
-          ))}
-        </ul>
-      ) : null,
-    [filteredProductsByCategory]
-  );
-
-  return productList;
+  return filteredProductsByCategory &&
+    filteredProductsByCategory?.length > 0 ? (
+    <ul className={styles.productList}>
+      {filteredProductsByCategory.map((product, i) => (
+        <ProductCardCol key={`burger-key-${i}`} product={product} />
+      ))}
+    </ul>
+  ) : null;
 };
 export default ProductList;

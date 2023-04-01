@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import checkoutContext from '.';
 import { CheckoutContext } from './checkout.types';
 
@@ -17,20 +17,13 @@ const useExpirationDate = (): UseExpirationDate => {
     isExpirationDateInError,
     setIsExpirationDateInError,
   } = useContext(checkoutContext);
-  return useMemo(
-    () => ({
-      expirationDate,
-      setExpirationDate,
-      isExpirationDateInError,
-      setIsExpirationDateInError,
-    }),
-    [
-      expirationDate,
-      setExpirationDate,
-      isExpirationDateInError,
-      setIsExpirationDateInError,
-    ]
-  );
+
+  return {
+    expirationDate,
+    setExpirationDate,
+    isExpirationDateInError,
+    setIsExpirationDateInError,
+  };
 };
 
 export default useExpirationDate;

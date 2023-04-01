@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useMemo } from 'react';
+import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import useCvv from 'contexts/checkoutContext/useCvv';
@@ -12,25 +12,19 @@ const CvvField = () => {
 
   const t = useTranslations('Checkout');
 
-  const handleChange = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const input = e.target as HTMLInputElement;
+  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
 
-      setCvv(input?.value);
-    },
-    [setCvv]
-  );
-
-  const id = 'cvv_field';
-  const label = useMemo(() => t('cvv'), [t]);
+    setCvv(input?.value);
+  };
 
   return (
     <TextInput
-      id={id}
-      label={label}
+      id="cvv_field"
+      label={t('cvv')}
       showError={isSubmitted}
       value={cvv}
-      onChange={handleChange}
+      onChange={handleInputChange}
       setErrorStatus={setIsCvvInError}
       maxLength={3}
       placeholder="***"

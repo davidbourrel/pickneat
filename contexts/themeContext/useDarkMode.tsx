@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import themeContext from '.';
 import { ThemeContext } from './theme.types';
 
@@ -9,10 +9,8 @@ type UseHandleSetThemeResult = Pick<
 
 const useDarkMode = (): UseHandleSetThemeResult => {
   const { isDarkMode, handleThemeClick } = useContext(themeContext);
-  return useMemo(
-    () => ({ isDarkMode, handleThemeClick }),
-    [isDarkMode, handleThemeClick]
-  );
+
+  return { isDarkMode, handleThemeClick };
 };
 
 export default useDarkMode;

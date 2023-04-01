@@ -1,10 +1,4 @@
-import {
-  useEffect,
-  useMemo,
-  useCallback,
-  useState,
-  PropsWithChildren,
-} from 'react';
+import { useEffect, useState, PropsWithChildren } from 'react';
 import themeContext from './theme.context';
 import { ThemeContext } from './theme.types';
 import { PICKNEAT_LS_THEME } from '../../_constants/localStorage';
@@ -43,25 +37,22 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     }
   }, []);
 
-  const setThemePreference = useCallback((theme: string) => {
+  const setThemePreference = (theme: string) => {
     localStorage.setItem(PICKNEAT_LS_THEME, theme);
     document.documentElement.setAttribute('color-scheme', theme);
-  }, []);
+  };
 
-  const handleThemeClick = useCallback(() => {
+  const handleThemeClick = () => {
     setIsDarkMode((c) => {
       setThemePreference(!c ? ThemeEnum.Dark : ThemeEnum.Light);
       return !c;
     });
-  }, [setThemePreference]);
+  };
 
-  const contextValue: ThemeContext = useMemo(
-    () => ({
-      isDarkMode,
-      handleThemeClick,
-    }),
-    [isDarkMode, handleThemeClick]
-  );
+  const contextValue: ThemeContext = {
+    isDarkMode,
+    handleThemeClick,
+  };
 
   return <Provider value={contextValue}>{children}</Provider>;
 }

@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useMemo } from 'react';
+import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import usePhone from 'contexts/checkoutContext/usePhone';
 import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
@@ -12,25 +12,19 @@ const PhoneField = () => {
 
   const t = useTranslations('Profile');
 
-  const handleChange = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const input = e.target as HTMLInputElement;
+  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
 
-      setPhone(input?.value ?? '');
-    },
-    [setPhone]
-  );
-
-  const id = 'phone_field';
-  const label = useMemo(() => t('phone'), [t]);
+    setPhone(input?.value ?? '');
+  };
 
   return (
     <TextInput
-      id={id}
-      label={label}
+      id="phone_field"
+      label={t('phone')}
       showError={isSubmitted}
       value={phone}
-      onChange={handleChange}
+      onChange={handleInputChange}
       setErrorStatus={setIsPhoneInError}
       maxLength={14}
       placeholder="07 00 00 00 00"

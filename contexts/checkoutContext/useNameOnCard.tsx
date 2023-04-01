@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import checkoutContext from '.';
 import { CheckoutContext } from './checkout.types';
 
@@ -17,15 +17,13 @@ const useNameOnCard = (): UseNameOnCard => {
     isNameOnCardInError,
     setIsNameOnCardInError,
   } = useContext(checkoutContext);
-  return useMemo(
-    () => ({
-      nameOnCard,
-      setNameOnCard,
-      isNameOnCardInError,
-      setIsNameOnCardInError,
-    }),
-    [nameOnCard, setNameOnCard, isNameOnCardInError, setIsNameOnCardInError]
-  );
+
+  return {
+    nameOnCard,
+    setNameOnCard,
+    isNameOnCardInError,
+    setIsNameOnCardInError,
+  };
 };
 
 export default useNameOnCard;

@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './Header.module.css';
 import { useUser } from '@auth0/nextjs-auth0/client';
@@ -21,19 +20,16 @@ const Header = ({
 
   const t = useTranslations('Navigation');
 
-  const userTab = useMemo(
-    () =>
-      user && user.picture ? (
-        <Link href="/profile" title={t('profile')} data-test="profileIcon">
-          <ProfileIcon />
-        </Link>
-      ) : (
-        <Link href="/api/auth/login" title={t('login')} data-test="profileIcon">
-          <ProfileIcon />
-        </Link>
-      ),
-    [user, t]
-  );
+  const userTab =
+    user && user.picture ? (
+      <Link href="/profile" title={t('profile')} data-test="profileIcon">
+        <ProfileIcon />
+      </Link>
+    ) : (
+      <Link href="/api/auth/login" title={t('login')} data-test="profileIcon">
+        <ProfileIcon />
+      </Link>
+    );
 
   return (
     <header className={styles.header}>

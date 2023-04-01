@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from './MenuCategories.module.css';
 import { FoodCategoryEnum } from '_types/products';
@@ -10,10 +9,7 @@ import Category from './Category';
 const MenuCategories = ({ ssrProducts, className }: MenuCategoriesProps) => {
   const t = useTranslations('Home');
 
-  const computedClassName = useMemo(
-    () => `${className} ${styles.menuCategories}`,
-    [className]
-  );
+  const computedClassName = `${className} ${styles.menuCategories}`;
 
   return (
     <div className={computedClassName} data-test="menuCategories">

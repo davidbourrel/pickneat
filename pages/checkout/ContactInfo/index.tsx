@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import styles from '../Checkout.module.css';
 
@@ -10,11 +9,9 @@ import PhoneField from 'components/fields/PhoneField';
 const ContactInfo = () => {
   const t = useTranslations('Checkout');
 
-  const legend = useMemo(() => t('userInfo'), [t]);
-
   return (
     <fieldset className={styles.fieldset}>
-      <legend className={styles.legend}>{legend}</legend>
+      <legend className={styles.legend}>{t('userInfo')}</legend>
       <FullNameField />
       <PhoneField />
       <EmailField />

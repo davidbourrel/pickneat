@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect, PropsWithChildren } from 'react';
+import { useState, useEffect, PropsWithChildren } from 'react';
 import appContext from './app.context';
 import { AppContext } from './app.types';
 import useKonami from 'hooks/useKonami';
@@ -27,13 +27,10 @@ export default function AppProvider({ children }: AppProviderProps) {
     setActiveMenuCategory(activeCategory);
   }, [intersectionObserverEntries]);
 
-  const contextValue: AppContext = useMemo(
-    () => ({
-      setIntersectionObserverEntries,
-      activeMenuCategory,
-    }),
-    [setIntersectionObserverEntries, activeMenuCategory]
-  );
+  const contextValue: AppContext = {
+    setIntersectionObserverEntries,
+    activeMenuCategory,
+  };
 
   return <Provider value={contextValue}>{children}</Provider>;
 }

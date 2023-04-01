@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './LanguageSwitcher.module.css';
 import { LangEnum } from '_types/lang';
@@ -21,47 +21,26 @@ const LanguageSwitcher = ({
   const { locale, pathname, query } = useRouter();
   const [isLangSwitcherOpened, setIsLangSwitcherOpened] = useState(false);
 
-  const href = useMemo(() => {
-    return {
-      pathname,
-      query,
-    };
-  }, [pathname, query]);
+  const href = {
+    pathname,
+    query,
+  };
 
-  const handleClosePopupClick = useCallback(() => {
-    setIsLangSwitcherOpened(false);
-  }, []);
+  const handleClosePopupClick = () => setIsLangSwitcherOpened(false);
 
-  const handleLanguageSwitcherClick = useCallback(
-    () => setIsLangSwitcherOpened((c) => !c),
-    [setIsLangSwitcherOpened]
-  );
+  const handleLanguageSwitcherClick = () => setIsLangSwitcherOpened((c) => !c);
 
-  const flagClassName = useMemo(
-    () =>
-      `${styles.flag} ${
-        locale === LangEnum.En ? styles.enFlag : styles.frFlag
-      } `,
-    [locale]
-  );
+  const flagClassName = `${styles.flag} ${
+    locale === LangEnum.En ? styles.enFlag : styles.frFlag
+  } `;
 
-  const plainCountryName = useMemo(
-    () => (locale === LangEnum.En ? 'EN' : 'FR'),
-    [locale]
-  );
+  const plainCountryName = locale === LangEnum.En ? 'EN' : 'FR';
 
-  const langListClassName = useMemo(
-    () =>
-      `${styles.langList} ${
-        isLangSwitcherOpened ? styles.active : styles.close
-      } `,
-    [isLangSwitcherOpened]
-  );
+  const langListClassName = `${styles.langList} ${
+    isLangSwitcherOpened ? styles.active : styles.close
+  } `;
 
-  const computedTabIndex = useMemo(
-    () => (isLangSwitcherOpened ? 0 : -1),
-    [isLangSwitcherOpened]
-  );
+  const computedTabIndex = isLangSwitcherOpened ? 0 : -1;
 
   return (
     <>

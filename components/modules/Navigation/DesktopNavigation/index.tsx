@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import styles from './DesktopNavigation.module.css';
@@ -19,23 +18,20 @@ const DesktopNavigation = () => {
 
   const t = useTranslations('Navigation');
 
-  const userTab = useMemo(
-    () =>
-      user && user.picture ? (
-        <li title={t('profile')} data-test="profileIcon">
-          <Link href="/profile">
-            <ProfileIcon />
-          </Link>
-        </li>
-      ) : (
-        <li title={t('login')} data-test="profileIcon">
-          <Link href="/api/auth/login" tabIndex={-1}>
-            <Button>{t('login')}</Button>
-          </Link>
-        </li>
-      ),
-    [user, t]
-  );
+  const userTab =
+    user && user.picture ? (
+      <li title={t('profile')} data-test="profileIcon">
+        <Link href="/profile">
+          <ProfileIcon />
+        </Link>
+      </li>
+    ) : (
+      <li title={t('login')} data-test="profileIcon">
+        <Link href="/api/auth/login" tabIndex={-1}>
+          <Button>{t('login')}</Button>
+        </Link>
+      </li>
+    );
 
   return (
     <nav

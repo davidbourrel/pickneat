@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import styles from './ProductCardRow.module.css';
@@ -19,10 +18,15 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
   const dispatch = useCartDispatch();
   const t = useTranslations('Cart');
 
-  const totalPriceOfProduct = useMemo(() => price * amount, [price, amount]);
+  const handleDeleteItemsClick = () => {
+    dispatch({
+      type: CartStateEnum.DeleteItems,
+      product_id,
+    });
+  };
 
-  const imageBox = useMemo(
-    () => (
+  return (
+    <li className={styles.card}>
       <Link href={`product/${product_id}`} className={styles.imageContainer}>
         <Image
           src={image}
@@ -32,54 +36,28 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
           className={styles.image}
         />
       </Link>
-    ),
-    [image, product_id, name]
-  );
-
-  const about = useMemo(
-    () => (
-      <div className={styles.aboutContainer}>
-        <div className={styles.about}>
-          <Heading level={2} className={styles.title}>
-            {name}
-          </Heading>
-          <span>{category}</span>
-        </div>
-
-        <Button
-          onClick={() => {
-            dispatch({
-              type: CartStateEnum.DeleteItems,
-              product_id,
-            });
-          }}
-          headless
-          className={styles.removeProductButton}
-          absoluteLoader
-        >
-          {t('remove')}
-        </Button>
-      </div>
-    ),
-    [name, category, dispatch, product_id, t]
-  );
-
-  const priceAndQuantity = useMemo(
-    () => (
-      <div className={styles.priceAndQuantityContainer}>
-        <PriceTag price={totalPriceOfProduct} className={styles.price} />
-        <Quantity product={product} className={styles.quantity} />
-      </div>
-    ),
-    [totalPriceOfProduct, product]
-  );
-
-  return (
-    <li className={styles.card}>
-      {imageBox}
       <div className={styles.cardContent}>
-        {about}
-        {priceAndQuantity}
+        <div className={styles.aboutContainer}>
+          <div className={styles.about}>
+            <Heading level={2} className={styles.title}>
+              {name}
+            </Heading>
+            <span>{category}</span>
+          </div>
+
+          <Button
+            onClick={handleDeleteItemsClick}
+            headless
+            className={styles.removeProductButton}
+            absoluteLoader
+          >
+            {t('remove')}
+          </Button>
+        </div>
+        <div className={styles.priceAndQuantityContainer}>
+          <PriceTag price={price * amount} className={styles.price} />
+          <Quantity product={product} className={styles.quantity} />
+        </div>
       </div>
     </li>
   );

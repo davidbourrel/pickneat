@@ -1,10 +1,4 @@
-import {
-  forwardRef,
-  ForwardRefRenderFunction,
-  useCallback,
-  useMemo,
-  MouseEvent,
-} from 'react';
+import { forwardRef, ForwardRefRenderFunction, MouseEvent } from 'react';
 import styles from './Button.module.css';
 import { ButtonProps } from './types';
 
@@ -30,52 +24,33 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   },
   ref
 ) => {
-  const trueType = useMemo(
-    () => type as 'button' | 'submit' | 'reset' | undefined,
-    [type]
-  );
-  const definitelyDisabled = useMemo(
-    () => busy || (disabled && !onDisabledClick),
-    [busy, disabled, onDisabledClick]
-  );
+  const trueType = type as 'button' | 'submit' | 'reset' | undefined;
 
-  const handleClick = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      if (disabled && onDisabledClick) {
-        onDisabledClick(e);
-      } else if (!definitelyDisabled && onClick) {
-        onClick(e);
-      }
-    },
-    [disabled, definitelyDisabled, onClick, onDisabledClick]
-  );
+  const definitelyDisabled = busy || (disabled && !onDisabledClick);
 
-  const buttonClassName = useMemo(
-    () =>
-      headless
-        ? className
-        : `${styles.button} ${border ? styles.border : ''} ${
-            busy || disabled
-              ? `${busy ? busyClassName : disabledClassName} ${
-                  definitelyDisabled ? styles.definitelyDisabled : ''
-                }`
-              : styles.cursorPointer
-          } ${className}`,
-    [
-      headless,
-      className,
-      border,
-      busy,
-      disabled,
-      definitelyDisabled,
-      busyClassName,
-      disabledClassName,
-    ]
-  );
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    if (disabled && onDisabledClick) {
+      onDisabledClick(e);
+    }
+    if (!definitelyDisabled && onClick) {
+      onClick(e);
+    }
+  };
 
-  const computedLoader = useMemo(
-    () => (absoluteLoader ? <Loader absoluteLoader /> : <Loader />),
-    [absoluteLoader]
+  const buttonClassName = headless
+    ? className
+    : `${styles.button} ${border ? styles.border : ''} ${
+        busy || disabled
+          ? `${busy ? busyClassName : disabledClassName} ${
+              definitelyDisabled ? styles.definitelyDisabled : ''
+            }`
+          : styles.cursorPointer
+      } ${className}`;
+
+  const computedLoader = absoluteLoader ? (
+    <Loader absoluteLoader />
+  ) : (
+    <Loader />
   );
 
   return (

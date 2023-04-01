@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import type { GetServerSidePropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -21,34 +20,25 @@ const Profile = ({ user }: ProfileProps) => {
   const t = useTranslations('Profile');
   const t2 = useTranslations('Navigation');
 
-  const userPicture = useMemo(
-    () =>
-      !!picture && (
-        <Image
-          src={picture}
-          alt="User profile"
-          width={400}
-          height={400}
-          className={styles.profilePicture}
-        />
-      ),
-    [picture]
+  const userPicture = !!picture && (
+    <Image
+      src={picture}
+      alt="User profile"
+      width={400}
+      height={400}
+      className={styles.profilePicture}
+    />
   );
 
-  const userInformation = useMemo(
-    () =>
-      !!nickname &&
-      !!email && (
-        <div className={styles.userInformation}>
-          <p>
-            <span>{t('nickname')} :</span> {nickname}
-          </p>
-          <p>
-            <span>{t('email')} :</span> {email}
-          </p>
-        </div>
-      ),
-    [nickname, email, t]
+  const userInformation = !!nickname && !!email && (
+    <div className={styles.userInformation}>
+      <p>
+        <span>{t('nickname')} :</span> {nickname}
+      </p>
+      <p>
+        <span>{t('email')} :</span> {email}
+      </p>
+    </div>
   );
 
   return (

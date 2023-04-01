@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import styles from './MobileNavigation.module.css';
@@ -22,32 +22,25 @@ const MobileNavigation = ({
 
   // Close mobile navigation on outside click
   const mobileNavigationRef = useRef(null as unknown as HTMLHeadingElement);
-  const handleOutsideClick = useCallback(() => {
+  const handleOutsideClick = () => {
     if (isMobileNavOpened) {
       handleCloseMenu();
     }
-  }, [isMobileNavOpened, handleCloseMenu]);
+  };
+
   useOutsideClick(mobileNavigationRef, handleOutsideClick);
 
   useEffect(() => {
     document.body.style.overflow = isMobileNavOpened ? 'hidden' : 'unset';
   }, [isMobileNavOpened]);
 
-  const blackFilterClassName = useMemo(
-    () =>
-      `${styles.blackFilter} ${
-        isMobileNavOpened ? styles.activeBlackFilter : styles.mobileNavClosed
-      }`,
-    [isMobileNavOpened]
-  );
+  const blackFilterClassName = `${styles.blackFilter} ${
+    isMobileNavOpened ? styles.activeBlackFilter : styles.mobileNavClosed
+  }`;
 
-  const mobileNavContainerClassName = useMemo(
-    () =>
-      `${styles.mobileNavContainer} ${
-        isMobileNavOpened ? styles.mobileNavContainerOpened : ''
-      }`,
-    [isMobileNavOpened]
-  );
+  const mobileNavContainerClassName = `${styles.mobileNavContainer} ${
+    isMobileNavOpened ? styles.mobileNavContainerOpened : ''
+  }`;
 
   return (
     <div className={blackFilterClassName}>

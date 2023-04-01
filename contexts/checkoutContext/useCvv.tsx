@@ -1,4 +1,4 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import checkoutContext from '.';
 import { CheckoutContext } from './checkout.types';
 
@@ -10,15 +10,13 @@ type UseCvv = Pick<
 const useCvv = (): UseCvv => {
   const { cvv, setCvv, isCvvInError, setIsCvvInError } =
     useContext(checkoutContext);
-  return useMemo(
-    () => ({
-      cvv,
-      setCvv,
-      isCvvInError,
-      setIsCvvInError,
-    }),
-    [cvv, setCvv, isCvvInError, setIsCvvInError]
-  );
+
+  return {
+    cvv,
+    setCvv,
+    isCvvInError,
+    setIsCvvInError,
+  };
 };
 
 export default useCvv;

@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import styles from './Arrow.module.css';
 import { ArrowDirectionEnum, ArrowProps } from './types';
 
@@ -6,7 +5,7 @@ import { ArrowDirectionEnum, ArrowProps } from './types';
 import ArrowIcon from 'components/images/icons/ArrowIcon';
 
 const Arrow = ({ direction, caret = false, className = '' }: ArrowProps) => {
-  const directionClassName = useMemo(() => {
+  const directionClassName = () => {
     switch (direction) {
       case ArrowDirectionEnum.Top:
         return styles.top;
@@ -18,17 +17,13 @@ const Arrow = ({ direction, caret = false, className = '' }: ArrowProps) => {
       default:
         return styles.right;
     }
-  }, [direction]);
+  };
 
-  const arrowClassName = useMemo(
-    () => `${directionClassName} ${className} ${styles.arrowContainer}`,
-    [directionClassName, className]
-  );
+  const arrowClassName = `${directionClassName()} ${className} ${
+    styles.arrowContainer
+  }`;
 
-  const caretClassName = useMemo(
-    () => `${styles.caret} ${className}`,
-    [className]
-  );
+  const caretClassName = `${styles.caret} ${className}`;
 
   return caret ? (
     <span aria-hidden="true" className={caretClassName} />

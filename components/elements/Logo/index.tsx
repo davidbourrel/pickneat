@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import styles from './Logo.module.css';
 import useDarkMode from 'contexts/themeContext/useDarkMode';
 import { LogoProps } from './types';
@@ -9,11 +8,9 @@ import Link from '../Link';
 const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
   const { isDarkMode } = useDarkMode();
 
-  const computedClassName = useMemo(
-    () =>
-      `${className} ${styles.logo} ${isDarkMode ? styles.dark : styles.light}`,
-    [isDarkMode, className]
-  );
+  const computedClassName = `${className} ${styles.logo} ${
+    isDarkMode ? styles.dark : styles.light
+  }`;
 
   return (
     <Link

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import isEqual from 'utils/isEqual';
 import useInputKeyCode from './useInputKeyCode';
 import { Snowflake } from '../animation/snowAnimation';
@@ -8,11 +8,8 @@ const konamiCode = ['c', 'n', 'o', 'e', 'l'];
 const useKonami = (): void => {
   const key = useInputKeyCode();
   const [keyStack, setKeyStack] = useState([] as string[]);
-  const isKonami = useMemo(
-    () =>
-      keyStack.length === konamiCode.length && isEqual(keyStack, konamiCode),
-    [keyStack]
-  );
+  const isKonami =
+    keyStack.length === konamiCode.length && isEqual(keyStack, konamiCode);
 
   useEffect(() => {
     setKeyStack((prevStack) => {

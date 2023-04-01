@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useMemo } from 'react';
+import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import useFullName from 'contexts/checkoutContext/useFullName';
 import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
@@ -12,25 +12,19 @@ const FullNameField = () => {
 
   const t = useTranslations('Profile');
 
-  const handleChange = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const input = e.target as HTMLInputElement;
+  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
 
-      setFullName(input?.value);
-    },
-    [setFullName]
-  );
-
-  const id = 'full_name_field';
-  const label = useMemo(() => t('fullName'), [t]);
+    setFullName(input?.value);
+  };
 
   return (
     <TextInput
-      id={id}
-      label={label}
+      id="full_name_field"
+      label={t('fullName')}
       showError={isSubmitted}
       value={fullName}
-      onChange={handleChange}
+      onChange={handleInputChange}
       setErrorStatus={setIsFullNameInError}
       maxLength={100}
       required

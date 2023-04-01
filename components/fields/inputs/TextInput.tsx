@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { TextInputProps } from './types';
 import useInputClassNames from './useInputClassNames';
@@ -24,20 +24,13 @@ const TextInput = ({
   /***********
    * Validation
    ***********/
-  const isRequiredEmpty = useMemo(() => required && !value, [required, value]);
-  const isTooLong = useMemo(
-    () => maxLength && value?.length > maxLength,
-    [maxLength, value]
-  );
-  const localError = useMemo(() => {
-    if (isRequiredEmpty) {
-      return t('requiredMessage');
-    }
-    if (isTooLong) {
-      return `${t('maxLengthMessage')} ${maxLength}`;
-    }
-    return null as unknown as string;
-  }, [isRequiredEmpty, isTooLong, maxLength, t]);
+  const isRequiredEmpty = required && !value;
+  const isTooLong = maxLength && value?.length > maxLength;
+
+  const localError =
+    (isRequiredEmpty && t('requiredMessage')) ||
+    (isTooLong && `${t('maxLengthMessage')} ${maxLength}`) ||
+    null;
 
   useEffect(() => {
     if (setErrorStatus) {
@@ -45,47 +38,31 @@ const TextInput = ({
     }
   }, [value, setErrorStatus, localError]);
 
-  const errorMessage = useMemo(
-    () => incomingError ?? localError,
-    [localError, incomingError]
-  );
+  const errorMessage = incomingError ?? localError;
 
   /***********
    * Style
    ***********/
-  const computedContainerClassName = useMemo(
-    () => `${styles.inputContainer} ${className}`,
-    [className]
-  );
+  const computedContainerClassName = `${styles.inputContainer} ${className}`;
 
   const { labelClassName, inputClassName } = useInputClassNames(
     showError && !!errorMessage
   );
 
-  const computedInputClassName = useMemo(
-    () => `${inputClassName} ${incomingInputClassName}`,
-    [inputClassName, incomingInputClassName]
-  );
+  const computedInputClassName = `${inputClassName} ${incomingInputClassName}`;
 
   /***********
    * Component
    ***********/
-  const labelComponent = useMemo(
-    () =>
-      !!label && (
-        <label htmlFor={id} className={labelClassName}>
-          {label}
-          {!!required && <RequiredStarLabel />}
-        </label>
-      ),
-    [label, id, labelClassName, required]
+  const labelComponent = !!label && (
+    <label htmlFor={id} className={labelClassName}>
+      {label}
+      {!!required && <RequiredStarLabel />}
+    </label>
   );
 
-  const errorComponent = useMemo(
-    () =>
-      showError &&
-      !!errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>,
-    [showError, errorMessage]
+  const errorComponent = showError && !!errorMessage && (
+    <p className={styles.errorMessage}>{errorMessage}</p>
   );
 
   return (

@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useMemo } from 'react';
+import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import useExpirationDate from 'contexts/checkoutContext/useExpirationDate';
@@ -13,25 +13,19 @@ const ExpirationDateField = () => {
 
   const t = useTranslations('Checkout');
 
-  const handleChange = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const input = e.target as HTMLInputElement;
+  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
 
-      setExpirationDate(input?.value);
-    },
-    [setExpirationDate]
-  );
-
-  const id = 'expiration_date_field';
-  const label = useMemo(() => t('expirationDate'), [t]);
+    setExpirationDate(input?.value);
+  };
 
   return (
     <TextInput
-      id={id}
-      label={label}
+      id="expiration_date_field"
+      label={t('expirationDate')}
       showError={isSubmitted}
       value={expirationDate}
-      onChange={handleChange}
+      onChange={handleInputChange}
       setErrorStatus={setIsExpirationDateInError}
       maxLength={5}
       placeholder="MM/YY"

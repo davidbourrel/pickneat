@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import styles from './Loader.module.css';
 import { LoaderProps } from './types';
 
@@ -10,23 +9,16 @@ const Loader = ({
   width = '30px',
   height = '30px',
 }: LoaderProps) => {
-  const computedLoaderContainerClassName = useMemo(
-    () =>
-      `${styles.loaderContainer} ${loaderContainerClassName} ${
-        absoluteLoader ? styles.absoluteLoaderContainer : ''
-      }`,
-    [loaderContainerClassName, absoluteLoader]
-  );
+  const computedLoaderContainerClassName = `${
+    styles.loaderContainer
+  } ${loaderContainerClassName} ${
+    absoluteLoader ? styles.absoluteLoaderContainer : ''
+  }`;
 
-  const computedLoaderClassName = useMemo(
-    () => `${styles.loader} ${loaderClassName}`,
-    [loaderClassName]
-  );
+  const computedLoaderClassName = `${styles.loader} ${loaderClassName}`;
 
-  const computedCircleClassName = useMemo(
-    () => `${styles.circle} ${circleClassName}`,
-    [circleClassName]
-  );
+  const computedCircleClassName = `${styles.circle} ${circleClassName}`;
+
   return (
     <div className={computedLoaderContainerClassName}>
       <svg

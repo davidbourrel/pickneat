@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
@@ -12,11 +11,9 @@ const ViewCartButton = () => {
 
   const cartTotalItems = useCartTotalItems();
 
-  const viewCartContainerClassName = useMemo(
-    () =>
-      `${styles.viewCartContainer} ${cartTotalItems > 0 ? styles.active : ''}`,
-    [cartTotalItems]
-  );
+  const viewCartContainerClassName = `${styles.viewCartContainer} ${
+    cartTotalItems > 0 ? styles.active : ''
+  }`;
 
   return (
     <div className={viewCartContainerClassName} data-test="viewCartButton">

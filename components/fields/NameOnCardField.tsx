@@ -1,4 +1,4 @@
-import { FormEvent, useCallback, useMemo } from 'react';
+import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import useNameOnCard from 'contexts/checkoutContext/useNameOnCard';
@@ -12,25 +12,19 @@ const NameOnCardField = () => {
 
   const t = useTranslations('Checkout');
 
-  const handleChange = useCallback(
-    (e: FormEvent<HTMLInputElement>) => {
-      const input = e.target as HTMLInputElement;
+  const handleInputChange = (e: FormEvent<HTMLInputElement>) => {
+    const input = e.target as HTMLInputElement;
 
-      setNameOnCard(input?.value);
-    },
-    [setNameOnCard]
-  );
-
-  const id = 'name_on_card_field';
-  const label = useMemo(() => t('nameOnCard'), [t]);
+    setNameOnCard(input?.value);
+  };
 
   return (
     <TextInput
-      id={id}
-      label={label}
+      id="name_on_card_field"
+      label={t('nameOnCard')}
       showError={isSubmitted}
       value={nameOnCard}
-      onChange={handleChange}
+      onChange={handleInputChange}
       setErrorStatus={setIsNameOnCardInError}
       maxLength={100}
       required
