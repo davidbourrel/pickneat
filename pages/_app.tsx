@@ -11,7 +11,7 @@ import { CheckoutProvider } from 'contexts/checkoutContext';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
 import { MyAppProps } from '_types/app';
 import PageLayout from '../components/modules/PageLayout';
-import { Baloo_2 } from '@next/font/google';
+import { Baloo_2 } from "next/font/google";
 
 const fontFamily = Baloo_2({ display: 'swap', subsets: ['latin'] });
 

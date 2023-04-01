@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^2.3.1",
-    "@next/font": "^13.2.4",
     "date-fns": "^2.29.3",
     "leaflet": "^1.9.3",
     "leaflet-defaulticon-compatibility": "^0.1.1",
