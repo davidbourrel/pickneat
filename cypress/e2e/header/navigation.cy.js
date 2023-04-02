@@ -64,7 +64,10 @@ describe('Navigation menu', () => {
       cy.get('@desktopNavigation').contains('Delivery');
       cy.get('@desktopNavigation').contains('English');
       cy.get('@desktopNavigation').contains('Day Mode');
-      cy.get('@desktopNavigation').contains('Login');
+      /** Cart Count Icon */
+      cy.get('[data-test="cartCount"]').should('exist').should('be.visible');
+      /** Profile Icon */
+      cy.get('[data-test="profileIcon"]').should('exist').should('be.visible');
     });
   });
 });

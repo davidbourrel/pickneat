@@ -1,6 +1,5 @@
 import { useTranslations } from 'next-intl';
 import styles from './Header.module.css';
-import { useUser } from '@auth0/nextjs-auth0/client';
 import { HeaderProps } from './types';
 
 // Static Components
@@ -16,20 +15,7 @@ const Header = ({
   handleCloseMenu,
   handleToggleMenu,
 }: HeaderProps) => {
-  const { user } = useUser();
-
   const t = useTranslations('Navigation');
-
-  const userTab =
-    user && user.picture ? (
-      <Link href="/profile" title={t('profile')} data-test="profileIcon">
-        <ProfileIcon />
-      </Link>
-    ) : (
-      <Link href="/api/auth/login" title={t('login')} data-test="profileIcon">
-        <ProfileIcon />
-      </Link>
-    );
 
   return (
     <header className={styles.header}>
@@ -38,7 +24,7 @@ const Header = ({
         <DesktopNavigation />
 
         <div className={styles.headerMobileActions}>
-          {userTab}
+          <ProfileIcon />
           <Link href="/cart" onClick={handleCloseMenu}>
             <CartCount title={t('cartTitle')} />
           </Link>
