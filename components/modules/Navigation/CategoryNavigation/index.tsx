@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
-import useActiveMenuCategories from 'contexts/appContext/useActiveMenuCategories';
+import { useActiveMenuCategories } from 'contexts/appContext/useActiveMenuCategories';
 
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';

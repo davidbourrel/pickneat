@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import styles from './MenuCategories.module.css';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
-import useIntersectionObserverEntries from 'contexts/appContext/useIntersectionObserverEntries';
+import { useIntersectionObserverEntries } from 'contexts/appContext/useIntersectionObserverEntries';
 import { CategoryProps } from './types';
 
 // Static Components

@@ -1,12 +1,5 @@
 import { useContext } from 'react';
-import appContext from '.';
-import { AppContext } from './app.types';
+import { AppDispatchContext } from '.';
 
-type UseHandleSetAppResult = AppContext['setIntersectionObserverEntries'];
-
-const useIntersectionObserverEntries = (): UseHandleSetAppResult => {
-  const { setIntersectionObserverEntries } = useContext(appContext);
-  return setIntersectionObserverEntries;
-};
-
-export default useIntersectionObserverEntries;
+export const useIntersectionObserverEntries = () =>
+  useContext(AppDispatchContext);

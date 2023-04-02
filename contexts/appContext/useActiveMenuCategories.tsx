@@ -1,12 +1,4 @@
 import { useContext } from 'react';
-import appContext from '.';
-import { AppContext } from './app.types';
+import { AppContext } from '.';
 
-type UseHandleSetAppResult = AppContext['activeMenuCategory'];
-
-const useActiveMenuCategories = (): UseHandleSetAppResult => {
-  const { activeMenuCategory } = useContext(appContext);
-  return activeMenuCategory;
-};
-
-export default useActiveMenuCategories;
+export const useActiveMenuCategories = () => useContext(AppContext);
