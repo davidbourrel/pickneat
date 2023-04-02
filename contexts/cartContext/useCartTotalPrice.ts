@@ -3,7 +3,8 @@ import { useCart } from './useCart';
 export const useCartTotalPrice = () => {
   const cart = useCart();
   return cart.reduce(
-    (total: number, item) => total + item.amount * item.price,
+    (total: number, { amount, price }) =>
+      amount ? total + amount * price : total * price,
     0
   );
 };

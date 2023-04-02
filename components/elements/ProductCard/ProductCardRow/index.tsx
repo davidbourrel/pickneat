@@ -18,6 +18,8 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
   const dispatch = useCartDispatch();
   const t = useTranslations('Cart');
 
+  const computedPrice = amount ? price * amount : price;
+
   const handleDeleteItemsClick = () => {
     dispatch({
       type: CartStateEnum.DeleteItems,
@@ -55,7 +57,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
           </Button>
         </div>
         <div className={styles.priceAndQuantityContainer}>
-          <PriceTag price={price * amount} className={styles.price} />
+          <PriceTag price={computedPrice} className={styles.price} />
           <Quantity product={product} className={styles.quantity} />
         </div>
       </div>

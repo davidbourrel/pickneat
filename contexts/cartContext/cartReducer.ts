@@ -19,19 +19,18 @@ export const cartReducer = (cart: Product[], action: CartAction): Product[] => {
       if (itemAlreadyExists) {
         // Just add +1
         return cart.map((item) =>
-          item.product_id === product.product_id
+          item.product_id === product.product_id && item.amount
             ? { ...item, amount: item.amount + 1 }
             : item
         );
       }
 
       // First time so add item in cart
-
       return [...cart, { ...product, amount: 1 }];
     }
     case CartStateEnum.DeleteItem: {
       return cart.reduce((total, item) => {
-        if (item.product_id === product_id) {
+        if (item.product_id === product_id && item.amount) {
           if (item.amount === 1) return total;
           return [...total, { ...item, amount: item.amount - 1 }];
         } else {
@@ -51,7 +50,7 @@ export const cartReducer = (cart: Product[], action: CartAction): Product[] => {
       return cart.filter((cart) => cart.product_id !== product_id);
     }
     default: {
-      throw Error('Unknown action: ' + type);
+      throw Error(`Unknown action: ${type}`);
     }
   }
 };

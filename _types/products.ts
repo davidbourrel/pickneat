@@ -8,7 +8,7 @@ export interface Product {
   image: string;
   allergens?: string | null;
   category: string;
-  amount: number;
+  amount?: number;
 }
 
 export interface ProductIdProps {
