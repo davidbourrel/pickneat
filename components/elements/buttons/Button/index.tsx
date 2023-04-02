@@ -60,8 +60,7 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       type={trueType}
       disabled={definitelyDisabled}
       ref={ref}
-      {...rest}
-    >
+      {...rest}>
       {children}
       {busy && !hideBusyWheel && computedLoader}
     </button>

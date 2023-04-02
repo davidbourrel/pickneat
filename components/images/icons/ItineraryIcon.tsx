@@ -7,8 +7,7 @@ const ItineraryIcon = ({ className = '' }: ClassNameProps) => {
         strokeWidth="1"
         fill="none"
         strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+        strokeLinejoin="round">
         <g transform="translate(-685.000000, -6131.000000)">
           <g transform="translate(-240.000000, 5981.000000)">
             <g transform="translate(926.000000, 151.000000)">

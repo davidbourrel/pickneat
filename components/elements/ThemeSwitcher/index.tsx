@@ -27,8 +27,7 @@ const ThemeSwitcher = ({ title, dataTestButton }: ThemeSwitcherProps) => {
       headless
       className={styles.switcherButton}
       color-scheme-attribut={colorSchemeAttribut}
-      data-test={dataTestButton}
-    >
+      data-test={dataTestButton}>
       <MoonIcon className={svgClassName} />
       <span>{textTranslated}</span>
     </Button>

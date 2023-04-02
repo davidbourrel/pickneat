@@ -21,8 +21,7 @@ const Address = () => {
         href={itineraryUrl}
         target="_blank"
         rel="noreferrer"
-        className={styles.link}
-      >
+        className={styles.link}>
         <span>
           <ItineraryIcon className={styles.itineraryIcon} />
           {PNE_ADDRESS}

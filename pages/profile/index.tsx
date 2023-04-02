@@ -58,8 +58,7 @@ const Profile = ({ user }: ProfileProps) => {
         title={t2('logout')}
         href="/api/auth/logout"
         className={styles.logout}
-        tabIndex={-1}
-      >
+        tabIndex={-1}>
         <Button>{t2('logout')}</Button>
       </Link>
     </MainContentLayout>

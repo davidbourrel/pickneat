@@ -15,32 +15,27 @@ const CategoryNavigation = () => {
       <ul tabIndex={-1}>
         <CategoryNavigationItem
           id="#burgers"
-          isActive={activeMenuCategory === 'burgers'}
-        >
+          isActive={activeMenuCategory === 'burgers'}>
           {t('burgerTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
           id="#sides"
-          isActive={activeMenuCategory === 'sides'}
-        >
+          isActive={activeMenuCategory === 'sides'}>
           {t('sideTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
           id="#drinks"
-          isActive={activeMenuCategory === 'drinks'}
-        >
+          isActive={activeMenuCategory === 'drinks'}>
           {t('drinkTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
           id="#desserts"
-          isActive={activeMenuCategory === 'desserts'}
-        >
+          isActive={activeMenuCategory === 'desserts'}>
           {t('dessertTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
           id="#salads"
-          isActive={activeMenuCategory === 'salads'}
-        >
+          isActive={activeMenuCategory === 'salads'}>
           {t('saladTitle')}
         </CategoryNavigationItem>
       </ul>

@@ -39,8 +39,7 @@ const BurgerMenuButton = ({
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}
       aria-controls="mobile-navigation"
-      data-test={dataTest}
-    >
+      data-test={dataTest}>
       {computedTitle}
       <BurgerMenuIcon isMobileNavOpened={isMobileNavOpened} />
     </Button>

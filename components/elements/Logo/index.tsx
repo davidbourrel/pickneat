@@ -18,8 +18,7 @@ const Logo = ({ onCloseMenu, className = '' }: LogoProps) => {
       className={computedClassName}
       onClick={onCloseMenu}
       aria-label="PickN`Eat Logo"
-      data-test="mainLogo"
-    >
+      data-test="mainLogo">
       <span>PickN`Eat</span>
     </Link>
   );

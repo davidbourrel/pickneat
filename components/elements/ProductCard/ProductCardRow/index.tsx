@@ -51,8 +51,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
             onClick={handleDeleteItemsClick}
             headless
             className={styles.removeProductButton}
-            absoluteLoader
-          >
+            absoluteLoader>
             {t('remove')}
           </Button>
         </div>

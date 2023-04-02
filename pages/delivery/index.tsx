@@ -30,8 +30,7 @@ const Delivery = () => {
             href="https://deliveroo.fr/fr/"
             target="_blank"
             rel="nofollow"
-            tabIndex={-1}
-          >
+            tabIndex={-1}>
             <Button>{t('deliveryButton')}</Button>
           </Link>
         </section>

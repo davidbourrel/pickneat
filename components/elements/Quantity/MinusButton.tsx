@@ -19,8 +19,7 @@ const MinusButton = ({ product_id }: MinusButtonProps) => {
           product_id: product_id,
         });
       }}
-      absoluteLoader
-    >
+      absoluteLoader>
       <span>&#8722;</span>
     </Button>
   );

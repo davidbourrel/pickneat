@@ -31,8 +31,7 @@ const ScrollToTopButton = () => {
       onClick={handleScrollToTopClick}
       absoluteLoader
       aria-label="scroll to top"
-      data-test="scrollToTopButton"
-    >
+      data-test="scrollToTopButton">
       <div className={styles.svgContainer}>
         <Arrow direction={ArrowDirectionEnum.Top} />
       </div>

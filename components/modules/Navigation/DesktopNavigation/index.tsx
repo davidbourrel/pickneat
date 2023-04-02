@@ -37,8 +37,7 @@ const DesktopNavigation = () => {
     <nav
       className={styles.nav}
       aria-label="desktop navigation"
-      data-test="desktopNavigation"
-    >
+      data-test="desktopNavigation">
       <ul className={styles.navLinkList}>
         <li title={t('menuTitle')} className={styles.navItem}>
           <NavLink href="/" isActive={pathname === '/'}>

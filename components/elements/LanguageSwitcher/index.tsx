@@ -54,8 +54,7 @@ const LanguageSwitcher = ({
         aria-haspopup={true}
         aria-expanded={isLangSwitcherOpened}
         aria-controls={ariaControlsId}
-        data-test={dataTestButton}
-      >
+        data-test={dataTestButton}>
         <span aria-hidden="true" className={flagClassName} />
         <span className={styles.plainCountryName}>{plainCountryName}</span>
         <Arrow direction={ArrowDirectionEnum.Top} caret={true} />
@@ -65,8 +64,7 @@ const LanguageSwitcher = ({
         id={ariaControlsId}
         className={langListClassName}
         aria-labelledby={`${ariaControlsId}-list`}
-        data-test={dataTestLangList}
-      >
+        data-test={dataTestLangList}>
         <li className="capitalize" aria-labelledby="lang-item-English">
           <Link
             href={href}
@@ -77,8 +75,7 @@ const LanguageSwitcher = ({
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-en-button`}
             data-test={`${dataTestLangButton}English`}
-            tabIndex={computedTabIndex}
-          >
+            tabIndex={computedTabIndex}>
             <LangItem lang="English" incomingLocale={LangEnum.En} />
           </Link>
         </li>
@@ -92,8 +89,7 @@ const LanguageSwitcher = ({
             className={styles.langButton}
             aria-labelledby={`${ariaControlsId}-fr-button`}
             data-test={`${dataTestLangButton}French`}
-            tabIndex={computedTabIndex}
-          >
+            tabIndex={computedTabIndex}>
             <LangItem lang="Français" incomingLocale={LangEnum.Fr} />
           </Link>
         </li>

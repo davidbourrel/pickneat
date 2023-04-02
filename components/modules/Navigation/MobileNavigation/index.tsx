@@ -49,8 +49,7 @@ const MobileNavigation = ({
         className={mobileNavContainerClassName}
         ref={mobileNavigationRef}
         aria-label="mobile navigation"
-        data-test="mobileNavigation"
-      >
+        data-test="mobileNavigation">
         <nav className={styles.mobileNavigation}>
           <BurgerMenuButton
             isMobileNavOpened={isMobileNavOpened}
@@ -64,8 +63,7 @@ const MobileNavigation = ({
               <NavLink
                 href="/"
                 isActive={pathname === '/'}
-                onCloseMenu={handleCloseMenu}
-              >
+                onCloseMenu={handleCloseMenu}>
                 {t('menu')}
               </NavLink>
             </li>
@@ -73,8 +71,7 @@ const MobileNavigation = ({
               <NavLink
                 href="/restaurants"
                 isActive={pathname === '/restaurants'}
-                onCloseMenu={handleCloseMenu}
-              >
+                onCloseMenu={handleCloseMenu}>
                 {t('restaurants')}
               </NavLink>
             </li>
@@ -82,8 +79,7 @@ const MobileNavigation = ({
               <NavLink
                 href="/delivery"
                 isActive={pathname === '/delivery'}
-                onCloseMenu={handleCloseMenu}
-              >
+                onCloseMenu={handleCloseMenu}>
                 {t('delivery')}
               </NavLink>
             </li>

@@ -40,8 +40,7 @@ const Link = ({
       target={target}
       role="link"
       className={computedClassName}
-      {...props}
-    >
+      {...props}>
       {children}
     </NextLink>
   ) : (

@@ -21,8 +21,7 @@ const ProductCardCol = ({ product }: ProductCardProps) => {
     <Link
       href={`product/${product_id}`}
       className={styles.imageContainer}
-      title={t('seeMoreDetails')}
-    >
+      title={t('seeMoreDetails')}>
       <Image
         src={image}
         alt={name}

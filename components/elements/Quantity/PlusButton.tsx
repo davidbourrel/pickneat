@@ -19,8 +19,7 @@ const PlusButton = ({ product }: PlusButtonProps) => {
           product: product,
         });
       }}
-      absoluteLoader
-    >
+      absoluteLoader>
       <span>&#43;</span>
     </Button>
   );

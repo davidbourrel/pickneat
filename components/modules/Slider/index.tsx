@@ -14,8 +14,7 @@ const Slider = ({ children, loading, ...props }: SliderProps) => {
       navigation
       className={styles.swiperContainer}
       data-test="sliderContainer"
-      {...props}
-    >
+      {...props}>
       {loading ? <Loader absoluteLoader /> : children}
     </Swiper>
   );

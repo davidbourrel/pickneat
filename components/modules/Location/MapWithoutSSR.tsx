@@ -15,8 +15,7 @@ const MapWithoutSSR = () => {
       doubleClickZoom={false}
       center={position}
       zoom={15}
-      className={styles.mapContainer}
-    >
+      className={styles.mapContainer}>
       <TileLayer url={mapUrl} detectRetina={true} />
       <CustomMarker position={position} open>
         <Address />

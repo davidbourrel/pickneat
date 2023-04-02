@@ -6,8 +6,7 @@ const UserIcon = ({ className = '' }: ClassNameProps) => {
       className={className}
       strokeWidth="1.5"
       viewBox="0 0 24 24"
-      fill="none"
-    >
+      fill="none">
       <path
         d="M5 20V19C5 15.134 8.13401 12 12 12V12C15.866 12 19 15.134 19 19V20"
         stroke="currentColor"
