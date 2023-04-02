@@ -1,14 +1,16 @@
 import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
-import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
-import useCvv from 'contexts/checkoutContext/useCvv';
+import {
+  useCheckout,
+  useCheckoutDispatch,
+} from 'contexts/checkoutContext/hooks';
 
 // Static components
 import TextInput from './inputs/TextInput';
 
 const CvvField = () => {
-  const { cvv, setCvv, setIsCvvInError } = useCvv();
-  const { isSubmitted } = useCheckoutSubmit();
+  const { cvv, isSubmitted } = useCheckout();
+  const { setCvv, setIsCvvInError } = useCheckoutDispatch();
 
   const t = useTranslations('Checkout');
 

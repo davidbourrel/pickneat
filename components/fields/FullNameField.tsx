@@ -1,14 +1,16 @@
 import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
-import useFullName from 'contexts/checkoutContext/useFullName';
-import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
+import {
+  useCheckout,
+  useCheckoutDispatch,
+} from 'contexts/checkoutContext/hooks';
 
 // Static components
 import TextInput from './inputs/TextInput';
 
 const FullNameField = () => {
-  const { fullName, setFullName, setIsFullNameInError } = useFullName();
-  const { isSubmitted } = useCheckoutSubmit();
+  const { fullName, isSubmitted } = useCheckout();
+  const { setFullName, setIsFullNameInError } = useCheckoutDispatch();
 
   const t = useTranslations('Profile');
 

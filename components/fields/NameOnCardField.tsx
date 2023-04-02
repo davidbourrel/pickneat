@@ -1,14 +1,16 @@
 import { FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
-import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
-import useNameOnCard from 'contexts/checkoutContext/useNameOnCard';
+import {
+  useCheckout,
+  useCheckoutDispatch,
+} from 'contexts/checkoutContext/hooks';
 
 // Static components
 import TextInput from './inputs/TextInput';
 
 const NameOnCardField = () => {
-  const { nameOnCard, setNameOnCard, setIsNameOnCardInError } = useNameOnCard();
-  const { isSubmitted } = useCheckoutSubmit();
+  const { nameOnCard, isSubmitted } = useCheckout();
+  const { setNameOnCard, setIsNameOnCardInError } = useCheckoutDispatch();
 
   const t = useTranslations('Checkout');
 

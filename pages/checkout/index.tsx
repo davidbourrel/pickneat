@@ -5,8 +5,11 @@ import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
-import useCheckoutSubmit from 'contexts/checkoutContext/useCheckoutSubmit';
 import styles from './Checkout.module.css';
+import {
+  useCheckout,
+  useCheckoutDispatch,
+} from 'contexts/checkoutContext/hooks';
 
 // Static components
 import MainContentLayout from 'components/modules/MainContentLayout';
@@ -20,7 +23,8 @@ import Button from 'components/elements/buttons/Button';
 const Checkout = () => {
   const t = useTranslations('Checkout');
 
-  const { handleCheckoutSubmit, isValidForm } = useCheckoutSubmit();
+  const { isValidForm } = useCheckout();
+  const { handleCheckoutSubmit } = useCheckoutDispatch();
 
   const { push } = useRouter();
 
