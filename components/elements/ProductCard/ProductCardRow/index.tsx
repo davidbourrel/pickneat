@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import styles from './ProductCardRow.module.css';
 import { CartStateEnum } from 'contexts/cartContext/types';
-import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
+import { useCartDispatch } from 'contexts/cartContext/hooks';
 import { ProductCardProps } from '../types';
 
 // Static components
@@ -15,7 +15,7 @@ import Button from 'components/elements/buttons/Button';
 const ProductCardRow = ({ product }: ProductCardProps) => {
   const { product_id, name, price, image, category, amount } = product;
 
-  const dispatch = useCartDispatch();
+  const { dispatch } = useCartDispatch();
   const t = useTranslations('Cart');
 
   const computedPrice = amount ? price * amount : price;

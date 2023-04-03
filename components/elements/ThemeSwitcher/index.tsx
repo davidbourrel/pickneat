@@ -1,16 +1,16 @@
 import { useTranslations } from 'next-intl';
 import { ThemeEnum } from '_types/theme';
 import { ThemeSwitcherProps } from './types';
-import { useDarkMode, useDarkModeChange } from 'contexts/themeContext';
 import styles from './ThemeSwitcher.module.css';
+import { useTheme, useThemeDispatch } from 'contexts/themeContext/hooks';
 
 // Static components
 import Button from '../buttons/Button';
 import MoonIcon from 'components/images/icons/MoonIcon';
 
 const ThemeSwitcher = ({ title, dataTestButton }: ThemeSwitcherProps) => {
-  const handleThemeClick = useDarkModeChange();
-  const isDarkMode = useDarkMode();
+  const { handleThemeClick } = useThemeDispatch();
+  const { isDarkMode } = useTheme();
 
   const t = useTranslations('Navigation');
 

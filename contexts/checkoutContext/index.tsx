@@ -1,5 +1,6 @@
 import { useState, PropsWithChildren, FormEvent } from 'react';
-import { CheckoutContext, CheckoutDispatchContext } from './context';
+import { CheckoutContext, CheckoutDispatchContext } from './contexts';
+import { CheckoutContextValue, CheckoutDispatchContextValue } from './types';
 
 export const CheckoutProvider = ({ children }: PropsWithChildren) => {
   // FullName
@@ -49,7 +50,10 @@ export const CheckoutProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const contextValue = {
+  /*****************
+   * CONTEXT VALUES
+   *****************/
+  const contextValue: CheckoutContextValue = {
     // FullName
     fullName,
     isFullNameInError,
@@ -81,7 +85,7 @@ export const CheckoutProvider = ({ children }: PropsWithChildren) => {
     isSubmitted,
   };
 
-  const DispatchContextValue = {
+  const dispatchContextValue: CheckoutDispatchContextValue = {
     // FullName
     setFullName,
     setIsFullNameInError,
@@ -112,7 +116,7 @@ export const CheckoutProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <CheckoutContext.Provider value={contextValue}>
-      <CheckoutDispatchContext.Provider value={DispatchContextValue}>
+      <CheckoutDispatchContext.Provider value={dispatchContextValue}>
         {children}
       </CheckoutDispatchContext.Provider>
     </CheckoutContext.Provider>

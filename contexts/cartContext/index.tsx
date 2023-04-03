@@ -1,19 +1,13 @@
-import {
-  createContext,
-  Dispatch,
-  PropsWithChildren,
-  useEffect,
-  useReducer,
-} from 'react';
+import { PropsWithChildren, useEffect, useReducer } from 'react';
 import { PICKNEAT_LS_CART } from '_constants/localStorage';
 import { Product } from '_types/products';
 import { cartReducer } from './cartReducer';
-import { CartAction, CartStateEnum } from './types';
-
-export const CartContext = createContext(null as unknown as Product[]);
-export const CartDispatchContext = createContext(
-  null as unknown as Dispatch<CartAction>
-);
+import {
+  CartContextValue,
+  CartDispatchContextValue,
+  CartStateEnum,
+} from './types';
+import { CartContext, CartDispatchContext } from './contexts';
 
 export const CartProvider = ({ children }: PropsWithChildren) => {
   const [cart, dispatch] = useReducer(cartReducer, [] as Product[]);
@@ -41,9 +35,17 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     localStorage.setItem(PICKNEAT_LS_CART, JSON.stringify(cart));
   }, [cart]);
 
+  /*****************
+   * CONTEXT VALUES
+   *****************/
+  const contextValue: CartContextValue = { cart };
+  const dispatchContextValue: CartDispatchContextValue = {
+    dispatch,
+  };
+
   return (
-    <CartContext.Provider value={cart}>
-      <CartDispatchContext.Provider value={dispatch}>
+    <CartContext.Provider value={contextValue}>
+      <CartDispatchContext.Provider value={dispatchContextValue}>
         {children}
       </CartDispatchContext.Provider>
     </CartContext.Provider>

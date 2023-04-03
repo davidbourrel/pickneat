@@ -1,18 +1,8 @@
-import {
-  useState,
-  useEffect,
-  PropsWithChildren,
-  createContext,
-  Dispatch,
-  SetStateAction,
-} from 'react';
+import { useState, useEffect, PropsWithChildren } from 'react';
+import { AppContext, AppDispatchContext } from './contexts';
 import useKonami from 'hooks/useKonami';
 import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
-
-export const AppContext = createContext(null as unknown as string);
-export const AppDispatchContext = createContext(
-  null as unknown as Dispatch<SetStateAction<IntersectionObserverEntry[]>>
-);
+import { AppContextValue, AppDispatchContextValue } from './types';
 
 export const AppProvider = ({ children }: PropsWithChildren) => {
   const [intersectionObserverEntries, setIntersectionObserverEntries] =
@@ -33,9 +23,17 @@ export const AppProvider = ({ children }: PropsWithChildren) => {
     setActiveMenuCategory(activeCategory);
   }, [intersectionObserverEntries]);
 
+  /*****************
+   * CONTEXT VALUES
+   *****************/
+  const contextValue: AppContextValue = { activeMenuCategory };
+  const dispatchContextValue: AppDispatchContextValue = {
+    setIntersectionObserverEntries,
+  };
+
   return (
-    <AppContext.Provider value={activeMenuCategory}>
-      <AppDispatchContext.Provider value={setIntersectionObserverEntries}>
+    <AppContext.Provider value={contextValue}>
+      <AppDispatchContext.Provider value={dispatchContextValue}>
         {children}
       </AppDispatchContext.Provider>
     </AppContext.Provider>

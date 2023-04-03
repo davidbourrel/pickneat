@@ -1,4 +1,4 @@
-import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
+import { useCartDispatch } from 'contexts/cartContext/hooks';
 import { CartStateEnum } from 'contexts/cartContext/types';
 import styles from './Quantity.module.css';
 import { PlusButtonProps } from './types';
@@ -7,7 +7,7 @@ import { PlusButtonProps } from './types';
 import Button from '../buttons/Button';
 
 const PlusButton = ({ product }: PlusButtonProps) => {
-  const dispatch = useCartDispatch();
+  const { dispatch } = useCartDispatch();
 
   return (
     <Button

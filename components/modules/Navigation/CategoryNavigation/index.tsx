@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
-import { useActiveMenuCategories } from 'contexts/appContext/useActiveMenuCategories';
+import { useApp } from 'contexts/appContext/hooks';
 
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';
@@ -8,7 +8,7 @@ import CategoryNavigationItem from './CategoryNavigationItem';
 const CategoryNavigation = () => {
   const t = useTranslations('Home');
 
-  const activeMenuCategory = useActiveMenuCategories();
+  const { activeMenuCategory } = useApp();
 
   return (
     <nav className={styles.navigation}>

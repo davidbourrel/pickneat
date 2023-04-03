@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { CartStateEnum } from 'contexts/cartContext/types';
-import { useCart } from 'contexts/cartContext/useCart';
-import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
+import { useCart, useCartDispatch } from 'contexts/cartContext/hooks';
 import styles from './Quantity.module.css';
 import { QuantityProps } from './types';
 
@@ -15,8 +14,8 @@ const Quantity = ({ product, className = '' }: QuantityProps) => {
 
   const t = useTranslations('Product');
 
-  const cart = useCart();
-  const dispatch = useCartDispatch();
+  const { cart } = useCart();
+  const { dispatch } = useCartDispatch();
 
   // Call productFromCart to get amount of this specific item
   const productFromCart = cart.find((item) => item.product_id === product_id);

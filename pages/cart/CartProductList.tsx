@@ -1,11 +1,11 @@
+import { useCart } from 'contexts/cartContext/hooks';
 import styles from './Cart.module.css';
-import { useCart } from 'contexts/cartContext/useCart';
 
 // Static components
 import ProductCardRow from 'components/elements/ProductCard/ProductCardRow';
 
 const CartProductList = () => {
-  const cart = useCart();
+  const { cart } = useCart();
 
   return cart?.length > 0 ? (
     <ul className={styles.cartProductList}>

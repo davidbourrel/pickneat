@@ -1,13 +1,13 @@
 import styles from './Quantity.module.css';
 import { MinusButtonProps } from './types';
-import { useCartDispatch } from 'contexts/cartContext/useCartDispatch';
+import { useCartDispatch } from 'contexts/cartContext/hooks';
 import { CartStateEnum } from 'contexts/cartContext/types';
 
 // Static components
 import Button from '../buttons/Button';
 
 const MinusButton = ({ product_id }: MinusButtonProps) => {
-  const dispatch = useCartDispatch();
+  const { dispatch } = useCartDispatch();
 
   return (
     <Button

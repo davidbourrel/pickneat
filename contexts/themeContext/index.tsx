@@ -1,17 +1,8 @@
-import {
-  useEffect,
-  useState,
-  PropsWithChildren,
-  createContext,
-  useContext,
-} from 'react';
+import { useEffect, useState, PropsWithChildren } from 'react';
+import { ThemeContext, ThemeDispatchContext } from './contexts';
 import { PICKNEAT_LS_THEME } from '../../_constants/localStorage';
 import { ThemeEnum } from '_types/theme';
-
-export const ThemeContext = createContext(true);
-export const ThemeDispatchContext = createContext(
-  null as unknown as () => void
-);
+import { ThemeContextValue, ThemeDispatchContextValue } from './types';
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -54,15 +45,17 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     });
   };
 
+  /*****************
+   * CONTEXT VALUES
+   *****************/
+  const contextValue: ThemeContextValue = { isDarkMode };
+  const dispatchContextValue: ThemeDispatchContextValue = { handleThemeClick };
+
   return (
-    <ThemeContext.Provider value={isDarkMode}>
-      <ThemeDispatchContext.Provider value={handleThemeClick}>
+    <ThemeContext.Provider value={contextValue}>
+      <ThemeDispatchContext.Provider value={dispatchContextValue}>
         {children}
       </ThemeDispatchContext.Provider>
     </ThemeContext.Provider>
   );
 };
-
-// Hooks
-export const useDarkMode = () => useContext(ThemeContext);
-export const useDarkModeChange = () => useContext(ThemeDispatchContext);
