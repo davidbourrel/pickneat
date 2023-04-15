@@ -4,11 +4,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-left: 1px solid var(--neutral-300);
-  border-right: 1px solid var(--neutral-300);
-  border-bottom: 1px solid var(--neutral-300);
-  border-bottom-left-radius: var(--app-radius);
-  border-bottom-right-radius: var(--app-radius);
+  border-radius: 9999999px;
+  border: 1px solid var(--neutral-300);
   background-color: var(--neutral-50);
   color: var(--neutral-600);
   z-index: 10;
@@ -16,6 +13,7 @@
   height: var(--mobile-top-nav-category-height);
   overflow: auto;
   box-shadow: var(--shadow-1);
+  box-sizing: border-box;
 }
 
 .navigation ul {
