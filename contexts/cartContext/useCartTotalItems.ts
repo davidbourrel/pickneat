@@ -1,9 +1,0 @@
-import { useCart } from './hooks';
-
-export const useCartTotalItems = () => {
-  const { cart } = useCart();
-  return cart.reduce(
-    (total: number, { amount }) => (amount ? total + amount : total),
-    0
-  );
-};

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
+import { useCartTotalItems } from 'contexts/cartContext/hooks';
 import styles from './ViewCartButton.module.css';
 
 // Static components

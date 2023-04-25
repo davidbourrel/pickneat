@@ -3,8 +3,10 @@ import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import styles from './Cart.module.css';
-import { useCartTotalItems } from 'contexts/cartContext/useCartTotalItems';
-import { useCartTotalPrice } from 'contexts/cartContext/useCartTotalPrice';
+import {
+  useCartTotalItems,
+  useCartTotalPrice,
+} from 'contexts/cartContext/hooks';
 
 // Static components
 import PageLayout from 'components/modules/PageLayout';
