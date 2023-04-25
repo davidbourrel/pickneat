@@ -9,13 +9,13 @@ import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Link from 'components/elements/Link';
 import Button from 'components/elements/buttons/Button';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 
 const Delivery = () => {
   const t = useTranslations('Delivery');
 
   return (
-    <MainContentLayout>
+    <MainLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('delivery')}`}</title>
       </Head>
@@ -47,7 +47,7 @@ const Delivery = () => {
           </Link>
         </section>
       </div>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default Delivery;

@@ -9,14 +9,14 @@ import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Location from 'components/modules/Location';
 import OpeningTimes from 'components/modules/OpeningTimes';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 
 const Restaurants = () => {
   const t = useTranslations('Navigation');
   const t2 = useTranslations('Restaurants');
 
   return (
-    <MainContentLayout>
+    <MainLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('restaurants')}`}</title>
       </Head>
@@ -33,7 +33,7 @@ const Restaurants = () => {
           <OpeningTimes />
         </section>
       </div>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default Restaurants;

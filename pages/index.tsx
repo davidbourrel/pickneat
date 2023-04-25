@@ -9,7 +9,7 @@ import HomeProps from '_types/app';
 // Static Components
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 import CategoryNavigation from 'components/modules/Navigation/CategoryNavigation';
 import MenuCategories from 'components/modules/MenuCategories';
 import HomeSliders from 'components/modules/Slider/HomeSliders';
@@ -26,7 +26,7 @@ const Home = ({ ssrProducts }: HomeProps) => {
   const t = useTranslations('Home');
 
   return (
-    <MainContentLayout padding={false}>
+    <MainLayout padding={false}>
       <CategoryNavigation />
       <HomeSliders />
       <Heading level={1} className={styles.mainTitle}>
@@ -35,7 +35,7 @@ const Home = ({ ssrProducts }: HomeProps) => {
       <MenuCategories ssrProducts={ssrProducts} className="appPadding" />
       <ViewCartButton />
       <ScrollToTopButton />
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default Home;

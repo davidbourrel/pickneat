@@ -13,7 +13,7 @@ import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import PriceTag from 'components/elements/PriceTag';
 import Quantity from 'components/elements/Quantity';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 
 const ProductId = ({ ssrProduct }: ProductIdProps) => {
   const t = useTranslations('Product');
@@ -21,7 +21,7 @@ const ProductId = ({ ssrProduct }: ProductIdProps) => {
   const { name, description, price, image, allergens, in_stock } = ssrProduct;
 
   return (
-    <MainContentLayout>
+    <MainLayout>
       <Head>
         <title>{`PickN\`Eat | ${name}`}</title>
       </Head>
@@ -59,7 +59,7 @@ const ProductId = ({ ssrProduct }: ProductIdProps) => {
           )}
         </div>
       </div>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default ProductId;

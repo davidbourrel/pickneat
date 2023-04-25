@@ -13,7 +13,7 @@ import PageLayout from 'components/modules/PageLayout';
 import CartTitle from './CartTitle';
 import CartDescription from './CartDescription';
 import CartCheckout from './CartCheckout';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 import CartProductList from './CartProductList';
 
 const Cart = () => {
@@ -25,7 +25,7 @@ const Cart = () => {
   const layoutClassName = cartTotalItems === 0 ? styles.main : '';
 
   return (
-    <MainContentLayout className={layoutClassName}>
+    <MainLayout className={layoutClassName}>
       <Head>
         <title>{`PickN\`Eat | ${t('cart')}`}</title>
       </Head>
@@ -38,7 +38,7 @@ const Cart = () => {
           cartTotalPrice={cartTotalPrice}
         />
       </section>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default Cart;

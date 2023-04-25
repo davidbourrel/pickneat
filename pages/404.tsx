@@ -8,14 +8,14 @@ import { pick } from 'lodash';
 import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 
 const NotFound = () => {
   const { back } = useRouter();
   const t = useTranslations('Errors');
 
   return (
-    <MainContentLayout center>
+    <MainLayout center>
       <Head>
         <title>{`PickN\`Eat | ${t('shortError404')}`}</title>
       </Head>
@@ -23,7 +23,7 @@ const NotFound = () => {
         {t('longError404')}
       </Heading>
       <Button onClick={back}>{t('backButtonMessage')}</Button>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default NotFound;

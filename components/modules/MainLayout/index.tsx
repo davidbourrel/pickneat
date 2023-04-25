@@ -1,16 +1,16 @@
-import styles from './MainContentLayout.module.css';
-import { MainContentLayoutProps } from './types';
+import styles from './MainLayout.module.css';
+import { MainLayoutProps } from './types';
 
-const MainContentLayout = ({
+const MainLayout = ({
   padding = true,
   center = false,
   className = '',
   children,
-}: MainContentLayoutProps) => {
+}: MainLayoutProps) => {
   const computedClassName = `${styles.main} ${className} ${
     padding ? 'appPadding' : ''
   } ${center ? styles.center : ''}`;
 
   return <main className={computedClassName}>{children}</main>;
 };
-export default MainContentLayout;
+export default MainLayout;

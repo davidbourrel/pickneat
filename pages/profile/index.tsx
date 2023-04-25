@@ -12,7 +12,7 @@ import PageLayout from 'components/modules/PageLayout';
 import Heading from 'components/elements/Heading';
 import Button from 'components/elements/buttons/Button';
 import Link from 'components/elements/Link';
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 
 const Profile = ({ user }: ProfileProps) => {
   const { nickname, email, picture } = user;
@@ -42,7 +42,7 @@ const Profile = ({ user }: ProfileProps) => {
   );
 
   return (
-    <MainContentLayout>
+    <MainLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('profile')}`}</title>
       </Head>
@@ -61,7 +61,7 @@ const Profile = ({ user }: ProfileProps) => {
         tabIndex={-1}>
         <Button>{t2('logout')}</Button>
       </Link>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 export default Profile;

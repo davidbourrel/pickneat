@@ -12,7 +12,7 @@ import {
 } from 'contexts/checkoutContext/hooks';
 
 // Static components
-import MainContentLayout from 'components/modules/MainContentLayout';
+import MainLayout from 'components/modules/MainLayout';
 import Heading from 'components/elements/Heading';
 import Loader from 'components/elements/Loader';
 import PageLayout from 'components/modules/PageLayout';
@@ -39,14 +39,14 @@ const Checkout = () => {
     push('/');
 
     return (
-      <MainContentLayout>
+      <MainLayout>
         <Loader absoluteLoader={true} />
-      </MainContentLayout>
+      </MainLayout>
     );
   }
 
   return (
-    <MainContentLayout>
+    <MainLayout>
       <Head>
         <title>{`PickN\`Eat | ${t('checkout')}`}</title>
       </Head>
@@ -63,7 +63,7 @@ const Checkout = () => {
           <input type="submit" value={t('confirmAndPay')} />
         </Button>
       </form>
-    </MainContentLayout>
+    </MainLayout>
   );
 };
 
@@ -82,13 +82,13 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 
 export default withPageAuthRequired(Checkout, {
   onRedirecting: () => (
-    <MainContentLayout>
+    <MainLayout>
       <Loader absoluteLoader />
-    </MainContentLayout>
+    </MainLayout>
   ),
   onError: (error) => (
-    <MainContentLayout>
+    <MainLayout>
       <p>{error.message}</p>
-    </MainContentLayout>
+    </MainLayout>
   ),
 });
