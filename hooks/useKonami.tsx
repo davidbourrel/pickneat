@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import isEqual from 'utils/isEqual';
+import { isEqual } from 'lodash';
 import useInputKeyCode from './useInputKeyCode';
 import { Snowflake } from '../animation/snowAnimation';
 
