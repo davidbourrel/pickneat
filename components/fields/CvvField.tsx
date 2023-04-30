@@ -22,7 +22,6 @@ const CvvField = () => {
 
   return (
     <TextInput
-      id="cvv_field"
       label={t('cvv')}
       showError={isSubmitted}
       value={cvv}

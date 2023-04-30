@@ -23,7 +23,6 @@ const ExpirationDateField = () => {
 
   return (
     <TextInput
-      id="expiration_date_field"
       label={t('expirationDate')}
       showError={isSubmitted}
       value={expirationDate}

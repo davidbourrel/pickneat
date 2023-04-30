@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import { TextInputProps } from './types';
 import useInputClassNames from './useInputClassNames';
@@ -8,7 +8,6 @@ import styles from './Inputs.module.css';
 import RequiredStarLabel from 'components/elements/RequiredStarLabel';
 
 const TextInput = ({
-  id,
   label,
   error: incomingError,
   showError = true,
@@ -19,6 +18,7 @@ const TextInput = ({
   ...props
 }: TextInputProps) => {
   const { value, required, maxLength } = props;
+  const id = useId();
   const t = useTranslations('Errors');
 
   /***********

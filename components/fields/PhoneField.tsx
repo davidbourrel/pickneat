@@ -22,7 +22,6 @@ const PhoneField = () => {
 
   return (
     <TextInput
-      id="phone_field"
       label={t('phone')}
       showError={isSubmitted}
       value={phone}

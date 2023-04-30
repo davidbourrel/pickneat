@@ -11,7 +11,6 @@ const EmailField = () => {
 
   return (
     <TextInput
-      id="email_field"
       label={t('email')}
       value={user?.email ?? ''}
       readOnly

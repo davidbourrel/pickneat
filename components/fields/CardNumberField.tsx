@@ -22,7 +22,6 @@ const CardNumberField = () => {
 
   return (
     <TextInput
-      id="card_number_field"
       label={t('cardNumber')}
       showError={isSubmitted}
       value={cardNumber}

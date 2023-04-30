@@ -22,7 +22,6 @@ const FullNameField = () => {
 
   return (
     <TextInput
-      id="full_name_field"
       label={t('fullName')}
       showError={isSubmitted}
       value={fullName}
