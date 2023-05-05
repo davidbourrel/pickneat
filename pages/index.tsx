@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { GetStaticPropsContext } from 'next';
 import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
@@ -23,16 +24,25 @@ const ScrollToTopButton = dynamic(
 );
 
 const Home = ({ ssrProducts }: HomeProps) => {
+  const [intersectionObserverEntries, setIntersectionObserverEntries] =
+    useState([] as IntersectionObserverEntry[]);
+
   const t = useTranslations('Home');
 
   return (
     <MainLayout padding={false}>
-      <CategoryNavigation />
+      <CategoryNavigation
+        intersectionObserverEntries={intersectionObserverEntries}
+      />
       <HomeSliders />
       <Heading level={1} className={styles.mainTitle}>
         {t('homeMainTitle')}
       </Heading>
-      <MenuCategories ssrProducts={ssrProducts} className="appPadding" />
+      <MenuCategories
+        ssrProducts={ssrProducts}
+        setIntersectionObserverEntries={setIntersectionObserverEntries}
+        className="appPadding"
+      />
       <ViewCartButton />
       <ScrollToTopButton />
     </MainLayout>

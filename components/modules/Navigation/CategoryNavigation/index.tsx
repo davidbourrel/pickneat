@@ -1,14 +1,19 @@
 import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
-import { useApp } from 'contexts/appContext/hooks';
+import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
+import { CategoryNavigationProps } from './types';
 
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';
 
-const CategoryNavigation = () => {
+const CategoryNavigation = ({
+  intersectionObserverEntries,
+}: CategoryNavigationProps) => {
   const t = useTranslations('Home');
 
-  const { activeMenuCategory } = useApp();
+  const activeCategoryEntry = getMostVisibleEntry(intersectionObserverEntries);
+
+  const activeMenuCategory = activeCategoryEntry?.target?.id;
 
   return (
     <nav className={styles.navigation}>

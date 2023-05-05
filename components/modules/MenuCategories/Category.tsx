@@ -2,19 +2,22 @@ import { useEffect, useRef } from 'react';
 import styles from './MenuCategories.module.css';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import { CategoryProps } from './types';
-import { useAppDispatch } from 'contexts/appContext/hooks';
 
 // Static Components
 import ProductList from 'components/modules/ProductList';
 import Heading from 'components/elements/Heading';
 
-const Category = ({ id, products, title, category }: CategoryProps) => {
+const Category = ({
+  id,
+  products,
+  title,
+  category,
+  setIntersectionObserverEntries,
+}: CategoryProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {
     rootMargin: '-50% 0% -50% 0%',
   });
-
-  const { setIntersectionObserverEntries } = useAppDispatch();
 
   useEffect(() => {
     const isCategoryVisible = !!entry?.isIntersecting;
