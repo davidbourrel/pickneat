@@ -33,6 +33,7 @@
   position: relative;
   width: 100%;
   height: 50%;
+  background-color: var(--neutral-300);
 }
 .image {
   width: 100%;
