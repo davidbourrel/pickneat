@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './ProductList.module.css';
 import { ProductListProps } from './types';
 
@@ -18,4 +19,4 @@ const ProductList = ({ products, category }: ProductListProps) => {
     </ul>
   ) : null;
 };
-export default ProductList;
+export default memo(ProductList);

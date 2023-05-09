@@ -1,23 +1,23 @@
 import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
 import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
-import { CategoryNavigationProps } from './types';
+import { useActiveCategoryStore } from 'stores/ActiveCategoryStore';
 
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';
 
-const CategoryNavigation = ({
-  intersectionObserverEntries,
-}: CategoryNavigationProps) => {
+const CategoryNavigation = () => {
   const t = useTranslations('Home');
 
-  const activeCategoryEntry = getMostVisibleEntry(intersectionObserverEntries);
+  const { entries } = useActiveCategoryStore();
+
+  const activeCategoryEntry = getMostVisibleEntry(entries);
 
   const activeMenuCategory = activeCategoryEntry?.target?.id;
 
   return (
     <nav className={styles.navigation}>
-      <ul tabIndex={-1}>
+      <ol tabIndex={-1}>
         <CategoryNavigationItem
           id="#burgers"
           isActive={activeMenuCategory === 'burgers'}>
@@ -43,7 +43,7 @@ const CategoryNavigation = ({
           isActive={activeMenuCategory === 'salads'}>
           {t('saladTitle')}
         </CategoryNavigationItem>
-      </ul>
+      </ol>
     </nav>
   );
 };

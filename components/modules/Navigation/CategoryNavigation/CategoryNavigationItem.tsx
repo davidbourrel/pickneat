@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { CategoryNavigationItemProps } from './types';
 import styles from './CategoryNavigation.module.css';
 
@@ -22,4 +23,4 @@ const CategoryNavigationItem = ({
     </li>
   );
 };
-export default CategoryNavigationItem;
+export default memo(CategoryNavigationItem);
