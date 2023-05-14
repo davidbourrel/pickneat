@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import styles from './MenuCategories.module.css';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import { CategoryProps } from './types';
-import { useActiveCategoryStore } from 'stores/ActiveCategoryStore';
+import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
 
 // Static Components
 import ProductList from 'components/modules/ProductList';

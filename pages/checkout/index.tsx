@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-import { useCartTotalItems } from 'contexts/cartContext/hooks';
+import { useCartTotalItems } from 'stores/useCartStore';
 import styles from './Checkout.module.css';
 import {
   useCheckout,

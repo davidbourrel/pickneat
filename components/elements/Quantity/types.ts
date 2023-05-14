@@ -5,7 +5,9 @@ export interface QuantityProps extends ClassNameProps {
   product: Product;
 }
 
-export type MinusButtonProps = Pick<Product, 'product_id'>;
+export interface MinusButtonProps {
+  product: Product;
+}
 
 export interface PlusButtonProps {
   product: Product;

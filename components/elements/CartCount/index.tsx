@@ -1,6 +1,6 @@
 import { CartCountProps } from './types';
 import styles from './CartCount.module.css';
-import { useCartTotalItems } from 'contexts/cartContext/hooks';
+import { useCartTotalItems } from 'stores/useCartStore';
 
 // Static components
 import CartIcon from 'components/images/icons/CartIcon';

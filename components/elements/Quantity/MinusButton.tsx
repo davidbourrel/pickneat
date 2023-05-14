@@ -1,24 +1,18 @@
 import styles from './Quantity.module.css';
 import { MinusButtonProps } from './types';
-import { useCartDispatch } from 'contexts/cartContext/hooks';
-import { CartStateEnum } from 'contexts/cartContext/types';
+import { useCartStore } from 'stores/useCartStore';
 
 // Static components
 import Button from '../buttons/Button';
 
-const MinusButton = ({ product_id }: MinusButtonProps) => {
-  const { dispatch } = useCartDispatch();
+const MinusButton = ({ product }: MinusButtonProps) => {
+  const { deleteItem } = useCartStore();
 
   return (
     <Button
       className={styles.minus}
       headless
-      onClick={() => {
-        dispatch({
-          type: CartStateEnum.DeleteItem,
-          product_id: product_id,
-        });
-      }}
+      onClick={() => deleteItem(product)}
       absoluteLoader>
       <span>&#8722;</span>
     </Button>

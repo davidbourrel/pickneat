@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
-import { CartStateEnum } from 'contexts/cartContext/types';
-import { useCart, useCartDispatch } from 'contexts/cartContext/hooks';
+import { useCartStore } from 'stores/useCartStore';
+import useFromStore from 'hooks/useFromStore';
 import styles from './Quantity.module.css';
 import { QuantityProps } from './types';
 
@@ -14,33 +14,25 @@ const Quantity = ({ product, className = '' }: QuantityProps) => {
 
   const t = useTranslations('Product');
 
-  const { cart } = useCart();
-  const { dispatch } = useCartDispatch();
-
+  const { addItem } = useCartStore();
+  const cart = useFromStore(useCartStore, (state) => state.cart);
   // Call productFromCart to get amount of this specific item
-  const productFromCart = cart.find((item) => item.product_id === product_id);
+  const productFromCart = cart?.find((item) => item.product_id === product_id);
 
   const amount = productFromCart?.amount ? productFromCart.amount : 0;
 
   const computedClassName = `${styles.quantityContainer} ${className}`;
 
-  const handleAddToCartClick = () => {
-    dispatch({
-      type: CartStateEnum.Add,
-      product: product,
-    });
-  };
-
   const quantityButtons = (
     <>
-      <MinusButton product_id={product_id} />
+      <MinusButton product={product} />
       <span className={styles.quantity}>{amount}</span>
       <PlusButton product={product} />
     </>
   );
 
   const addToCartButton = (
-    <Button onClick={handleAddToCartClick} className={styles.addToCartButton}>
+    <Button onClick={() => addItem(product)} className={styles.addToCartButton}>
       <span>&#43;</span>
       {t('addToCartTextButton')}
     </Button>

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import styles from './ProductCardRow.module.css';
-import { CartStateEnum } from 'contexts/cartContext/types';
-import { useCartDispatch } from 'contexts/cartContext/hooks';
+import { useCartStore } from 'stores/useCartStore';
 import { ProductCardProps } from '../types';
 
 // Static components
@@ -15,17 +14,11 @@ import Button from 'components/elements/buttons/Button';
 const ProductCardRow = ({ product }: ProductCardProps) => {
   const { product_id, name, price, image, category, amount } = product;
 
-  const { dispatch } = useCartDispatch();
   const t = useTranslations('Cart');
 
   const computedPrice = amount ? price * amount : price;
 
-  const handleDeleteItemsClick = () => {
-    dispatch({
-      type: CartStateEnum.DeleteItems,
-      product_id,
-    });
-  };
+  const { deleteItems } = useCartStore();
 
   return (
     <li className={styles.card}>
@@ -48,7 +41,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
           </div>
 
           <Button
-            onClick={handleDeleteItemsClick}
+            onClick={() => deleteItems(product)}
             headless
             className={styles.removeProductButton}
             absoluteLoader>

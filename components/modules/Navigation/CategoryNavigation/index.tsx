@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
 import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
-import { useActiveCategoryStore } from 'stores/ActiveCategoryStore';
+import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
 
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';

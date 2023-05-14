@@ -1,5 +1,4 @@
-import { useCartDispatch } from 'contexts/cartContext/hooks';
-import { CartStateEnum } from 'contexts/cartContext/types';
+import { useCartStore } from 'stores/useCartStore';
 import styles from './Quantity.module.css';
 import { PlusButtonProps } from './types';
 
@@ -7,18 +6,13 @@ import { PlusButtonProps } from './types';
 import Button from '../buttons/Button';
 
 const PlusButton = ({ product }: PlusButtonProps) => {
-  const { dispatch } = useCartDispatch();
+  const { addItem } = useCartStore();
 
   return (
     <Button
       className={styles.plus}
       headless
-      onClick={() => {
-        dispatch({
-          type: CartStateEnum.Add,
-          product: product,
-        });
-      }}
+      onClick={() => addItem(product)}
       absoluteLoader>
       <span>&#43;</span>
     </Button>
