@@ -2,7 +2,7 @@ import { HTMLProps, PropsWithChildren } from 'react';
 
 export interface ButtonProps
   extends PropsWithChildren,
-    Omit<HTMLProps<HTMLButtonElement>, 'ref'> {
+    HTMLProps<HTMLButtonElement> {
   absoluteLoader?: boolean;
   border?: boolean;
   busy?: boolean;
