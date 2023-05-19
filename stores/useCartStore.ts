@@ -3,15 +3,15 @@ import { persist } from 'zustand/middleware';
 import useFromStore from 'hooks/useFromStore';
 import { Product } from '_types/products';
 
-interface UseCartStoreState {
+interface CartStoreState {
   cart: Product[];
   addItem: (product: Product) => void;
   deleteItem: (product: Product) => void;
   deleteItems: (product: Product) => void;
 }
 
-export const useCartStore = create(
-  persist<UseCartStoreState>(
+export const useCartStore = create<CartStoreState>()(
+  persist(
     (set, get) => ({
       cart: [],
       addItem: (product: Product) => {
@@ -20,7 +20,7 @@ export const useCartStore = create(
           (item) => item.product_id === product.product_id
         );
 
-        // If the item already exists in the Cart, increase its quantity
+        // If item already exists in the Cart, increase its quantity
         if (cartItem) {
           const updatedCart = cart.map((item) =>
             item.product_id === product.product_id && item.amount
@@ -41,7 +41,7 @@ export const useCartStore = create(
       deleteItem: (product: Product) => {
         set((state) => ({
           cart: state.cart.reduce((total, item) => {
-            if (item.product_id === product.product_id && item.amount) {
+            if (item.product_id === product.product_id && !!item.amount) {
               if (item.amount === 1) return total;
               return [...total, { ...item, amount: item.amount - 1 }];
             } else {

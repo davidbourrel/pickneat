@@ -27,7 +27,7 @@ const Category = ({ id, products, title, category }: CategoryProps) => {
       // Remove when the category is no more visible
       return removeEntry(id);
     }
-  }, [entry, id, addEntry, removeEntry]);
+  }, [entries?.length, entry, id, addEntry, removeEntry]);
 
   const categoryTitle = useMemo(
     () => (
