@@ -27,7 +27,6 @@
     // This configuration will apply only to TypeScript files
     {
       "files": ["**/*.ts", "**/*.tsx"],
-      "parser": "@typescript-eslint/parser",
       "settings": { "react": { "version": "detect" } },
       "env": {
         "browser": true,
