@@ -1,6 +1,5 @@
 import type { GetStaticPropsContext } from 'next';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { pick } from 'lodash';
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
@@ -26,24 +25,9 @@ const Checkout = () => {
   const { isValidForm } = useCheckout();
   const { handleCheckoutSubmit } = useCheckoutDispatch();
 
-  const { push } = useRouter();
-
   const cartTotalItems = useCartTotalItems();
 
   const isValidCart = !!cartTotalItems && cartTotalItems > 0;
-
-  /**
-   * Redirect to home page if cart is empty
-   */
-  if (!isValidCart) {
-    push('/');
-
-    return (
-      <MainLayout>
-        <Loader absoluteLoader={true} />
-      </MainLayout>
-    );
-  }
 
   return (
     <MainLayout>
@@ -59,7 +43,9 @@ const Checkout = () => {
           <ContactInfo />
           <PaymentInfo />
         </div>
-        <Button className={styles.submiButton} disabled={!isValidForm}>
+        <Button
+          className={styles.submiButton}
+          disabled={!isValidForm || !isValidCart}>
           <input type="submit" value={t('confirmAndPay')} />
         </Button>
       </form>

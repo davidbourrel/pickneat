@@ -14,31 +14,31 @@ const MenuCategories = ({ ssrProducts, className }: MenuCategoriesProps) => {
   return (
     <div className={computedClassName} data-test="menuCategories">
       <Category
-        id="burgers"
+        id={FoodCategoryEnum.Burger}
         title={t('burgerTitle')}
         products={ssrProducts}
         category={FoodCategoryEnum.Burger}
       />
       <Category
-        id="sides"
+        id={FoodCategoryEnum.Side}
         title={t('sideTitle')}
         products={ssrProducts}
         category={FoodCategoryEnum.Side}
       />
       <Category
-        id="drinks"
+        id={FoodCategoryEnum.Drink}
         title={t('drinkTitle')}
         products={ssrProducts}
         category={FoodCategoryEnum.Drink}
       />
       <Category
-        id="desserts"
+        id={FoodCategoryEnum.Dessert}
         title={t('dessertTitle')}
         products={ssrProducts}
         category={FoodCategoryEnum.Dessert}
       />
       <Category
-        id="salads"
+        id={FoodCategoryEnum.Salad}
         title={t('saladTitle')}
         products={ssrProducts}
         category={FoodCategoryEnum.Salad}

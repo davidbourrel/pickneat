@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import styles from './CategoryNavigation.module.css';
 import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
 import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
+import { FoodCategoryEnum } from '_types/products';
 
 // Static Components
 import CategoryNavigationItem from './CategoryNavigationItem';
@@ -19,28 +20,28 @@ const CategoryNavigation = () => {
     <nav className={styles.navigation}>
       <ol tabIndex={-1}>
         <CategoryNavigationItem
-          id="#burgers"
-          isActive={activeMenuCategory === 'burgers'}>
+          id={`#${FoodCategoryEnum.Burger}`}
+          isActive={activeMenuCategory === FoodCategoryEnum.Burger}>
           {t('burgerTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
-          id="#sides"
-          isActive={activeMenuCategory === 'sides'}>
+          id={`#${FoodCategoryEnum.Side}`}
+          isActive={activeMenuCategory === FoodCategoryEnum.Side}>
           {t('sideTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
-          id="#drinks"
-          isActive={activeMenuCategory === 'drinks'}>
+          id={`#${FoodCategoryEnum.Drink}`}
+          isActive={activeMenuCategory === FoodCategoryEnum.Drink}>
           {t('drinkTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
-          id="#desserts"
-          isActive={activeMenuCategory === 'desserts'}>
+          id={`#${FoodCategoryEnum.Dessert}`}
+          isActive={activeMenuCategory === FoodCategoryEnum.Dessert}>
           {t('dessertTitle')}
         </CategoryNavigationItem>
         <CategoryNavigationItem
-          id="#salads"
-          isActive={activeMenuCategory === 'salads'}>
+          id={`#${FoodCategoryEnum.Salad}`}
+          isActive={activeMenuCategory === FoodCategoryEnum.Salad}>
           {t('saladTitle')}
         </CategoryNavigationItem>
       </ol>
