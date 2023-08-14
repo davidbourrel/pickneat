@@ -1,5 +1,5 @@
 import { Swiper } from 'swiper/react';
-import { A11y, Keyboard, Navigation } from 'swiper';
+import { Navigation, A11y, Keyboard } from 'swiper/modules';
 import styles from './Slider.module.css';
 import { SliderProps } from './types';
 
