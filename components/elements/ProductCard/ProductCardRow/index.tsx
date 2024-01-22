@@ -1,15 +1,13 @@
-import Image from 'next/image';
+import Heading from 'components/elements/Heading';
+import Link from 'components/elements/Link';
+import PriceTag from 'components/elements/PriceTag';
+import Quantity from 'components/elements/Quantity';
+import Button from 'components/elements/buttons/Button';
 import { useTranslations } from 'next-intl';
-import styles from './ProductCardRow.module.css';
+import Image from 'next/image';
 import { useCartStore } from 'stores/useCartStore';
 import { ProductCardProps } from '../types';
-
-// Static components
-import Link from 'components/elements/Link';
-import Heading from 'components/elements/Heading';
-import Quantity from 'components/elements/Quantity';
-import PriceTag from 'components/elements/PriceTag';
-import Button from 'components/elements/buttons/Button';
+import styles from './ProductCardRow.module.css';
 
 const ProductCardRow = ({ product }: ProductCardProps) => {
   const { product_id, name, price, image, category, amount } = product;
@@ -18,7 +16,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
 
   const computedPrice = amount ? price * amount : price;
 
-  const { deleteItems } = useCartStore();
+  const deleteItems = useCartStore((state) => state.deleteItems);
 
   return (
     <li className={styles.card}>

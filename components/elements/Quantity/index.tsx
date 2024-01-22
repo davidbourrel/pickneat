@@ -1,20 +1,18 @@
+import useFromStore from 'hooks/useFromStore';
 import { useTranslations } from 'next-intl';
 import { useCartStore } from 'stores/useCartStore';
-import useFromStore from 'hooks/useFromStore';
-import styles from './Quantity.module.css';
-import { QuantityProps } from './types';
-
-// Static Components
 import Button from '../buttons/Button';
 import MinusButton from './MinusButton';
 import PlusButton from './PlusButton';
+import styles from './Quantity.module.css';
+import { QuantityProps } from './types';
 
 const Quantity = ({ product, className = '' }: QuantityProps) => {
   const { product_id, in_stock } = product;
 
   const t = useTranslations('Product');
 
-  const { addItem } = useCartStore();
+  const addItem = useCartStore((state) => state.addItem);
   const cart = useFromStore(useCartStore, (state) => state.cart);
   // Call productFromCart to get amount of this specific item
   const productFromCart = cart?.find((item) => item.product_id === product_id);

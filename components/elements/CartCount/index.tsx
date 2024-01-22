@@ -1,9 +1,7 @@
-import { CartCountProps } from './types';
-import styles from './CartCount.module.css';
-import { useCartTotalItems } from 'stores/useCartStore';
-
-// Static components
 import CartIcon from 'components/images/icons/CartIcon';
+import { useCartTotalItems } from 'stores/useCartStore';
+import styles from './CartCount.module.css';
+import { CartCountProps } from './types';
 
 const CartCount = ({ title }: CartCountProps) => {
   const cartTotalItems = useCartTotalItems();
