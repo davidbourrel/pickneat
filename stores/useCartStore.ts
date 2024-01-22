@@ -1,7 +1,7 @@
+import { Product } from '_types/products';
+import useFromStore from 'hooks/useFromStore';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import useFromStore from 'hooks/useFromStore';
-import { Product } from '_types/products';
 
 interface CartStoreState {
   cart: Product[];

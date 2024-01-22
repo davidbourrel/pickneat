@@ -1,12 +1,10 @@
-import { useEffect, useMemo, useRef } from 'react';
-import styles from './MenuCategories.module.css';
-import useIntersectionObserver from 'hooks/useIntersectionObserver';
-import { CategoryProps } from './types';
-import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
-
-// Static Components
-import ProductList from 'components/modules/ProductList';
 import Heading from 'components/elements/Heading';
+import ProductList from 'components/modules/ProductList';
+import useIntersectionObserver from 'hooks/useIntersectionObserver';
+import { useEffect, useMemo, useRef } from 'react';
+import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
+import styles from './MenuCategories.module.css';
+import { CategoryProps } from './types';
 
 const Category = ({ id, products, title, category }: CategoryProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -14,7 +12,9 @@ const Category = ({ id, products, title, category }: CategoryProps) => {
     rootMargin: '-50% 0% -50% 0%',
   });
 
-  const { entries, addEntry, removeEntry } = useActiveCategoryStore();
+  const entries = useActiveCategoryStore((state) => state.entries);
+  const addEntry = useActiveCategoryStore((state) => state.addEntry);
+  const removeEntry = useActiveCategoryStore((state) => state.removeEntry);
 
   useEffect(() => {
     const isCategoryVisible = !!entry?.isIntersecting;

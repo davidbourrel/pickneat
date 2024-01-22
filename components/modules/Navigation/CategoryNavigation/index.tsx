@@ -1,16 +1,14 @@
-import { useTranslations } from 'next-intl';
-import styles from './CategoryNavigation.module.css';
-import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
-import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
 import { FoodCategoryEnum } from '_types/products';
-
-// Static Components
+import { useTranslations } from 'next-intl';
+import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
+import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
+import styles from './CategoryNavigation.module.css';
 import CategoryNavigationItem from './CategoryNavigationItem';
 
 const CategoryNavigation = () => {
   const t = useTranslations('Home');
 
-  const { entries } = useActiveCategoryStore();
+  const entries = useActiveCategoryStore((state) => state.entries);
 
   const activeCategoryEntry = getMostVisibleEntry(entries);
 

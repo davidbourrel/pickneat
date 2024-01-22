@@ -1,10 +1,8 @@
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { useCartTotalItems } from 'stores/useCartStore';
-import styles from './ViewCartButton.module.css';
-
-// Static components
 import Button from '../Button';
+import styles from './ViewCartButton.module.css';
 
 const ViewCartButton = () => {
   const t = useTranslations('Cart');

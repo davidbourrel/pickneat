@@ -1,17 +1,15 @@
-import { GetStaticPropsContext } from 'next';
-import Head from 'next/head';
-import { useTranslations } from 'next-intl';
-import { pick } from 'lodash';
-import styles from './Cart.module.css';
-import { useCartTotalItems, useCartTotalPrice } from 'stores/useCartStore';
-
-// Static components
-import PageLayout from 'components/modules/PageLayout';
-import CartTitle from './CartTitle';
-import CartDescription from './CartDescription';
-import CartCheckout from './CartCheckout';
 import MainLayout from 'components/modules/MainLayout';
+import PageLayout from 'components/modules/PageLayout';
+import { pick } from 'lodash';
+import { GetStaticPropsContext } from 'next';
+import { useTranslations } from 'next-intl';
+import Head from 'next/head';
+import { useCartTotalItems, useCartTotalPrice } from 'stores/useCartStore';
+import styles from './Cart.module.css';
+import CartCheckout from './CartCheckout';
+import CartDescription from './CartDescription';
 import CartProductList from './CartProductList';
+import CartTitle from './CartTitle';
 
 const Cart = () => {
   const t = useTranslations('Cart');
