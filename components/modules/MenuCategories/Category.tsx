@@ -2,7 +2,12 @@ import Heading from 'components/elements/Heading';
 import ProductList from 'components/modules/ProductList';
 import useIntersectionObserver from 'hooks/useIntersectionObserver';
 import { useEffect, useMemo, useRef } from 'react';
-import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
+import { AppDispatch, RootState } from 'redux/store';
+import {
+  addEntry,
+  removeEntry,
+} from '../../../redux/activeCategory/activeCategorySlice';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import styles from './MenuCategories.module.css';
 import { CategoryProps } from './types';
 
@@ -12,22 +17,22 @@ const Category = ({ id, products, title, category }: CategoryProps) => {
     rootMargin: '-50% 0% -50% 0%',
   });
 
-  const entries = useActiveCategoryStore((state) => state.entries);
-  const addEntry = useActiveCategoryStore((state) => state.addEntry);
-  const removeEntry = useActiveCategoryStore((state) => state.removeEntry);
+  const { entries } = useAppSelector(
+    (state: RootState) => state.activeCategory
+  );
+
+  const dispatch = useAppDispatch<AppDispatch>();
 
   useEffect(() => {
     const isCategoryVisible = !!entry?.isIntersecting;
 
     if (isCategoryVisible) {
-      return addEntry(entry);
-    }
-
-    if (entries?.length > 0) {
+      dispatch(addEntry(entry));
+    } else if (entries?.length > 0) {
       // Remove when the category is no more visible
-      return removeEntry(id);
+      dispatch(removeEntry(id));
     }
-  }, [entries?.length, entry, id, addEntry, removeEntry]);
+  }, [entries?.length, entry, id]);
 
   const categoryTitle = useMemo(
     () => (

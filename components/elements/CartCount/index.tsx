@@ -1,10 +1,11 @@
 import CartIcon from 'components/images/icons/CartIcon';
-import { useCartTotalItems } from 'stores/useCartStore';
+import { RootState } from 'redux/store';
+import { useAppSelector } from '../../../redux/hooks';
 import styles from './CartCount.module.css';
 import { CartCountProps } from './types';
 
 const CartCount = ({ title }: CartCountProps) => {
-  const cartTotalItems = useCartTotalItems();
+  const { cartTotalItems } = useAppSelector((state: RootState) => state?.cart);
 
   const computedCartCountClassName =
     cartTotalItems > 0 ? styles.notEmptyCart : styles.emptyCart;

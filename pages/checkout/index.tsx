@@ -12,7 +12,8 @@ import { pick } from 'lodash';
 import type { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Head from 'next/head';
-import { useCartTotalItems } from 'stores/useCartStore';
+import { RootState } from 'redux/store';
+import { useAppSelector } from '../../redux/hooks';
 import styles from './Checkout.module.css';
 import ContactInfo from './ContactInfo';
 import PaymentInfo from './PaymentInfo';
@@ -23,7 +24,7 @@ const Checkout = () => {
   const { isValidForm } = useCheckout();
   const { handleCheckoutSubmit } = useCheckoutDispatch();
 
-  const cartTotalItems = useCartTotalItems();
+  const { cartTotalItems } = useAppSelector((state: RootState) => state?.cart);
 
   const isValidCart = !!cartTotalItems && cartTotalItems > 0;
 

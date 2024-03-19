@@ -4,7 +4,8 @@ import { pick } from 'lodash';
 import { GetStaticPropsContext } from 'next';
 import { useTranslations } from 'next-intl';
 import Head from 'next/head';
-import { useCartTotalItems, useCartTotalPrice } from 'stores/useCartStore';
+import { RootState } from 'redux/store';
+import { useAppSelector } from '../../redux/hooks';
 import styles from './Cart.module.css';
 import CartCheckout from './CartCheckout';
 import CartDescription from './CartDescription';
@@ -14,8 +15,16 @@ import CartTitle from './CartTitle';
 const Cart = () => {
   const t = useTranslations('Cart');
 
-  const cartTotalItems = useCartTotalItems();
-  const cartTotalPrice = useCartTotalPrice();
+  const { cartTotalItems, cart } = useAppSelector(
+    (state: RootState) => state?.cart
+  );
+  const cartTotalPrice = cart
+    ? cart.reduce(
+        (total: number, { amount, price }) =>
+          amount ? total + amount * price : total * price,
+        0
+      )
+    : 0;
 
   const layoutClassName = cartTotalItems === 0 ? styles.main : '';
 

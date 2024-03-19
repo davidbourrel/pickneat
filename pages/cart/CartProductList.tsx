@@ -1,10 +1,10 @@
 import ProductCardRow from 'components/elements/ProductCard/ProductCardRow';
-import useFromStore from 'hooks/useFromStore';
-import { useCartStore } from 'stores/useCartStore';
+import { RootState } from 'redux/store';
+import { useAppSelector } from '../../redux/hooks';
 import styles from './Cart.module.css';
 
 const CartProductList = () => {
-  const cart = useFromStore(useCartStore, (state) => state.cart);
+  const { cart } = useAppSelector((state: RootState) => state.cart);
 
   return !!cart && cart.length > 0 ? (
     <ul className={styles.cartProductList}>

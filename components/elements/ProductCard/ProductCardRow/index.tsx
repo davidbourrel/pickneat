@@ -5,7 +5,9 @@ import Quantity from 'components/elements/Quantity';
 import Button from 'components/elements/buttons/Button';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useCartStore } from 'stores/useCartStore';
+import { AppDispatch } from 'redux/store';
+import { removeFromCart } from '../../../../redux/cart/cartSlice';
+import { useAppDispatch } from '../../../../redux/hooks';
 import { ProductCardProps } from '../types';
 import styles from './ProductCardRow.module.css';
 
@@ -16,7 +18,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
 
   const computedPrice = amount ? price * amount : price;
 
-  const deleteItems = useCartStore((state) => state.deleteItems);
+  const dispatch = useAppDispatch<AppDispatch>();
 
   return (
     <li className={styles.card}>
@@ -39,7 +41,7 @@ const ProductCardRow = ({ product }: ProductCardProps) => {
           </div>
 
           <Button
-            onClick={() => deleteItems(product)}
+            onClick={() => dispatch(removeFromCart(product))}
             headless
             className={styles.removeProductButton}
             absoluteLoader>

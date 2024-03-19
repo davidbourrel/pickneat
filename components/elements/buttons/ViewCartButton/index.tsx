@@ -1,13 +1,14 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useCartTotalItems } from 'stores/useCartStore';
+import { RootState } from 'redux/store';
+import { useAppSelector } from '../../../../redux/hooks';
 import Button from '../Button';
 import styles from './ViewCartButton.module.css';
 
 const ViewCartButton = () => {
   const t = useTranslations('Cart');
 
-  const cartTotalItems = useCartTotalItems();
+  const { cartTotalItems } = useAppSelector((state: RootState) => state?.cart);
 
   const viewCartContainerClassName = `${styles.viewCartContainer} ${
     cartTotalItems > 0 ? styles.active : ''

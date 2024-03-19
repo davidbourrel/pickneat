@@ -1,14 +1,17 @@
 import { FoodCategoryEnum } from '_types/products';
 import { useTranslations } from 'next-intl';
-import { useActiveCategoryStore } from 'stores/useActiveCategoryStore';
+import { RootState } from 'redux/store';
 import { getMostVisibleEntry } from 'utils/getMostVisibleEntry';
+import { useAppSelector } from '../../../../redux/hooks';
 import styles from './CategoryNavigation.module.css';
 import CategoryNavigationItem from './CategoryNavigationItem';
 
 const CategoryNavigation = () => {
   const t = useTranslations('Home');
 
-  const entries = useActiveCategoryStore((state) => state.entries);
+  const { entries } = useAppSelector(
+    (state: RootState) => state.activeCategory
+  );
 
   const activeCategoryEntry = getMostVisibleEntry(entries);
 
